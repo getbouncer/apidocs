@@ -7,7 +7,7 @@ To use this api you need to have an `API_secret` from Bouncer to authenticate yo
 ```bash
 curl -X POST https://api.getbouncer.com/v1/card/fraud_check \
     -H "Authorization: Bearer API_secret" \
-    -d '{"fraud_payload": "your_fraud_payload"}'
+    -d '{"fraud_check_token": "TOKEN_FROM_CLIENT", "last4": "4242"}'
 ```
 
 And the API returns a `fraud_check` object indicating either (1) that the scan was valid or (2) the scan was suspicious and why it was suspicious.
