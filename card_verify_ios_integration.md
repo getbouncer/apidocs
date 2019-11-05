@@ -31,7 +31,7 @@ CardVerify is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'CardVerify', :http => 'https://bouncerpaid.bintray.com/CardVerify-iOS/cardverify-ios-1.0.5003.tgz'
+pod 'CardVerify', :http => 'https://bouncerpaid.bintray.com/CardVerify-iOS/cardverify-ios-1.0.5007.tgz'
 ```
 
 And then add the username and password that you got from Bouncer to
@@ -129,22 +129,25 @@ class ViewController: UIViewController, VerifyDelegate {
     }
 
     // MARK: VerifyDelegate protocol
-    func userDidCancel(_ viewController: VerifyCardViewController) {
+    func userDidCancelVerify(_ viewController: VerifyCardViewController) {
         // The user pressed on the back button without passing the challenge
 	viewController.dismiss(animated: true, completion: nil)
     }
     
-    func verifiedCard(_ viewController: VerifyCardViewController, scannedCard: PaymentCard) {
+    func userDidScanSameCard(_ viewController: VerifyCardViewController, card scannedCard: PaymentCard) {
 	// The user scanned a card that has the last4 that matches the last4 that you
 	// passed in and it passed our integrity checks, let the transaction proceed
 	
-	// pass the `fraudCheckToken` returned by CardVerify to the server to double check the
-	// transaction using a server-to-server call to Bouncer's API server
-	let fraudCheckToken = scannedCard.fraudCheckToken
+	// pass the encryped payload returned by CardVerify to the server to double check the
+	// transaction 
+	guard let encryptedPayload = scannedCard.encryptedPayload else {
+            return
+        }
+	MyAppsApi(parameter: [payload: encryptedPayload])
     }
     
-    func verifiedDifferentCard(_ viewController: VerifyCardViewController, scannedCard: PaymentCard) {
-    	// The user scanned a card and it passed our integrity checks, but the last4 didn't match.
+    func userDidScanDifferentCard(_ viewController: VerifyCardViewController, card scannedCard: PaymentCard) {
+    	// The user scanned a card but the last4 didn't match.
 	// The most common option is to use the card details passed back via `scannedCard` to let
 	// the user add the new card and pay for the transaction using it.
 	
@@ -152,9 +155,12 @@ class ViewController: UIViewController, VerifyDelegate {
 	// new card. If they change the card number after the scan, it will invalidate the
 	// `fraudCheckToken`
 	
-	// pass the `fraudCheckToken` returned by CardVerify to the server to double check the
-	// transaction using a server-to-server call to Bouncer's API server
-	let fraudCheckToken = scannedCard.fraudCheckToken
+	// pass the encryped payload returned by CardVerify to the server to double check the
+	// transaction
+	guard let encryptedPayload = scannedCard.encryptedPayload else {
+            return
+        }
+	MyAppsApi(parameter: [payload: encryptedPayload])
     }
     
     func failedVerification(_ viewController: VerifyCardViewController, scannedCard: PaymentCard) {
