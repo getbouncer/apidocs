@@ -135,11 +135,10 @@ class ViewController: UIViewController, VerifyDelegate {
     }
     
     func userDidScanSameCard(_ viewController: VerifyCardViewController, card scannedCard: PaymentCard) {
-	// The user scanned a card that has the last4 that matches the last4 that you
-	// passed in and it passed our integrity checks, let the transaction proceed
+	// The user scanned a card that has the last4 that matches the card on file 
 	
-	// pass the encryped payload returned by CardVerify to the server to double check the
-	// transaction 
+	// the encrypted payload is returned to client to pass back to server.
+	// the payload can be exchanged with Bouncer server for fraudCheck token.
 	guard let encryptedPayload = scannedCard.encryptedPayload else {
             return
         }
@@ -151,12 +150,12 @@ class ViewController: UIViewController, VerifyDelegate {
 	// The most common option is to use the card details passed back via `scannedCard` to let
 	// the user add the new card and pay for the transaction using it.
 	
-	// IMPORTANT: make sure that the user doesn't change the card number when they add the
-	// new card. If they change the card number after the scan, it will invalidate the
-	// `fraudCheckToken`
+	// the encrypted payload is returned to client to pass back to server.
+	// the payload can be exchanged with Bouncer server for fraudCheck token.
 	
-	// pass the encryped payload returned by CardVerify to the server to double check the
-	// transaction
+	// IMPORTANT: make sure that the user doesn't change the card number when they add the
+	// new card. If they change the card number after the scan, it will change the 
+	// payload and invalidate the `fraudCheckToken`
 	guard let encryptedPayload = scannedCard.encryptedPayload else {
             return
         }
