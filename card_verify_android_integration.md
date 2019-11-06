@@ -1,6 +1,6 @@
-# FraudCheck
+# CardVerify
 
-FraudCheck Android installation guide
+CardVerify Android installation guide
 
 ## Contents
 
@@ -36,8 +36,8 @@ build.gradle file:
 
 ```gradle
 dependencies {
-    implementation 'com.getbouncer:base:1.0.5104'
-    implementation 'com.getbouncer:cardverify:1.0.5104'
+    implementation 'com.getbouncer:base:1.0.5105'
+    implementation 'com.getbouncer:cardverify:1.0.5105'
 }
 ```
 
@@ -81,7 +81,7 @@ public class MyApplication extends Application {
 
         // Application initialization
 
-        CardVerify.onApplicationCreate(this);
+        CardVerify.onApplicationCreate(this, YOUR_API_KEY);
     }
 }
 ```
@@ -94,7 +94,7 @@ the `expiry`, and the card network (using CardVerify's
 
 ```java
 public void verifyCard() {
-    CardVerify.start(this, last4, expiry, network, apiKey);
+    CardVerify.start(this, last4, expiry, network);
 }
 
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -102,43 +102,38 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
     if (CardVerify.isVerifyResult(requestCode)) {
         CardVerify.onResult(resultCode, data, new CardVerifyResult() {
-            @Override public void userCanceled() {
-                // The user pressed on the back button without passing the challenge
+            @Override
+            public void userCanceled() {
+                Log.d(TAG, "The user pressed the back button");
             }
 
-            @Override public void verifiedCard(@NonNull CreditCard scannedCard) {
-                // The user scanned a card that has the last4 that matches the last4 that you
-		// passed in and it passed our integrity checks, let the transaction proceed
-		
-		// pass the `fraudCheckToken` returned by CardVerify to the server to double check the
-		// transaction using a server-to-server call to Bouncer's API server
-		String fraudCheckToken = scannedCard.fraudCheckToken
+            @Override
+            public void userScannedSameCard(@NonNull CreditCard scannedCard, @NonNull String encryptedPayload) {
+                // The user scanned the card and the scanned card details are in the `scannedCard` variable.
+		// The user scanned the same card that you passed into the challenge, use the encryptedPayload
+		// in a server-to-server call to check if the card is genuine.
             }
 
-            @Override public void verifiedDifferentCard(@NonNull CreditCard scannedCard) {
-                // The user scanned a card and it passed our integrity checks, but the last4 didn't match.
-                // The most common option is to use the card details passed back via `scannedCard` to let
-                // the user add the new card and pay for the transaction using it.
-   
-                // IMPORTANT: make sure that the user doesn't change the card number when they add the
-                // new card. If they change the card number after the scan, it will invalidate the
-                // `fraudCheckToken`
-   
-                // pass the `fraudCheckToken` returned by CardVerify to the server to double check the
-                // transaction using a server-to-server call to Bouncer's API server
-		String fraudCheckToken = scannedCard.fraudCheckToken
+            @Override
+            public void userScannedDifferentCard(@NonNull CreditCard scannedCard, @NonNull String encryptedPayload) {
+                // The user scanned the card and the scanned card details are in the `scannedCard` variable.
+		// The user scanned a different card that you passed into the challenge, use the encryptedPayload
+		// in a server-to-server call to check if the card is genuine.
             }
 
-            @Override public void failedVerification(@NonNull CreditCard scannedCard) {
-                // the user scanned a card (details are in the `scannedCard` object) but it failed our
-                // integrity check.
-                // The most common option is to ask they to try scanning again or to try a different card
-                // but this is likely to be a fraudster
+            @Override
+            public void error(@NonNull CreditCard scannedCard) {
+                // An error occurred when generating the encrypted payload but the scan succeeded. You can see the scanned
+		// card details in the `scannedCard` variable but we are unable to run the verification checks on this card.
+		//
+		// This should be rare.
             }
 
-            @Override public void fatalError() {
-                // There was an unexpected error, this should be rare
-                // The most common option is to handle this like the user pressed the "back" button
+            @Override
+            public void fatalError() {
+		// An unexpected error occurred and we were unable to scan the card.
+		//
+		// This should be rare.
             }
         });
     }
