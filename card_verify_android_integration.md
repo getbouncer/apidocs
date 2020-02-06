@@ -36,8 +36,8 @@ build.gradle file:
 
 ```gradle
 dependencies {
-    implementation 'com.getbouncer:cardscan-base:1.0.5132'
-    implementation 'com.getbouncer:cardverify:1.0.5132'
+    implementation 'com.getbouncer:cardscan-base:1.0.5133'
+    implementation 'com.getbouncer:cardverify:1.0.5133'
 }
 ```
 
