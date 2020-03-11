@@ -2,25 +2,25 @@
 
 LivenessCheck Android installation guide
 
-The LivenessCheck flow on Android checks to make sure that the user
-has a genuine physical debit or credit card on them, and optionally
-that that card's BIN matches what you have on record.
+The LivenessCheck flow on Android checks to make sure that the user has a
+genuine physical debit or credit card in their possession, and optionally that
+the card's BIN matches what you have on record.
 
 ## Requirements
 
-Make sure that you install and initialize the CardVerify library. You
-can find [instructions for installing CardVerify here](card_verify_android_integration.md).
+Make sure that you install and initialize the CardVerify library. See the
+[instructions for installing CardVerify](card_verify_android_integration.md).
 
 ## Using LivenessCheck
 
-First, make sure that you invoke the CardVerify library's
-`onApplicationCreate` handler when the application launches. This
-routine will initialize the CardVeriy library and it runs in a
-background thread, so it won't affect your app's startup time.
+First, make sure that you invoke the CardVerify library's `onApplicationCreate`
+handler when the application launches. This routine will initialize the
+CardVeriy library and it runs in a background thread, so it won't affect your
+app's startup time.
 
-If your app doesn't already listen to application lifecycle events,
-you can extend the Application object and connect it using your
-manifest by setting `android:name` on your application node:
+If your app doesn't already listen to application lifecycle events, you can
+extend the Application object and connect it using your manifest by setting
+`android:name` on your application node:
 
 ```xml
 <application
@@ -54,18 +54,18 @@ public class MyApplication extends Application {
 }
 ```
 
-To use LivenessCheck, you start the flow via the `start` methohd, and
-get the results via the `onActivityResult` method. Pass in the card
-details that you want LivenessCheck to verify, including the `last4` of
-the credit card number and the `BIN`:
+To use LivenessCheck, you start the flow via the `start` methohd, and get the
+results via the `onActivityResult` method. Pass in the card details that you
+want LivenessCheck to verify, including the `last4` of the credit card number
+and the `BIN`:
 
-**IMPORTANT:** You are responsible for deleting any images that we store
-and return via the activity result. The deletion logic can be subtle
-due to Activity recreation.
+**IMPORTANT:** You are responsible for deleting any images that we store and
+return via the activity result. The deletion logic can be subtle due to
+Activity recreation.
 
-**IMPORTANT:** We download some of our liveness check models in the
-background. You need to check if they have been downloaded and are
-ready to be used before starting the LivenessCheckActivity.
+**IMPORTANT:** We download some of our liveness check models in the background.
+You need to check if they have been downloaded and are ready to be used before
+starting the LivenessCheckActivity.
 
 
 ```java
@@ -76,8 +76,8 @@ public void verifyCard() {
     // asks the user to scan the back of theh card
     if (LivenessCheck.canRunLivenessCheck(this)) {
         // alternatively you can ask LivenessCheck to store one of the images
-	// that it scans using this method:
-	// LivenessCheck.startCheckCardFrontAndReturnImage(this, last4, bin)
+        // that it scans using this method:
+        // LivenessCheck.startCheckCardFrontAndReturnImage(this, last4, bin)
         LivenessCheck.startCheckCardFront(this, last4, bin);
     } else {
         Log.d("Payment", "Can't run liveness check");
@@ -95,16 +95,29 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             }
 
             @Override
-            public void success(@NonNull String encryptedPayload, @Nullable String imagePath) {
-		// Make sure to handle the image file that we store if you invoke the liveness check
-		// and ask it to return the image
-		if (!TextUtils.isEmpty(imagePath)) {
+            public void success(
+                @NonNull String encryptedPayload,
+                @Nullable String imagePath,
+                @Nullable String ocrNumber
+            ) {
+                // Make sure to handle the image file that we store if you
+                // invoke the liveness check and ask it to return the image
+                if (!TextUtils.isEmpty(imagePath)) {
                     Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
-                    ((ImageView) findViewById(R.id.livenessImage)).setImageBitmap(bitmap);
+                    ((ImageView) findViewById(R.id.livenessImage))
+                        .setImageBitmap(bitmap);
                     (new File(imagePath)).delete();
                 }
-                // Use the encrypted payload in a server-to-server call with the Bouncer servers
-		// to check if the card that the library scanned is genuine
+
+                // Optionally, do something with the scanned card information
+                if (!TextUtils.isEmpty(ocrNumber)) {
+                    ((TextView) findViewById(R.id.paymentCardNumber))
+                        .setText(ocrNumber);
+                }
+
+                // Use the encrypted payload in a server-to-server call with
+                // the Bouncer servers to check if the card that the library
+                // scanned is genuine
             }
 
             @Override
@@ -121,5 +134,5 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 ## License
 
-CardVerify is proprietary software (c) Bouncer Technologies 2019, all
-rights reserved.
+CardVerify is proprietary software (c) Bouncer Technologies 2019, all rights
+reserved.
