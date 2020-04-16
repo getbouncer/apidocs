@@ -1,20 +1,21 @@
-# DriversLicenseVerify
+# ID Verify
 
-DriversLicenseVerify iOS installation guide
+ID Verify iOS installation guide
 
 ## Contents
 * [Example](#example)
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Permissions](#permissions)
-* [Configure DriversLicenseVerify (Swift)](#configure-driverslicenseverify-swift)
-* [Using DriversLicenseVerify (Swift)](#using-driverslicenseverify-swift)
+* [Configure ID Verify](#configure-id-verify)
+* [Using ID Verify](#using-id-verify)
 * [Authors](#authors)
 * [License](#license)
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repo, and run `pod install` from
+the Example directory first.
 
 ## Requirements
 
@@ -23,74 +24,29 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-As a first step, you must get access to our private repo for the DriversLicenseVerify
-library. To get access [email Sam](mailto:sam@getbouncer.com), who's email
-address is sam@getbouncer.com.
-
-DriversLicenseVerify is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'DriversLicenseVerify', :http => 'https://bouncerpaid.bintray.com/DriversLicenseVerify-iOS/DriversLicenseVerify-ios-1.0.0.tgz'
-```
-
-And then add the username and password that you got from Bouncer to
-your .netrc file, which will enable curl to do basic auth and download
-the tgz file:
-
-```
-machine bouncerpaid.bintray.com
-  login YOUR_COMPANY@bouncerpaid
-  password 1234567890abcdefghijklmnopqrstuvwxyz
-```
-
-
-Next, install the new pod. From a terminal, run:
-
-```
-pod install
-```
-
-When using Cocoapods, you use the `.xcworkspace` instead of the
-`.xcodeproj`. Again from the terminal, run:
-
-```
-open YourProject.xcworkspace
-```
+Follow the installation instructions for
+[CardVerify](https://github.com/getbouncer/apidocs/blob/master/card_verify_ios_integration.md#installation)
+to install the CardVefiy cocoapod.
 
 ## Permissions
 
-DriversLicenseVerify uses the camera, so you'll need to add an description of
-camera usage to your Info.plist file:
+Follow the instructions for setting permissions for
+[CardVerify](https://github.com/getbouncer/apidocs/blob/master/card_verify_ios_integration.md#permissions)
+to ask the user for permission to use the camera.
 
-![alt text](https://github.com/getbouncer/cardscan-ios/raw/master/Info.plist.camera.png "Info.plist")
-
-The string you add here will be what DriversLicenseVerify displays to your users
-when DriversLicenseVerify first prompts them for permission to use the camera.
-
-![alt text](https://github.com/getbouncer/cardscan-ios/raw/master/camera_prompt.png "Camera prompt")
-
-Alternatively, you can add this permission directly to your Info.plist
-file:
-
-```xml
-<key>NSCameraUsageDescription</key>
-<string>We need access to your camera to scan your license</string>
-```
-
-## Configure DriversLicenseVerify (Swift)
+## Configure ID Verify
 
 Configure the library when your application launches:
 
 ```swift
 import UIKit
-import DriversLicenseVerify
+import CardVerify
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    	 DriversLicenseVerify.configure(apiKey: "YOUR API KEY") 
+    	 CardVerify.configure(apiKey: "YOUR API KEY") 
         // do any other necessary launch configuration
         return true
     }
@@ -98,50 +54,71 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ```
 
 
-## Using DriversLicenseVerify (Swift)
+## Using ID Verify
 
-To use DriversLicenseVerify, you create a `VerifyViewController`, display it, and
-implement the `VerifyDelegate` protocol to get the results.
+To use ID Verify, you create a `ScanId` object, display its
+`viewController`, and implement the `ScanIdProtocol` protocol to get
+the results.
 
 ```swift
 import UIKit
-import DriversLicenseVerify
+import CardVerify
 
-class ViewController: UIViewController, VerifyDelegate {
+class ViewController: UIViewController, ScanIdProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
 	
-	// Important! you need to make sure that DriversLicenseVerify supports this hardware
-	if !DriversLicenseVerify.isCompatible() {
-	    // Deal with the case that this device isn't going to run DriversLicenseVerify
+	// Important! you need to make sure that CardVerify supports this hardware
+	if !CardVerify.isCompatible() {
+	    // Deal with the case that this device isn't going to run CardVerify
 	}
     }
     
-    @IBAction func buttonPressed() {
-        guard let vc = DriversLicenseVerify.createVerifyViewController(withDelegate: self) else {
-            // the library won't create a VerifyLicenseViewController if this hardware
-	          // isn't supported, otherwise it will
-            return
-        }
+    @IBAction func idFrontPressed() {
+    	// To scan the front of the ID use this code snippet
+        let scanId = ScanId(delegate: self, scanBackOfId: false)
+        guard let vc = scanId.viewController else { return }
+        present(vc, animated: true)
         self.present(vc, animated: true, completion: nil)
     }
 
-    // MARK: VerifyDelegate protocol
-    func userDidCancelVerify(_ viewController: VerifyLicenseViewController) {
-        // The user pressed on the back button without passing the challenge
-	viewController.dismiss(animated: true, completion: nil)
+    @IBAction func idBackPressed() {
+    	// To scan the back of the ID use this code snippet
+        let scanId = ScanId(delegate: self, scanBackOfId: true)
+        guard let vc = scanId.viewController else { return }
+        present(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
+    }
+
+    // MARK: ScanIdProtocol protocol
+    func userDidScanId(identityResults: IdentityResults) {
+        if identityResults.isFront() {
+	    // store the front of ID results to use later
+            frontOfIdResults = identityResults
+        } else {
+	    // we should have both the front and back results, post
+	    // get the results back from Bouncer
+	    let backOfIdResults = identityResults
+
+	    guard let front = frontOfIdResults else { return }
+	    guard let back = backOfIdResults else { return }
+        
+	    FraudCheckApi.idVerify(frontOfIdResults: front, backOfIdResults: back) { [weak self] result, error in
+            guard let result = result, error == nil else {
+                print("API call failed")
+                if let error = error { print(error) }
+                return
+            }
+
+            let verified = (result["drivers_license_verified"] as? Int) == 1
+            print("verified: \(verified)\n" + result.map { "\($0.0) -> \($0.1)\n" }.joined())
+        }
     }
     
-    func userDidScanValidLicense(_ viewController: VerifyLicenseViewController, license scannedLicense: DriversLicense) {
-      	// The user scanned a valid license
-        // NOTE: a valid license may still mean that the user is under age
-        // or the license is expired
+    func userDidCancelScanId() {
+        dismiss(animated: true)
     }
-    
-    func userDidScanInvalidLicense(_ viewController: VerifyLicenseViewController, failureReasons: FailureReasons, license scannedLicense: DriversLicense?) {
-    	// The user scanned a license but it failed validation.
-      // This means either the license's front didn't match the back, or the image is tampered with
-    }
+
 }
 ```
 
@@ -151,5 +128,5 @@ Sam King, sam@getbouncer.com
 
 ## License
 
-DriversLicenseVerify is proprietary software and only to be used by people who have a contract in place
+CardVerify is proprietary software and only to be used by people who have a contract in place
 with Bouncer.
