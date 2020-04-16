@@ -31,19 +31,8 @@ CardVerify is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'CardVerify', :http => 'https://bouncerpaid.bintray.com/CardVerify-iOS/cardverify-ios-1.0.5017.tgz'
+pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<API_SECRET>/cardverify-ios-1.0.5018.tgz'
 ```
-
-And then add the username and password that you got from Bouncer to
-your .netrc file, which will enable curl to do basic auth and download
-the tgz file:
-
-```
-machine bouncerpaid.bintray.com
-  login YOUR_COMPANY@bouncerpaid
-  password 1234567890abcdefghijklmnopqrstuvwxyz
-```
-
 
 Next, install the new pod. From a terminal, run:
 
