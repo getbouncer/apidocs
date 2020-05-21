@@ -2,6 +2,8 @@
 
 [Liveness](https://github.com/getbouncer/liveness-ui-android) Android installation guide
 
+The Liveness flow on Android checks to make sure the user has a genuine physical debit or credit card in their possession, and optionally that the card's IIN matches what you have on record.
+
 ## Contents
 
 * [Requirements](#requirements)
@@ -90,9 +92,9 @@ public void verifyPaymentCard(String cardNumber) {
     LivenessActivity.start(
         /* activity or fragment */ this,
         /* apiKey */ "<YOUR_API_KEY_HERE>",
-        /* cardSide */ CardSides.FRONT,
-        /* iin */ cardNumber.substring(0, 6),
-        /* lastFour */ cardNumber.substring(cardNumber.length() - 4)
+        /* side of the card to scan */ CardSides.FRONT,
+        /* issuer identification number (iin) */ cardNumber.substring(0, 6),
+        /* last four digits of the card number */ cardNumber.substring(cardNumber.length() - 4)
     );
 }
 ```
@@ -120,6 +122,8 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
                  * The user scanned a card. If readable, the full card number is in the `cardPan` variable. Send the
                  * value in the `encryptedPayload` variable to Bouncer servers to check if the card is genuine. See the
                  * server integration documentation for details.
+                 *
+                 * Additionally, an image of the scanned card will be provided in the `cardImage` variable.
                  */
             }
 
