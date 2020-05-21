@@ -1,0 +1,11 @@
+# Default owners
+* @awushensky @xsl @kingst @jaimejiypark
+
+# Android owners
+/android/ @awushensky @xsl @kingst
+
+# iOS owners
+/ios/ @kingst @jaimejiypark
+
+# server owners
+/server/ @awushensky @xsl
