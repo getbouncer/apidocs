@@ -9,7 +9,7 @@ the card's BIN matches what you have on record.
 ## Requirements
 
 Make sure that you install and initialize the CardVerify library. See the
-[instructions for installing CardVerify](card_verify_android_integration.md).
+[instructions for installing CardVerify](android/card_verify_android_integration.md).
 
 ## Using LivenessCheck
 
