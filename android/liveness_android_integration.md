@@ -41,7 +41,7 @@ Then add a dependency on the liveness library in your module's build.gradle file
 
 ```gradle
 dependencies {
-    implementation 'com.getbouncer:liveness-ui:2.0.0008'
+    implementation 'com.getbouncer:liveness-ui:2.0.0010'
 }
 ```
 
@@ -92,7 +92,7 @@ public void verifyPaymentCard(String cardNumber) {
     LivenessActivity.start(
         /* activity or fragment */ this,
         /* apiKey */ "<YOUR_API_KEY_HERE>",
-        /* side of the card to scan */ CardSides.FRONT,
+        /* side of the card to scan */ CardSides.NUMBER_SIDE,
         /* issuer identification number (iin) */ cardNumber.substring(0, 6),
         /* last four digits of the card number */ cardNumber.substring(cardNumber.length() - 4)
     );

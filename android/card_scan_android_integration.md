@@ -21,7 +21,7 @@ These libraries are published in the [jcenter](https://jcenter.bintray.com/com/g
 
 ```gradle
 dependencies {
-    implementation 'com.getbouncer:cardscan-ui:2.0.0008'
+    implementation 'com.getbouncer:cardscan-ui:2.0.0012'
 }
 ```
 
@@ -29,9 +29,9 @@ dependencies {
 
 Before you can use CardScan, you must have an API key set up through the [Bouncer API console](https://api.getbouncer.com/console).
 
-### 1. Library warmup
+### 1. Name Extraction (beta)
 
-CardScan will download ML models for use in verifying the authenticity of payment cards. To ensure these models are downloaded by the time CardVerify runs, please make sure to call the `warmUp` method on CardVerify as early in the app flow as possible. In most cases, this can be done in the `onApplicationCreate` method of your app. Note that `warmUp` processes on a background thread and will not affect your app's startup time. 
+If you want to enable name extraction for payment cards, you must first call the `initializeNameExtraction` method. This method will download ML models used to read the cardholder name and load them into memory. To ensure these models are downloaded by the time CardVerify runs, please make sure to call the `initializeNameExtraction` method on CardScan as early in the app flow as possible. In most cases, this can be done in the `onApplicationCreate` method of your app. Note that `initializeNameExtraction` processes on a background thread and will not affect your app's startup time. 
 
 #### Adding an application lifecycle listener
 
@@ -56,7 +56,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        CardScanActivity.warmUp(this, "<YOUR_API_KEY_HERE>");
+        CardScanActivity.initializeNameExtraction(this, "<YOUR_API_KEY_HERE>");
     }
 }
 ```
@@ -70,7 +70,8 @@ public void scanPaymentCard() {
     CardScanActivity.start(
         /* activity or fragment */ LaunchActivity.this,
         /* apiKey */ "<YOUR_API_KEY_HERE>",
-        /* enableEnterCardManually */ true
+        /* enableEnterCardManually */ true,
+        /* enableNameExtraction */ true  // initializeNameExtraction must have been called first if true.
     );
 }
 ```

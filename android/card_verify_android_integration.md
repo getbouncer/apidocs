@@ -39,7 +39,7 @@ Then add a dependency on the cardverify library in your module's build.gradle fi
 
 ```gradle
 dependencies {
-    implementation 'com.getbouncer:cardverify-ui:2.0.0008'
+    implementation 'com.getbouncer:cardverify-ui:2.0.0012'
 }
 ```
 
