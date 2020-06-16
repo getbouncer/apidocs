@@ -11,5 +11,6 @@
 - [CardScan (react-native)](ios/card_scan_ios_react.md)
 - [CardVerify](ios/card_verify_ios_integration.md)
 - [DriversLicenseVerify](ios/drivers_license_verify_integration_spec.md)
+- [Developer Preview: Liveness](ios/liveness_ios_integration.md)
 
 ## Server
