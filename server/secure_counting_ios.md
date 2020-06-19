@@ -1,7 +1,5 @@
 # Secure counting on iOS + DeviceCheck
 
-3/18/2020
-
 As part of your integration with Bouncer, you can use our "secure
 counting" abstraction. Secure counting is an abstraction on top of
 DeviceCheck that enables us to count events, like cards added, on a
@@ -10,6 +8,36 @@ privacy while using the hardware bits in DeviceCheck to maintain
 monotonically increasing counts. These counts remain robust even
 across device resets, making it a useful signal for detecting
 financial fraud.
+
+This doc covers:
+
+- [iOS APIs for incrementing counts](#ios-apis-for-incrementing-counts)
+- [Provisioning a DeviceCheck key](#provisioning-a-devicecheck-key)
+
+For more information on how to access counts server side, see our
+[REST API](secure_counting_rest.md) documentation.
+
+## iOS APIs for incrementing counts
+
+After integrating [CardVerify](../ios/card_verify_ios_integration.md)
+into your app, you can access high level APIs to increment counts
+at key parts in your app.
+
+We include a pre-defined API for incrementing cards added to a device
+that your app should invoke after a user successfully adds a card:
+
+```swift
+FraudCheckApi.cardTokenized(userId: "kingst")
+```
+
+And we also support arbitrary events, such as successful logins
+that you can track simultaniously:
+
+```swift
+FraudCheckApi.incrementWithoutCompletion(event: "login_success", userId: "kingst")
+```
+
+## Provisioning a DeviceCheck key
 
 To enable the secure counting abstraction, you provide Bouncer with a
 DeviceCheck key, that our server uses to communicate with Apple’s
