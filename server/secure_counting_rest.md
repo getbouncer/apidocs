@@ -7,7 +7,7 @@ After you've integrated [setup secure counting in your iOS app](secure_counting_
 Get the current counts for a device. Note: we use POST because the DeviceCheck tokens can be large (4KB), but this request is idempotent.
 
 ### Request
-Authentication required
+Authentication required, (Vendor ID)[https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor] from the iOS device for the path of the object.
 
 ### Fields
 
@@ -27,6 +27,28 @@ curl -X POST "https://api.getbouncer.com/v1/secure_counting/test_vendorid"
 A **SecureCount** response JSON object
 
 #### SecureCount
-**counts** (_Map[string, int]_)
-A map 
+**counts** (_Map[event: string, Map["count": int, "maximum": int]]_)
+A map of events, each event has a current _count_ and a _maximum_ for the maxiumum value that this count can reach.
+
+**last_reset_at** (string)
+ISO8601 format of the timestamp when we detected the last device factory reset or app uninstall.
+
+### Response Examples
+**Success**
+```javascript
+{
+  "counts": {
+    "cards_tokenized": {"count": 4, "maximum": 7},
+    "successful_logins": {"count": 2, "maximum": 11},
+  }
+  "last_reset_at": null
+}
+```
+
+**Invalid device check token** If the DeviceCheck token failed Apple's basic validation we return an error
+```javascript
+{
+  "failure_reasons": ["invalid_devicecheck_token"]
+}
+```
 
