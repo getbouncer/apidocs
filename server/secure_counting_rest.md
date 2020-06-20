@@ -7,7 +7,7 @@ After you've integrated [setup secure counting in your iOS app](secure_counting_
 Get the current counts for a device. Note: we use POST because the DeviceCheck tokens can be large (4KB), but this request is idempotent.
 
 ### Request
-Authentication required, (Vendor ID)[https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor] from the iOS device for the path of the object.
+Authentication required, [Vendor ID](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor) from the iOS device for the path of the object.
 
 ### Fields
 
@@ -54,7 +54,7 @@ ISO8601 format of the timestamp when we detected the last device factory reset o
 
 ## POST /v1/secure_counting/:vendor_id/increment
 ### Request
-Authentication required, (Vendor ID)[https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor] from the iOS device for the path of the object.
+Authentication required, [Vendor ID](https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor) from the iOS device for the path of the object.
 
 ### Fields
 
