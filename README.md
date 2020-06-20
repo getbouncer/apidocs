@@ -8,7 +8,7 @@
 - [Liveness](android/liveness_android_integration.md)
 
 ## iOS
-- [Card Scan](ios/card_scan_ios.md)
+- [Card Scan](https://github.com/getbouncer/cardscan-ios/blob/master/README.md)
 - [Card Scan (react-native)](ios/card_scan_ios_react.md)
 - [Card Verify](ios/card_verify_ios_integration.md)
 - [Drivers License Verify](ios/drivers_license_verify_integration_spec.md)
