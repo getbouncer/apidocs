@@ -10,8 +10,9 @@ remain intact even across factory resets of the device.
 
 You can learn more about our secure counting abstraction:
 
-- [Whitepaper](#) that describes why one would want to count and the
-  basics behind how it works from a conceptual level.
+- [Whitepaper](secure_counting_whitepaper.pdf) that describes why one
+  would want to count and the basics behind how it works from a
+  conceptual level.
 
 - [API docs](secure_counting_rest.md) that describe the REST
   interfaces for accessing secure counters.
