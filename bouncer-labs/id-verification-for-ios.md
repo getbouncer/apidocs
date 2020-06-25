@@ -25,7 +25,7 @@ Follow the instructions for setting permissions for [Card Verify](../card-verify
 
 Configure the library when your application launches:
 
-```text
+```swift
 import UIKit
 import CardVerify
 
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 To use ID Verify, you create a `ScanId` object, display its `viewController`, and implement the `ScanIdProtocol` protocol to get the results.
 
-```text
+```swift
 import UIKit
 import CardVerify
 
