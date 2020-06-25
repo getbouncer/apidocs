@@ -6,7 +6,7 @@
 
 * [Get started](card-scan/introduction.md)
 * [iOS integration guide](card-scan/ios-integration-guide.md)
-* [Android integration guid](card-scan/android-integration-guid.md)
+* [Android integration guide](card-scan/android-integration-guide.md)
 * [React native integration guide](card-scan/react-native-integration-guide.md)
 
 ## Card Verify
@@ -15,6 +15,10 @@
 * [iOS integration guide](card-verify/ios-integration-guide.md)
 * [Android integration guide](card-verify/android-integration-guide.md)
 * [REST APIs](card-verify/rest-apis.md)
+
+## Card Verify - Server
+
+* [Verifying a Card Verify Payload](card-verify-server/v1-card-verify.md)
 
 ## Liveness Check
 

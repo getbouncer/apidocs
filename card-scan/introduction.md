@@ -6,9 +6,11 @@ description: >-
 
 # Get started
 
+
+
 {% page-ref page="ios-integration-guide.md" %}
 
-{% page-ref page="android-integration-guid.md" %}
+{% page-ref page="android-integration-guide.md" %}
 
 {% page-ref page="react-native-integration-guide.md" %}
 

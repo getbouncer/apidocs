@@ -1,6 +1,6 @@
 # Secure counting REST APIs
 
-After you've integrated [setup secure counting in your iOS app](secure-counting-for-ios.md), you can check the counts for devices server side. If you detect that a device has added too many cards for this device or logged in with too many different accounts, you can act on it appropriately \(e.g., deny the transaction or challenge them with Card Verify\). You can also increment counts for your iOS clients server-side for a more secure integration.
+After you've integrated [secure counting in your iOS app](secure-counting-for-ios.md), you can check the counts for devices server side. If you detect that a device has added too many cards for this device or logged in with too many different accounts, you can act on it appropriately \(e.g., deny the transaction or challenge them with Card Verify\). You can also increment counts for your iOS clients server-side for a more secure integration.
 
 To access secure counts, you can use two API calls:
 
