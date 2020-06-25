@@ -14,20 +14,20 @@ CardScan is available through [CocoaPods](https://cocoapods.org/). To install it
 
 Or if you're using Stripe:
 
-```text
+```bash
 pod 'CardScan'
 pod 'CardScan/Stripe'
 ```
 
 Next, install the new pod. From a terminal, run:
 
-```text
+```bash
 pod install
 ```
 
 When using Cocoapods, you use the `.xcworkspace` instead of the `.xcodeproj`. Again from the terminal, run:
 
-```text
+```bash
 open YourProject.xcworkspace
 ```
 
@@ -53,7 +53,7 @@ The string you add here will be what CardScan displays to your users when CardSc
 
 Alternatively, you can add this permission directly to your Info.plist file:
 
-```text
+```markup
 <key>NSCameraUsageDescriptionkey>
 <string>We need access to your camera to scan your cardstring>
 ```
@@ -62,7 +62,7 @@ Alternatively, you can add this permission directly to your Info.plist file:
 
 Make sure that you get an [API key](https://api.getbouncer.com/console) and configure the library when your application launches. If you are planning to use a navigation controller or support rotation, put in the following line.
 
-```text
+```swift
 import UIKit
 import CardScan
 
@@ -91,7 +91,7 @@ By setting the API key the SDK will send anonymous stats to Bouncer's servers. [
 
 To use CardScan, you create a `ScanViewController`, display it, and implement the `ScanDelegate` protocol to get the results.
 
-```text
+```swift
 import UIKit
 import CardScan
 
@@ -149,7 +149,7 @@ CardScan makes heavy use of CoreML, which Apple introduced in iOS 11. You can in
 
 To check if a device supports CardScan at runtime, use the `ScanViewController.isCompatible` method:
 
-```text
+```swift
 if !ScanViewController.isCompatible() {
     self.scanCardButton.isHidden = true
 }
@@ -159,7 +159,7 @@ if !ScanViewController.isCompatible() {
 
 Make sure that you get an [API key](https://api.getbouncer.com/console) and configure the library when your application launches:
 
-```text
+```objectivec
 #import "AppDelegate.h"
 @import CardScan;
 
@@ -181,7 +181,7 @@ By setting the API key the SDK will send anonymous stats to Bouncer's servers. [
 
 To use CardScan, you create a `ScanViewController`, display it, and implement the `ScanDelegate` protocol to get the results.
 
-```text
+```objectivec
 #import "ViewController.h"
 @import Stripe;
 
@@ -237,7 +237,7 @@ CardScan makes heavy use of CoreML, which Apple introduced in iOS 11. You can in
 
 To check if a device supports CardScan at runtime, use the `ScanViewController.isCompatible` method:
 
-```text
+```objectivec
 if (![ScanViewController isCompatible]) {
     self.scanCardButton.isHidden = true
 }
