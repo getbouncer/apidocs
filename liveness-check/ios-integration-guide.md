@@ -21,19 +21,19 @@ As a first step, you must get access to our private repo for the CardVerify libr
 
 CardVerify is available through [CocoaPods](https://cocoapods.org/). To install it, simply add the following line to your Podfile:
 
-```text
+```bash
 pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify//cardverify-ios-1.0.5022.tgz'
 ```
 
 Next, install the new pod. From a terminal, run:
 
-```text
+```bash
 pod install
 ```
 
 When using Cocoapods, you use the `.xcworkspace` instead of the `.xcodeproj`. Again from the terminal, run:
 
-```text
+```bash
 open YourProject.xcworkspace
 ```
 
@@ -49,7 +49,7 @@ The string you add here will be what Liveness Check displays to your users when 
 
 Alternatively, you can add this permission directly to your Info.plist file:
 
-```text
+```markup
 <key>NSCameraUsageDescriptionkey>
 <string>We need access to your camera to scan your cardstring>
 ```
@@ -58,7 +58,7 @@ Alternatively, you can add this permission directly to your Info.plist file:
 
 Configure the library when your application launches:
 
-```text
+```swift
 import UIKit
 import CardVerify
 
@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 To use CardVerify, you create a `VerifyViewController`, display it, and implement the `VerifyDelegate` protocol to get the results.
 
-```text
+```swift
 import UIKit
 import CardVerify
 
