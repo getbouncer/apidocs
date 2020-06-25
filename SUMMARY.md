@@ -19,6 +19,7 @@
 ## Card Verify - Server
 
 * [Verifying a Card Verify Payload](card-verify-server/v1-card-verify.md)
+* [Validating a Card Verify Token](card-verify-server/validating-a-card-verify-token.md)
 
 ## Liveness Check
 
