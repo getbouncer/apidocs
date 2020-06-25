@@ -34,7 +34,7 @@ A **SecureCount** response JSON object
 
 #### SecureCount
 
-**counts** \(_Map\[event: string, Map\["count": int, "maximum": int\]\]_\) A map of events, each event has a current _count_ and a _maximum_ for the maxiumum value that this count can reach.
+**counts** \(_Map\[event: string, Map\["count": int, "maximum": int\]\]_\) A map of events, each event has a current _count_ and a _maximum_ for the maximum value that this count can reach.
 
 **last\_reset\_at** \(string\) ISO8601 format of the timestamp when we detected the last device factory reset or app uninstall.
 
@@ -89,7 +89,7 @@ A **SecureCount** response JSON object
 
 #### SecureCount
 
-**counts** \(_Map\[event: string, Map\["count": int, "maximum": int\]\]_\) A map of events, each event has a current _count_ and a _maximum_ for the maxiumum value that this count can reach.
+**counts** \(_Map\[event: string, Map\["count": int, "maximum": int\]\]_\) A map of events, each event has a current _count_ and a _maximum_ for the maximum value that this count can reach.
 
 **last\_reset\_at** \(string\) ISO8601 format of the timestamp when we detected the last device factory reset or app uninstall.
 
