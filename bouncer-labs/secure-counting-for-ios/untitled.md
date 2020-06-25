@@ -21,7 +21,7 @@ Authentication required, [Vendor ID](https://developer.apple.com/documentation/u
 
 ### Sample Request
 
-```text
+```bash
 curl -X POST "https://api.getbouncer.com/v1/secure_counting/test_vendorid"
   -H "Content-Type: application/json"
   -H "Authorization: Bearer API_KEY"
@@ -42,7 +42,7 @@ A **SecureCount** response JSON object
 
 **Success**
 
-```text
+```javascript
 {
   "counts": {
     "cards_tokenized": {"count": 4, "maximum": 7},
@@ -54,7 +54,7 @@ A **SecureCount** response JSON object
 
 **Invalid device check token** If the DeviceCheck token failed Apple's basic validation we return an error
 
-```text
+```javascript
 {
   "failure_reasons": ["invalid_devicecheck_token"]
 }
@@ -76,7 +76,7 @@ Authentication required, [Vendor ID](https://developer.apple.com/documentation/u
 
 ### Sample Request
 
-```text
+```bash
 curl -X POST "https://api.getbouncer.com/v1/secure_counting/test_vendorid/increment"
   -H "Content-Type: application/json"
   -H "Authorization: Bearer API_KEY"
@@ -97,7 +97,7 @@ A **SecureCount** response JSON object
 
 **Success**
 
-```text
+```javascript
 {
   "counts": {
     "cards_tokenized": {"count": 5, "maximum": 7},
@@ -109,7 +109,7 @@ A **SecureCount** response JSON object
 
 **Invalid device check token** If the DeviceCheck token failed Apple's basic validation we return an error
 
-```text
+```javascript
 {
   "failure_reasons": ["invalid_devicecheck_token"]
 }
