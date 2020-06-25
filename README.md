@@ -1,18 +1,22 @@
-# Documentation for Bouncer products
+---
+description: A user first approach to mobile payments and fraud prevention
+---
 
-## Android
+# Bouncer
 
-- [Card Scan](https://github.com/getbouncer/cardscan-ui-android)
-- [Card Scan (react-native)](https://github.com/getbouncer/react-native-cardscan)
-- [Card Verify](android/card_verify_android_integration.md)
-- [Liveness](android/liveness_android_integration.md)
+## Boost conversion with Card Scan
 
-## iOS
-- [Card Scan](https://github.com/getbouncer/cardscan-ios/blob/master/README.md)
-- [Card Scan (react-native)](https://github.com/getbouncer/react-native-cardscan)
-- [Card Verify](ios/card_verify_ios_integration.md)
-- [Drivers License Verify](ios/drivers_license_verify_integration_spec.md)
-- [Developer Preview: Liveness](ios/liveness_ios_integration.md)
+Scan credit cards in your app for smooth onboarding
 
-## Server
-- [Secure Counting](server/secure_counting.md)
+{% page-ref page="card-scan/introduction.md" %}
+
+## Authenticate payments with Card Verify
+
+Our verification checks prove that your users have the genuine credit card while stopping fraudsters
+
+{% page-ref page="card-verify/get-started.md" %}
+
+## Solve fraud with Bouncer Insight
+
+Our anti-fraud systems provide signals to detect bad actors, deep learning for making smart decisions about fraudulent transactions, and user-facing challenges to make sure that your users can always access your app.
+
