@@ -6,7 +6,7 @@ For more information on how to access counts server side, see our [REST API](htt
 
 ## iOS APIs for incrementing counts
 
-After integrating [CardVerify](https://github.com/getbouncer/apidocs/blob/master/ios/card_verify_ios_integration.md) into your app, you can access high level APIs to increment counts at key parts in your app.
+After integrating [Card Verify](../../card-verify/get-started.md) into your app, you can access high level APIs to increment counts at key parts in your app.
 
 We include a pre-defined API for incrementing cards added to a device that your app should invoke after a user successfully adds a card:
 
@@ -14,7 +14,7 @@ We include a pre-defined API for incrementing cards added to a device that your 
 FraudCheckApi.cardTokenized(userId: "kingst")
 ```
 
-And we also support arbitrary events, such as successful logins that you can track simultaniously:
+And we also support arbitrary events, such as successful logins that you can track simultaneously:
 
 ```text
 FraudCheckApi.incrementWithoutCompletion(event: "login_success", userId: "kingst")

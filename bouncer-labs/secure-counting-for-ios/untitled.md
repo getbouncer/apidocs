@@ -4,8 +4,8 @@ After you've integrated [setup secure counting in your iOS app](https://github.c
 
 To access secure counts, you can use two API calls:
 
-* [Get a current count]()
-* [Increment a count]()
+* [Get a current count](untitled.md#post-v-1-secure_counting-vendor_id)
+* [Increment a count](untitled.md#post-v-1-secure_counting-vendor_id-increment)
 
 ## POST /v1/secure\_counting/:vendor\_id
 
