@@ -6,16 +6,9 @@ description: >-
 
 # Android integration guide
 
-[Liveness](https://github.com/getbouncer/liveness-ui-android) Android installation guide
+Liveness Android installation guide
 
 The Liveness flow on Android checks to make sure the user has a genuine physical debit or credit card in their possession, and optionally that the card's IIN matches what you have on record.
-
-## Contents
-
-* [Requirements]()
-* [Installation]()
-* [Using]()
-* [License]()
 
 ## Requirements
 
