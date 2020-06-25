@@ -10,13 +10,13 @@ After integrating [Card Verify](../../card-verify/get-started.md) into your app,
 
 We include a pre-defined API for incrementing cards added to a device that your app should invoke after a user successfully adds a card:
 
-```text
+```swift
 FraudCheckApi.cardTokenized(userId: "kingst")
 ```
 
 And we also support arbitrary events, such as successful logins that you can track simultaneously:
 
-```text
+```swift
 FraudCheckApi.incrementWithoutCompletion(event: "login_success", userId: "kingst")
 ```
 
