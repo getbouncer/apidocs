@@ -26,11 +26,19 @@ To enable the secure counting abstraction, you provide Bouncer with a DeviceChec
 
 This document shows from a high level how to access the DeviceCheck key setting in Apple’s developer website. [https://developer.apple.com/account/resources/authkeys/list](https://developer.apple.com/account/resources/authkeys/list)
 
+![](../../.gitbook/assets/certificates.png)
+
 First on the "Certificates, Identifiers & Profiles" page within Apple’s developer account, add a new key by pressing on the “+” button.
+
+![](../../.gitbook/assets/register.png)
 
 Next, enable DeviceCheck and then continue
 
+![](../../.gitbook/assets/download.png)
+
 Download the newly created key and make note of the Key ID and Team ID since Bouncer needs all three
+
+![](../../.gitbook/assets/key_details.png)
 
 If you ever need to revoke the key, you can revisit it in the same settings page within the Apple webapp and click on the "Revoke" button.
 
