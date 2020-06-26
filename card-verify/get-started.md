@@ -9,3 +9,5 @@ description: >-
 
 ![](../.gitbook/assets/card_verify.gif)
 
+![High level overview of a typical challenge flow](../.gitbook/assets/screen-shot-2020-06-25-at-2.19.10-pm.png)
+

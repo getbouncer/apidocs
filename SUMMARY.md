@@ -14,18 +14,17 @@
 * [Get started](card-verify/get-started.md)
 * [iOS integration guide](card-verify/ios-integration-guide.md)
 * [Android integration guide](card-verify/android-integration-guide.md)
-* [REST APIs](card-verify/rest-apis.md)
-
-## Card Verify - Server
-
-* [Verifying a Card Verify Payload](card-verify-server/v1-card-verify.md)
-* [Validating a Card Verify Token](card-verify-server/validating-a-card-verify-token.md)
+* [Server Integration](card-verify/rest-apis/README.md)
+  * [Verifying a Card Verify Payload](card-verify/rest-apis/v1-card-verify.md)
+  * [Validating a Card Verify Token](card-verify/rest-apis/validating-a-card-verify-token.md)
 
 ## Liveness Check
 
 * [iOS integration guide](liveness-check/ios-integration-guide.md)
 * [Android integration guide](liveness-check/android-integration-guide.md)
-* [Rest APIs](liveness-check/rest-apis.md)
+* [Server Integration](liveness-check/rest-apis/README.md)
+  * [Verifying a Liveness Check Payload](liveness-check/rest-apis/verifying-a-liveness-check-payload.md)
+  * [Validating a Liveness Check Token](liveness-check/rest-apis/validating-a-liveness-check-token.md)
 
 ## Bouncer labs
 
