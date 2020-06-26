@@ -15,11 +15,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-Follow the installation instructions for [Card Verify](../card-verify/ios-integration-guide.md) to install the Card Vefiy cocoapod.
+Follow the installation instructions for [Card Verify](../card-verify/ios-integration-guide/) to install the Card Vefiy cocoapod.
 
 ## Permissions
 
-Follow the instructions for setting permissions for [Card Verify](../card-verify/ios-integration-guide.md) to ask the user for permission to use the camera.
+Follow the instructions for setting permissions for [Card Verify](../card-verify/ios-integration-guide/) to ask the user for permission to use the camera.
 
 ## Configure ID Verify
 
