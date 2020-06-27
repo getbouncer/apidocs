@@ -12,6 +12,7 @@
 ## Card Verify
 
 * [Get started](card-verify/get-started.md)
+* [Integration Overview](card-verify/integration-overview.md)
 * [iOS integration guide](card-verify/ios-integration-guide/README.md)
   * [Customizing the Verify UI and UX](card-verify/ios-integration-guide/customizing-the-verify-ui-and-ux.md)
 * [Android integration guide](card-verify/android-integration-guide.md)

@@ -7,9 +7,7 @@ description: >-
 
 # Get started
 
+## 
 
-
-![High level overview of a typical challenge flow](../.gitbook/assets/screen-shot-2020-06-25-at-2.19.10-pm.png)
-
-![](../.gitbook/assets/card_verify.gif)
+![Product Journey](../.gitbook/assets/card_verify.gif)
 
