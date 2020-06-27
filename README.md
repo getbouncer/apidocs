@@ -22,7 +22,11 @@ Our anti-fraud systems provide signals to detect bad actors, deep learning for m
 
 ## Bouncer Labs
 
-Leverage our next-gen products to further reduce fraud. Bouncer's secure counting abstraction provides device-level protections against scalable abuse. Our ID verification product ensures every drivers license you scan is the original document and legitimate \(iOS only... for now\) 
+Our next-gen products showcasing the latest from Bouncer . 
+
+Secure counting abstraction provides device-level protections against scalable abuse. 
+
+ID Verify ensures every drivers license you scan is the original document and legitimate. Supported on iOS only.
 
 
 
