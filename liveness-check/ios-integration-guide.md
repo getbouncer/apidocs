@@ -6,10 +6,6 @@ description: >-
 
 # iOS integration guide
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first. Scan a card using "Instantiate Card Scan" and then you'll be able to test out the liveness check by selecting "Liveness check \(either side\)".
-
 ## Requirements
 
 * Objective C or Swift 4.0 or higher
@@ -22,7 +18,7 @@ As a first step, you must get access to our private repo for the CardVerify libr
 CardVerify is available through [CocoaPods](https://cocoapods.org/). To install it, simply add the following line to your Podfile:
 
 ```bash
-pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify//cardverify-ios-1.0.5022.tgz'
+pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/YOUR_API_KEY/cardverify-ios-1.0.5022.tgz'
 ```
 
 Next, install the new pod. From a terminal, run:
