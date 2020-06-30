@@ -87,12 +87,12 @@ class ViewController: UIViewController, LivenessResults {
         let vc = LivenessViewController()
         vc.modalPresentationStyle = .fullScreen
         vc.delegate = self
-	// cardOnFile is something that the app defines to keep
-	// track of which card (bin and last four) the user
-	// needs to verify
+	      // cardOnFile is something that the app defines to keep
+	      // track of which card (bin and last four) the user
+	      // needs to verify
         vc.lastFour = cardOnFile?.last4
-	vc.isFrontOfCard = true
-	self.present(vc, animated: true)
+	      vc.isFrontOfCard = true
+	      self.present(vc, animated: true)
     }
 
     // MARK: -LivenessResults protocol
@@ -108,10 +108,10 @@ class ViewController: UIViewController, LivenessResults {
             return
         }
 
-	// IMPORTANT: after a successful scan, you need to invoke
-	// the client-side fraud models using the `runVerifyPipeline`
-	// method. This can take up to 1-2s, so make sure that you
-	// mask the delay appropriately.
+	      // IMPORTANT: after a successful scan, you need to invoke
+	      // the client-side fraud models using the `runVerifyPipeline`
+	      // method. This can take up to 1-2s, so make sure that you
+	      // mask the delay appropriately.
         viewController.runVerifyPipeline(cardToVerify: cardOnFile, number: number ?? "", expiryYear: expiryYear, expiryMonth: expiryMonth, debugForceError: nil) { [weak self] paymentCard in
             guard let self = self else { return }
             print("done with completion loop")
