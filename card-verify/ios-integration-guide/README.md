@@ -18,7 +18,7 @@ As a first step, you must get access to our private repo for the CardVerify libr
 CardVerify is available through [CocoaPods](https://cocoapods.org/). To install it, simply add the following line to your Podfile:
 
 ```bash
-pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify//cardverify-ios-1.0.5022.tgz'
+pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify//cardverify-ios-1.0.5024.tgz'
 ```
 
 Next, install the new pod. From a terminal, run:
