@@ -31,7 +31,8 @@ curl -X POST "https://api.getbouncer.com/v1/card/verify"
   -H "Content-Type: application/json"
   -H "Authorization: Bearer API_KEY"
   -d '{
-    "payload"             : "ENCRYPTED_PAYLOAD",
+    "payload_front"       : "ENCRYPTED_PAYLOAD_FRONT",
+    "payload_back         : "ENCRYPTED_PAYLOAD_BACK",
     "last4"               : "0123",
     "bin"                 : "424242",
     "exp_month"           : "11",
