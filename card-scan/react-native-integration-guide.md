@@ -64,7 +64,7 @@ Also, the instructions to configure your API key in Obj-C is [here](https://gith
 
 The podfile in your `~/ios/Podfile` in your project should look similar to:
 
-```text
+```bash
 platform :ios, '10.0'
   target 'Your App' do
   ...
@@ -77,7 +77,7 @@ end
 
 To configure your [API key](https://api.getbouncer.com/console), open up `android/app/src/main/java/[...]/MainApplication.java` and add the following
 
-```text
+```java
 import com.getbouncer.RNCardscanModule;
 ...
 
@@ -93,7 +93,7 @@ public void onCreate() {
 
 **Check device support**
 
-```text
+```java
 import Cardscan from 'react-native-cardscan';
 
 Cardscan.isSupportedAsync()
@@ -108,7 +108,7 @@ Cardscan.isSupportedAsync()
 
 **Scan card**
 
-```text
+```java
 import Cardscan from 'react-native-cardscan';
 
 Cardscan.scan()

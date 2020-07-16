@@ -29,7 +29,7 @@ pod install
 
 When using Cocoapods, you use the `.xcworkspace` instead of the `.xcodeproj`. Again from the terminal, run:
 
-```text
+```bash
 open YourProject.xcworkspace
 ```
 

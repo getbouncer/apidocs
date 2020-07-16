@@ -58,7 +58,7 @@ Liveness will download ML models for use in verifying the authenticity of paymen
 
 If your app doesn't already listen to application lifecycle events, you can extend the `Application` object and connect it using your manifest by setting `android:name` on your application node:
 
-```text
+```markup
 <application
     android:icon="..."
     android:label="..."
@@ -72,7 +72,7 @@ application>
 
 Create a class with the same name:
 
-```text
+```java
 public class MyApplication extends Application {
     @Override
     public void onCreate() {
@@ -86,7 +86,7 @@ public class MyApplication extends Application {
 
 To start the flow, `LivenessActivity` provides a `start` method which takes the required parameters and launches the flow. Pass in the payment card details that you want to verify, including the IIN \(first six digits\) and last four digits of the payment card. You can also optionally specify which side of the card the user should scan. If left `null`, the user will be able to scan either side.
 
-```text
+```java
 public void verifyPaymentCard(String cardNumber) {
     LivenessActivity.start(
         /* activity or fragment */ this,
@@ -100,7 +100,7 @@ public void verifyPaymentCard(String cardNumber) {
 
 Liveness will return an encrypted payload containing information about the payment card the user scanned. You can receive this payload using your activity or fragment's `onActivityResult` method.
 
-```text
+```java
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);

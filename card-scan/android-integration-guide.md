@@ -26,7 +26,7 @@ dependencies {
 
 This library provides a user interface through which payment cards can be scanned.
 
-```text
+```java
 class LaunchActivity : AppCompatActivity, CardScanActivityResultHandler {
 
     private const val API_KEY = "";
