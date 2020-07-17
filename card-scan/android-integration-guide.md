@@ -99,11 +99,13 @@ This library is built to be customized to fit your UI.
 
 ### Basic modifications
 
-To modify text, colors, or padding of the default UI, see the [customization](https://github.com/getbouncer/scan-ui-android/blob/master/docs/customize.md) documentation.
+To modify text, colors, or padding of the default UI, see the customization documentation.
+
+{% page-ref page="android-customization-guide.md" %}
 
 ### Extensive modifications
 
-To modify arrangement or UI functionality, you can create a custom implementation of this library. See examples in the [scan-ui](https://github.com/getbouncer/scan-ui-android) repository.
+To modify arrangement or UI functionality, you can create a custom implementation of this library. See the [example single-activity demo app](https://github.com/getbouncer/cardscan-demo-android/blob/master/demo/src/main/java/com/getbouncer/cardscan/demo/SingleActivityDemo.java).
 
 ## Developing
 
