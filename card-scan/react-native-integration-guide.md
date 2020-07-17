@@ -4,13 +4,24 @@
 
 ### 1. Install the CardScan SDK into your app
 
+Add a dependency to `react-native-cardscan` in your `package.json` file.
+```json
+{
+  ...
+  "dependencies": {
+    ...
+    "react-native-cardscan": "^1.1.6"
+  }
+}
+```
+
 #### iOS
 
-Install and setup permission [cardscan-ios](https://github.com/getbouncer/cardscan-ios#installation)
+Install and setup permission [cardscan-ios](https://github.com/getbouncer/cardscan-ios#installation).
 
 #### Android
 
-No additional steps are necessary to install [cardscan-android](https://github.com/getbouncer/cardscan-android#installation).
+No additional steps are necessary to install [cardscan-android](https://github.com/getbouncer/cardscan-ui-android#installation).
 
 ### 2. Install the [react-native-cardscan](https://www.npmjs.com/package/react-native-cardscan) package from NPM
 
@@ -18,7 +29,8 @@ No additional steps are necessary to install [cardscan-android](https://github.c
 $ npm install react-native-cardscan
 ```
 
-### 3. For RN 0.59 and below: Link native dependencies
+### 3. Link native dependencies
+**This step is only required for React Native version 0.59 and below.**
 
 #### Automatic
 
@@ -78,14 +90,20 @@ end
 To configure your [API key](https://api.getbouncer.com/console), open up `android/app/src/main/java/[...]/MainApplication.java` and add the following
 
 ```java
+// ...
 import com.getbouncer.RNCardscanModule;
-...
 
-...
-public void onCreate() {
-  ...
-  RNCardscanModule.apiKey = "";
-  RNCardscanModule.enableNameExtraction = false; // set to true for experimental name extraction
+// ...
+public class MainApplication extends Application implements ReactApplication {
+
+  // ...
+  public void onCreate() {
+    // ...
+    RNCardscanModule.apiKey = "";
+    RNCardscanModule.enableNameExtraction = false; // set to true for experimental name extraction
+    RNCardscanModule.enableExpiryExtraction = false; // set to true for experimental expiry extraction
+    RNCardscanModule.enableEnterCardManually = false; // set to true to display an "Enter Card Manually" button
+  }
 }
 ```
 
@@ -93,7 +111,7 @@ public void onCreate() {
 
 **Check device support**
 
-```java
+```javascript
 import Cardscan from 'react-native-cardscan';
 
 Cardscan.isSupportedAsync()
@@ -108,7 +126,7 @@ Cardscan.isSupportedAsync()
 
 **Scan card**
 
-```java
+```javascript
 import Cardscan from 'react-native-cardscan';
 
 Cardscan.scan()
