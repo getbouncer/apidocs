@@ -7,6 +7,7 @@
 * [Get started](card-scan/introduction.md)
 * [iOS integration guide](card-scan/ios-integration-guide.md)
 * [Android integration guide](card-scan/android-integration-guide.md)
+  * [Android customization guide](card-scan/android-customization-guide.md)
 * [React native integration guide](card-scan/react-native-integration-guide.md)
 
 ## Card Verify
