@@ -32,7 +32,7 @@ Then add a dependency on the cardverify library in your module's build.gradle fi
 
 ```text
 dependencies {
-    implementation 'com.getbouncer:cardverify-ui:2.0.0012'
+    implementation 'com.getbouncer:cardverify-ui:2.0.0014'
 }
 ```
 
