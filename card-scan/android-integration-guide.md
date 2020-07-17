@@ -99,9 +99,7 @@ This library is built to be customized to fit your UI.
 
 ### Basic modifications
 
-To modify text, colors, or padding of the default UI, see the customization documentation.
-
-{% page-ref page="android-customization-guide.md" %}
+To modify text, colors, or padding of the default UI, see the [customization documentation](android-customization-guide.md).
 
 ### Extensive modifications
 
@@ -109,7 +107,9 @@ To modify arrangement or UI functionality, you can create a custom implementatio
 
 ## Developing
 
-See the [development docs](https://github.com/getbouncer/cardscan-ui-android/blob/master/docs/develop.md) for details on developing for this library.
+The basics of the CardScan architecture are outlined in the [architecture docs](android-architecture-overview.md).
+
+See the [development docs](android-development-guide.md) for details on developing for this library.
 
 ## Authors
 

@@ -55,7 +55,7 @@ To change the instructions, add the following to your strings.xml resource file:
 
 Will result in the following change to the interface:
 
-![customized dimensions](../.gitbook/assets/customization/cardscan/android/customized_text.png)
+![customized text](../.gitbook/assets/customization/cardscan/android/customized_text.png)
 
 ### Localization
 All the fields listed above can be localized similarly to how they can be overridden. To localize the text, create a new file in your app's resources (`src/main/res/values-<locale>/strings.xml`) and define the strings you would like to localize. The library will default to the values in your app for each locale.
@@ -133,7 +133,7 @@ To change the background scan color to white with a black border around the scan
 
 This will result in the following change to the interface:
 
-![customized dimensions](../.gitbook/assets/customization/cardscan/android/customized_colors.png)
+![customized colors](../.gitbook/assets/customization/cardscan/android/customized_colors.png)
 
 ## Dimensions
 CardScan uses standard android XML configuration files to define dimensions used to lay out the UI, including padding, text size, line widths, and more. This allows clients to override the default dimensions to better match the theme of their app.
