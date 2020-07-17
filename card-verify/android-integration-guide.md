@@ -117,17 +117,17 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             public void userCanceled(@Nullable String scanId) {
                 // The user pressed the back or close button
             }
-    
+
             @Override
             public void cameraError(@Nullable String scanId) {
                 // An error occurred while accessing the camera
             }
-    
+
             @Override
             public void analyzerFailure(@Nullable String scanId) {
                 // An error occurred while analyzing the payment card
             }
-    
+
             @Override
             public void canceledUnknown(@Nullable String scanId) {
                 // The scan was canceled for an unknown reason

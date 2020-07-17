@@ -16,7 +16,7 @@ An app demonstrating the basic capabilities of this library is available in [git
 
 These libraries are published in the [jcenter](https://jcenter.bintray.com/com/getbouncer/) repository, so for most gradle configurations you only need to add the dependencies to your app's `build.gradle` file:
 
-```gradle
+```text
 dependencies {
     implementation 'com.getbouncer:cardscan-ui:2.0.0014'
 }

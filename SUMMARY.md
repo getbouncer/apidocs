@@ -6,11 +6,11 @@
 
 * [Get started](card-scan/introduction.md)
 * [iOS integration guide](card-scan/ios-integration-guide.md)
-* [Android integration guide](card-scan/android-integration-guide.md)
-  * [Android customization guide](card-scan/android-customization-guide.md)
-  * [Android architecture guide](card-scan/android-architecture-overview.md)
-  * [Android development guide](card-scan/android-development-guide.md)
-  * [Android release guide](card-scan/android-release-guide.md)
+* [Android integration guide](card-scan/android-integration-guide/README.md)
+  * [Android customization guide](card-scan/android-integration-guide/android-customization-guide.md)
+  * [Android architecture guide](card-scan/android-integration-guide/android-architecture-overview.md)
+  * [Android development guide](card-scan/android-integration-guide/android-development-guide.md)
+  * [Android release guide](card-scan/android-integration-guide/android-release-guide.md)
 * [React native integration guide](card-scan/react-native-integration-guide.md)
 
 ## Card Verify

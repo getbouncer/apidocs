@@ -5,7 +5,8 @@
 ### 1. Install the CardScan SDK into your app
 
 Add a dependency to `react-native-cardscan` in your `package.json` file.
-```json
+
+```javascript
 {
   ...
   "dependencies": {
@@ -30,6 +31,7 @@ $ npm install react-native-cardscan
 ```
 
 ### 3. Link native dependencies
+
 **This step is only required for React Native version 0.59 and below.**
 
 #### Automatic

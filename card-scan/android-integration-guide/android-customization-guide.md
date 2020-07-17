@@ -1,23 +1,27 @@
-# Customization
+# Android customization guide
+
 This document describes how to customize this library to fit your user interface design.
 
 ## Contents
-* [Text and Localization](#text-and-localization)
-* [Colors](#colors)
-* [Dimensions](#dimensions)
-* [Icons and Visual Elements](#icons-and-visual-elements)
-* [Screen Elements](#screen-elements)
+
+* [Text and Localization](android-customization-guide.md#text-and-localization)
+* [Colors](android-customization-guide.md#colors)
+* [Dimensions](android-customization-guide.md#dimensions)
+* [Icons and Visual Elements](android-customization-guide.md#icons-and-visual-elements)
+* [Screen Elements](android-customization-guide.md#screen-elements)
 
 ## Text and Localization
+
 CardScan uses standard android XML configuration files to define strings displayed in the UI. This allows clients to override the default text values and localize the text.
 
 The most up to date values and descriptions for these fields can be viewed in [GitHub](https://github.com/getbouncer/scan-ui-android/blob/master/scan-ui/src/main/res/values/strings.xml).
 
 ### Overriding Defaults
+
 The CardScan SDK uses the following text fields:
 
 | Name | Description | Default Value |
-|------|-------------|---------------|
+| :--- | :--- | :--- |
 | **`bouncer_card_scan_instructions`** | Text displayed above the scan window, instructing the user how to scan card | `Center your card in the frame` |
 | **`bouncer_card_scan_security`** | Security notification displayed below the scan window | `Your card info is secure` |
 | **`bouncer_enter_card_manually`** | Text shown at the bottom of the screen offering for the user to type in card details manually | `Enter card manually` |
@@ -43,11 +47,13 @@ The CardScan SDK uses the following text fields:
 | **`bouncer_close_button_description`** | Accessibility description of the close button | `close button` |
 | **`bouncer_card_view_finder_description`** | Accessibility description of the view finder window | `card view finder` |
 
-To override any of these values with your own, Create a new file in your app's resources (`src/main/res/values/strings.xml`) and define the strings you would like to override. The library will default to the values in your app.
+To override any of these values with your own, Create a new file in your app's resources \(`src/main/res/values/strings.xml`\) and define the strings you would like to override. The library will default to the values in your app.
 
 #### Example
+
 To change the instructions, add the following to your strings.xml resource file:
-```xml
+
+```markup
 <resources>
     <string name="bouncer_card_scan_instructions">Fit your card in the box below</string>
 </resources>
@@ -55,14 +61,17 @@ To change the instructions, add the following to your strings.xml resource file:
 
 Will result in the following change to the interface:
 
-![customized text](../.gitbook/assets/customization/cardscan/android/customized_text.png)
+![customized text](../../.gitbook/assets/customized_text.png)
 
 ### Localization
-All the fields listed above can be localized similarly to how they can be overridden. To localize the text, create a new file in your app's resources (`src/main/res/values-<locale>/strings.xml`) and define the strings you would like to localize. The library will default to the values in your app for each locale.
+
+All the fields listed above can be localized similarly to how they can be overridden. To localize the text, create a new file in your app's resources \(`src/main/res/values-<locale>/strings.xml`\) and define the strings you would like to localize. The library will default to the values in your app for each locale.
 
 #### Example
+
 To provide support for French localization, create the file `src/main/res/values-fr/strings.xml` with the following values:
-```xml
+
+```markup
 <resources>
     <string name="bouncer_card_scan_instructions">Centrez votre carte dans le cadre</string>
     <string name="bouncer_card_scan_security">Les informations de votre carte sont sécurisées</string>
@@ -76,9 +85,11 @@ English locale devices will still get the default values, and French locale devi
 Please note that GoogleTranslate was used to create the above translations. We strongly recommend using translators fluent in the desired language.
 
 #### Left to Right Support
+
 CardScan fully supports left-to-right languages.
 
 ## Colors
+
 CardScan uses standard android XML configuration files to define colors displayed in the UI. This allows clients to override the default colors to better match the theme of their app.
 
 The most up to date values and descriptions for these fields can be viewed in [GitHub](https://github.com/getbouncer/scan-ui-android/blob/master/scan-ui/src/main/res/values/colors.xml).
@@ -86,7 +97,7 @@ The most up to date values and descriptions for these fields can be viewed in [G
 The CardScan SDK uses the following color definitions:
 
 | Name | Description | Default Value |
-|------|-------------|---------------|
+| :--- | :--- | :--- |
 | **`bouncerCardPanColor`** | The text color of the card number displayed over the scan window | `@android:color/white` |
 | **`bouncerCardPanOutlineColor`** | The outline color of the card number displayed over the scan window | `@android:color/black` |
 | **`bouncerCardExpiryColor`** | The text color of the card expiry displayed over the scan window | `@android:color/white` |
@@ -113,11 +124,13 @@ The CardScan SDK uses the following color definitions:
 | **`bouncerDebugMediumConfidence`** | When using debug mode, the color of boxes to draw around medium confidence text | `#DDDD00` |
 | **`bouncerDebugLowConfidence`** | When using debug mode, the color of boxes to draw around low confidence text | `#FF0000` |
 
-To override any of these values with your own, create a new file in your app's resources (`src/main/res/values/colors.xml`) and define the colors you would like to override. The library will default to the values in your app.
+To override any of these values with your own, create a new file in your app's resources \(`src/main/res/values/colors.xml`\) and define the colors you would like to override. The library will default to the values in your app.
 
 ### Example:
+
 To change the background scan color to white with a black border around the scan window, add the following to your color resource file:
-```xml
+
+```markup
 <resources>
     <color name="bouncerNotFoundBackground">#DDFFFFFF</color>
     <color name="bouncerFoundBackground">#DDFFFFFF</color>
@@ -133,9 +146,10 @@ To change the background scan color to white with a black border around the scan
 
 This will result in the following change to the interface:
 
-![customized colors](../.gitbook/assets/customization/cardscan/android/customized_colors.png)
+![customized colors](../../.gitbook/assets/customized_colors.png)
 
 ## Dimensions
+
 CardScan uses standard android XML configuration files to define dimensions used to lay out the UI, including padding, text size, line widths, and more. This allows clients to override the default dimensions to better match the theme of their app.
 
 The most up to date values and descriptions for these fields can be viewed in [GitHub](https://github.com/getbouncer/scan-ui-android/blob/master/scan-ui/src/main/res/values/dimensions.xml).
@@ -143,11 +157,11 @@ The most up to date values and descriptions for these fields can be viewed in [G
 The CardScan SDK uses the following dimension definitions:
 
 | Name | Description | Default Value |
-|------|-------------|---------------|
+| :--- | :--- | :--- |
 | **`bouncerViewFinderMargin`** | The minimum distance between the edge of the screen and the view finder window | `16dp` |
 | **`bouncerViewFinderVerticalBias`** | The vertical position of the view finder. Lower numbers shift the view finder towards the top of the screen | `0.5` |
 | **`bouncerViewFinderHorizontalBias`** | The horizontal position of the view finder. Lower numbers shift the view finder towards the left of the screen | `0.5` |
-| **`bouncerCardDetailsMargin`** | The minimum vertical and horizontal distance between the card details (number, expiry, name) and the border of the view finder window | `12dp` |
+| **`bouncerCardDetailsMargin`** | The minimum vertical and horizontal distance between the card details \(number, expiry, name\) and the border of the view finder window | `12dp` |
 | **`bouncerInstructionsMargin`** | The minimum amount of space surrounding the instructions text above the view finder window | `16dp` |
 | **`bouncerSecurityMargin`** | The minimum amount of space surrounding the security notification text below the view finder window | `16dp` |
 | **`bouncerSecurityIconMargin`** | The distance between the security notification lock icon and the security notification text | `4dp` |
@@ -166,11 +180,13 @@ The CardScan SDK uses the following dimension definitions:
 | **`bouncerButtonMargin`** | The minimum amount of space surrounding the close and torch buttons | `16dp` |
 | **`bouncerIconStrokeWidth`** | The width of the lines of the close and torch buttons | `2` |
 
-To override any of these values with your own, create a new file in your app's resources (`src/main/res/values/dimensions.xml`) and define the dimensions you would like to override. The library will default to the values in your app.
+To override any of these values with your own, create a new file in your app's resources \(`src/main/res/values/dimensions.xml`\) and define the dimensions you would like to override. The library will default to the values in your app.
 
 ### Example:
+
 To shift the placement of the view finder up to the top 30% of the screen and increase the view finder outline width, add the following to your dimensions resource file:
-```xml
+
+```markup
 <resources>
     <dimen name="bouncerViewFinderVerticalBias">0.3</dimen>
     <dimen name="bouncerNotFoundOutlineWidth">4</dimen>
@@ -179,9 +195,10 @@ To shift the placement of the view finder up to the top 30% of the screen and in
 
 This will result in the following change to the interface:
 
-![customized dimensions](../.gitbook/assets/customization/cardscan/android/customized_dimensions.png)
+![customized dimensions](../../.gitbook/assets/customized_dimensions.png)
 
 ## Icons and Visual Elements
+
 CardScan uses standard android icon files and formats. This allows clients to override the default icons to better match the theme of their app.
 
 The most up to date list of icons can be viewed in [GitHub](https://github.com/getbouncer/scan-ui-android/tree/master/scan-ui/src/main/res/drawable).
@@ -189,14 +206,14 @@ The most up to date list of icons can be viewed in [GitHub](https://github.com/g
 CardScan uses the following drawables:
 
 | Name | Type | Description |
-|------|------|-------------|
+| :--- | :--- | :--- |
 | **`bouncer_card_background_not_found`** | Vector | The rounded background portion of the view finder window when a card has not been found |
 | **`bouncer_card_background_found`** | Vector | The rounded background portion of the view finder window when a card has been found and the scan is running |
 | **`bouncer_card_background_correct`** | Vector | The rounded background portion of the view finder window when the scan is complete |
 | **`bouncer_card_background_wrong`** | Vector | The rounded background portion of the view finder window when the wrong card is scanned |
 | **`bouncer_card_border_not_found`** | Animated Vector | The border portion of the view finder window when a card has not been found |
 | **`bouncer_card_border_found`** | Animated Vector | The border portion of the view finder window when a card has been found and the scan is running |
-| **`bouncer_card_border_found_long`** | Animated Vector | The border portion of the view finder window when a card has been found and a long scan is running (name or expiry extraction) |
+| **`bouncer_card_border_found_long`** | Animated Vector | The border portion of the view finder window when a card has been found and a long scan is running \(name or expiry extraction\) |
 | **`bouncer_card_border_correct`** | Animated Vector | The border portion of the view finder window when a the scan is complete |
 | **`bouncer_card_border_wrong`** | Animated Vector | The border portion of the view finder window when the wrong card is scanned |
 | **`bouncer_close_button_dark`** | Vector | The close button when the background is a dark color |
@@ -211,13 +228,14 @@ CardScan uses the following drawables:
 | **`bouncer_logo_light_background`** | Vector | The CardScan.io logo when the background is a light color |
 
 ### Example
-To replace the torch (off state, dark background) icon with an icon of your chosing, create a new file `bouncer_flash_off_dark.xml`. In this example, we replace the lightning bolt with an empty circle.
 
-![new file](../.gitbook/assets/customization/cardscan/android/customized_icons_example.png)
+To replace the torch \(off state, dark background\) icon with an icon of your chosing, create a new file `bouncer_flash_off_dark.xml`. In this example, we replace the lightning bolt with an empty circle.
+
+![new file](../../.gitbook/assets/customized_icons_example.png)
 
 This will result in the following change to the interface:
 
-![customized icons](../.gitbook/assets/customization/cardscan/android/customized_icons.png)
+![customized icons](../../.gitbook/assets/customized_icons.png)
 
 ## Screen Elements
 
@@ -246,4 +264,5 @@ CardScanActivity.start(
 );
 ```
 
-![customized screen elements](../.gitbook/assets/customization/cardscan/android/customized_screen_elements.png)
+![customized screen elements](../../.gitbook/assets/customized_screen_elements.png)
+
