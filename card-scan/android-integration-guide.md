@@ -16,9 +16,9 @@ An app demonstrating the basic capabilities of this library is available in [git
 
 These libraries are published in the [jcenter](https://jcenter.bintray.com/com/getbouncer/) repository, so for most gradle configurations you only need to add the dependencies to your app's `build.gradle` file:
 
-```text
+```gradle
 dependencies {
-    implementation 'com.getbouncer:cardscan-ui:2.0.0012'
+    implementation 'com.getbouncer:cardscan-ui:2.0.0014'
 }
 ```
 
@@ -26,7 +26,7 @@ dependencies {
 
 This library provides a user interface through which payment cards can be scanned.
 
-```java
+```kotlin
 class LaunchActivity : AppCompatActivity, CardScanActivityResultHandler {
 
     private const val API_KEY = "";
