@@ -14,7 +14,7 @@ This document describes how to customize this library to fit your user interface
 
 CardScan uses standard android XML configuration files to define strings displayed in the UI. This allows clients to override the default text values and localize the text.
 
-The most up to date values and descriptions for these fields can be viewed in [GitHub](https://github.com/getbouncer/scan-ui-android/blob/master/scan-ui/src/main/res/values/strings.xml).
+The most up to date values and descriptions for these fields can be viewed in [GitHub](https://github.com/getbouncer/cardscan-android/blob/master/scan-ui/src/main/res/values/strings.xml).
 
 ### Overriding Defaults
 
@@ -92,7 +92,7 @@ CardScan fully supports left-to-right languages.
 
 CardScan uses standard android XML configuration files to define colors displayed in the UI. This allows clients to override the default colors to better match the theme of their app.
 
-The most up to date values and descriptions for these fields can be viewed in [GitHub](https://github.com/getbouncer/scan-ui-android/blob/master/scan-ui/src/main/res/values/colors.xml).
+The most up to date values and descriptions for these fields can be viewed in [GitHub](https://github.com/getbouncer/cardscan-android/blob/master/scan-ui/src/main/res/values/colors.xml).
 
 The CardScan SDK uses the following color definitions:
 
@@ -152,7 +152,7 @@ This will result in the following change to the interface:
 
 CardScan uses standard android XML configuration files to define dimensions used to lay out the UI, including padding, text size, line widths, and more. This allows clients to override the default dimensions to better match the theme of their app.
 
-The most up to date values and descriptions for these fields can be viewed in [GitHub](https://github.com/getbouncer/scan-ui-android/blob/master/scan-ui/src/main/res/values/dimensions.xml).
+The most up to date values and descriptions for these fields can be viewed in [GitHub](https://github.com/getbouncer/cardscan-android/blob/master/scan-ui/src/main/res/values/dimensions.xml).
 
 The CardScan SDK uses the following dimension definitions:
 
@@ -201,7 +201,7 @@ This will result in the following change to the interface:
 
 CardScan uses standard android icon files and formats. This allows clients to override the default icons to better match the theme of their app.
 
-The most up to date list of icons can be viewed in [GitHub](https://github.com/getbouncer/scan-ui-android/tree/master/scan-ui/src/main/res/drawable).
+The most up to date list of icons can be viewed in [GitHub](https://github.com/getbouncer/cardscan-android/tree/master/scan-ui/src/main/res/drawable).
 
 CardScan uses the following drawables:
 

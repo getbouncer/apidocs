@@ -8,7 +8,7 @@
 *Note: Your app does not have to be written in kotlin to integrate this library, but must be able to depend on kotlin functionality.*
 
 ## Demo
-An app demonstrating the basic capabilities of this library is available in [github](https://github.com/getbouncer/cardscan-demo-android).
+An app demonstrating the basic capabilities of this library is available in [github](https://github.com/getbouncer/cardscan-android).
 
 ## Installation
 These libraries are published in the [jcenter](https://jcenter.bintray.com/com/getbouncer/) repository, so for most gradle configurations you only need to add the dependencies to your app's `build.gradle` file:
@@ -94,7 +94,7 @@ To modify text, colors, or padding of the default UI, see the [customization doc
 
 ### Extensive modifications
 
-To modify arrangement or UI functionality, you can create a custom implementation of this library. See the [example single-activity demo app](https://github.com/getbouncer/cardscan-demo-android/blob/master/demo/src/main/java/com/getbouncer/cardscan/demo/SingleActivityDemo.java).
+To modify arrangement or UI functionality, you can create a custom implementation of this library. See the [example single-activity demo app](https://github.com/getbouncer/cardscan-android/blob/master/demo/src/main/java/com/getbouncer/cardscan/demo/SingleActivityDemo.java).
 
 ## Developing
 
@@ -108,7 +108,7 @@ Adam Wushensky, Sam King, and Zain ul Abi Din
 
 ## License
 
-This library is available under paid and free licenses. See the [LICENSE](https://github.com/getbouncer/cardscan-ui-android/blob/master/LICENSE) file for the full license text.
+This library is available under paid and free licenses. See the [LICENSE](https://github.com/getbouncer/cardscan-android/blob/master/LICENSE) file for the full license text.
 
 ### Quick summary
 
@@ -123,7 +123,7 @@ After this period commercial applications need to convert to a licensing agreeme
 What’s allowed under the license:
 
 * Free use for any app for 90 days \(for demos, evaluations, hackathons, etc\).
-* Contributions \(contributors must agree to the [Contributor License Agreement](https://github.com/getbouncer/cardscan-ui-android/blob/master/Contributor%20License%20Agreement)\)
+* Contributions \(contributors must agree to the [Contributor License Agreement](https://github.com/getbouncer/cardscan-android/blob/master/Contributor%20License%20Agreement)\)
 * Any modifications as needed to work in your app
 
 What’s not allowed under the license:

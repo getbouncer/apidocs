@@ -49,7 +49,7 @@ The release version of this library is determined by the value of the `version` 
 
 ## Installing to local maven
 
-* execute `./gradlew cardscan-ui:install` from the root of the repository.
+* execute `./gradlew install` from the root of the repository.
 
 ## Installing to BinTray
 
@@ -63,11 +63,11 @@ The release version of this library is determined by the value of the `version` 
 2. build and upload the library
 
    ```bash
-    ./gradlew cardscan-ui:test
-    ./gradlew cardscan-ui:connectedCheck
-    ./gradlew cardscan-ui:ktlint
-    ./gradlew cardscan-ui:checkStyle
-    ./gradlew cardscan-ui:bintrayUpload
+    ./gradlew test
+    ./gradlew connectedCheck
+    ./gradlew ktlint
+    ./gradlew checkStyle
+    ./gradlew bintrayUpload
    ```
 
 3. Verify that the new version of the binary is available in [jcenter](https://jcenter.bintray.com/com/getbouncer/).

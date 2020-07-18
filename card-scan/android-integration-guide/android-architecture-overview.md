@@ -22,7 +22,7 @@ The pipeline consists of the following basic concepts:
 
 ## Camera Adapters
 
-First and foremost, CardScan is used to process images from a device camera. The [scan-camera](https://github.com/getbouncer/scan-camera-android) android module provides an abstraction around the Camera1 and Camera2 android APIs. It provides a simple interface by which the camera can be initialized, attached to a preview `View`, and provide a stream of images to process.
+First and foremost, CardScan is used to process images from a device camera. The [scan-camera](https://github.com/getbouncer/cardscan-android/tree/master/scan-camera) android module provides an abstraction around the Camera1 and Camera2 android APIs. It provides a simple interface by which the camera can be initialized, attached to a preview `View`, and provide a stream of images to process.
 
 ### Example
 
