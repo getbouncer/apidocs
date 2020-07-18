@@ -1,19 +1,16 @@
 # Android integration guide
 
 ## Requirements
-
 * Android API level 21 or higher
 * AndroidX compatibility
 * Kotlin coroutine compatibility
 
-Note: Your app does not have to be written in kotlin to integrate this library, but must be able to depend on kotlin functionality.
+*Note: Your app does not have to be written in kotlin to integrate this library, but must be able to depend on kotlin functionality.*
 
 ## Demo
-
 An app demonstrating the basic capabilities of this library is available in [github](https://github.com/getbouncer/cardscan-demo-android).
 
 ## Installation
-
 These libraries are published in the [jcenter](https://jcenter.bintray.com/com/getbouncer/) repository, so for most gradle configurations you only need to add the dependencies to your app's `build.gradle` file:
 
 ```text
@@ -23,23 +20,16 @@ dependencies {
 ```
 
 ## Using
-
 This library provides a user interface through which payment cards can be scanned. API keys can be created through the [Bouncer API console](https://api.getbouncer.com/console).
 
 ```kotlin
 class LaunchActivity : AppCompatActivity, CardScanActivityResultHandler {
 
-    private const val API_KEY = "<your_api_key_here>";
+    private const val API_KEY = "<your_api_key_here>"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
-
-        // Because this activity displays card numbers, disallow screenshots.
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_SECURE,
-            WindowManager.LayoutParams.FLAG_SECURE
-        )
 
         findViewById(R.id.scanCardButton).setOnClickListener { _ ->
             CardScanActivity.start(
@@ -53,7 +43,7 @@ class LaunchActivity : AppCompatActivity, CardScanActivityResultHandler {
 
         /*
          * To test name and/or expiry extraction, please first provision an API key, then reach out to
-         * support@bouncer.com with details about your use case and estimated volumes.
+         * support@getbouncer.com with details about your use case and estimated volumes.
          *
          * If you are not planning to use name or expiry extraction, you can omit the line below.
          */
