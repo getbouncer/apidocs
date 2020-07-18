@@ -12,7 +12,7 @@ A guide to developing the CardVerify SDK and using some of its more advanced fea
 The CardVerify SDK is built from multiple android modules, each of which builds upon more base modules. The structure of
 the modules used in CardVerify looks like this:
 
-![module structure](../.gitbook/assets/development/cardverify/android/module_dependencies.png)
+![module structure](../../.gitbook/assets/cardverify_android_module_dependencies.png)
 
 The CardVerify SDK consists of these modules as well as a demo app:
 * [scan-framework](#scan-framework)
