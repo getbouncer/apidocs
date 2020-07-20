@@ -21,16 +21,13 @@ The release version of this library is determined by the value of the `version` 
 ## Creating a new release
 
 1. Increment the version field in `gradle.properties` and create a new github pull request with your changes.
-2. Get your PR reviewed, approved, and merged.
-3. Create a tag from master branch
-
+1. Get your PR reviewed, approved, and merged.
+1. Create a tag from master branch
    ```bash
     git tag <version_number> -a
    ```
-
-4. Write a description for the tag
-5. Push the tag to github
-
+1. Write a description for the tag
+1. Push the tag to github
    ```bash
     git push origin --tags
    ```
@@ -38,14 +35,19 @@ The release version of this library is determined by the value of the `version` 
 ## Updating the ChangeLog
 
 1. Install the [github-changelog-generator](https://github.com/github-changelog-generator/github-changelog-generator). See the README for that project for installation instructions.
-2. put your github personal access token in a file called `github_token` in the root directory of the repository.
-3. run:
-
+1. Create a personal github token with the following permissions:
+    * repo (full)
+    * read:packages
+    * admin:org (read only)
+    * admin:public_key (read only)
+    * admin:repo_hook (read only)
+    * user (read:user and user:email) 
+1. put your github personal access token in a file called `github_token` in the root directory of the repository.
+1. run:
    ```bash
     github_changelog_generator -u getbouncer -p cardscan-android -t `cat github_token`
    ```
-
-4. Create a new pull request with the updated changelog, get it approved, and merged.
+1. Create a new pull request with the updated changelog, get it approved, and merged.
 
 ## Installing to local maven
 
@@ -69,4 +71,3 @@ The release version of this library is determined by the value of the `version` 
    ```
 1. Verify that the new version of the binary is available in [jcenter](https://jcenter.bintray.com/com/getbouncer/).
 1. Update the [API Docs](https://github.com/getbouncer/apidocs) to reflect the new version.
-
