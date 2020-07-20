@@ -42,7 +42,7 @@ The release version of this library is determined by the value of the `version` 
 3. run:
 
    ```bash
-    github_changelog_generator -u getbouncer -p cardscan-ui-android -t `cat github_token`
+    github_changelog_generator -u getbouncer -p cardscan-android -t `cat github_token`
    ```
 
 4. Create a new pull request with the updated changelog, get it approved, and merged.
@@ -54,14 +54,12 @@ The release version of this library is determined by the value of the `version` 
 ## Installing to BinTray
 
 1. Update or create a file `local.properties` with your BinTray user and api key
-
    ```text
     bintray.user=<your_bintray_user>
     bintray.apikey=<your_bintray_apikey>
    ```
-
-2. build and upload the library
-
+1. Start an android emulator or connect a device via `ADB` 
+1. Build and upload the library
    ```bash
     ./gradlew test
     ./gradlew connectedCheck
@@ -69,7 +67,6 @@ The release version of this library is determined by the value of the `version` 
     ./gradlew checkStyle
     ./gradlew bintrayUpload
    ```
-
-3. Verify that the new version of the binary is available in [jcenter](https://jcenter.bintray.com/com/getbouncer/).
-4. Update the [API Docs](https://github.com/getbouncer/apidocs) to reflect the new version.
+1. Verify that the new version of the binary is available in [jcenter](https://jcenter.bintray.com/com/getbouncer/).
+1. Update the [API Docs](https://github.com/getbouncer/apidocs) to reflect the new version.
 
