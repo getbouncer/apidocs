@@ -31,7 +31,11 @@
 ## Liveness Check
 
 * [iOS integration guide](liveness-check/ios-integration-guide.md)
-* [Android integration guide](liveness-check/android-integration-guide.md)
+* [Android integration guide](liveness-check/android-integration-guide/README.md)
+  * [Android customization guide](card-scan/android-integration-guide/android-customization-guide.md)
+  * [Android architecture guide](card-scan/android-integration-guide/android-architecture-overview.md)
+  * [Android development guide](liveness-check/android-integration-guide/android-development-guide.md)
+  * [Android release guide](card-scan/android-integration-guide/android-release-guide.md)
 * [Server Integration](liveness-check/rest-apis/README.md)
   * [Verifying a Liveness Check Payload](liveness-check/rest-apis/verifying-a-liveness-check-payload.md)
   * [Validating a Liveness Check Token](liveness-check/rest-apis/validating-a-liveness-check-token.md)
