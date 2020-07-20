@@ -28,7 +28,7 @@ repositories {
 
 ```gradle
 dependencies {
-    implementation 'com.getbouncer:cardverify-ui:2.0.0014'
+    implementation 'com.getbouncer:cardverify-ui:2.0.0016'
 }
 ```
 
