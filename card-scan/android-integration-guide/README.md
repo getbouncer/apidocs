@@ -28,8 +28,8 @@ class LaunchActivity : AppCompatActivity, CardScanActivityResultHandler {
     private const val API_KEY = "<your_api_key_here>"
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_launch);
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_launch)
 
         findViewById(R.id.scanCardButton).setOnClickListener { _ ->
             CardScanActivity.start(

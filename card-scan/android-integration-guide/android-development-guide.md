@@ -2,11 +2,11 @@
 A guide to developing the CardScan SDK and using some of its more advanced features.
 
 ## Contents
-* [Code Organization](android-development-guide.md#code-organization)
-* [Building](android-development-guide.md#building)
-* [Running Unit Tests](android-development-guide.md#running-unit-tests)
-* [Running Android Instrumentation Tests](android-development-guide.md#running-android-tests)
-* [Releasing](android-development-guide.md#releasing)
+* [Code Organization](#code-organization)
+* [Building](#building)
+* [Running Unit Tests](#running-unit-tests)
+* [Running Android Instrumentation Tests](#running-android-tests)
+* [Releasing](#releasing)
 
 ## Code Organization
 The CardScan SDK is built from multiple android modules, each of which builds upon more base modules. The structure of the modules used in CardScan looks like this:
@@ -15,12 +15,12 @@ The CardScan SDK is built from multiple android modules, each of which builds up
 
 The CardScan SDK consists of these modules as well as a demo app:
 
-* [scan-framework](android-development-guide.md#scan-framework)
-* [scan-camera](android-development-guide.md#scan-camera)
-* [scan-payment](android-development-guide.md#scan-payment)
-* [scan-ui](android-development-guide.md#scan-ui)
-* [cardscan-ui](android-development-guide.md#cardscan-ui)
-* [cardscan-demo](android-development-guide.md#cardscan-demo)
+* [scan-framework](#scan-framework)
+* [scan-camera](#scan-camera)
+* [scan-payment](#scan-payment)
+* [scan-ui](#scan-ui)
+* [cardscan-ui](#cardscan-ui)
+* [cardscan-demo](#cardscan-demo)
 
 ### scan-framework
 The [scan-framework](https://github.com/getbouncer/cardscan-android/tree/master/scan-framework) module contains the framework used to scan images. See the [architecture document](../../card-scan/android-integration-guide/android-architecture-overview.md) for details on how it processes images from the camera.
