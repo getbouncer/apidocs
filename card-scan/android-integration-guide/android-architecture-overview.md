@@ -1,5 +1,9 @@
+---
+description: >-
+  This document outlines the architecture that makes up the basis of the CardScan framework.
+---
+
 # Android architecture guide
-This document outlines the architecture that makes up the basis of the CardScan framework.
 
 ## Overview
 The CardScan framework operates like a pipeline. Images from a data source \(e.g. a Camera\) are processed by a pool of analyzers in a loop. The results from those analyzers are aggregated together by a voting algorithm, and a final result is returned to the app.

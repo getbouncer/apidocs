@@ -1,5 +1,9 @@
+---
+description: >-
+  A guide to releasing new versions of the Android CardScan SDK.
+---
+
 # Android release guide
-A guide to releasing new versions of the Android CardScan SDK.
 
 ## Contents
 * [About](#about)

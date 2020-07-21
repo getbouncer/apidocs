@@ -1,3 +1,8 @@
+---
+description: >-
+  Scan a payment card for fraud protection with CardVerify Check for Android.
+---
+
 # Android integration guide
 
 ## Requirements
@@ -82,8 +87,8 @@ To start the flow, `CardVerifyActivity` provides a `start` method which takes th
 class LaunchActivity : Activity, CardVerifyActivityResultHandler {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_launch);
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_launch)
 
         findViewById(R.id.scanCardButton).setOnClickListener { _ ->
             CardVerifyActivity.start(
@@ -147,7 +152,7 @@ To modify text, colors, or padding of the default UI, see the [customization](/c
 To modify arrangement or UI functionality, CardVerify can be used as a library for your custom implementation. See the [example single-activity demo app](https://github.com/getbouncer/cardscan-android/blob/master/demo/src/main/java/com/getbouncer/cardscan/demo/SingleActivityDemo.java).
 
 ## Developing
-See the [development docs](card-scan/android-integration-guide/android-development-guide) for details on developing for CardVerify.
+See the [development docs](/card-scan/android-integration-guide/android-development-guide.md) for details on developing for CardVerify.
 
 ## License
 A licensing agreement is required to use this library.

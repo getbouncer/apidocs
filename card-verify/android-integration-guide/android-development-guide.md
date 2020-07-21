@@ -1,5 +1,9 @@
+---
+description: >-
+  A guide to developing the CardVerify SDK and using some of its more advanced features.
+---
+
 # Development
-A guide to developing the CardVerify SDK and using some of its more advanced features.
 
 ## Contents
 * [Code Organization](#code-organization)

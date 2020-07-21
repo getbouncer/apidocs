@@ -14,10 +14,10 @@ The Liveness flow on Android checks to make sure the user has a genuine physical
 * AndroidX compatibility
 * Kotlin coroutine compatibility
 
-## Installation
-Unlike CardScan, the Liveness library is not publicly available. It can be downloaded from our [BinTray](https://bintray.com/bouncerpaid/) repository. You should have been provided with a username and password when you contracted with Bouncer Technologies to use this library. Use those values in your `build.gradle` file to use Liveness in your app.
+## Integration
+Unlike CardScan, this library is not publicly available. It can be downloaded from our [BinTray](https://bintray.com/bouncerpaid/) repository. You should have been provided with a username and password when you contracted with Bouncer Technologies to use this library. Use those values in your `build.gradle` file to use CardVerify in your app.
 
-If you do not have the appropriate credentials, please contact [Sam King](mailto:sam@getbouncer.com) and we will provide them.
+If you do not have the appropriate credentials, please contact [Support](mailto:support@getbouncer.com) and we will provide them.
 
 ```text
 // Add the Bouncer repo to both the buildscript and allprojects elements
@@ -90,7 +90,7 @@ public class MyApplication extends Application {
 To start the flow, `LivenessActivity` provides a `start` method which takes the required parameters and launches the flow. Pass in the payment card details that you want to verify, including the IIN \(first six digits\) and last four digits of the payment card. You can also optionally specify which side of the card the user should scan. If left `null`, the user will be able to scan either side.
 
 ```kotlin
-class LaunchActivity : Activity, CardVerifyActivityResultHandler {
+class LaunchActivity : Activity, LivenessActivityResultHandler {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
@@ -110,8 +110,8 @@ class LaunchActivity : Activity, CardVerifyActivityResultHandler {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (CardVerifyActivity.isVerifyResult(requestCode)) {
-            CardVerifyActivity.parseVerifyResult(resultCode, data, this)
+        if (LivenessActivity.isLivenessResult(requestCode)) {
+            LivenessActivity.parseLivenessResult(resultCode, data, this)
         }
     }
     
@@ -151,11 +151,20 @@ class LaunchActivity : Activity, CardVerifyActivityResultHandler {
 
 Liveness will return an encrypted payload containing information about the payment card the user scanned. As in the example above, you can receive this payload using your activity or fragment's `onActivityResult` method.
 
+## Customizing
+Liveness is built to be customized to fit your UI.
+
+### Basic modifications
+To modify text, colors, or padding of the default UI, see the [customization](/card-scan/android-integration-guide/android-customization-guide.md) documentation.
+
+### Extensive modifications
+To modify arrangement or UI functionality, Liveness can be used as a library for your custom implementation. See the [example single-activity demo app](https://github.com/getbouncer/cardscan-android/blob/master/demo/src/main/java/com/getbouncer/cardscan/demo/SingleActivityDemo.java).
+
+## Developing
+See the [development docs](/card-scan/android-integration-guide/android-development-guide.md) for details on developing for Liveness.
+
 ## License
-
 A licensing agreement is required to use this library.
-
 * Details of licensing \(pricing, etc\) are available at [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
-All contributors must agree to the [CLA](https://github.com/getbouncer/cardscan-demo-android/blob/57102fa3e133febb6b08589185d05b3f06d5657d/Contributor%20License%20Agreement).
-
+All contributors must agree to the [CLA](https://github.com/getbouncer/cardscan-android/blob/master/Contributor%20License%20Agreement).

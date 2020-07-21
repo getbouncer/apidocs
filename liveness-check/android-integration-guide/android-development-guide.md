@@ -1,5 +1,9 @@
+---
+description: >-
+  A guide to developing the Liveness SDK and using some of its more advanced features.
+---
+
 # Development
-A guide to developing the Liveness SDK and using some of its more advanced features.
 
 ## Contents
 * [Code Organization](#code-organization)
@@ -95,4 +99,4 @@ Android tests can be run from android studio or from the command line. To execut
 Note that these tests require that you have an emulator running or a physical device connected to your machine via `ADB`.
 
 ## Releasing
-See the [release](../../card-scan/android-integration-guide/android-release-guide.md) documentation.
+See the [release](/card-scan/android-integration-guide/android-release-guide.md) documentation.

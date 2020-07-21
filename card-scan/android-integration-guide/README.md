@@ -1,3 +1,8 @@
+---
+description: >-
+  Scan a payment card with CardScan for Android.
+---
+
 # Android integration guide
 
 ## Requirements
@@ -98,9 +103,9 @@ To modify arrangement or UI functionality, you can create a custom implementatio
 
 ## Developing
 
-The basics of the CardScan architecture are outlined in the [architecture docs](android-architecture-overview.md).
+The basics of the CardScan architecture are outlined in the [architecture docs](/card-scan/android-integration-guide/android-architecture-overview.md).
 
-See the [development docs](android-development-guide.md) for details on developing for this library.
+See the [development docs](/card-scan/android-integration-guide/android-development-guide.md) for details on developing for this library.
 
 ## Authors
 

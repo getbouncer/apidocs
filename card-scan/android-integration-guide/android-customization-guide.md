@@ -1,5 +1,9 @@
+---
+description: >-
+  This document describes how to customize this library to fit your user interface design.
+---
+
 # Android customization guide
-This document describes how to customize this library to fit your user interface design.
 
 ## Contents
 * [Text and Localization](#text-and-localization)
