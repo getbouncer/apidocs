@@ -141,9 +141,7 @@ CardVerify will return an encrypted payload containing information about the pay
 CardVerify is built to be customized to fit your UI.
 
 ### Basic modifications
-To modify text, colors, or padding of the default UI, see the [customization](card-scan/android-integration-guide/android-customization-guide) documentation.
-
-{% page-ref page="card-scan/android-integration-guide/android-customization-guide.md" %}
+To modify text, colors, or padding of the default UI, see the [customization](android-customization-guide) documentation.
 
 ### Extensive modifications
 To modify arrangement or UI functionality, CardVerify can be used as a library for your custom implementation. See the [example single-activity demo app](https://github.com/getbouncer/cardscan-android/blob/master/demo/src/main/java/com/getbouncer/cardscan/demo/SingleActivityDemo.java).
