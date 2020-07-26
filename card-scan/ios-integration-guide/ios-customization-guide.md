@@ -50,7 +50,7 @@ This class is all programmatic UI with a small bit of logic to handle the events
 
  For the UI we separate out the key components into three parts:
 
-* Five \`\*String\` variables that we use to set the copy
+* Five `*String` variables that we use to set the copy
 * For each component or group of components we have:
   * `setup*Ui` functions for setting the visual look and feel
   * `setup*Constraints` for setting up autolayout
