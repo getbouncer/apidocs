@@ -8,7 +8,7 @@ description: >-
 
 
 
-{% page-ref page="ios-integration-guide.md" %}
+{% page-ref page="ios-integration-guide/" %}
 
 {% page-ref page="android-integration-guide/" %}
 

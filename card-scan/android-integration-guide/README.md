@@ -1,21 +1,23 @@
 ---
-description: >-
-  Scan a payment card with CardScan for Android.
+description: Scan a payment card with CardScan for Android.
 ---
 
 # Android integration guide
 
 ## Requirements
+
 * Android API level 21 or higher
 * AndroidX compatibility
 * Kotlin coroutine compatibility
 
-*Note: Your app does not have to be written in kotlin to integrate this library, but must be able to depend on kotlin functionality.*
+_Note: Your app does not have to be written in kotlin to integrate this library, but must be able to depend on kotlin functionality._
 
 ## Demo
+
 An app demonstrating the basic capabilities of this library is available in [github](https://github.com/getbouncer/cardscan-android).
 
 ## Installation
+
 These libraries are published in the [jcenter](https://jcenter.bintray.com/com/getbouncer/) repository, so for most gradle configurations you only need to add the dependencies to your app's `build.gradle` file:
 
 ```text
@@ -25,6 +27,7 @@ dependencies {
 ```
 
 ## Using
+
 This library provides a user interface through which payment cards can be scanned. API keys can be created through the [Bouncer API console](https://api.getbouncer.com/console).
 
 ```kotlin
@@ -95,7 +98,7 @@ This library is built to be customized to fit your UI.
 
 ### Basic modifications
 
-To modify text, colors, or padding of the default UI, see the [customization documentation](android-customization-guide.md).
+To modify text, colors, or padding of the default UI, see the [customization documentation]().
 
 ### Extensive modifications
 
@@ -103,9 +106,9 @@ To modify arrangement or UI functionality, you can create a custom implementatio
 
 ## Developing
 
-The basics of the CardScan architecture are outlined in the [architecture docs](/card-scan/android-integration-guide/android-architecture-overview.md).
+The basics of the CardScan architecture are outlined in the [architecture docs]().
 
-See the [development docs](/card-scan/android-integration-guide/android-development-guide.md) for details on developing for this library.
+See the [development docs](android-development-guide.md) for details on developing for this library.
 
 ## Authors
 
