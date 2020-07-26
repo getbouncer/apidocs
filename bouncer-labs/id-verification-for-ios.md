@@ -63,7 +63,6 @@ class ViewController: UIViewController, ScanIdProtocol {
         let scanId = ScanId(delegate: self, scanBackOfId: false)
         guard let vc = scanId.viewController else { return }
         present(vc, animated: true)
-        self.present(vc, animated: true, completion: nil)
     }
 
     @IBAction func idBackPressed() {
