@@ -70,7 +70,6 @@ class ViewController: UIViewController, ScanIdProtocol {
         let scanId = ScanId(delegate: self, scanBackOfId: true)
         guard let vc = scanId.viewController else { return }
         present(vc, animated: true)
-        self.present(vc, animated: true, completion: nil)
     }
 
     // MARK: ScanIdProtocol protocol
