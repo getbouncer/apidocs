@@ -60,15 +60,17 @@ And to customize the UI you can either override any of these functions or you ca
 
 ### Runtime event: Showing card details
 
-As the user scans a card, once our machine learning models start to predict numbers, the UI will display these intermediate results while the models finish up their predictions. Specifically, the ViewController will invoke `showScannedCardDetails` with a `CreditCardPrediction` object as the argument each time it has results you can show. Override this function to customize this behavior.
+As the user scans a card, the UI will display intermediate results as they become available while the models finish up their predictions. Specifically, the ViewController will invoke `showScannedCardDetails` with a `CreditCardPrediction` object as the argument each time it has results you can show. Override this function to customize this behavior.
 
 ### Runtime event: The camera "Deny" experience
 
-As a platform, iOS provides apps with full control over the deny experience. However, `SimpleScanViewController` also has a deny experience built in. If the user is prompted and denies access to the camera or they have been previously prompted and denied access, `SimpleScanViewController` will hide all non essential UI elements \(the "description" text and the "torch" button\) and show a button with a link to settings where the user can grant permission to the camera for your app. Please note, if the user updates the settings for your app, iOS will restart your app and you'll lose any in-memory state.
+`SimpleScanViewController` has a camera permission deny experience built in. If the user is prompted and denies access to the camera or they have been previously prompted and denied access, `SimpleScanViewController` will hide all non essential UI elements \(the "description" text and the "torch" button\) and show a button with a link to settings where the user can grant permission to the camera for your app. Please note, if the user updates the settings for your app, iOS will restart your app and you'll lose any in-memory state.
 
 {% hint style="info" %}
-iOS will restart your app if the user updates their camera permission settings \(or any settings for that matter\)
+iOS will restart your app if the user updates their camera permission settings
 {% endhint %}
+
+Apps can choose to handle permissions completely outside of the Card Scan SDK if they prefer.
 
 ## Partial UI customization: ScanViewController
 
