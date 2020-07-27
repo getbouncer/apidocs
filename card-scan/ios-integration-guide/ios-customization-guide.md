@@ -80,7 +80,8 @@ You can override any of these functions if you subclass `SimpleScanViewControlle
 | `setupCloseButtonUi` and `setupCloseButtonConstraints` | The close button |
 | `setupTorchButtonUi` and `setupTorchButtonConstraints` | The button for toggling the torch |
 | `setupDescriptionTextUi` and `setupDescriptionTextConstraints` | The text that we display above the region of interest rectangle to explain what the user is supposed to do |
-|  |  |
+| `setupCardDetailsUi` and `setupCardDetailsConstraints` | These components are how we display intermediate card scanning results to the user including the card number, expiration, and legal name. See our "Showing card details" section for more details. |
+| `setupDenyUi` and `setupDenyConstraints` | These components are what we show users who deny camera access. See our "The camera Deny experience" section for more details. |
 
 ### Runtime event: Showing card details
 
