@@ -58,6 +58,30 @@ This class is all programmatic UI with a small bit of logic to handle the events
 
 And to customize the UI you can either override any of these functions or you can access components directly to adjust. Also, you're welcome to copy and paste this code and customize it to fit your needs -- we're fine with whatever makes the most sense for your app.
 
+### Strings
+
+| Name | Description | Default value |
+| :--- | :--- | :--- |
+| `descriptionString` | The string above the card scanning viewport | "Scan Card" |
+| `closeButtonString` | The string that we display for the "Cancel" button, which cancels the scan | "Cancel" |
+| `torchButtonString` | The string that we display on the button for toggling the camera's torch. | "Torch" |
+| `enableCameraPermissionString` | The string that we display on the button that we show when the user denies camera access. Pressing it takes them to the settings page for their app where they can enable camera permissions | "Enable camera access" |
+| `enableCameraPermissionsDescriptionString` | The string that describes what happens when they press the "enable camera access" button | "To scan your card you'll need to update your phone settings" |
+
+### UI component visual setup and layout
+
+You can override any of these functions if you subclass `SimpleScanViewController` to customize the look, feel, and layout for each component
+
+| Name | Description |
+| :--- | :--- |
+| `setupPreviewViewUi` and `setupPreviewViewConstraints` | The view for showing the camera preview to the user |
+| `setupBlurViewUi` and `setupBlurViewConstraints` | The view that puts a subtle blur on the preview view outside of the region of interest viewport |
+| `setupRoiViewUi` and `setupRoiViewConstraints` | The region of interest rectangle, which we use for both delineating the blur effect and for telling our ML where to pull the card image from  |
+| `setupCloseButtonUi` and `setupCloseButtonConstraints` | The close button |
+| `setupTorchButtonUi` and `setupTorchButtonConstraints` | The button for toggling the torch |
+| `setupDescriptionTextUi` and `setupDescriptionTextConstraints` | The text that we display above the region of interest rectangle to explain what the user is supposed to do |
+|  |  |
+
 ### Runtime event: Showing card details
 
 As the user scans a card, the UI will display intermediate results as they become available while the models finish up their predictions. Specifically, the ViewController will invoke `showScannedCardDetails` with a `CreditCardPrediction` object as the argument each time it has results you can show. Override this function to customize this behavior.
