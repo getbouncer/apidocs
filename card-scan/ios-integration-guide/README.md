@@ -3,8 +3,8 @@
 ## Requirements
 
 * Objective C or Swift 4.0 or higher
-* iOS 11 or higher \(supports development target of iOS 10.0 or higher\)
-* iPhone 6s or newer \(iPhone 6 and iPhone 6 plus are no longer supported\)
+* iOS 11.2 or higher \(supports development target of iOS 10.0 or higher\)
+* iOS 13 or higher for our name and expiration models. The number model will work on older versions of iOS and it will always return nil for the name and expiration fields.
 
 ## Installation
 
