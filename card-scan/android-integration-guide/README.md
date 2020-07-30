@@ -98,7 +98,7 @@ This library is built to be customized to fit your UI.
 
 ### Basic modifications
 
-To modify text, colors, or padding of the default UI, see the [customization documentation]().
+To modify text, colors, or padding of the default UI, see the [customization documentation](android-customization-guide.md).
 
 ### Extensive modifications
 
@@ -106,7 +106,7 @@ To modify arrangement or UI functionality, you can create a custom implementatio
 
 ## Developing
 
-The basics of the CardScan architecture are outlined in the [architecture docs]().
+The basics of the CardScan architecture are outlined in the [architecture docs](android-architecture-overview.md).
 
 See the [development docs](android-development-guide.md) for details on developing for this library.
 
