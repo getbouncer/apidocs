@@ -18,7 +18,7 @@ As a first step, you must get access to our private repo for the CardVerify libr
 CardVerify is available through [CocoaPods](https://cocoapods.org/). To install it, simply add the following line to your Podfile:
 
 ```bash
-pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<YOUR_API_KEY>/cardverify-ios-1.0.5022.tgz'
+pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<YOUR_API_KEY>/cardverify-ios-1.0.5025.tgz'
 ```
 
 Next, install the new pod. From a terminal, run:
@@ -80,9 +80,8 @@ import CardVerify
 class ViewController: UIViewController, LivenessResults {
     
     @IBAction func buttonPressed() {
-        let vc = LivenessViewController()
-        vc.modalPresentationStyle = .fullScreen
-        vc.delegate = self
+        let vc = LivenessViewController.createLivenessViewController()
+        vc.livenessDelegate = self
 	      // cardOnFile is something that the app defines to keep
 	      // track of which card (bin and last four) the user
 	      // needs to verify
@@ -124,7 +123,10 @@ class ViewController: UIViewController, LivenessResults {
 
 ## Customizing the Liveness Check UI
 
-We provide full UI and UX customization using two main mechanisms: subclassing and accessing UI variables. For full customization, you can subclass our `LivenessViewController`. We expose almost everything in this view controller and subclassing it should give you the ability to fully customize the look and feel. For even more control over the UX you can subclass `ScanBaseViewController`, which is what `LivenessViewController` does, but working directly with `ScanBaseViewController` can be a bit subtle -- see the `LivenessViewController` source code for more details.
+We provide full UI and UX customization using two main mechanisms: subclassing and accessing UI variables. For full customization, you can subclass our `LivenessViewController`. We expose almost everything in this view controller and subclassing it should give you the ability to fully customize the look and feel. The `LivenessViewController` inherits from our `SimpleScanViewController`, see our [iOS customization guide](../card-scan/ios-integration-guide/ios-customization-guide.md) for more details on how to fully customize the UI. In addition to the UI elements that the `LivenessCheckViewController` inherits from `SimpleScanViewController`, it adds two UI effects that you can customize by overriding these two functions:
+
+* `setRoiBorderOnCardDetected` sets the border of the ROI rectangle green when it detects a card \(either side\) in its view port
+* `setupDescriptionTextUi` sets the description text depending on the last 4 that you pass in and the side of the card that you're expecting the user to scan.
 
 The second method is to instantiate a version of the `LivenessViewController` and customize it by accessing it's variables directly. This implementation path is more straightforward but isn't as flexible as subclassing.
 
