@@ -16,13 +16,33 @@ _Note: Your app does not have to be written in kotlin to integrate this library,
 
 An app demonstrating the basic capabilities of this library is available in [github](https://github.com/getbouncer/cardscan-android).
 
+## SDK Size
+We try to keep our SDK as small as possible while maintaining good performance. The size impact including our SDK into your app varies depending on some features of your app:
+
+|                                                                    | Base SDK | TFLite Framework | Total |
+|--------------------------------------------------------------------|----------|------------------|-------|
+| App does not yet use TFLite &<br>app *is not* published as bundle  | 4.1MB    | 4.0MB            | 8.1MB |
+| App does not yet use TFLite &<br>app *is* published as a bundle    | 4.1MB    | 1.0MB            | 5.1MB |
+| App already uses TFLite                                            | 4.1MB    | 0.0MB            | 4.1MB |
+
+If your app is not packaged as a bundle, you can reduce the size of the TFLite framework by restricting the binaries included in your APK. Add the following to your `build.gradle` file to include only the `arm` binaries:
+```gradle
+android {
+    defaultConfig {
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+}
+```
+
 ## Installation
 
 These libraries are published in the [jcenter](https://jcenter.bintray.com/com/getbouncer/) repository, so for most gradle configurations you only need to add the dependencies to your app's `build.gradle` file:
 
 ```text
 dependencies {
-    implementation 'com.getbouncer:cardscan-ui:2.0.0016'
+    implementation 'com.getbouncer:cardscan-ui:2.0.0018'
 }
 ```
 
