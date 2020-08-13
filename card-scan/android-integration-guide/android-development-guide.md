@@ -115,5 +115,5 @@ Note that these tests require that you have an emulator running or a physical de
 
 ## Releasing
 
-See the [release](../../liveness-check/android-integration-guide/android-release-guide.md) documentation.
+See the [release]() documentation.
 

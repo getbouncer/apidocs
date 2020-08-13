@@ -32,7 +32,7 @@ The CardVerify SDK consists of these modules as well as a demo app:
 
 ### scan-framework
 
-The [scan-framework](https://github.com/getbouncer/cardscan-android/tree/master/scan-framework) module contains the framework used to scan images. See the [architecture document](../../liveness-check/android-integration-guide/android-architecture-overview.md) for details on how it processes images from the camera.
+The [scan-framework](https://github.com/getbouncer/cardscan-android/tree/master/scan-framework) module contains the framework used to scan images. See the [architecture document]() for details on how it processes images from the camera.
 
 ### scan-camera
 
@@ -120,5 +120,5 @@ Note that these tests require that you have an emulator running or a physical de
 
 ## Releasing
 
-See the [release](../../liveness-check/android-integration-guide/android-release-guide.md) documentation.
+See the [release]() documentation.
 

@@ -13,16 +13,18 @@ description: Scan a payment card for fraud protection with CardVerify Check for 
 _Note: Your app does not have to be written in kotlin to integrate this library, but must be able to depend on kotlin functionality._
 
 ## SDK Size
+
 We try to keep our SDK as small as possible while maintaining good performance. The size impact including our SDK into your app varies depending on some features of your app:
 
-|                                                                    | Base SDK | TFLite Framework | Total |
-|--------------------------------------------------------------------|----------|------------------|-------|
-| App does not yet use TFLite &<br>app *is not* published as bundle  | 5.5MB    | 4.0MB            | 9.5MB |
-| App does not yet use TFLite &<br>app *is* published as a bundle    | 5.5MB    | 1.0MB            | 6.5MB |
-| App already uses TFLite                                            | 5.5MB    | 0.0MB            | 5.5MB |
+|  | Base SDK | TFLite Framework | Total |
+| :--- | :--- | :--- | :--- |
+| App does not yet use TFLite & app _is not_ published as bundle | 5.5MB | 4.0MB | 9.5MB |
+| App does not yet use TFLite & app _is_ published as a bundle | 5.5MB | 1.0MB | 6.5MB |
+| App already uses TFLite | 5.5MB | 0.0MB | 5.5MB |
 
 If your app is not packaged as a bundle, you can reduce the size of the TFLite framework by restricting the binaries included in your APK. Add the following to your `build.gradle` file to include only the `arm` binaries:
-```gradle
+
+```text
 android {
     defaultConfig {
         ndk {

@@ -32,7 +32,7 @@ The Liveness SDK consists of these modules as well as a demo app:
 
 ### scan-framework
 
-The [scan-framework](https://github.com/getbouncer/cardscan-android/tree/master/scan-framework) module contains the framework used to scan images. See the [architecture document](android-architecture-overview.md) for details on how it processes images from the camera.
+The [scan-framework](https://github.com/getbouncer/cardscan-android/tree/master/scan-framework) module contains the framework used to scan images. See the [architecture document]() for details on how it processes images from the camera.
 
 ### scan-camera
 

@@ -101,3 +101,14 @@ Apps can choose to handle permissions completely outside of the Card Scan SDK if
 
 For a complete description of our UI customization options, please see the source code of our [ScanViewController](https://github.com/getbouncer/cardscan-ios/blob/master/CardScan/Classes/ScanViewController.swift). Our public interface includes protocols for setting strings and we expose some key elements of the design that you can set directly. However, these interfaces change fairly often, so we haven't documented them and hope that people who want control of their UI will use `SimpleScanViewContoller` instead. Our expected use for `ScanViewController` is to use a mature, well tested, and high converting UI out of the box, with only minor modifications.
 
+## Regional cards
+
+By default, Bouncer supports most international credit and debit cards, but we also have support for adding regional cards, like Russian MIR cards, or any banks that you'd like.
+
+Our current implementation is limited to banks that use 16 digit card numbers and these numbers pass the Luhn check \(an industry standard checksum over the card number\). You add regional banks by adding the card number prefix, or BIN, for that bank to our library.
+
+| Variable or Function | Description | Default |
+| :--- | :--- | :--- |
+| `CreditCardUtils.addMirSupport()` | Adds support for MIR cards | N/A |
+| `CreditCardUtils.prefixesRegional` | Array of strings where the strings are the set of additional card number prefixes that you want to support. See our implementation of [addMirSupport](https://github.com/getbouncer/cardscan-ios/blob/af56971ec0b1bc7bd14901a1c98690e52bd2f9cc/CardScan/Classes/CreditCardUtils.swift#L28) for more information on how to use it. | \[\] |
+
