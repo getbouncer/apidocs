@@ -4,7 +4,7 @@ description: >-
   interface design.
 ---
 
-# Android customization guide
+# Android ui customization guide
 
 ## Contents
 
