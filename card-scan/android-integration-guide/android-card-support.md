@@ -14,7 +14,7 @@ description: >-
 
 ## Currently Supported Cards
 
-Cards have a variety of properties that can be used to recognize them, this includes the IIN range, the pan length, and the CVC length. These values correspond to the first six numbers on a card, the length a credit card number, and the length of the security code respectively.
+Cards have a variety of properties that can be used to recognize them, this includes the IIN range, the pan length, and the CVC length. These values correspond to the first six numbers on a card, the length of a credit card number, and the length of the security code respectively.
 
 ### Existing Support
 
@@ -69,7 +69,7 @@ fun supportCardIssuer(
 
 #### CardIssuer Objects
 
-Card issuers are represented via the CardIssuer object found in [Github](https://https://github.com/getbouncer/cardscan-android/blob/master/scan-payment/src/main/java/com/getbouncer/scan/payment/card/CardIssuer.kt) and which is also shown below.
+Card issuers are represented via the [CardIssuer object](https://https://github.com/getbouncer/cardscan-android/blob/master/scan-payment/src/main/java/com/getbouncer/scan/payment/card/CardIssuer.kt) which is also shown below.
 
 ```kotlin
 sealed class CardIssuer(open val displayName: String) {
@@ -85,7 +85,7 @@ sealed class CardIssuer(open val displayName: String) {
 }
 ```
 
-If the card issuer you want to add does not exist in the predefined ones above, just use:
+If the card issuer you want to add does not exist as part of the predefined ones above, just use:
 
 ```
 CardIssuer.Custom
@@ -95,7 +95,7 @@ CardIssuer.Custom
 
 Pan validators are used to check the validity of pans corresponding to certain IIN ranges. Pan validators are like building blocks and can be added to one another to produce composite pan validators which run multiple checks. The default validator runs both Luhns algorithm as well as a simple length check.
 
-If you want to perform more checks, you can extend the [interface](https://https://github.com/getbouncer/cardscan-android/blob/master/scan-payment/src/main/java/com/getbouncer/scan/payment/card/PanValidator.kt) and create your own.
+If you want to perform more checks, you can extend the [PanValidator interface](https://https://github.com/getbouncer/cardscan-android/blob/master/scan-payment/src/main/java/com/getbouncer/scan/payment/card/PanValidator.kt) and create your own.
 
 #### Custom Card Priority
 
