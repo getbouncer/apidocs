@@ -124,9 +124,7 @@ fun formatPan(pan: String)
 
 #### Custom Pan Formatting
 
-Some cards have very specific ways of arranging the numbers when they are displayed. The CardScan SDK has an option that allows for the formatting of pans
-
-You can support custom pan formatting by calling the following method:
+Some cards have very specific ways of arranging the numbers when they are displayed. The CardScan SDK has an option that allows for the formatting of custom pans. Just use the following method:
 
 ```kotlin
 fun addFormatPan(cardIssuer: CardIssuer, length: Int, vararg blockSizes: Int)
@@ -148,7 +146,7 @@ Each card issuer has its own display name, including any custom ones you create.
 fun formatIssuer(issuer: CardIssuer)
 ```
 
-#### EXample
+#### Example
 
 ```kotlin
 formatIssuer(CardIssuer.MasterCard)
