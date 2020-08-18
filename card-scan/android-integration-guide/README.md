@@ -126,6 +126,10 @@ To modify text, colors, or padding of the default UI, see the [customization doc
 
 To modify arrangement or UI functionality, you can create a custom implementation of this library. See the [example single-activity demo app](https://github.com/getbouncer/cardscan-android/blob/master/demo/src/main/java/com/getbouncer/cardscan/demo/SingleActivityDemo.java).
 
+## Supporting more cards
+
+Though CardScan supports several cards, you may need to add support for cards specific to your business, instructions can be found in the [card support docs](android-card-support.md).
+
 ## Developing
 
 The basics of the CardScan architecture are outlined in the [architecture docs](android-architecture-overview.md).
@@ -134,7 +138,7 @@ See the [development docs](android-development-guide.md) for details on developi
 
 ## Authors
 
-Adam Wushensky, Sam King, and Zain ul Abi Din
+Adam Wushensky, Sam King, Zain ul Abi Din, and Sven Kuhne
 
 ## License
 
