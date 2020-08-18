@@ -8,11 +8,11 @@ description: >-
 
 ## Contents
 
-* [Text and Localization](android-customization-guide.md#text-and-localization)
-* [Colors](android-customization-guide.md#colors)
-* [Dimensions](android-customization-guide.md#dimensions)
-* [Icons and Visual Elements](android-customization-guide.md#icons-and-visual-elements)
-* [Screen Elements](android-customization-guide.md#screen-elements)
+* [Text and Localization](android-ui-customization-guide.md#text-and-localization)
+* [Colors](android-ui-customization-guide.md#colors)
+* [Dimensions](android-ui-customization-guide.md#dimensions)
+* [Icons and Visual Elements](android-ui-customization-guide.md#icons-and-visual-elements)
+* [Screen Elements](android-ui-customization-guide.md#screen-elements)
 
 ## Text and Localization
 
