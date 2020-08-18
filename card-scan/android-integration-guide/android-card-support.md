@@ -10,7 +10,7 @@ description: >-
 
 * [Currently Supported Cards](android-card-support.md#currently-supported-cards)
 * [Supporting New Cards](android-card-support.md#supporting-new-cards)
-* [Pan Formatting](android-card-support.md#pan-formatting)
+* [Formatting](android-card-support.md#formatting)
 
 ## Currently Supported Cards
 
@@ -36,13 +36,13 @@ The CardScan SDK supports the following cards:
 | JCB | 352800 - 358999 | 16 - 19 | 3 |
 | UnionPay | 620000 - 629999 | 16 - 19 | 3 |
 | UnionPay | 810000 - 819999 | 16 - 19 | 3 |
-| Mastercard | 222100 - 272099 | 16 | 3 |
-| Mastercard | 510000 - 559999 | 16 | 3 |
-| Mastercard | 500000 - 509999 | 16 - 19 | 3 |
-| Mastercard | 560000 - 699999 | 16 - 19 | 3 |
-| Mastercard | 675900 - 675999 | 16 - 19 | 3 |
-| Mastercard | 676770 - 676770 | 16 - 19 | 3 |
-| Mastercard | 676774 - 676774 | 16 - 19 | 3 |
+| MasterCard | 222100 - 272099 | 16 | 3 |
+| MasterCard | 510000 - 559999 | 16 | 3 |
+| MasterCard | 500000 - 509999 | 16 - 19 | 3 |
+| MasterCard | 560000 - 699999 | 16 - 19 | 3 |
+| MasterCard | 675900 - 675999 | 16 - 19 | 3 |
+| MasterCard | 676770 - 676770 | 16 - 19 | 3 |
+| MasterCard | 676774 - 676774 | 16 - 19 | 3 |
 | Visa | 400000 - 499999 | 16 - 19 | 3 |
 
 ## Suport New Cards
@@ -74,7 +74,7 @@ Card issuers are represented via the [CardIssuer object](https://https://github.
 ```kotlin
 sealed class CardIssuer(open val displayName: String) {
     object AmericanExpress : CardIssuer("American Express")
-    object Custom : CardIssuer("Custom")
+    data class Custom(override val displayName: String) : CardIssuer(displayName)
     object DinersClub : CardIssuer("Diners Club")
     object Discover : CardIssuer("Discover")
     object JCB : CardIssuer("JCB")
@@ -105,14 +105,16 @@ Any issuer data that you add will be given priority over the pre-packaged issuer
 #### Example
 
 ```kotlin
-supportCardIssuer(900000..919999, CardIssuer.Custom, listOf(16), listOf(4))
+supportCardIssuer(860031..860099, CardIssuer.Custom("Uzcard"), listOf(16), listOf(3))
 ```
 
-The above supports cards with an IIN range of 900000 - 919999 and is assigned a custom card issuer. It accepts pans of length 16 with CVCs of length 4. It uses the default Luhns + Length pan validator.
+The above supports cards with an IIN range of 860031 - 860099 and is assigned a custom card issuer. It accepts pans of length 16 with CVCs of length 3. It uses the default Luhns + Length pan validator.
 
-## Pan Formatting
+## Formatting
 
-Some cards have very specific ways of arranging the numbers when they are displayed. The CardScan SDK has an option that allows for the formatting of pans
+Pans may be displayed in certain ways and CardIssuers often need a string representation for their name.
+
+### Pan Formatting
 
 Several pans are already supported for formatting and any undefined pans are formatted using default settings based on their length.
 
@@ -120,7 +122,9 @@ Several pans are already supported for formatting and any undefined pans are for
 fun formatPan(pan: String)
 ```
 
-### Custom Format Options
+#### Custom Pan Formatting
+
+Some cards have very specific ways of arranging the numbers when they are displayed. The CardScan SDK has an option that allows for the formatting of pans
 
 You can support custom pan formatting by calling the following method:
 
@@ -134,4 +138,24 @@ In order to format a custom card's pan as follows 1234 567 89012 3456, simply ca
 
 ```kotlin
 addFormatPan(CardIssuer.Custom, 16, 4, 3, 5, 4)
+```
+
+### Custom Display Names
+
+Each card issuer has its own display name, including any custom ones you create. In order to get a card issuer's display name, simply call the following method:
+
+```kotlin
+fun formatIssuer(issuer: CardIssuer)
+```
+
+#### EXample
+
+```kotlin
+formatIssuer(CardIssuer.MasterCard)
+```
+
+returns
+
+```kotlin
+"MasterCard"
 ```
