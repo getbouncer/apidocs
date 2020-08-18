@@ -45,13 +45,13 @@ The CardScan SDK supports the following cards:
 | MasterCard | 676774 - 676774 | 16 - 19 | 3 |
 | Visa | 400000 - 499999 | 16 - 19 | 3 |
 
-## Suport New Cards
+## Supporting New Cards
 
 You may need to support cards which do not come bundled with the CardScan SDK by default, this can be done with the addition of a Custom Issuer.
 
 ### Issuer Data
 
-Issuer-related data is stored in a static class that can be found in [Github](https://https://github.com/getbouncer/cardscan-android/blob/master/scan-payment/src/main/java/com/getbouncer/scan/payment/card/PaymentCardUtils.kt)
+Issuer-related data is stored in a static list found in [Github](https://https://github.com/getbouncer/cardscan-android/blob/master/scan-payment/src/main/java/com/getbouncer/scan/payment/card/PaymentCardUtils.kt)
 
 ### Adding New Issuer Data
 
@@ -135,7 +135,7 @@ fun addFormatPan(cardIssuer: CardIssuer, length: Int, vararg blockSizes: Int)
 In order to format a custom card's pan as follows 1234 567 89012 3456, simply call the method as below.
 
 ```kotlin
-addFormatPan(CardIssuer.Custom, 16, 4, 3, 5, 4)
+addFormatPan(CardIssuer.Custom("Card Issuer"), 16, 4, 3, 5, 4)
 ```
 
 ### Custom Display Names
