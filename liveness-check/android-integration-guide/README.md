@@ -62,7 +62,7 @@ Then add a dependency on the liveness library in your module's build.gradle file
 
 ```text
 dependencies {
-    implementation 'com.getbouncer:liveness-ui:2.0.0018'
+    implementation 'com.getbouncer:liveness-ui:2.0.0022'
 }
 ```
 
