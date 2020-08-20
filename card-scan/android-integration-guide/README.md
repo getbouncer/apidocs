@@ -114,6 +114,10 @@ class LaunchActivity : AppCompatActivity, CardScanActivityResultHandler {
 }
 ```
 
+### 1. Library warm up
+
+CardScan will attempt to update the ML models used to scan payment cards. To ensure these models are upgraded by the time CardScan runs, please make sure to call the `warmUp` method on CardScan as early in the app flow as possible. In most cases, this can be done in the `onApplicationCreate` method of your app. Note that `warmUp` processes on a background thread and will not affect your app's startup time.
+
 ## Customizing
 
 This library is built to be customized to fit your UI.
