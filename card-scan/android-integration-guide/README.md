@@ -114,9 +114,45 @@ class LaunchActivity : AppCompatActivity, CardScanActivityResultHandler {
 }
 ```
 
-### 1. Library warm up
+### Library warm up
 
 CardScan will attempt to update the ML models used to scan payment cards. To ensure these models are upgraded by the time CardScan runs, please make sure to call the `warmUp` method on CardScan as early in the app flow as possible. In most cases, this can be done in the `onApplicationCreate` method of your app. Note that `warmUp` processes on a background thread and will not affect your app's startup time.
+
+#### Adding an application lifecycle listener
+
+If your app doesn't already listen to application lifecycle events, you can extend the `Application` object and connect it using your manifest by setting `android:name` on your application node:
+
+```markup
+<application
+    android:icon="..."
+    android:label="..."
+    android:roundIcon="..."
+    android:name=".MyApplication">
+
+    ...
+
+</application>
+```
+
+Create a class with the same name:
+
+```java
+public class MyApplication extends Application {
+    public static final String API_KEY = "<your_api_key_here>";
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        /*
+         * CardScan will attempt to update the ML models used to scan payment cards. By placing the call to the `warmUp`
+         * method in the `onApplicationCreate` method of your app, you allow the most time possible for models to
+         * upgrade. Note that `warmUp` processes on a background thread and will not affect your app's startup time.
+         */
+        CardScanActivity.warmUp(this, API_KEY);
+    }
+}
+```
 
 ## Customizing
 
