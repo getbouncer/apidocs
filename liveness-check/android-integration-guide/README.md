@@ -185,7 +185,7 @@ Liveness is built to be customized to fit your UI.
 
 ### Basic modifications
 
-To modify text, colors, or padding of the default UI, see the [customization](android-ui-customization-guide.md) documentation.
+To modify text, colors, or padding of the default UI, see the [customization]() documentation.
 
 ### Extensive modifications
 

@@ -8,9 +8,9 @@ description: >-
 
 ## Contents
 
-* [Currently Supported Cards]()
-* [Supporting New Cards]()
-* [Formatting]()
+* [Currently Supported Cards](../../liveness-check/android-integration-guide/android-card-support.md#currently-supported-cards)
+* [Supporting New Cards](../../liveness-check/android-integration-guide/android-card-support.md#supporting-new-cards)
+* [Formatting](../../liveness-check/android-integration-guide/android-card-support.md#formatting)
 
 ## Currently Supported Cards
 

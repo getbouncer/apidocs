@@ -168,7 +168,7 @@ To modify arrangement or UI functionality, you can create a custom implementatio
 
 ## Supporting more cards
 
-Though CardScan supports several cards, you may need to add support for cards specific to your business, instructions can be found in the [card support docs](android-card-support.md).
+Though CardScan supports several cards, you may need to add support for cards specific to your business, instructions can be found in the [card support docs]().
 
 ## Developing
 

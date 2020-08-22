@@ -62,7 +62,7 @@ import CardVerify
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    	 CardVerify.configure(apiKey: "YOUR API KEY") 
+         CardVerify.configure(apiKey: "YOUR API KEY") 
         // do any other necessary launch configuration
         return true
     }
@@ -80,19 +80,19 @@ import CardVerify
 class ViewController: UIViewController, VerifyDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
-	
-	// Important! you need to make sure that CardVerify supports this hardware
-	if !CardVerify.isCompatible() {
-	    // Deal with the case that this device isn't going to run CardVerify
-	}
+
+    // Important! you need to make sure that CardVerify supports this hardware
+    if !CardVerify.isCompatible() {
+        // Deal with the case that this device isn't going to run CardVerify
     }
-    
+    }
+
     @IBAction func buttonPressed() {
         // Let the CardVerify library know some details about the current card that
         // it can use to check for a match
         guard let vc = CardVerify.createVerifyViewController(last4: "4242", expiryMonth: "08", expiryYear: "22", network: PaymentCard.Network.VISA, withDelegate: self) else {
             // the library won't create a VerifyCardViewController if this hardware
-	    // isn't supported, otherwise it will
+        // isn't supported, otherwise it will
             return
         }
         self.present(vc, animated: true, completion: nil)
@@ -101,35 +101,35 @@ class ViewController: UIViewController, VerifyDelegate {
     // MARK: VerifyDelegate protocol
     func userDidCancelVerify(_ viewController: VerifyCardViewController) {
         // The user pressed on the back button without passing the challenge
-	viewController.dismiss(animated: true, completion: nil)
+    viewController.dismiss(animated: true, completion: nil)
     }
-    
+
     func userDidScanSameCard(_ viewController: VerifyCardViewController, card scannedCard: PaymentCard) {
-	// The user scanned a card that has the last4 that matches the card on file
-	
-	// the encrypted payload is returned to client to pass back to server.
-	// the payload can be exchanged with Bouncer server to verify it.
-	guard let encryptedPayload = scannedCard.encryptedPayload else {
+    // The user scanned a card that has the last4 that matches the card on file
+
+    // the encrypted payload is returned to client to pass back to server.
+    // the payload can be exchanged with Bouncer server to verify it.
+    guard let encryptedPayload = scannedCard.encryptedPayload else {
             return
         }
-	MyAppsApi(parameter: [payload: encryptedPayload])
+    MyAppsApi(parameter: [payload: encryptedPayload])
     }
-    
+
     func userDidScanDifferentCard(_ viewController: VerifyCardViewController, card scannedCard: PaymentCard) {
-    	// The user scanned a card but the last4 didn't match.
-	// The most common option is to use the card details passed back via `scannedCard` to let
-	// the user add the new card and pay for the transaction using it.
-	
-	// the encrypted payload is returned to client to pass back to server.
-	// the payload can be exchanged with Bouncer server for verification.
-	
-	// IMPORTANT: make sure that the user doesn't change the card number when they add the
-	// new card. If they change the card number after the scan, it will change the 
-	// payload and invalidate the encrypted payload
-	guard let encryptedPayload = scannedCard.encryptedPayload else {
+        // The user scanned a card but the last4 didn't match.
+    // The most common option is to use the card details passed back via `scannedCard` to let
+    // the user add the new card and pay for the transaction using it.
+
+    // the encrypted payload is returned to client to pass back to server.
+    // the payload can be exchanged with Bouncer server for verification.
+
+    // IMPORTANT: make sure that the user doesn't change the card number when they add the
+    // new card. If they change the card number after the scan, it will change the 
+    // payload and invalidate the encrypted payload
+    guard let encryptedPayload = scannedCard.encryptedPayload else {
             return
         }
-	MyAppsApi(parameter: [payload: encryptedPayload])
+    MyAppsApi(parameter: [payload: encryptedPayload])
     }
 }
 ```
