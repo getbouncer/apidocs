@@ -62,7 +62,7 @@ import CardVerify
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-         CardVerify.configure(apiKey: "YOUR API KEY") 
+         Bouncer.configure(apiKey: "YOUR API KEY") 
         // do any other necessary launch configuration
         return true
     }
@@ -81,16 +81,16 @@ class ViewController: UIViewController, VerifyDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    // Important! you need to make sure that CardVerify supports this hardware
-    if !CardVerify.isCompatible() {
-        // Deal with the case that this device isn't going to run CardVerify
-    }
+        // Important! you need to make sure that CardVerify supports this hardware
+        if !Bouncer.isCompatible() {
+            // Deal with the case that this device isn't going to run CardVerify
+        }
     }
 
     @IBAction func buttonPressed() {
         // Let the CardVerify library know some details about the current card that
         // it can use to check for a match
-        guard let vc = CardVerify.createVerifyViewController(last4: "4242", expiryMonth: "08", expiryYear: "22", network: PaymentCard.Network.VISA, withDelegate: self) else {
+        guard let vc = Bouncer.createVerifyViewController(last4: "4242", expiryMonth: "08", expiryYear: "22", network: PaymentCard.Network.VISA, withDelegate: self) else {
             // the library won't create a VerifyCardViewController if this hardware
         // isn't supported, otherwise it will
             return
@@ -101,7 +101,7 @@ class ViewController: UIViewController, VerifyDelegate {
     // MARK: VerifyDelegate protocol
     func userDidCancelVerify(_ viewController: VerifyCardViewController) {
         // The user pressed on the back button without passing the challenge
-    viewController.dismiss(animated: true, completion: nil)
+        viewController.dismiss(animated: true, completion: nil)
     }
 
     func userDidScanSameCard(_ viewController: VerifyCardViewController, card scannedCard: PaymentCard) {
@@ -112,7 +112,7 @@ class ViewController: UIViewController, VerifyDelegate {
     guard let encryptedPayload = scannedCard.encryptedPayload else {
             return
         }
-    MyAppsApi(parameter: [payload: encryptedPayload])
+        MyAppsApi(parameter: [payload: encryptedPayload])
     }
 
     func userDidScanDifferentCard(_ viewController: VerifyCardViewController, card scannedCard: PaymentCard) {
@@ -129,7 +129,7 @@ class ViewController: UIViewController, VerifyDelegate {
     guard let encryptedPayload = scannedCard.encryptedPayload else {
             return
         }
-    MyAppsApi(parameter: [payload: encryptedPayload])
+        MyAppsApi(parameter: [payload: encryptedPayload])
     }
 }
 ```
