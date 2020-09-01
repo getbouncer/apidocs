@@ -44,7 +44,7 @@ Returns a `TokenValidate` response JSON object
 
 * `bin_mismatch` Present if there is a card design mismatch between what we expect from the BIN of the card challenged and the actual card that we scanned. On a Card Verify scan, we extract various design features on the card, like the presence and location of the Visa / MC logo, the chip, bank logo, etc to determine whether these design features match what we expect from the BIN of the card challenged.
 * `screen_detected` Present if the card scanned does not appear to be a physical card. We check for whether the card appears to be a recaptured image on a screen \(i.e. the user is scanning a picture of a card on another phone, or a Google Doc\) or a card image that is printed on paper. 
-* `card_number_mismatch` Present if the BIN \(if provided in `/v1/card/verify`\) and the last4 of the card that was challenged match the corresponding scan. 
+* `card_number_mismatch` Present if the BIN \(if provided in `/v1/card/verify`\) and the last4 of the card that was challenged do not match the output of the corresponding scan. 
 
 ### Response Examples
 
