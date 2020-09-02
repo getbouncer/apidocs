@@ -51,24 +51,17 @@ repositories {
             password "<FILL_IN_YOUR_PASSWORD>"
         }
     }
-    maven {
-        url "https://bouncerpaid.bintray.com/scan-payment-verify-android"
-        credentials {
-            username "<FILL_IN_YOUR_USERNAME>"
-            password "<FILL_IN_YOUR_PASSWORD>"
-        }
-    }
 }
 ```
 
 ```text
 dependencies {
-    implementation "com.getbouncer:scan-framework:2.0.0024"
-    implementation "com.getbouncer:scan-camera:2.0.0024"
-    implementation "com.getbouncer:scan-ui:2.0.0024"
-    implementation "com.getbouncer:scan-payment:2.0.0024"
-    implementation "com.getbouncer:scan-payment-verify:2.0.0024"
-    implementation 'com.getbouncer:cardverify-ui:2.0.0024'
+    implementation "com.getbouncer:scan-framework:2.0.0027"
+    implementation "com.getbouncer:scan-camera:2.0.0027"
+    implementation "com.getbouncer:scan-ui:2.0.0027"
+    implementation "com.getbouncer:scan-payment:2.0.0027"
+    implementation "com.getbouncer:scan-payment-verify:2.0.0027"
+    implementation 'com.getbouncer:cardverify-ui:2.0.0027'
 }
 ```
 
@@ -164,6 +157,10 @@ class LaunchActivity : Activity, CardVerifyActivityResultHandler {
 
     override fun userCanceled(scanId: String?) {
         // The user canceled the scan.
+    }
+
+    override fun missingCard(scanId: String?) {
+        // The user does not have possession of this card
     }
 
     override fun cameraError(scanId: String?) {
