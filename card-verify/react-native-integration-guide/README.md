@@ -2,8 +2,9 @@
 
 CardVerify React Native installation guide
 
-Visit our website at https://cardscan.io for examples. Native libraries for android and iOS are also available through
-our private repositories. Contact [license@getbouncer.com](mailto:license@getbouncer.com) for access to these libraries.
+Visit our website at https://www.getbouncer.com for examples. Native libraries for android and iOS are also available
+through our private repositories. Contact [license@getbouncer.com](mailto:license@getbouncer.com) for access to these
+libraries.
 
 CardVerify is closed source, and requires a license agreement. See the [license](#license) section for details.
 
@@ -214,6 +215,34 @@ CardVerify.scan(bin, last4)
   })
 ```
 
+## Example app
+
+An example application is included in the
+[react-native-cardverify github repository](https://github.com/getbouncer/react-native-cardverify).
+
+Inside the `example` directory, you can find an example React Native project that you can run.
+
+_Note: you will have to have a valid API key and repository access to run the demo app._
+
+To run the example app, do the following:
+
+* Add your repository username and password to `android/build.gradle`.
+* Add your API key to the cocoapods configuration file `ios/Podfile`.
+* Add your API key to `android/app/src/main/java/com/example/MainApplication.java` and `ios/example/AppDelegate.m`.
+* Point the android app to the SDK: create a file `example/android/local.properties` with a line
+
+  ```text
+  sdk.dir=<full_path_to_android_sdk>
+  ```
+  
+* `$ npm install`
+* `$ cd example`
+* `$ npm install`
+* `$ cd ios && pod install && cd ..`
+
+* To run Android app: `react-native run-android`
+* To run iOS app: `react-native run-ios`
+
 ## Troubleshooting
 
 See the [troubleshooting](troubleshooting.md) documentation.
@@ -223,8 +252,32 @@ See the [troubleshooting](troubleshooting.md) documentation.
 Adam Wushensky, Sam King, Zain ul Abi Din, Jaime Park, and Stefano Suryanto
 
 ## License
-A licensing agreement is required to use this library.
-* Details of licensing (pricing, etc) are available at [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
-All contributors must agree to the [Contributor License Agreement](Contributor%20License%20Agreement).
+This library is available under paid and free licenses. See the [LICENSE](https://github.com/getbouncer/cardscan-android/blob/master/LICENSE) file for the full license text.
 
+### Quick summary
+
+In short, this library will remain free forever for non-commercial applications, but use by commercial applications is limited to 90 days, after which time a licensing agreement is required. We're also adding some legal liability protections.
+
+After this period commercial applications need to convert to a licensing agreement to continue to use this library.
+
+* Details of licensing \(pricing, etc\) are available at [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
+
+### More detailed summary
+
+What’s allowed under the license:
+
+* Free use for any app for 90 days \(for demos, evaluations, hackathons, etc\).
+* Contributions \(contributors must agree to the [Contributor License Agreement](https://github.com/getbouncer/cardscan-android/blob/master/Contributor%20License%20Agreement)\)
+* Any modifications as needed to work in your app
+
+What’s not allowed under the license:
+
+* Commercial applications using the license for longer than 90 days without a license agreement.
+* Using us now in a commercial app today? No worries! Just email [license@getbouncer.com](mailto:license@getbouncer.com) and we’ll get you set up.
+* Redistribution under a different license
+* Removing attribution
+* Modifying logos
+* Indemnification: using this free software is ‘at your own risk’, so you can’t sue Bouncer Technologies, Inc. for problems caused by this library
+
+Questions? Concerns? Please email us at [license@getbouncer.com](mailto:license@getbouncer.com) or ask us on [slack](https://getbouncer.slack.com/).

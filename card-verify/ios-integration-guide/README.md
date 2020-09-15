@@ -141,6 +141,8 @@ Sam King, [sam@getbouncer.com](mailto:sam@getbouncer.com)
 Jaime Park
 
 ## License
+A licensing agreement is required to use this library.
+* Details of licensing (pricing, etc) are available at [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
-CardVerify is proprietary software and only to be used by people who have a contract in place with Bouncer.
+All contributors must agree to the [Contributor License Agreement](Contributor%20License%20Agreement).
 
