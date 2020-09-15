@@ -118,7 +118,8 @@ CardVerify is closed source, and requires a license agreement. See the [license]
 
     **3b. Swift Configuration**
     
-    In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your API key.
+    If your app is configured using swift, in your `AppDelegate.swift` file, Add an import for `CardVerify`, and set
+    your API key.
     
     ```swift
     import UIKit
@@ -137,9 +138,10 @@ CardVerify is closed source, and requires a license agreement. See the [license]
     
     **3c. Objective-C Configuration**
     
-    In your `AppDelegate.m` file, Add an import for `CardVerify`, and set your API key.
+    If your app is configured using objective-c, in your `AppDelegate.m` file, Add an import for `CardVerify`, and set
+    your API key.
     
-    ```objective-c
+    ```objc
     #import "AppDelegate.h"
     ...
     @import CardVerify;
