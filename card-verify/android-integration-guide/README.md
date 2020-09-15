@@ -185,7 +185,7 @@ CardVerify is built to be customized to fit your UI.
 
 ### Basic modifications
 
-To modify text, colors, or padding of the default UI, see the [customization](android-ui-customization-guide.md) documentation.
+To modify text, colors, or padding of the default UI, see the [customization](ui-customization-guide.md) documentation.
 
 ### Extensive modifications
 
@@ -193,7 +193,7 @@ To modify arrangement or UI functionality, CardVerify can be used as a library f
 
 ## Developing
 
-See the [development docs](../../card-scan/android-integration-guide/android-development-guide.md) for details on developing for CardVerify.
+See the [development docs](../../card-scan/android-integration-guide/development-guide.md) for details on developing for CardVerify.
 
 ## License
 

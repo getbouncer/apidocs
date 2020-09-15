@@ -1,0 +1,230 @@
+# React native integration guide
+
+CardVerify React Native installation guide
+
+Visit our website at https://cardscan.io for examples. Native libraries for android and iOS are also available through
+our private repositories. Contact [license@getbouncer.com](mailto:license@getbouncer.com) for access to these libraries.
+
+CardVerify is closed source, and requires a license agreement. See the [license](#license) section for details.
+
+## Installation
+
+1. Install the [react-native-cardverify](https://www.npmjs.com/package/react-native-cardverify) package from NPM
+
+    Add a dependency to `react-native-cardverify` in your `package.json` file. The latest version of `react-native-cardverify`
+    can be added to your dependencies automatically by installing the SDK in the same directory as your `package.json` file.
+
+    ```
+    $ npm install react-native-cardverify
+    ```
+
+2. Install the iOS dependencies into your `ios` directory
+    
+    Add the `CardVerify` and `react-native-cardverify` pods to the `~/ios/Podfile` file in your app
+    
+    ```ruby
+    target 'Your App' do
+      ...
+      pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-1.0.5030.tgz'
+      pod 'react-native-cardverify', :path => '../node_modules/react-native-cardverify/react-native-cardverify.podspec'
+    end
+    ```
+   
+   _More installation options for iOS can be found in the **Installation** section of the [iOS integration guide](../ios-integration-guide)._
+
+3. Install the android native library
+
+    _Note: You will need a username and password to set up these repositories. Please contact [license@getbouncer.com](mailto:license@getbouncer.com) to request credentials._
+
+    Add the CardVerify repository to the android section of your react-native project. In your `android/build.gradle` file, append the following to repositories:
+    ```gradle
+    repositories {
+        ...
+        maven {
+            url "https://bouncerpaid.bintray.com/cardverify-ui-android"
+            credentials {
+                username "<FILL_IN_YOUR_USERNAME>"
+                password "<FILL_IN_YOUR_PASSWORD>"
+            }
+        }
+    }
+    ```
+   
+   Add the cardverify dependencies to the android section of your react-native project. In your `android/app/build.gradle` file, append the following to dependencies:
+   ```gradle
+   dependencies {
+       implementation 'com.getbouncer:cardverify-ui:2.0.0032'
+   }
+   ```
+
+4. Link native dependencies
+
+    For react-native version 0.59 and below, follow the [linking native dependencies](link-native-dependencies.md) guide.
+
+## Configuration
+
+1. Create an API key
+
+    Go to the [Bouncer API console](https://api.getbouncer.com/console) and create an API key.
+
+2. Configure Android
+
+    Open `android/app/src/main/java/[...]/MainApplication.java` and add the following lines to the end of the
+    `onCreate()` method.
+
+    ```java
+    import com.getbouncer.RNCardVerifyModule;
+   
+    ...
+    
+    public class MainApplication extends Application implements ReactApplication {
+   
+      ...
+    
+      public void onCreate() {
+   
+        ...
+   
+        // set your generated API key
+        RNCardVerifyModule.apiKey = "<YOUR_API_KEY_HERE>";
+   
+        // set to true for experimental expiry extraction
+        RNCardVerifyModule.enableExpiryExtraction = false;
+   
+        // set to true for experimental name extraction
+        RNCardVerifyModule.enableNameExtraction = false;
+      }
+    }
+    ```
+
+3. Configure iOS
+
+    **3a. Permissions**
+
+    CardVerify uses the device camera to scan cards, so you'll need to add a description of camera usage to your `Info.plist` file:
+    
+    ![XCode iOS camera permission](../../.gitbook/assets/ios_configure_camera_permission.png)
+    
+    The string you add here will be what CardVerify displays to your users when CardVerify first prompts them for permission
+    to use the camera.
+    
+    Alternatively, you can add this permission directly to your Info.plist file:
+    
+    ```xml
+    <key>NSCameraUsageDescription</key>
+    <string>We need access to your camera to scan your card</string>
+    ```
+
+    **3b. Swift Configuration**
+    
+    In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your API key.
+    
+    ```swift
+    import UIKit
+    import CardVerify
+    
+    @UIApplicationMain
+    class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        	 Bouncer.configure(apiKey: "<your_api_key_here>") 
+            // do any other necessary launch configuration
+            return true
+        }
+    }
+    ```
+    
+    **3c. Objective-C Configuration**
+    
+    In your `AppDelegate.m` file, Add an import for `CardVerify`, and set your API key.
+    
+    ```objective-c
+    #import "AppDelegate.h"
+    ...
+    @import CardVerify;
+    
+    @implementation AppDelegate
+    
+    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+    {
+      ...
+      [Bouncer configureWithApiKey:@"<your_api_key_here>"];
+    
+      return YES;
+    }
+    ```
+
+## Using
+
+react-native-cardverify exposes two static methods on the `CardVerify` object, `isSupportedAsync()` and `scan(bin, last4)`.
+
+To determine if the device supports CardVerify, use the `isSupportedAsync()` method. For example,
+
+```javascript
+import CardVerify from 'react-native-cardverify';
+
+CardVerify.isSupportedAsync()
+  .then(supported => {
+    if (supported) {
+      // YES, show scan button
+    } else {
+      // NO
+    }
+  })
+```
+
+To scan a card, use the `scan(bin, last4)` method.
+
+* `bin` is an optional string of the first 6 digits of the card to be scanned. If non-null, the user will be required to
+scan a card starting with these digits.
+* `last4` is an optional string of the last 4 digits of the card to be scanned. If non-null, the user will be required to
+scan a card ending with these digits.
+
+For example,
+
+```javascript
+import CardVerify from 'react-native-cardverify';
+
+CardVerify.scan(bin, last4)
+  .then(({action, scanId, payload, canceledReason}) => {
+    if (action === 'scanned') {
+      const { number, expiryMonth, expiryYear, issuer, legalName, payloadVersion, verificationPayload } = payload;
+      // Display information, use the verificationPayload to check card validity.
+    } else if (action === 'canceled') {
+      if (canceledReason === 'user_missing_card') {
+        // user tapped the "I don't have this card" button
+      }
+      if (canceledReason === 'user_canceled') {
+        // user closed the scan
+      }
+      if (canceledReason === 'camera_error') {
+        // an error occurred with the camera during scan
+      }
+      if (canceledReason === 'fatal_error') {
+        // an error occurred while processing scan results
+      }
+      if (canceledReason === 'unknown') {
+        // the scan was canceled for an unknown reason
+      }
+    } else if (action === 'skipped') {
+      // User skipped
+    } else if (action === 'unknown') {
+      // Unknown reason for scan canceled
+    }
+  })
+```
+
+## Troubleshooting
+
+See the [troubleshooting](troubleshooting.md) documentation.
+
+## Authors
+
+Adam Wushensky, Sam King, Zain ul Abi Din, Jaime Park, and Stefano Suryanto
+
+## License
+A licensing agreement is required to use this library.
+* Details of licensing (pricing, etc) are available at [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
+
+All contributors must agree to the [Contributor License Agreement](Contributor%20License%20Agreement).
+

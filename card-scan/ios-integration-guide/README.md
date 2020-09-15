@@ -4,13 +4,18 @@
 
 * Objective C or Swift 4.0 or higher
 * iOS 11.2 or higher \(supports development target of iOS 10.0 or higher\)
-* iOS 13 or higher for our name and expiration models. The number model will work on older versions of iOS and it will always return nil for the name and expiration fields.
+* iOS 13 or higher for our name and expiration models. The number model will work on older versions of iOS and it will
+always return nil for the name and expiration fields.
 
 ## Installation
 
 ### CocoaPods
 
 CardScan is available through [CocoaPods](https://cocoapods.org/). To install it, add the following line to your Podfile:
+
+```bash
+pod 'CardScan'
+```
 
 Or if you're using Stripe:
 
@@ -33,7 +38,8 @@ open YourProject.xcworkspace
 
 ### Carthage
 
-CardScan is also available through [Carthage](https://github.com/Carthage/Carthage). To install it, add the following line to your Cartfile:
+CardScan is also available through [Carthage](https://github.com/Carthage/Carthage). To install it, add the following
+line to your Cartfile:
 
 ```text
 github "getbouncer/cardscan-ios" "master"
@@ -45,11 +51,12 @@ Follow the [Carthage instructions for building for iOS](https://github.com/Carth
 
 CardScan uses the camera, so you'll need to add an description of camera usage to your Info.plist file:
 
-[![alt text](https://github.com/getbouncer/cardscan-ios/raw/master/Info.plist.camera.png)](https://github.com/getbouncer/cardscan-ios/raw/master/Info.plist.camera.png)
+![XCode iOS camera permission](../../.gitbook/assets/ios_configure_camera_permission.png)
 
-The string you add here will be what CardScan displays to your users when CardScan first prompts them for permission to use the camera.
+The string you add here will be what CardScan displays to your users when CardScan first prompts them for permission to
+use the camera.
 
-[![alt text](https://github.com/getbouncer/cardscan-ios/raw/master/camera_prompt.png)](https://github.com/getbouncer/cardscan-ios/raw/master/camera_prompt.png)
+![iOS camera prompt](../../.gitbook/assets/ios_camera_prompt.png)
 
 Alternatively, you can add this permission directly to your Info.plist file:
 
@@ -60,7 +67,8 @@ Alternatively, you can add this permission directly to your Info.plist file:
 
 ## Configure CardScan \(Swift\)
 
-Make sure that you get an [API key](https://api.getbouncer.com/console) and configure the library when your application launches. If you are planning to use a navigation controller or support rotation, put in the following line.
+Make sure that you get an [API key](https://api.getbouncer.com/console) and configure the library when your application
+launches. If you are planning to use a navigation controller or support rotation, put in the following line.
 
 ```swift
 import UIKit
@@ -85,11 +93,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-By setting the API key the SDK will send anonymous stats to Bouncer's servers. [This code snippet](https://github.com/getbouncer/cardscan-ios/blob/da77e36c49f1de4b678e7ecaab56cc1466602716/CardScan/Classes/ScanStats.swift#L50) shows what we send.
+By setting the API key the SDK will send anonymous stats to Bouncer's servers.
+[This code snippet](https://github.com/getbouncer/cardscan-ios/blob/da77e36c49f1de4b678e7ecaab56cc1466602716/CardScan/Classes/ScanStats.swift#L50)
+shows what we send.
 
 ## Using CardScan \(Swift\)
 
-To use CardScan, you create a `ScanViewController`, display it, and implement the `ScanDelegate` protocol to get the results.
+To use CardScan, you create a `ScanViewController`, display it, and implement the `ScanDelegate` protocol to get the
+results.
 
 ```swift
 import UIKit
@@ -145,7 +156,9 @@ class ViewController: UIViewController, ScanDelegate {
 
 ## iOS 10 \(Swift\)
 
-CardScan makes heavy use of CoreML, which Apple introduced in iOS 11. You can include the CardScan library in any projects that support a development target of iOS 10.0 or higher, but it will only run on devices that are running iOS 11 or higher.
+CardScan makes heavy use of CoreML, which Apple introduced in iOS 11. You can include the CardScan library in any
+projects that support a development target of iOS 10.0 or higher, but it will only run on devices that are running iOS
+11 or higher.
 
 To check if a device supports CardScan at runtime, use the `ScanViewController.isCompatible` method:
 
@@ -157,7 +170,8 @@ if !ScanViewController.isCompatible() {
 
 ## Configure CardScan \(Objective C\)
 
-Make sure that you get an [API key](https://api.getbouncer.com/console) and configure the library when your application launches:
+Make sure that you get an [API key](https://api.getbouncer.com/console) and configure the library when your application
+launches:
 
 ```objectivec
 #import "AppDelegate.h"
@@ -175,11 +189,14 @@ Make sure that you get an [API key](https://api.getbouncer.com/console) and conf
 @end
 ```
 
-By setting the API key the SDK will send anonymous stats to Bouncer's servers. [This code snippet](https://github.com/getbouncer/cardscan-ios/blob/da77e36c49f1de4b678e7ecaab56cc1466602716/CardScan/Classes/ScanStats.swift#L50) shows what we send.
+By setting the API key the SDK will send anonymous stats to Bouncer's servers.
+[This code snippet](https://github.com/getbouncer/cardscan-ios/blob/da77e36c49f1de4b678e7ecaab56cc1466602716/CardScan/Classes/ScanStats.swift#L50)
+shows what we send.
 
 ## Using CardScan \(Objective C\)
 
-To use CardScan, you create a `ScanViewController`, display it, and implement the `ScanDelegate` protocol to get the results.
+To use CardScan, you create a `ScanViewController`, display it, and implement the `ScanDelegate` protocol to get the
+results.
 
 ```objectivec
 #import "ViewController.h"
@@ -233,7 +250,9 @@ To use CardScan, you create a `ScanViewController`, display it, and implement th
 
 ## iOS 10 \(Objective C\)
 
-CardScan makes heavy use of CoreML, which Apple introduced in iOS 11. You can include the CardScan library in any projects that support a development target of iOS 10.0 or higher, but it will only run on devices that are running iOS 11 or higher.
+CardScan makes heavy use of CoreML, which Apple introduced in iOS 11. You can include the CardScan library in any
+projects that support a development target of iOS 10.0 or higher, but it will only run on devices that are running iOS
+11 or higher.
 
 To check if a device supports CardScan at runtime, use the `ScanViewController.isCompatible` method:
 
@@ -245,9 +264,10 @@ if (![ScanViewController isCompatible]) {
 
 ## Adding to Your App
 
-When added to your app successfully, you should see the card numbers being passed into your payment form. This is what it looks like using a standard Stripe mobile payment form:
+When added to your app successfully, you should see the card numbers being passed into your payment form. This is what
+it looks like using a standard Stripe mobile payment form:
 
-[![alt text](https://raw.githubusercontent.com/getbouncer/cardscan-ios/master/card_scan.gif)](https://raw.githubusercontent.com/getbouncer/cardscan-ios/master/card_scan.gif)
+![cardscan demo](../../.gitbook/assets/ios_card_scan_demo.gif)
 
 ## Authors
 
@@ -270,7 +290,7 @@ After this period commercial applications need to convert to a licensing agreeme
 What's allowed under the license:
 
 * Free use for any app for 90 days \(for demos, evaluations, hackathons, etc\).
-* Contributions \(contributors must agree to the [Contributor License Agreement](https://github.com/getbouncer/cardscan-ios/blob/master/Contributor%20License%20Agreement)\)
+* Contributions \(contributors must agree to the [Contributor License Agreement](https://github.com/getbouncer/cardscan-ios/blob/master/Contributor%20License%20Agreement))
 * Any modifications as needed to work in your app
 
 What's not allowed under the license:

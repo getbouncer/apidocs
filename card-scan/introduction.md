@@ -12,7 +12,7 @@ description: >-
 
 {% page-ref page="android-integration-guide/" %}
 
-{% page-ref page="react-native-integration-guide.md" %}
+{% page-ref page="react-native-integration-guide/" %}
 
 
 
