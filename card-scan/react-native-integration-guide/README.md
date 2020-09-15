@@ -2,7 +2,7 @@
 
 CardScan React Native installation guide
 
-Visit our website at https://cardscan.io for examples. Native libraries for
+Visit our website at https://www.getbouncer.com for examples. Native libraries for
 [android](https://github.com/getbouncer/cardscan-android) and [iOS](https://github.com/getbouncer/cardscan-ios) are also
 available in github.
 
@@ -222,7 +222,7 @@ In short, this library will remain free forever for non-commercial applications,
 
 After this period commercial applications need to convert to a licensing agreement to continue to use this library.
 
-* Details of licensing \(pricing, etc\) are available at [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
+* Details of licensing \(pricing, etc\) are available at [https://getbouncer.com/pricing](https://getbouncer.com/pricing), or you can contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
 ### More detailed summary
 
