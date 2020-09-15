@@ -4,8 +4,8 @@ Bouncer's secure counting is a counter that is based on security hardware found 
 
 You can learn more about our secure counting abstraction:
 
-* [Whitepaper](https://github.com/getbouncer/apidocs/raw/master/assets/secure_counting_whitepaper.pdf) that describes why one would want to count and the basics behind how it works from a conceptual level.
-* [API docs](untitled.md) that describe the REST interfaces for accessing secure counters.
+* [Whitepaper](../../assets/secure_counting_whitepaper.pdf) that describes why one would want to count and the basics behind how it works from a conceptual level.
+* [API docs](secure_counting_rest.md) that describe the REST interfaces for accessing secure counters.
 * [iOS integration guide](secure-counting-for-ios.md) that show how to provision a DeviceCheck certificate for your iOS app so that Bouncer can use it for secure counting.
 
 ## Setting up secure counting

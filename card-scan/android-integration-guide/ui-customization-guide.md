@@ -8,17 +8,19 @@ description: >-
 
 ## Contents
 
-* [Text and Localization](android-ui-customization-guide.md#text-and-localization)
-* [Colors](android-ui-customization-guide.md#colors)
-* [Dimensions](android-ui-customization-guide.md#dimensions)
-* [Icons and Visual Elements](android-ui-customization-guide.md#icons-and-visual-elements)
-* [Screen Elements](android-ui-customization-guide.md#screen-elements)
+* [Text and Localization](ui-customization-guide.md#text-and-localization)
+* [Colors](ui-customization-guide.md#colors)
+* [Dimensions](ui-customization-guide.md#dimensions)
+* [Icons and Visual Elements](ui-customization-guide.md#icons-and-visual-elements)
+* [Screen Elements](ui-customization-guide.md#screen-elements)
 
 ## Text and Localization
 
-CardScan uses standard android XML configuration files to define strings displayed in the UI. This allows clients to override the default text values and localize the text.
+CardScan uses standard android XML configuration files to define strings displayed in the UI. This allows clients to
+override the default text values and localize the text.
 
-The most up to date values and descriptions for these fields can be viewed in [GitHub](https://github.com/getbouncer/cardscan-android/blob/master/scan-ui/src/main/res/values/strings.xml).
+The most up to date values and descriptions for these fields can be viewed in
+[GitHub](https://github.com/getbouncer/cardscan-android/blob/master/scan-ui/src/main/res/values/strings.xml).
 
 ### Overriding Defaults
 
@@ -69,11 +71,14 @@ Will result in the following change to the interface:
 
 ### Localization
 
-All the fields listed above can be localized similarly to how they can be overridden. To localize the text, create a new file in your app's resources \(`src/main/res/values-<locale>/strings.xml`\) and define the strings you would like to localize. The library will default to the values in your app for each locale.
+All the fields listed above can be localized similarly to how they can be overridden. To localize the text, create a new
+file in your app's resources \(`src/main/res/values-<locale>/strings.xml`\) and define the strings you would like to
+localize. The library will default to the values in your app for each locale.
 
 #### Example
 
-To provide support for French localization, create the file `src/main/res/values-fr/strings.xml` with the following values:
+To provide support for French localization, create the file `src/main/res/values-fr/strings.xml` with the following
+values:
 
 ```markup
 <resources>
@@ -86,7 +91,8 @@ To provide support for French localization, create the file `src/main/res/values
 
 English locale devices will still get the default values, and French locale devices will see the French translations.
 
-Please note that GoogleTranslate was used to create the above translations. We strongly recommend using translators fluent in the desired language.
+Please note that GoogleTranslate was used to create the above translations. We strongly recommend using translators
+fluent in the desired language.
 
 #### Left to Right Support
 
@@ -94,9 +100,11 @@ CardScan fully supports left-to-right languages.
 
 ## Colors
 
-CardScan uses standard android XML configuration files to define colors displayed in the UI. This allows clients to override the default colors to better match the theme of their app.
+CardScan uses standard android XML configuration files to define colors displayed in the UI. This allows clients to
+override the default colors to better match the theme of their app.
 
-The most up to date values and descriptions for these fields can be viewed in [GitHub](https://github.com/getbouncer/cardscan-android/blob/master/scan-ui/src/main/res/values/colors.xml).
+The most up to date values and descriptions for these fields can be viewed in
+[GitHub](https://github.com/getbouncer/cardscan-android/blob/master/scan-ui/src/main/res/values/colors.xml).
 
 The CardScan SDK uses the following color definitions:
 
@@ -128,11 +136,14 @@ The CardScan SDK uses the following color definitions:
 | **`bouncerDebugMediumConfidence`** | When using debug mode, the color of boxes to draw around medium confidence text | `#DDDD00` |
 | **`bouncerDebugLowConfidence`** | When using debug mode, the color of boxes to draw around low confidence text | `#FF0000` |
 
-To override any of these values with your own, create a new file in your app's resources \(`src/main/res/values/colors.xml`\) and define the colors you would like to override. The library will default to the values in your app.
+To override any of these values with your own, create a new file in your app's resources
+\(`src/main/res/values/colors.xml`\) and define the colors you would like to override. The library will default to the
+values in your app.
 
 ### Example:
 
-To change the background scan color to white with a black border around the scan window, add the following to your color resource file:
+To change the background scan color to white with a black border around the scan window, add the following to your color
+resource file:
 
 ```markup
 <resources>
@@ -154,9 +165,12 @@ This will result in the following change to the interface:
 
 ## Dimensions
 
-CardScan uses standard android XML configuration files to define dimensions used to lay out the UI, including padding, text size, line widths, and more. This allows clients to override the default dimensions to better match the theme of their app.
+CardScan uses standard android XML configuration files to define dimensions used to lay out the UI, including padding,
+text size, line widths, and more. This allows clients to override the default dimensions to better match the theme of
+their app.
 
-The most up to date values and descriptions for these fields can be viewed in [GitHub](https://github.com/getbouncer/cardscan-android/blob/master/scan-ui/src/main/res/values/dimensions.xml).
+The most up to date values and descriptions for these fields can be viewed in
+[GitHub](https://github.com/getbouncer/cardscan-android/blob/master/scan-ui/src/main/res/values/dimensions.xml).
 
 The CardScan SDK uses the following dimension definitions:
 
@@ -184,11 +198,14 @@ The CardScan SDK uses the following dimension definitions:
 | **`bouncerButtonMargin`** | The minimum amount of space surrounding the close and torch buttons | `16dp` |
 | **`bouncerIconStrokeWidth`** | The width of the lines of the close and torch buttons | `2` |
 
-To override any of these values with your own, create a new file in your app's resources \(`src/main/res/values/dimensions.xml`\) and define the dimensions you would like to override. The library will default to the values in your app.
+To override any of these values with your own, create a new file in your app's resources
+\(`src/main/res/values/dimensions.xml`\) and define the dimensions you would like to override. The library will default
+to the values in your app.
 
 ### Example:
 
-To shift the placement of the view finder up to the top 30% of the screen and increase the view finder outline width, add the following to your dimensions resource file:
+To shift the placement of the view finder up to the top 30% of the screen and increase the view finder outline width,
+add the following to your dimensions resource file:
 
 ```markup
 <resources>
@@ -203,9 +220,11 @@ This will result in the following change to the interface:
 
 ## Icons and Visual Elements
 
-CardScan uses standard android icon files and formats. This allows clients to override the default icons to better match the theme of their app.
+CardScan uses standard android icon files and formats. This allows clients to override the default icons to better match
+the theme of their app.
 
-The most up to date list of icons can be viewed in [GitHub](https://github.com/getbouncer/cardscan-android/tree/master/scan-ui/src/main/res/drawable).
+The most up to date list of icons can be viewed in
+[GitHub](https://github.com/getbouncer/cardscan-android/tree/master/scan-ui/src/main/res/drawable).
 
 CardScan uses the following drawables:
 
@@ -233,7 +252,8 @@ CardScan uses the following drawables:
 
 ### Example
 
-To replace the torch \(off state, dark background\) icon with an icon of your chosing, create a new file `bouncer_flash_off_dark.xml`. In this example, we replace the lightning bolt with an empty circle.
+To replace the torch \(off state, dark background\) icon with an icon of your chosing, create a new file
+`bouncer_flash_off_dark.xml`. In this example, we replace the lightning bolt with an empty circle.
 
 ![new file](../../.gitbook/assets/customized_icons_example.png)
 

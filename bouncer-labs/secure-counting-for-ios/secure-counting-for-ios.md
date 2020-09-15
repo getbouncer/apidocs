@@ -2,7 +2,7 @@
 
 As part of your integration with Bouncer, you can use our "secure counting" abstraction. Secure counting is an abstraction on top of DeviceCheck that enables us to count events, like cards added, on a per device basis. Because it's using DeviceCheck, it respects end-user privacy while using the hardware bits in DeviceCheck to maintain monotonically increasing counts. These counts remain robust even across device resets, making it a useful signal for detecting financial fraud.
 
-For more information on how to access counts server side, see our [REST API](https://github.com/getbouncer/apidocs/blob/master/server/secure_counting_rest.md) documentation.
+For more information on how to access counts server side, see our [REST API](secure_counting_rest.md) documentation.
 
 ## iOS APIs for incrementing counts
 

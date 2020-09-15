@@ -37,11 +37,11 @@ open YourProject.xcworkspace
 
 CardVerify uses the camera, so you'll need to add an description of camera usage to your Info.plist file:
 
-[![alt text](https://github.com/getbouncer/cardscan-ios/raw/master/Info.plist.camera.png)](https://github.com/getbouncer/cardscan-ios/raw/master/Info.plist.camera.png)
+![XCode iOS camera permission](../../.gitbook/assets/ios_configure_camera_permission.png)
 
 The string you add here will be what CardVerify displays to your users when CardVerify first prompts them for permission to use the camera.
 
-[![alt text](https://github.com/getbouncer/cardscan-ios/raw/master/camera_prompt.png)](https://github.com/getbouncer/cardscan-ios/raw/master/camera_prompt.png)
+![iOS camera prompt](../../.gitbook/assets/ios_camera_prompt.png)
 
 Alternatively, you can add this permission directly to your Info.plist file:
 
