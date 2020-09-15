@@ -15,8 +15,27 @@ functionality._
 
 ## Demo
 
-An app demonstrating the basic capabilities of this library is available in
-[github](https://github.com/getbouncer/cardscan-android).
+The [cardscan repository](https://github.com/getbouncer/cardscan-android) contains a demonstration app for the CardScan
+product. To build and install this library follow the following steps:
+
+1. Clone the repository from github
+    ```bash
+    git clone --recursive https://github.com/getbouncer/cardscan-android
+    ```
+    
+2. Build the library using gradle or [android studio](https://developer.android.com/studio).
+    a. Using android studio, open the directory `cardscan-android`. Install the app on your device or an emulator by
+    clicking the play button in the top right of android studio.
+    
+    ![build_android_studio](../../.gitbook/assets/android_build_android_studio.png)
+    
+    b. Using gradle, build the demo app by executing the following command:
+    
+    ```bash
+    ./gradlew cardscan-demo:assembleRelease
+    ```
+    This will create a release APK in the `cardscan-demo/build/outputs/apk` directory. Copy this file to your device and
+    install it.
 
 ## SDK Size
 
