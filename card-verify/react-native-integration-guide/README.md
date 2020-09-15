@@ -141,7 +141,7 @@ CardVerify is closed source, and requires a license agreement. See the [license]
     If your app is configured using objective-c, in your `AppDelegate.m` file, Add an import for `CardVerify`, and set
     your API key.
     
-    ```objc
+    ```objectivec
     #import "AppDelegate.h"
     ...
     @import CardVerify;
