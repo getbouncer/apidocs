@@ -26,7 +26,7 @@ CardVerify is closed source, and requires a license agreement. See the [license]
     ```ruby
     target 'Your App' do
       ...
-      pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-1.0.5030.tgz'
+      pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-1.0.5031.tgz'
       pod 'react-native-cardverify', :path => '../node_modules/react-native-cardverify/react-native-cardverify.podspec'
     end
     ```

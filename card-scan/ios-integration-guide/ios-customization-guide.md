@@ -10,6 +10,18 @@ Overall we provide two different classes for scanning credit and debit cards wit
 
 `ScanViewController` is a battle tested UI that has scanned over 50 million cards and exposes some properties that you can set to adjust the UI. However, `ScanViewController` uses storyboards for UI layout, so you can't subclass it. Eventually we'll move it over to programmatic UI layout as well by subclassing `SimpleScanViewController` ourselves, but for now we're confined to property setting only..
 
+## Localization
+
+The following strings are public, static, and mutable, and can be reassigned to meet your localization needs:
+
+| Name | Description | Default Value |
+| :--- | :--- | :--- |
+| **SimpleScanViewController.descriptionString** | Instructions shown above the scan window | Scan Card |
+| **SimpleScanViewController.enableCameraPermissionString** | Title of the camera permission request message | Enable camera access |
+| **SimpleScanViewController.enableCameraPermissionsDescriptionString** | Message of the camera permission request message | To scan your card you'll need to update your phone settings |
+| **SimpleScanViewController.closeButtonString** | Close button shown in the top left corner of the scan window | Close |
+| **SimpleScanViewController.torchButtonString** | Torch button shown in the top right corner of the scan window | Torch |
+
 ## Full UI customization: SimpleScanViewController
 
 This class is all programmatic UI with a small bit of logic to handle the events that `ScanBaseViewController` expects subclasses to implement. Our goal is to have a fully featured Card Scan implementation with a minimal UI that people can customize fully. You can use this directly or you can subclass and customize it. If you'd like to use an off-the-shelf design as well, we suggest using the `ScanViewController`, which uses mature and well tested UI design patterns.
@@ -19,7 +31,7 @@ This class is all programmatic UI with a small bit of logic to handle the events
 ```text
  ------------------------------------
  |   |                          |   |
- |-Cancel                     Torch-|
+ |-Close                      Torch-|
  |                                  |
  |                                  |
  |                                  |
@@ -38,7 +50,7 @@ This class is all programmatic UI with a small bit of logic to handle the events
  |  ------------------------------  |
  | |              |               | |
  | |              |               | |
- | |   Enable camera permissions  | |
+ | |     Enable camera access     | |
  | |              |               | |
  | |              |               | |
  | |---To scan your card you...---| |
