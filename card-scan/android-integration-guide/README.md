@@ -5,7 +5,6 @@ description: Scan a payment card with CardScan for Android.
 # Android integration guide
 
 ## Requirements
-
 * Android API level 21 or higher
 * AndroidX compatibility
 * Kotlin coroutine compatibility
@@ -14,7 +13,6 @@ _Note: Your app does not have to be written in kotlin to integrate this library,
 functionality._
 
 ## Demo
-
 The [cardscan repository](https://github.com/getbouncer/cardscan-android) contains a demonstration app for the CardScan
 product. To build and install this library follow the following steps:
 
@@ -38,7 +36,6 @@ product. To build and install this library follow the following steps:
     install it.
 
 ## SDK Size
-
 We try to keep our SDK as small as possible while maintaining good performance. The size impact including our SDK into
 your app varies depending on some features of your app:
 
@@ -62,7 +59,6 @@ android {
 ```
 
 ## Installation
-
 These libraries are published in the [jcenter](https://jcenter.bintray.com/com/getbouncer/) repository, so for most
 gradle configurations you only need to add the dependencies to your app's `build.gradle` file:
 
@@ -73,7 +69,6 @@ dependencies {
 ```
 
 ## Using
-
 This library provides a user interface through which payment cards can be scanned. API keys can be created through the
 [Bouncer API console](https://api.getbouncer.com/console).
 
@@ -140,14 +135,12 @@ class LaunchActivity : AppCompatActivity, CardScanActivityResultHandler {
 ```
 
 ### Library warm up
-
 CardScan will attempt to update the ML models used to scan payment cards. To ensure these models are upgraded by the
 time CardScan runs, please make sure to call the `warmUp` method on CardScan as early in the app flow as possible. In
 most cases, this can be done in the `onApplicationCreate` method of your app. Note that `warmUp` processes on a
 background thread and will not affect your app's startup time.
 
 #### Adding an application lifecycle listener
-
 If your app doesn't already listen to application lifecycle events, you can extend the `Application` object and connect
 it using your manifest by setting `android:name` on your application node:
 
@@ -184,40 +177,32 @@ public class MyApplication extends Application {
 ```
 
 ## Customizing
-
 This library is built to be customized to fit your UI.
 
 ### Basic modifications
-
 To modify text, colors, or padding of the default UI, see the [customization documentation](ui-customization-guide.md).
 
 ### Extensive modifications
-
 To modify arrangement or UI functionality, you can create a custom implementation of this library. See the
 [example single-activity demo app](https://github.com/getbouncer/cardscan-android/blob/master/demo/src/main/java/com/getbouncer/cardscan/demo/SingleActivityDemo.java).
 
 ## Supporting more cards
-
 Though CardScan supports several cards, you may need to add support for cards specific to your business, instructions
-can be found in the [card support docs]().
+can be found in the [card support docs](card-support.md).
 
 ## Developing
-
 The basics of the CardScan architecture are outlined in the [architecture docs](architecture-overview.md).
 
 See the [development docs](development-guide.md) for details on developing for this library.
 
 ## Authors
-
 Adam Wushensky, Sam King, Zain ul Abi Din, and Sven Kuhne
 
 ## License
-
 This library is available under paid and free licenses. See the
 [LICENSE](https://github.com/getbouncer/cardscan-android/blob/master/LICENSE) file for the full license text.
 
 ### Quick summary
-
 In short, this library will remain free forever for non-commercial applications, but use by commercial applications is
 limited to 90 days, after which time a licensing agreement is required. We're also adding some legal liability
 protections.
@@ -227,7 +212,6 @@ After this period commercial applications need to convert to a licensing agreeme
 * Details of licensing \(pricing, etc\) are available at [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
 ### More detailed summary
-
 What’s allowed under the license:
 
 * Free use for any app for 90 days \(for demos, evaluations, hackathons, etc\).
