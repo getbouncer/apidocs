@@ -180,26 +180,20 @@ class LaunchActivity : Activity, CardVerifyActivityResultHandler {
 CardVerify will return an encrypted payload containing information about the payment card the user scanned. As in the example above, you can receive this payload using your activity or fragment's `onActivityResult` method.
 
 ## Customizing
-
 CardVerify is built to be customized to fit your UI.
 
 ### Basic modifications
-
 To modify text, colors, or padding of the default UI, see the [customization](ui-customization-guide.md) documentation.
 
 ### Extensive modifications
-
 To modify arrangement or UI functionality, CardVerify can be used as a library for your custom implementation. See the [example single-activity demo app](https://github.com/getbouncer/cardscan-android/blob/master/demo/src/main/java/com/getbouncer/cardscan/demo/SingleActivityDemo.java).
 
 ## Developing
-
 See the [development docs](../../card-scan/android-integration-guide/development-guide.md) for details on developing for CardVerify.
 
 ## License
-
 A licensing agreement is required to use this library.
 
 * Details of licensing \(pricing, etc\) are available at [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
 All contributors must agree to the [CLA](https://github.com/getbouncer/cardscan-android/blob/master/Contributor%20License%20Agreement).
-
