@@ -39,6 +39,11 @@ product. To build and install this library follow the following steps:
     
      ![build_xcode](../../.gitbook/assets/ios_build_xcode.png)
 
+## iPad Support
+CardScan defaults to a `formSheet` for the iPad, which handles all screen orientations and autorotation correctly.
+However, if you'd like to use CardScan in full screen mode instead, make sure to select the `Requires full screen`
+option in your `Info.plist` file via XCode, or else non-portrait orientations won't work.
+
 ## Installation
 
 ### CocoaPods

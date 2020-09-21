@@ -10,6 +10,11 @@ description: Scan a payment card for fraud protection with CardVerify Check for 
 * iOS 13 or higher for our name and expiration models. The number model will work on older versions of iOS and it will
 always return nil for the name and expiration fields.
 
+## iPad Support
+CardScan defaults to a `formSheet` for the iPad, which handles all screen orientations and autorotation correctly.
+However, if you'd like to use CardScan in full screen mode instead, make sure to select the `Requires full screen`
+option in your `Info.plist` file via XCode, or else non-portrait orientations won't work.
+
 ## Installation
 CardVerify is published to the bouncer private repositories. Please request access to this repository by emailing
 [license@getbouncer.com](mailto:license@getbouncer.com) with a request for access.
