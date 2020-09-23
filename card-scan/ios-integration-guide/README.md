@@ -49,12 +49,13 @@ option in your `Info.plist` file via XCode, or else non-portrait orientations
 won't work.
 
 ## Installation
+CardScan is available through [CocoaPods](https://cocoapods.org/) and
+[Carthage](https://github.com/Carthage/Carthage).
 
 {% tabs %}
 {% tab title="CocoaPods" %}
 
-CardScan is available through [CocoaPods](https://cocoapods.org/). To install
-it, add the following line to your Podfile:
+Add the following line to your Podfile:
 
 ```bash
 pod 'CardScan'
@@ -84,8 +85,7 @@ open YourProject.xcworkspace
 
 {% tab title="Carthage" %}
 
-CardScan is available through [Carthage](https://github.com/Carthage/Carthage).
-To install it, add the following line to your Cartfile:
+Add the following line to your Cartfile:
 
 ```text
 github "getbouncer/cardscan-ios" "master"
