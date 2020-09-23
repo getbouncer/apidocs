@@ -95,8 +95,10 @@ CardScan is open source, and available under a free-to-try license. See the [lic
     ```
 
     **3b. Configuration**
+    
     {% tabs %}
     {% tab title="Swift" %}
+    
     In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your API key.
     
     ```swift
@@ -113,9 +115,11 @@ CardScan is open source, and available under a free-to-try license. See the [lic
         }
     }
     ```
+   
     {% endtab %}
     
     {% tab title="Objective C" %}
+    
     In your `AppDelegate.m` file, Add an import for `CardVerify`, and set your API key.
     
     ```objectivec
@@ -133,6 +137,7 @@ CardScan is open source, and available under a free-to-try license. See the [lic
       return YES;
     }
     ```
+   
     {% endtab %}
     {% endtabs %}
 

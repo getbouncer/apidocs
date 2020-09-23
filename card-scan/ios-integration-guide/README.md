@@ -119,19 +119,26 @@ import CardScan
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
+    ) -> Bool {
         ScanViewController.configure(apiKey: "<your_api_key_here>") 
         // do any other necessary launch configuration
         return true
     }
     
-    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        // if you are planning to embed scanViewController into a navigation controller, 
-        // put this line to handle rotations
+    func application(
+        _ application: UIApplication,
+        supportedInterfaceOrientationsFor window: UIWindow?
+    ) -> UIInterfaceOrientationMask {
+        // if you are planning to embed scanViewController into a navigation
+        // controller, put this line to handle rotations
         return ScanBaseViewController.supportedOrientationMaskOrDefault()
     }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Objective C" %}
@@ -152,6 +159,7 @@ Configure the library when your application launches by adding CardScan to your 
 
 @end
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -161,6 +169,7 @@ from the scan.
 
 {% tabs %}
 {% tab title="Swift" %}
+
 ```swift
 import UIKit
 import CardScan
@@ -169,10 +178,12 @@ class ViewController: UIViewController, ScanDelegate {
     override func viewWillAppear() {
         super.viewWillAppear()
         
-        // It's important that this goes in viewWillAppear because the user may deny permission on the
-        // ScanViewController, in which case the button must be hidden to avoid future presses.
+        // It's important that this goes in viewWillAppear because the user may
+        // deny permission on the ScanViewController, in which case the button
+        // must be hidden to avoid future presses.
         if !ScanViewController.isCompatible() {
-            // Hide your "scan card" button because this device isn't compatible with CardScan
+            // Hide your "scan card" button because this device isn't compatible
+            // with CardScan
         }
     }
     
@@ -192,24 +203,31 @@ class ViewController: UIViewController, ScanDelegate {
         self.dismiss(animated: true)
     }
     
-    func userDidScanCard(_ scanViewController: ScanViewController, creditCard: CreditCard) {
+    func userDidScanCard(
+        _ scanViewController: ScanViewController,
+        creditCard: CreditCard
+    ) {
         let number = creditCard.number
         let expiryMonth = creditCard.expiryMonth
         let expiryYear = creditCard.expiryYear
 
-        // If you're using Stripe and you include the CardScan/Stripe pod, you can get `STPCardParams`
-        // directly from CardScan `CreditCard` objects, which you can use with Stripe's APIs
+        // If you're using Stripe and you include the CardScan/Stripe pod, you
+        // can get `STPCardParams` directly from CardScan `CreditCard` objects,
+        // which you can use with Stripe's APIs
         let cardParams = creditCard.cardParams()
 
-        // At this point you have the credit card number and optionally the expiry. You can either
-        // tokenize the number or prompt the user for more information (e.g., CVV) before tokenizing.
+        // At this point you have the credit card number and optionally the
+        // expiry. You can either tokenize the number or prompt the user for
+        // more information (e.g., CVV) before tokenizing.
         self.dismiss(animated: true)
     }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Objective C" %}
+
 ```objectivec
 #import "ViewController.h"
 @import Stripe;
@@ -223,7 +241,8 @@ class ViewController: UIViewController, ScanDelegate {
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (![ScanViewController isCompatible]) {
-         // Hide the "scan card" button because this device isn't compatible with CardScan       
+        // Hide the "scan card" button because this device isn't compatible
+        // with CardScan       
     }
 }
 
@@ -245,17 +264,20 @@ class ViewController: UIViewController, ScanDelegate {
     NSString *expiryMonth = creditCard.expiryMonth;
     NSString *expiryYear = creditCard.expiryYear;
     
-    // If you're using Stripe and you include the CardScan/Stripe pod, you can get `STPCardParams`
-    // directly from CardScan `CreditCard` objects, which you can use with Stripe's APIs
+    // If you're using Stripe and you include the CardScan/Stripe pod, you can
+    // get `STPCardParams` directly from CardScan `CreditCard` objects, which
+    // you can use with Stripe's APIs
     STPCardParams *cardParams = [creditCard cardParams];
     
-    // At this point you have the credit card number and optionally the expiry. You can either
-    // tokenize the number or prompt the user for more information (e.g., CVV) before tokenizing.
+    // At this point you have the credit card number and optionally the expiry.
+    // You can either tokenize the number or prompt the user for more
+    // information (e.g., CVV) before tokenizing.
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -268,19 +290,23 @@ To check if a device supports CardScan at runtime, use the `ScanViewController.i
 
 {% tabs %}
 {% tab title="Swift" %}
+
 ```swift
 if !ScanViewController.isCompatible() {
     self.scanCardButton.isHidden = true
 }
 ```
+
 {% endtab %}
 
 {% tab title="Objective C" %}
+
 ```objectivec
 if (![ScanViewController isCompatible]) {
-    self.scanCardButton.isHidden = true
+    self.scanCardButton.isHidden = true;
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -331,4 +357,3 @@ problems caused by this library
 ### Questions? Concerns?
 Please email us at [license@getbouncer.com](mailto:license@getbouncer.com) or ask us on
 [slack](https://getbouncer.slack.com/).
-

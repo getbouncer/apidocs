@@ -40,13 +40,19 @@ This code example uses a `Camera2Adapter` to stream preview images from the devi
 
 {% tabs %}
 {% tab title="Kotlin" %}
+
 ```kotlin
 class MyCameraActivity : AppCompatActivity(), CameraErrorListener {
     private val cameraAdapter by lazy {
         Camera2Adapter(
             activity = this,
-            previewView = textureView, // A TextureView where the preview will show. If null, no preview will be shown.
-            minimumResolution = MINIMUM_RESOLUTION, // the minimum image resolution that should be streamed.
+
+            // A TextureView where the preview will show. If null, no preview
+            // will be shown.
+            previewView = textureView,
+
+            // the minimum image resolution that should be streamed.
+            minimumResolution = MINIMUM_RESOLUTION,
             cameraErrorListener = this
         )
     }
@@ -76,11 +82,17 @@ class MyCameraActivity : AppCompatActivity(), CameraErrorListener {
     }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Java" %}
+
 ```java
-public class MyCameraActivity extends AppCompatActivity implements CameraErrorListener {
+public class MyCameraActivity
+    extends AppCompatActivity
+    implements CameraErrorListener {
+
+    // Most cardscan models require a minimum resolution of 1280x720
     private static final Size MINIMUM_RESOLUTION = new Size(1280, 720);
 
     private CameraAdapter<Bitmap> cameraAdapterInstance = null;
@@ -88,10 +100,15 @@ public class MyCameraActivity extends AppCompatActivity implements CameraErrorLi
     private CameraAdapter<Bitmap> getCameraAdapter() {
         if (cameraAdapterInstance == null) {
             cameraAdapterInstance = Camera2Adapter(
-                    /* activity */ this,
-                    /* previewView */ (TextureView) findViewById(R.id.textureView), // A TextureView where the preview will show. If null, no preview will be shown.
-                    /* minimumResolution */ MINIMUM_RESOLUTION, // the minimum image resolution that should be streamed.
-                    /* cameraErrorListener */ this
+                /* activity */ this,
+
+                // A TextureView where the preview will show. If null, no
+                // preview will be shown.
+                /* previewView */ (TextureView) findViewById(R.id.textureView),
+
+                // the minimum image resolution that should be streamed.
+                /* minimumResolution */ MINIMUM_RESOLUTION,
+                /* cameraErrorListener */ this
             );
         }
 
@@ -134,6 +151,7 @@ public class MyCameraActivity extends AppCompatActivity implements CameraErrorLi
     }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 

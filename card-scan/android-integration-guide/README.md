@@ -74,6 +74,7 @@ This library provides a user interface through which payment cards can be scanne
 
 {% tabs %}
 {% tab title="Kotlin" %}
+
 ```kotlin
 class LaunchActivity : AppCompatActivity, CardScanActivityResultHandler {
 
@@ -88,21 +89,35 @@ class LaunchActivity : AppCompatActivity, CardScanActivityResultHandler {
                 activity = LaunchActivity.this,
                 apiKey = API_KEY,
                 enableEnterCardManually = true,
-                enableExpiryExtraction = true,  // expiry extraction is in beta. See the comment below.
-                enableNameExtraction = true  // name extraction is in beta. See the comment below.
+
+                // expiry extraction is in beta. See the comment below.
+                enableExpiryExtraction = true,
+
+                // name extraction is in beta. See the comment below.
+                enableNameExtraction = true
             )
         }
 
         /*
-         * To test name and/or expiry extraction, please first provision an API key, then reach out to
-         * support@getbouncer.com with details about your use case and estimated volumes.
+         * To test name and/or expiry extraction, please first provision an API
+         * key, then reach out to support@getbouncer.com with details about your
+         * use case and estimated volumes.
          *
-         * If you are not planning to use name or expiry extraction, you can omit the line below.
+         * If you are not planning to use name or expiry extraction, you can
+         * omit the line below.
          */
-        CardScanActivity.warmUp(this, API_KEY, /* enableNameAndExpiryExtraction */ true)
+        CardScanActivity.warmUp(
+            context = this,
+            apiKey = API_KEY,
+            initializeNameAndExpiryExtraction = true
+        )
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (CardScanActivity.isScanResult(requestCode)) {
@@ -135,12 +150,14 @@ class LaunchActivity : AppCompatActivity, CardScanActivityResultHandler {
     }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Java" %}
 
 ```java
-class LaunchActivity extends AppCompatActivity implements CardScanActivityResultHandler {
+class LaunchActivity extends AppCompatActivity
+    implements CardScanActivityResultHandler {
 
     private static final String API_KEY = "<your_api_key_here>";
 
@@ -154,22 +171,36 @@ class LaunchActivity extends AppCompatActivity implements CardScanActivityResult
                 activity = LaunchActivity.this,
                 apiKey = API_KEY,
                 enableEnterCardManually = true,
-                enableExpiryExtraction = true,  // expiry extraction is in beta. See the comment below.
-                enableNameExtraction = true  // name extraction is in beta. See the comment below.
+
+                // expiry extraction is in beta. See the comment below.
+                enableExpiryExtraction = true,
+
+                // name extraction is in beta. See the comment below.
+                enableNameExtraction = true
             )
         );
 
         /*
-         * To test name and/or expiry extraction, please first provision an API key, then reach out to
-         * support@getbouncer.com with details about your use case and estimated volumes.
+         * To test name and/or expiry extraction, please first provision an API
+         * key, then reach out to support@getbouncer.com with details about your
+         * use case and estimated volumes.
          *
-         * If you are not planning to use name or expiry extraction, you can omit the line below.
+         * If you are not planning to use name or expiry extraction, you can
+         * omit the line below.
          */
-        CardScanActivity.warmUp(this, API_KEY, /* enableNameAndExpiryExtraction */ true);
+        CardScanActivity.warmUp(
+            this,
+            API_KEY,
+            /* enableNameAndExpiryExtraction */ true
+        );
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(
+        int requestCode,
+        int resultCode,
+        @Nullable Intent data
+    ) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (CardScanActivity.isScanResult(requestCode)) {
@@ -178,7 +209,10 @@ class LaunchActivity extends AppCompatActivity implements CardScanActivityResult
     }
 
     @Override
-    public void cardScanned(@Nullable String scanId, @NotNull CardScanActivityResult scanResult) {
+    public void cardScanned(
+        @Nullable String scanId,
+        @NotNull CardScanActivityResult scanResult
+    ) {
         // a payment card was scanned successfully
     }
 
@@ -208,6 +242,7 @@ class LaunchActivity extends AppCompatActivity implements CardScanActivityResult
     }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -237,6 +272,7 @@ Create a class with the same name:
 
 {% tabs %}
 {% tab title="Kotlin" %}
+
 ```kotlin
 const val API_KEY = "<your_api_key_here>";
 
@@ -246,17 +282,21 @@ class MyApplication : Application() {
         super.onCreate();
 
         /*
-         * CardScan will attempt to update the ML models used to scan payment cards. By placing the call to the `warmUp`
-         * method in the `onApplicationCreate` method of your app, you allow the most time possible for models to
-         * upgrade. Note that `warmUp` processes on a background thread and will not affect your app's startup time.
+         * CardScan will attempt to update the ML models used to scan payment
+         * cards. By placing the call to the `warmUp` method in the
+         * `onApplicationCreate` method of your app, you allow the most time
+         * possible for models to upgrade. Note that `warmUp` processes on a
+         * background thread and will not affect your app's startup time.
          */
         CardScanActivity.warmUp(this, API_KEY)
     }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Java" %}
+
 ```java
 public class MyApplication extends Application {
     public static final String API_KEY = "<your_api_key_here>";
@@ -266,14 +306,17 @@ public class MyApplication extends Application {
         super.onCreate();
 
         /*
-         * CardScan will attempt to update the ML models used to scan payment cards. By placing the call to the `warmUp`
-         * method in the `onApplicationCreate` method of your app, you allow the most time possible for models to
-         * upgrade. Note that `warmUp` processes on a background thread and will not affect your app's startup time.
+         * CardScan will attempt to update the ML models used to scan payment
+         * cards. By placing the call to the `warmUp` method in the
+         * `onApplicationCreate` method of your app, you allow the most time
+         * possible for models to upgrade. Note that `warmUp` processes on a
+         * background thread and will not affect your app's startup time.
          */
         CardScanActivity.warmUp(this, API_KEY);
     }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
