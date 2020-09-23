@@ -94,10 +94,10 @@ CardScan is open source, and available under a free-to-try license. See the [lic
     <string>We need access to your camera to scan your card</string>
     ```
 
-    **3b. Swift Configuration**
-    
-    If your app is configured using swift, in your `AppDelegate.swift` file, Add an import for `CardVerify`, and set
-    your API key.
+    **3b. Configuration**
+    {% tabs %}
+    {% tab title="Swift" %}
+    In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your API key.
     
     ```swift
     import UIKit
@@ -113,11 +113,10 @@ CardScan is open source, and available under a free-to-try license. See the [lic
         }
     }
     ```
+    {% endtab %}
     
-    **3c. Objective-C Configuration**
-    
-    If your app is configured using objective-c, in your `AppDelegate.m` file, Add an import for `CardVerify`, and set
-    your API key.
+    {% tab title="Objective C" %}
+    In your `AppDelegate.m` file, Add an import for `CardVerify`, and set your API key.
     
     ```objectivec
     #import "AppDelegate.h"
@@ -134,6 +133,8 @@ CardScan is open source, and available under a free-to-try license. See the [lic
       return YES;
     }
     ```
+    {% endtab %}
+    {% endtabs %}
 
 ## Using
 

@@ -12,15 +12,14 @@ On a completed Card Verify scan using the iOS or Android SDKs, the SDK will retu
 {% tab title="Request" %}
 ### **Body Parameters**
 
-`payload: string` CardVerify Payload from the client side CardVerify scan
-
-`bin: string (optional)`BIN of the challenged card
-
-`last4: string` Last 4 of the challenged card  
-  
-`exp_month: string (optional)` Expiration month of the challenged card. Used to check whether the user scanned card matches the challenged card.  
-  
-`exp_year: string (optional)`Expiration year of the challenged card. Used to check whether the user scanned card matches the challenged card.
+| parameter | type | required | description |
+| --------- | ---- | -------- | ----------- |
+| `payload` | `string` | yes | CardVerify Payload from the client side CardVerify scan |
+| `payload_version` | `int` | no | The version of the payload from the client CardVerify scan. If omitted, this defaults to `1` |
+| `bin` | `string` | no | BIN of the challenged card |
+| `last4` | `string` | yes | Last 4 of the challenged card |
+| `exp_month` | `string` | no | Expiration month of the challenged card. Used to check whether the user scanned card matches the challenged card. |
+| `exp_year` | `string` | no | Expiration year of the challenged card. Used to check whether the user scanned card matches the challenged card. |
 
 ### **Sample Request**
 
@@ -30,6 +29,7 @@ curl -X POST "https://api.getbouncer.com/v1/card/verify"
   -H "Authorization: Bearer API_KEY"
   -d '{
     "payload"             : "ENCRYPTED_PAYLOAD",
+    "payload_version"     : 1,
     "last4"               : "0123",
     "bin"                 : "424242",
     "exp_month"           : "11",

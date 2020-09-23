@@ -107,7 +107,8 @@ The CardScan SDK will send anonymous stats to Bouncer's servers.
 [This code snippet](https://github.com/getbouncer/cardscan-ios/blob/da77e36c49f1de4b678e7ecaab56cc1466602716/CardScan/Classes/ScanStats.swift#L50)
 shows what we send.
 
-### Swift
+{% tabs %}
+{% tab title="Swift" %}
 Configure the library when your application launches by adding CardScan to your `AppDelegate.swift` file. If you are
 planning to use a navigation controller or support rotation, also be sure to add `supportedOrientationMaskOrDefault`.
 
@@ -131,8 +132,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
+{% endtab %}
 
-### Objective C
+{% tab title="Objective C" %}
 Configure the library when your application launches by adding CardScan to your `AppDelegate.m` file.
 
 ```objectivec
@@ -150,13 +152,15 @@ Configure the library when your application launches by adding CardScan to your 
 
 @end
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Using CardScan
 To use CardScan, create a `ScanViewController`, display it, and implement the `ScanDelegate` protocol to receive results
 from the scan.
 
-### Swift
-
+{% tabs %}
+{% tab title="Swift" %}
 ```swift
 import UIKit
 import CardScan
@@ -203,9 +207,9 @@ class ViewController: UIViewController, ScanDelegate {
     }
 }
 ```
+{% endtab %}
 
-### Objective C
-
+{% tab title="Objective C" %}
 ```objectivec
 #import "ViewController.h"
 @import Stripe;
@@ -252,6 +256,8 @@ class ViewController: UIViewController, ScanDelegate {
 
 @end
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Using CardScan on iOS 10
 CardScan makes heavy use of CoreML, which Apple introduced in iOS 11. You can include the CardScan library in any
@@ -260,20 +266,23 @@ projects that support a development target of iOS 10.0 or higher, but it will on
 
 To check if a device supports CardScan at runtime, use the `ScanViewController.isCompatible` method:
 
-### Swift
+{% tabs %}
+{% tab title="Swift" %}
 ```swift
 if !ScanViewController.isCompatible() {
     self.scanCardButton.isHidden = true
 }
 ```
+{% endtab %}
 
-## Objective C
-
+{% tab title="Objective C" %}
 ```objectivec
 if (![ScanViewController isCompatible]) {
     self.scanCardButton.isHidden = true
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ## Customizing
 This library is built to be customized to fit your UI. See the [customization documentation](ios-customization-guide.md).

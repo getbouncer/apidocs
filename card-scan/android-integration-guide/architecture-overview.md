@@ -38,6 +38,8 @@ initialized, attached to a preview `View`, and provide a stream of images to pro
 This code example uses a `Camera2Adapter` to stream preview images from the device camera and display the preview in a
 `TextureView`.
 
+{% tabs %}
+{% tab title="Kotlin" %}
 ```kotlin
 class MyCameraActivity : AppCompatActivity(), CameraErrorListener {
     private val cameraAdapter by lazy {
@@ -74,6 +76,66 @@ class MyCameraActivity : AppCompatActivity(), CameraErrorListener {
     }
 }
 ```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+public class MyCameraActivity extends AppCompatActivity implements CameraErrorListener {
+    private static final Size MINIMUM_RESOLUTION = new Size(1280, 720);
+
+    private CameraAdapter<Bitmap> cameraAdapterInstance = null;
+
+    private CameraAdapter<Bitmap> getCameraAdapter() {
+        if (cameraAdapterInstance == null) {
+            cameraAdapterInstance = Camera2Adapter(
+                    /* activity */ this,
+                    /* previewView */ (TextureView) findViewById(R.id.textureView), // A TextureView where the preview will show. If null, no preview will be shown.
+                    /* minimumResolution */ MINIMUM_RESOLUTION, // the minimum image resolution that should be streamed.
+                    /* cameraErrorListener */ this
+            );
+        }
+
+        return cameraAdapterInstance;
+    }
+
+    /**
+     * Call this method to start streaming images from the camera.
+     */
+    public void startProcessingCameraImages() {
+        final CameraAdapter<Bitmap> cameraAdapter = getCameraAdapter();
+        cameraAdapter.bindToLifecycle(this);
+        cameraAdapter.getImageStream().collect(
+            (bitmap, continuation) -> {
+                processCameraImage(bitmap);
+                Coroutine.resumeJava(continuation, Unit.INSTANCE);
+                return Unit.INSTANCE;
+            },
+            new EmptyJavaContinuation<>()
+        );
+    }
+
+    private void processCameraImage(@NotNull Bitmap previewFrame) {
+        // Do something with the preview frame
+    }
+
+    @Override
+    public void onCameraOpenError(@Nullable Throwable cause) {
+        // The camera could not be opened
+    }
+
+    @Override
+    public void onCameraAccessError(@Nullable Throwable cause) {
+        // The camera could not be accessed
+    }
+
+    @Override
+    public void onCameraUnsupportedError(@Nullable Throwable cause) {
+        // the camera is not supported on this device.
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Analyzers
 
