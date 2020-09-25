@@ -28,15 +28,24 @@ CardScan uses [semantic versioning](https://semver.org/) \(MAJOR.MINOR.PATCH\).
 1. Run [CardScan systems iOS test](system-test-guide.md). Make sure to watch the videos to double check that everything
    looks good.
 
-1. Verify Carthage build is working in the same directory as `.xcodeproj`
+1. Verify Carthage build is working with the [Carthage example app](https://github.com/getbouncer/cardscan-carthage-example)
 
    ```bash
    brew install carthage
    carthage build --no-skip-current
+   carthage update
    ```
-   
    *  If you get the error: `no shared framework schemes`, reclick `shared` on the project schemes in xcode. (product → schemes → manage schemes)
    *  Make sure to commit files that are modified after reclicking `shared` 
+   
+   ##### Testing steps:
+   1. Open `CarthageBuildTest.xcodeproj`
+   2. Build and run on real device without error
+   3. Build and run on simulator without error
+   4. If one is using XCode 12, repeat steps with XCode 11
+   ```bash
+   sudo xcode-select -s /Applications/Xcode11.x.app/Contents/Developer
+   ```
 
 1. Run the Cocoapods linter to make sure that everything is going to pass
 
