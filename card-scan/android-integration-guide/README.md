@@ -64,7 +64,7 @@ gradle configurations you only need to add the dependencies to your app's `build
 
 ```text
 dependencies {
-    implementation 'com.getbouncer:cardscan-ui:2.0.0032'
+    implementation 'com.getbouncer:cardscan-ui:2.0.0038'
 }
 ```
 

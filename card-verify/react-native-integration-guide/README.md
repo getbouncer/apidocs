@@ -64,7 +64,7 @@ dependencies:
 
 ```gradle
 dependencies {
-   implementation 'com.getbouncer:cardverify-ui:2.0.0032'
+   implementation 'com.getbouncer:cardverify-ui:2.0.0038'
 }
 ```
 
