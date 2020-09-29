@@ -4,9 +4,10 @@ description: >-
   features.
 ---
 
-# Android development guide
+# Development guide
 
 ## Contents
+
 * [Code Organization](development-guide.md#code-organization)
 * [Building](development-guide.md#building)
 * [Running Unit Tests](development-guide.md#running-unit-tests)
@@ -14,8 +15,8 @@ description: >-
 * [Releasing](development-guide.md#releasing)
 
 ## Code Organization
-The Liveness SDK is built from multiple android modules, each of which builds upon more base modules. The structure of
-the modules used in Liveness looks like this:
+
+The Liveness SDK is built from multiple android modules, each of which builds upon more base modules. The structure of the modules used in Liveness looks like this:
 
 ![module structure](../../.gitbook/assets/liveness_android_module_dependencies.png)
 
@@ -30,43 +31,36 @@ The Liveness SDK consists of these modules as well as a demo app:
 * [liveness-demo](development-guide.md#liveness-demo)
 
 ### scan-framework
-The [scan-framework](https://github.com/getbouncer/cardscan-android/tree/master/scan-framework) module contains the
-framework used to scan images. See the [architecture document]() for details on how it processes images from the camera.
+
+The [scan-framework](https://github.com/getbouncer/cardscan-android/tree/master/scan-framework) module contains the framework used to scan images. See the [architecture document](development-guide.md) for details on how it processes images from the camera.
 
 ### scan-camera
-The [scan-camera](https://github.com/getbouncer/cardscan-android/tree/master/scan-camera) module contains the camera
-interfaces for setting up the camera on the device and receiving images from it. It also handles converting the images
-from the camera to a processable format.
+
+The [scan-camera](https://github.com/getbouncer/cardscan-android/tree/master/scan-camera) module contains the camera interfaces for setting up the camera on the device and receiving images from it. It also handles converting the images from the camera to a processable format.
 
 ### scan-payment
-The [scan-payment](https://github.com/getbouncer/cardscan-android/tree/master/scan-payment) module contains the code for
-validating and managing payment cards.
+
+The [scan-payment](https://github.com/getbouncer/cardscan-android/tree/master/scan-payment) module contains the code for validating and managing payment cards.
 
 ### scan-payment-verify
-The closed-source [scan-payment-verify](https://github.com/getbouncer/cardverify-android/tree/master/scan-payment-verify)
-module builds on top of the [scan-payment](https://github.com/getbouncer/cardscan-android/tree/master/scan-payment)
-module and contains the code for validating the authenticity of payment cards.
+
+The closed-source [scan-payment-verify](https://github.com/getbouncer/cardverify-android/tree/master/scan-payment-verify) module builds on top of the [scan-payment](https://github.com/getbouncer/cardscan-android/tree/master/scan-payment) module and contains the code for validating the authenticity of payment cards.
 
 ### scan-ui
-The [scan-ui](https://github.com/getbouncer/cardscan-android/tree/master/scan-ui) module contains some common
-functionality shared between user interfaces for scanning cards. This provides the card viewfinder, debug overlay, and
-base scan activity.
+
+The [scan-ui](https://github.com/getbouncer/cardscan-android/tree/master/scan-ui) module contains some common functionality shared between user interfaces for scanning cards. This provides the card viewfinder, debug overlay, and base scan activity.
 
 ### liveness-ui
-The closed-source [liveness-ui](https://github.com/getbouncer/cardverify-android/tree/master/liveness-ui) module builds
-on top of the [scan-ui](https://github.com/getbouncer/cardscan-android/tree/master/scan-ui) and
-[scan-payment-verify](https://github.com/getbouncer/cardverify-android/tree/master/scan-payment-verify) modules to
-provide user interfaces for scanning payment cards. Anything specific to the user interface of the Liveness product
-lives in this library.
+
+The closed-source [liveness-ui](https://github.com/getbouncer/cardverify-android/tree/master/liveness-ui) module builds on top of the [scan-ui](https://github.com/getbouncer/cardscan-android/tree/master/scan-ui) and [scan-payment-verify](https://github.com/getbouncer/cardverify-android/tree/master/scan-payment-verify) modules to provide user interfaces for scanning payment cards. Anything specific to the user interface of the Liveness product lives in this library.
 
 ### liveness-demo
-The closed-source [liveness-demo](https://github.com/getbouncer/cardverify-android/tree/master/liveness-demo) app
-provides a demonstration for launching the Liveness SDK as a separate activity and for integrating the Liveness library
-into an existing activity.
+
+The closed-source [liveness-demo](https://github.com/getbouncer/cardverify-android/tree/master/liveness-demo) app provides a demonstration for launching the Liveness SDK as a separate activity and for integrating the Liveness library into an existing activity.
 
 ## Building
-Check out the project using `git`. Note that this project makes use of submodules, so a `recursive` clone is
-recommended.
+
+Check out the project using `git`. Note that this project makes use of submodules, so a `recursive` clone is recommended.
 
 ```bash
 git clone --recursive https://github.com/getbouncer/cardverify-android
@@ -87,6 +81,7 @@ To create an AAR release of the app, run the following command:
 This will place an AAR file in `liveness-ui/build/outputs/aar`
 
 ## Contributing
+
 These libraries follow a standard github contribution flow.
 
 1. Create a new github feature branch
@@ -106,23 +101,24 @@ These libraries follow a standard github contribution flow.
 5. Once you have approval, merge your branch into master and delete your feature branch from github.
 
 ## Running Unit Tests
-Unit tests can be run from android studio or from the command line. To execute from the command line, run the following
-command:
+
+Unit tests can be run from android studio or from the command line. To execute from the command line, run the following command:
 
 ```bash
 ./gradlew test
 ```
 
 ## Running Android Tests
-Android tests can be run from android studio or from the command line. To execute from the command line, run the
-following command:
+
+Android tests can be run from android studio or from the command line. To execute from the command line, run the following command:
 
 ```bash
 ./gradlew connectedAndroidTest
 ```
 
-Note that these tests require that you have an emulator running or a physical device connected to your machine via
-`ADB`.
+Note that these tests require that you have an emulator running or a physical device connected to your machine via `ADB`.
 
 ## Releasing
+
 See the [release](release-guide.md) documentation.
+

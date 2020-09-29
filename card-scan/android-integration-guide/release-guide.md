@@ -2,7 +2,7 @@
 description: A guide to releasing new versions of the Android CardScan SDK.
 ---
 
-# Android release guide
+# Release guide
 
 ## Contents
 
@@ -13,14 +13,15 @@ description: A guide to releasing new versions of the Android CardScan SDK.
 * [Installing to local maven](release-guide.md#optional-installing-to-local-maven)
 
 ## About
-The CardScan library is split into multiple android modules, each of which has its own binary `.aar` file is
-independently released. This guide covers the batch release process for releasing all of the modules at once with the
-same version number.
+
+The CardScan library is split into multiple android modules, each of which has its own binary `.aar` file is independently released. This guide covers the batch release process for releasing all of the modules at once with the same version number.
 
 ## Versioning
+
 CardScan uses [semantic versioning](https://semver.org/) \(MAJOR.MINOR.PATCH\).
 
 ## Releasing a new version
+
 1. Create a tag from master branch
 
    ```bash
@@ -35,14 +36,13 @@ CardScan uses [semantic versioning](https://semver.org/) \(MAJOR.MINOR.PATCH\).
 
 3. Publish the tag on [github](https://github.com/getbouncer/cardscan-android/releases) to create a new release
 
-This will automatically update the changelog, the `gradle.properties` file, and publish a release to bintray and
-jcenter. To view the status of the automatic release, view the latest
-[github action](https://github.com/getbouncer/cardscan-android/actions?query=event%3Arelease).
+This will automatically update the changelog, the `gradle.properties` file, and publish a release to bintray and jcenter. To view the status of the automatic release, view the latest [github action](https://github.com/getbouncer/cardscan-android/actions?query=event%3Arelease).
 
 ## Update documentation
-Update the [API Docs](https://github.com/getbouncer/apidocs/blob/master/card-scan/android-integration-guide/README.md)
-to reflect the new version.
+
+Update the [API Docs](https://github.com/getbouncer/apidocs/blob/master/card-scan/android-integration-guide/README.md) to reflect the new version.
 
 ## \(Optional\) Installing to local maven
+
 * execute `./gradlew install` from the root of the repository.
 

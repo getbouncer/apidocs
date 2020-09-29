@@ -9,7 +9,7 @@
   * [Customization guide](card-scan/ios-integration-guide/ios-customization-guide.md)
   * [Card support guide](card-scan/ios-integration-guide/card-support.md)
   * [System tests guide](card-scan/ios-integration-guide/system-test-guide.md)
-  * [Release guide](card-scan/ios-integration-guide/release-guide.md)
+  * [Release guide](card-verify/ios-integration-guide/release-guide.md)
 * [Android integration guide](card-scan/android-integration-guide/README.md)
   * [UI customization guide](card-scan/android-integration-guide/ui-customization-guide.md)
   * [Card issuer support guide](card-scan/android-integration-guide/card-support.md)
@@ -61,3 +61,8 @@
 * [Secure Counting](bouncer-labs/secure-counting-for-ios/README.md)
   * [Secure counting for iOS](bouncer-labs/secure-counting-for-ios/secure-counting-for-ios.md)
   * [Secure counting REST APIs](bouncer-labs/secure-counting-for-ios/secure_counting_rest.md)
+
+## Bouncer Insight
+
+* [JavaScript Beacon](bouncer-insight/javascript-beacon.md)
+

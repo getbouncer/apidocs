@@ -5,39 +5,38 @@ description: Scan a payment card with CardScan for Android.
 # Android integration guide
 
 ## Requirements
+
 * Android API level 21 or higher
 * AndroidX compatibility
 * Kotlin coroutine compatibility
 
-_Note: Your app does not have to be written in kotlin to integrate this library, but must be able to depend on kotlin
-functionality._
+_Note: Your app does not have to be written in kotlin to integrate this library, but must be able to depend on kotlin functionality._
 
 ## Demo
-The [cardscan repository](https://github.com/getbouncer/cardscan-android) contains a demonstration app for the CardScan
-product. To build and install this library follow the following steps:
+
+The [cardscan repository](https://github.com/getbouncer/cardscan-android) contains a demonstration app for the CardScan product. To build and install this library follow the following steps:
 
 1. Clone the repository from github
-    ```bash
+
+   ```bash
     git clone --recursive https://github.com/getbouncer/cardscan-android
-    ```
-    
-2. Build the library using gradle or [android studio](https://developer.android.com/studio).
-    a. Using android studio, open the directory `cardscan-android`. Install the app on your device or an emulator by
-    clicking the play button in the top right of android studio.
-    
-    ![build_android_studio](../../.gitbook/assets/android_build_android_studio.png)
-    
-    b. Using gradle, build the demo app by executing the following command:
-    
-    ```bash
+   ```
+
+2. Build the library using gradle or [android studio](https://developer.android.com/studio). a. Using android studio, open the directory `cardscan-android`. Install the app on your device or an emulator by clicking the play button in the top right of android studio.
+
+   ![build\_android\_studio](../../.gitbook/assets/android_build_android_studio.png)
+
+   b. Using gradle, build the demo app by executing the following command:
+
+   ```bash
     ./gradlew cardscan-demo:assembleRelease
-    ```
-    This will create a release APK in the `cardscan-demo/build/outputs/apk` directory. Copy this file to your device and
-    install it.
+   ```
+
+   This will create a release APK in the `cardscan-demo/build/outputs/apk` directory. Copy this file to your device and install it.
 
 ## SDK Size
-We try to keep our SDK as small as possible while maintaining good performance. The size impact including our SDK into
-your app varies depending on some features of your app:
+
+We try to keep our SDK as small as possible while maintaining good performance. The size impact including our SDK into your app varies depending on some features of your app:
 
 |  | Base SDK | TFLite Framework | Total |
 | :--- | :--- | :--- | :--- |
@@ -45,8 +44,7 @@ your app varies depending on some features of your app:
 | App does not yet use TFLite & app _is_ published as a bundle | 1.9MB | 1.0MB | 2.9MB |
 | App already uses TFLite | 1.9MB | 0.0MB | 1.9MB |
 
-If your app is not packaged as a bundle, you can reduce the size of the TFLite framework by restricting the binaries
-included in your APK. Add the following to your `build.gradle` file to include only the `arm` binaries:
+If your app is not packaged as a bundle, you can reduce the size of the TFLite framework by restricting the binaries included in your APK. Add the following to your `build.gradle` file to include only the `arm` binaries:
 
 ```text
 android {
@@ -59,8 +57,8 @@ android {
 ```
 
 ## Installation
-These libraries are published in the [jcenter](https://jcenter.bintray.com/com/getbouncer/) repository, so for most
-gradle configurations you only need to add the dependencies to your app's `build.gradle` file:
+
+These libraries are published in the [jcenter](https://jcenter.bintray.com/com/getbouncer/) repository, so for most gradle configurations you only need to add the dependencies to your app's `build.gradle` file:
 
 ```text
 dependencies {
@@ -69,12 +67,11 @@ dependencies {
 ```
 
 ## Using
-This library provides a user interface through which payment cards can be scanned. API keys can be created through the
-[Bouncer API console](https://api.getbouncer.com/console).
+
+This library provides a user interface through which payment cards can be scanned. API keys can be created through the [Bouncer API console](https://api.getbouncer.com/console).
 
 {% tabs %}
 {% tab title="Kotlin" %}
-
 ```kotlin
 class LaunchActivity : AppCompatActivity, CardScanActivityResultHandler {
 
@@ -150,11 +147,9 @@ class LaunchActivity : AppCompatActivity, CardScanActivityResultHandler {
     }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Java" %}
-
 ```java
 class LaunchActivity extends AppCompatActivity
     implements CardScanActivityResultHandler {
@@ -242,19 +237,16 @@ class LaunchActivity extends AppCompatActivity
     }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ### Library warm up
-CardScan will attempt to update the ML models used to scan payment cards. To ensure these models are upgraded by the
-time CardScan runs, please make sure to call the `warmUp` method on CardScan as early in the app flow as possible. In
-most cases, this can be done in the `onApplicationCreate` method of your app. Note that `warmUp` processes on a
-background thread and will not affect your app's startup time.
+
+CardScan will attempt to update the ML models used to scan payment cards. To ensure these models are upgraded by the time CardScan runs, please make sure to call the `warmUp` method on CardScan as early in the app flow as possible. In most cases, this can be done in the `onApplicationCreate` method of your app. Note that `warmUp` processes on a background thread and will not affect your app's startup time.
 
 #### Adding an application lifecycle listener
-If your app doesn't already listen to application lifecycle events, you can extend the `Application` object and connect
-it using your manifest by setting `android:name` on your application node:
+
+If your app doesn't already listen to application lifecycle events, you can extend the `Application` object and connect it using your manifest by setting `android:name` on your application node:
 
 ```markup
 <application
@@ -272,7 +264,6 @@ Create a class with the same name:
 
 {% tabs %}
 {% tab title="Kotlin" %}
-
 ```kotlin
 const val API_KEY = "<your_api_key_here>";
 
@@ -292,11 +283,9 @@ class MyApplication : Application() {
     }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Java" %}
-
 ```java
 public class MyApplication extends Application {
     public static final String API_KEY = "<your_api_key_here>";
@@ -316,50 +305,53 @@ public class MyApplication extends Application {
     }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Customizing
+
 This library is built to be customized to fit your UI.
 
 ### Basic modifications
+
 To modify text, colors, or padding of the default UI, see the [customization documentation](ui-customization-guide.md).
 
 ### Extensive modifications
-To modify arrangement or UI functionality, you can create a custom implementation of this library. See the
-[example single-activity demo app](https://github.com/getbouncer/cardscan-android/blob/master/demo/src/main/java/com/getbouncer/cardscan/demo/SingleActivityDemo.java).
+
+To modify arrangement or UI functionality, you can create a custom implementation of this library. See the [example single-activity demo app](https://github.com/getbouncer/cardscan-android/blob/master/demo/src/main/java/com/getbouncer/cardscan/demo/SingleActivityDemo.java).
 
 ## Supporting more cards
-Though CardScan supports several cards, you may need to add support for cards specific to your business, instructions
-can be found in the [card support docs](card-support.md).
+
+Though CardScan supports several cards, you may need to add support for cards specific to your business, instructions can be found in the [card support docs](card-support.md).
 
 ## Developing
+
 The basics of the CardScan architecture are outlined in the [architecture docs](architecture-overview.md).
 
 See the [development docs](development-guide.md) for details on developing for this library.
 
 ## Authors
+
 Adam Wushensky, Sam King, Zain ul Abi Din, and Sven Kuhne
 
 ## License
-This library is available under paid and free licenses. See the
-[LICENSE](https://github.com/getbouncer/cardscan-android/blob/master/LICENSE) file for the full license text.
+
+This library is available under paid and free licenses. See the [LICENSE](https://github.com/getbouncer/cardscan-android/blob/master/LICENSE) file for the full license text.
 
 ### Quick summary
-In short, this library will remain free forever for non-commercial applications, but use by commercial applications is
-limited to 90 days, after which time a licensing agreement is required. We're also adding some legal liability
-protections.
+
+In short, this library will remain free forever for non-commercial applications, but use by commercial applications is limited to 90 days, after which time a licensing agreement is required. We're also adding some legal liability protections.
 
 After this period commercial applications need to convert to a licensing agreement to continue to use this library.
 
 * Details of licensing \(pricing, etc\) are available at [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
 ### More detailed summary
+
 What’s allowed under the license:
 
 * Free use for any app for 90 days \(for demos, evaluations, hackathons, etc\).
-* Contributions \(contributors must agree to the [Contributor License Agreement](https://github.com/getbouncer/cardscan-android/blob/master/Contributor%20License%20Agreement))
+* Contributions \(contributors must agree to the [Contributor License Agreement](https://github.com/getbouncer/cardscan-android/blob/master/Contributor%20License%20Agreement)\)
 * Any modifications as needed to work in your app
 
 What’s not allowed under the license:

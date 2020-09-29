@@ -5,27 +5,24 @@ description: Scan a payment card for fraud protection with CardVerify Check for 
 # iOS integration guide
 
 ## Requirements
+
 * Objective C or Swift 4.0 or higher
 * iOS 11.2 or higher \(supports development target of iOS 10.0 or higher\)
 * iOS 13 or higher for our name and expiration models. The number model will
-work on older versions of iOS and it will always return nil for the name and
-expiration fields.
+
+  work on older versions of iOS and it will always return nil for the name and
+
+  expiration fields.
 
 ## iPad Support
-CardScan defaults to a `formSheet` for the iPad, which handles all screen
-orientations and autorotation correctly. However, if you'd like to use CardScan
-in full screen mode instead, make sure to select the `Requires full screen`
-option in your `Info.plist` file via XCode, or else non-portrait orientations
-won't work.
+
+CardScan defaults to a `formSheet` for the iPad, which handles all screen orientations and autorotation correctly. However, if you'd like to use CardScan in full screen mode instead, make sure to select the `Requires full screen` option in your `Info.plist` file via XCode, or else non-portrait orientations won't work.
 
 ## Installation
-CardVerify is published to the bouncer private repositories. Please request
-access to this repository by emailing
-[license@getbouncer.com](mailto:license@getbouncer.com) with a request for
-access.
 
-CardVerify is available through [CocoaPods](https://cocoapods.org/). To install
-it, simply add the following line to your Podfile:
+CardVerify is published to the bouncer private repositories. Please request access to this repository by emailing [license@getbouncer.com](mailto:license@getbouncer.com) with a request for access.
+
+CardVerify is available through [CocoaPods](https://cocoapods.org/). To install it, simply add the following line to your Podfile:
 
 ```bash
 pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-1.0.5031.tgz'
@@ -37,21 +34,19 @@ Next, install the new pod. From a terminal, run:
 pod install
 ```
 
-When using Cocoapods, you use the `.xcworkspace` instead of the `.xcodeproj`.
-Again from the terminal, run:
+When using Cocoapods, you use the `.xcworkspace` instead of the `.xcodeproj`. Again from the terminal, run:
 
 ```bash
 open YourProject.xcworkspace
 ```
 
 ## Set up permissions
-CardScan uses the camera, so you'll need to add an description of camera usage
-to your Info.plist file:
+
+CardScan uses the camera, so you'll need to add an description of camera usage to your Info.plist file:
 
 ![XCode iOS camera permission](../../.gitbook/assets/ios_configure_camera_permission.png)
 
-The string you add here will be what CardScan displays to your users when
-CardScan first prompts them for permission to use the camera.
+The string you add here will be what CardScan displays to your users when CardScan first prompts them for permission to use the camera.
 
 ![iOS camera prompt](../../.gitbook/assets/ios_camera_prompt.png)
 
@@ -63,26 +58,16 @@ Alternatively, you can add this permission directly to your Info.plist file:
 ```
 
 ## Configure CardVerify
-CardVerify can be configured and run through Swift or Objective-C. CardVerify
-requires an API key, which can be generated for your app through the
-[Bouncer API console](https://api.getbouncer.com/console). _Note that for
-CardVerify, you will need permissions added to your API key to perform
-validation. Please contact
-[support@getbouncer.com](mailto:support@getbouncer.com) once you've created your
-API key to have permissions added._
 
-The CardScan SDK will send anonymous stats to Bouncer's servers.
-[This code snippet](https://github.com/getbouncer/cardscan-ios/blob/da77e36c49f1de4b678e7ecaab56cc1466602716/CardScan/Classes/ScanStats.swift#L50)
-shows what we send.
+CardVerify can be configured and run through Swift or Objective-C. CardVerify requires an API key, which can be generated for your app through the [Bouncer API console](https://api.getbouncer.com/console). _Note that for CardVerify, you will need permissions added to your API key to perform validation. Please contact_ [_support@getbouncer.com_](mailto:support@getbouncer.com) _once you've created your API key to have permissions added._
+
+The CardScan SDK will send anonymous stats to Bouncer's servers. [This code snippet](https://github.com/getbouncer/cardscan-ios/blob/da77e36c49f1de4b678e7ecaab56cc1466602716/CardScan/Classes/ScanStats.swift#L50) shows what we send.
 
 Apps using CardVerify must configure the library at launch.
 
 {% tabs %}
 {% tab title="Swift" %}
-
-Configure the library when your application launches by adding CardScan to your
-`AppDelegate.swift` file. If you are planning to use a navigation controller or
-support rotation, also be sure to add `supportedOrientationMaskOrDefault`.
+Configure the library when your application launches by adding CardScan to your `AppDelegate.swift` file. If you are planning to use a navigation controller or support rotation, also be sure to add `supportedOrientationMaskOrDefault`.
 
 ```swift
 import UIKit
@@ -99,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // do any other necessary launch configuration
         return true
     }
-    
+
     func application(
         _ application: UIApplication,
         supportedInterfaceOrientationsFor window: UIWindow?
@@ -110,13 +95,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Objective C" %}
-
-Configure the library when your application launches by adding CardScan to your
-`AppDelegate.m` file.
+Configure the library when your application launches by adding CardScan to your `AppDelegate.m` file.
 
 ```objectivec
 #import "AppDelegate.h"
@@ -133,18 +115,15 @@ Configure the library when your application launches by adding CardScan to your
 
 @end
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Using CardVerify
-To use CardVerify, create a `VerifyCardSimpleViewController`, display it, and
-implement the `CardVerifySimpleResults` protocol to receive results for the
-scan.
+
+To use CardVerify, create a `VerifyCardSimpleViewController`, display it, and implement the `CardVerifySimpleResults` protocol to receive results for the scan.
 
 {% tabs %}
 {% tab title="Swift" %}
-
 ```swift
 import UIKit
 import CardVerify
@@ -193,7 +172,7 @@ class ViewController: UIViewController, VerifyDelegate {
     ) {
         // The user scanned a card that has the last4 that matches the card on
         // file
-    
+
         // the encrypted payload is returned to client to pass back to server.
         // the payload can be exchanged with Bouncer server to verify it.
         guard let encryptedPayload = scannedCard.encryptedPayload else {
@@ -208,11 +187,9 @@ class ViewController: UIViewController, VerifyDelegate {
     }
 }
 ```
-
 {% endtab %}
 
 {% tab title="Objective C" %}
-
 ```objectivec
 #import "ViewController.h"
 @import Stripe;
@@ -253,28 +230,30 @@ class ViewController: UIViewController, VerifyDelegate {
 
 @end
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ## Customizing
-This library is built to be customized to fit your UI. See the
-[customization documentation](customizing-the-verify-ui-and-ux.md).
+
+This library is built to be customized to fit your UI. See the [customization documentation](customizing-the-verify-ui-and-ux.md).
 
 ## Supporting more cards
-Though CardScan supports several cards, you may need to add support for cards
-specific to your business, instructions can be found in the
-[card support docs](card-support.md).
+
+Though CardScan supports several cards, you may need to add support for cards specific to your business, instructions can be found in the [card support docs]().
 
 ## Authors
+
 [Sam King](mailto:sam@getbouncer.com), Jaime Park, Adam Wushensky
 
 ## License
+
 A licensing agreement is required to use this library.
 
 * Details of licensing \(pricing, etc\) are available at
-[https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact
-us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
-All contributors must agree to the
-[CLA](https://github.com/getbouncer/cardscan-android/blob/master/Contributor%20License%20Agreement).
+  [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact
+
+  us at [license@getbouncer.com](mailto:license@getbouncer.com).
+
+All contributors must agree to the [CLA](https://github.com/getbouncer/cardscan-android/blob/master/Contributor%20License%20Agreement).
+

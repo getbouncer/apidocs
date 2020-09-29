@@ -1,4 +1,4 @@
-# Linking Native Dependencies
+# Linking native dependencies
 
 For react-native version 0.59 and below, it is necessary to link the native libraries into react-native.
 
@@ -39,3 +39,4 @@ If instead, you want to manually link react-native-cardscan, perform the followi
 3. Open `android/app/src/main/java/[...]/MainApplication.java`
    * Add `import com.getbouncer.RNCardscanPackage;` to the imports at the top of the file
    * Add `new RNCardscanPackage()` to the list returned by the `getPackages()` method
+

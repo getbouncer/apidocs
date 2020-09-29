@@ -62,7 +62,7 @@ import CardVerify
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    	 CardVerify.configure(apiKey: "YOUR API KEY") 
+         CardVerify.configure(apiKey: "YOUR API KEY") 
         // do any other necessary launch configuration
         return true
     }
@@ -78,16 +78,16 @@ import UIKit
 import CardVerify
 
 class ViewController: UIViewController, LivenessResults {
-    
+
     @IBAction func buttonPressed() {
         let vc = LivenessViewController.createLivenessViewController()
         vc.livenessDelegate = self
-	      // cardOnFile is something that the app defines to keep
-	      // track of which card (bin and last four) the user
-	      // needs to verify
+          // cardOnFile is something that the app defines to keep
+          // track of which card (bin and last four) the user
+          // needs to verify
         vc.lastFour = cardOnFile?.last4
-	      vc.isFrontOfCard = true
-	      self.present(vc, animated: true)
+          vc.isFrontOfCard = true
+          self.present(vc, animated: true)
     }
 
     // MARK: -LivenessResults protocol
@@ -103,10 +103,10 @@ class ViewController: UIViewController, LivenessResults {
             return
         }
 
-	      // IMPORTANT: after a successful scan, you need to invoke
-	      // the client-side fraud models using the `runVerifyPipeline`
-	      // method. This can take up to 1-2s, so make sure that you
-	      // mask the delay appropriately.
+          // IMPORTANT: after a successful scan, you need to invoke
+          // the client-side fraud models using the `runVerifyPipeline`
+          // method. This can take up to 1-2s, so make sure that you
+          // mask the delay appropriately.
         viewController.runVerifyPipeline(cardToVerify: cardOnFile, number: number ?? "", expiryYear: expiryYear, expiryMonth: expiryMonth, debugForceError: nil) { [weak self] paymentCard in
             guard let self = self else { return }
             print("done with completion loop")

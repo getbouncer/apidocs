@@ -6,15 +6,11 @@ description: >-
 
 # Get started
 
-
-
 {% page-ref page="ios-integration-guide/" %}
 
 {% page-ref page="android-integration-guide/" %}
 
 {% page-ref page="react-native-integration-guide/" %}
-
-
 
 ![](../.gitbook/assets/cardscan%20%281%29.gif)
 

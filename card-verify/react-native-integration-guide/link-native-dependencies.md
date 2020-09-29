@@ -1,4 +1,4 @@
-# Linking Native Dependencies
+# Linking native dependencies
 
 For react-native version 0.59 and below, it is necessary to link the native libraries into react-native.
 
@@ -39,3 +39,4 @@ If instead, you want to manually link react-native-cardverify, perform the follo
 3. Open `android/app/src/main/java/[...]/MainApplication.java`
    * Add `import com.getbouncer.RNCardVerifyPackage;` to the imports at the top of the file
    * Add `new RNCardVerifyPackage()` to the list returned by the `getPackages()` method
+

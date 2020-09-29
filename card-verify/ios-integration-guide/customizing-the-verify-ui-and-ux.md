@@ -10,9 +10,7 @@ The most important part of a custom subclass is to make sure that you invoke `se
 
 ## Localization
 
-In addition to the localizable strings in
-[CardScan](../../card-scan/ios-integration-guide/ios-customization-guide.md#localization), the following fields are 
-public, static, and mutable, and can be reassigned to meet your localization needs:
+In addition to the localizable strings in [CardScan](../../card-scan/ios-integration-guide/ios-customization-guide.md#localization), the following fields are public, static, and mutable, and can be reassigned to meet your localization needs:
 
 | Name | Description | Default Value |
 | :--- | :--- | :--- |

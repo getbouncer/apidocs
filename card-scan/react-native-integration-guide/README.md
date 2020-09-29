@@ -1,28 +1,24 @@
-# React native integration guide
+# React-native integration guide
+
 CardScan React Native installation guide
 
-Visit our website at https://www.getbouncer.com for examples. Native libraries
-for [android](https://github.com/getbouncer/cardscan-android) and
-[iOS](https://github.com/getbouncer/cardscan-ios) are also available in github.
+Visit our website at [https://www.getbouncer.com](https://www.getbouncer.com) for examples. Native libraries for [android](https://github.com/getbouncer/cardscan-android) and [iOS](https://github.com/getbouncer/cardscan-ios) are also available in github.
 
-CardScan is open source, and available under a free-to-try license. See the
-[license](#license) section for details.
+CardScan is open source, and available under a free-to-try license. See the [license](./#license) section for details.
 
 ## Installation
 
 ### 1. Install the [react-native-cardscan](https://www.npmjs.com/package/react-native-cardscan) package from NPM
-Add a dependency to `react-native-cardscan` in your `package.json` file. The
-latest version of `react-native-cardscan` can be added to your dependencies
-automatically by installing the SDK in the same directory as your `package.json`
-file.
 
-```
+Add a dependency to `react-native-cardscan` in your `package.json` file. The latest version of `react-native-cardscan` can be added to your dependencies automatically by installing the SDK in the same directory as your `package.json` file.
+
+```text
 $ npm install react-native-cardscan
 ```
 
 ### 2. Install the iOS dependencies into your `ios` directory
-Add the `CardScan` and `react-native-cardscan` pods to the `~/ios/Podfile` file
-in your app
+
+Add the `CardScan` and `react-native-cardscan` pods to the `~/ios/Podfile` file in your app
 
 ```ruby
 target 'Your App' do
@@ -32,22 +28,21 @@ target 'Your App' do
 end
 ```
 
-_More installation options for iOS can be found in the **Installation** section
-of the [iOS integration guide](../ios-integration-guide)._
+_More installation options for iOS can be found in the **Installation** section of the_ [_iOS integration guide_](../ios-integration-guide/)_._
 
 ### 3. Link native dependencies
-For react-native version 0.59 and below, follow the
-[linking native dependencies](link-native-dependencies.md) guide.
+
+For react-native version 0.59 and below, follow the [linking native dependencies](link-native-dependencies.md) guide.
 
 ## Configuration
 
 ### 1. Create an API key
-Go to the [Bouncer API console](https://api.getbouncer.com/console) and create
-an API key.
+
+Go to the [Bouncer API console](https://api.getbouncer.com/console) and create an API key.
 
 ### 2. Configure Android
-Open `android/app/src/main/java/[...]/MainApplication.java` and add the
-following lines to the end of the `onCreate()` method.
+
+Open `android/app/src/main/java/[...]/MainApplication.java` and add the following lines to the end of the `onCreate()` method.
 
 ```java
 import com.getbouncer.RNCardscanModule;
@@ -78,28 +73,25 @@ public class MainApplication extends Application implements ReactApplication {
 ```
 
 ### 3. Configure iOS Permissions
-CardScan uses the device camera to scan cards, so you'll need to add a
-description of camera usage to your `Info.plist` file:
+
+CardScan uses the device camera to scan cards, so you'll need to add a description of camera usage to your `Info.plist` file:
 
 ![XCode iOS camera permission](../../.gitbook/assets/ios_configure_camera_permission.png)
 
-The string you add here will be what CardScan displays to your users when
-CardScan first prompts them for permission to use the camera.
+The string you add here will be what CardScan displays to your users when CardScan first prompts them for permission to use the camera.
 
 Alternatively, you can add this permission directly to your Info.plist file:
 
-```xml
+```markup
 <key>NSCameraUsageDescription</key>
 <string>We need access to your camera to scan your card</string>
 ```
 
 ### 4. Configure iOS
-    
+
 {% tabs %}
 {% tab title="Swift" %}
-    
-In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your
-API key.
+In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your API key.
 
 ```swift
 import UIKit
@@ -115,13 +107,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
-   
 {% endtab %}
 
 {% tab title="Objective C" %}
-    
-In your `AppDelegate.m` file, Add an import for `CardVerify`, and set your API
-key.
+In your `AppDelegate.m` file, Add an import for `CardVerify`, and set your API key.
 
 ```objectivec
 #import "AppDelegate.h"
@@ -138,17 +127,14 @@ key.
   return YES;
 }
 ```
-   
 {% endtab %}
 {% endtabs %}
 
 ## Using
 
-react-native-cardscan exposes two static methods on the `CardScan` object,
-`isSupportedAsync()` and `scan()`.
+react-native-cardscan exposes two static methods on the `CardScan` object, `isSupportedAsync()` and `scan()`.
 
-To determine if the device supports CardScan, use the `isSupportedAsync()`
-method. For example,
+To determine if the device supports CardScan, use the `isSupportedAsync()` method. For example,
 
 ```javascript
 import Cardscan from 'react-native-cardscan';
@@ -194,11 +180,10 @@ Cardscan.scan()
 ```
 
 ## Example app
-An example application is included in the
-[react-native-cardscan github repository](https://github.com/getbouncer/react-native-cardscan).
 
-Inside the `example` directory, you can find an example React Native project
-that you can run.
+An example application is included in the [react-native-cardscan github repository](https://github.com/getbouncer/react-native-cardscan).
+
+Inside the `example` directory, you can find an example React Native project that you can run.
 
 To run the example app, do the following:
 
@@ -206,41 +191,40 @@ To run the example app, do the following:
 * `$ npm install`
 * Add your API key to `android/app/src/main/java/com/example/MainApplication.java` and `ios/example/AppDelegate.m`.
 * Point the android app to the SDK: create a file `example/android/local.properties` with a line
+
   ```text
   sdk.dir=<full_path_to_android_sdk>
   ```
+
 * To run Android app: `react-native run-android`
 * To run iOS app: `react-native run-ios`
 
 ## Troubleshooting
+
 See the [troubleshooting](troubleshooting.md) documentation.
 
 ## Authors
+
 Adam Wushensky, Sam King, Zain ul Abi Din, Jaime Park, and Stefano Suryanto
 
 ## License
-This library is available under paid and free licenses. See the
-[LICENSE](https://github.com/getbouncer/cardscan-android/blob/master/LICENSE)
-file for the full license text.
+
+This library is available under paid and free licenses. See the [LICENSE](https://github.com/getbouncer/cardscan-android/blob/master/LICENSE) file for the full license text.
 
 ### Quick summary
-In short, this library will remain free forever for non-commercial applications,
-but use by commercial applications is limited to 90 days, after which time a
-licensing agreement is required. We're also adding some legal liability
-protections.
 
-After this period commercial applications need to convert to a licensing
-agreement to continue to use this library.
+In short, this library will remain free forever for non-commercial applications, but use by commercial applications is limited to 90 days, after which time a licensing agreement is required. We're also adding some legal liability protections.
 
-Details of licensing \(pricing, etc\) are available at
-[https://getbouncer.com/pricing](https://getbouncer.com/pricing), or you can
-contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
+After this period commercial applications need to convert to a licensing agreement to continue to use this library.
+
+Details of licensing \(pricing, etc\) are available at [https://getbouncer.com/pricing](https://getbouncer.com/pricing), or you can contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
 ### More detailed summary
+
 What’s allowed under the license:
 
 * Free use for any app for 90 days \(for demos, evaluations, hackathons, etc\).
-* Contributions \(contributors must agree to the [Contributor License Agreement](https://github.com/getbouncer/cardscan-android/blob/master/Contributor%20License%20Agreement))
+* Contributions \(contributors must agree to the [Contributor License Agreement](https://github.com/getbouncer/cardscan-android/blob/master/Contributor%20License%20Agreement)\)
 * Any modifications as needed to work in your app
 
 What’s not allowed under the license:
@@ -252,6 +236,5 @@ What’s not allowed under the license:
 * Modifying logos
 * Indemnification: using this free software is ‘at your own risk’, so you can't sue Bouncer Technologies, Inc. for problems caused by this library
 
-Questions? Concerns? Please email us at
-[license@getbouncer.com](mailto:license@getbouncer.com) or ask us on
-[slack](https://getbouncer.slack.com/).
+Questions? Concerns? Please email us at [license@getbouncer.com](mailto:license@getbouncer.com) or ask us on [slack](https://getbouncer.slack.com/).
+
