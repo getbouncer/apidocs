@@ -1,5 +1,5 @@
 ---
-description: A guide to releasing new versions of the iOS CardScan SDK.
+description: A guide to releasing new versions of the iOS CardVerify SDK.
 ---
 
 # Release guide
@@ -13,33 +13,26 @@ description: A guide to releasing new versions of the iOS CardScan SDK.
 
 ## Versioning
 
-CardScan uses [semantic versioning](https://semver.org/) \(MAJOR.MINOR.PATCH\).
+CardVerify uses [semantic versioning](https://semver.org/) \(MAJOR.MINOR.PATCH\).
 
 ## Releasing a new version
 
 ### Prepare the release
 
-1. Bump library version in the `CardScan.podspec` file.
-2. Update the cocoapods lock file and commit the new lock file.
+1. Bump library version in the `CardVerify.podspec` file.
 
-   ```bash
-   pod update
-   ```
+    A. If you're also planning to release a new version of CardScan, make sure to:
+    
+    - Bump CardScan first
+    - Update the CardScan dependency in the CardVerify.podspec to the new version
+    - Make sure the example Podfile is pointing to production CardScan in Cocoapod
 
 ### Run required tests
 
-1. Run [CardScan systems iOS test](../../card-scan/ios-integration-guide/system-test-guide.md). Make sure to watch the videos to double check that everything looks good.
-2. Verify Carthage build is working in the same directory as `.xcodeproj`
+1. Run [CardScan systems iOS test](../../card-scan/ios-integration-guide/system-test-guide.md).
+Make sure to watch the videos to double check that everything looks good.
 
-   ```bash
-   brew install carthage
-   carthage build --no-skip-current
-   ```
-
-   * If you get the error: `no shared framework schemes`, reclick `shared` on the project schemes in xcode. \(product → schemes → manage schemes\)
-   * Make sure to commit files that are modified after reclicking `shared` 
-
-3. Run the Cocoapods linter to make sure that everything is going to pass
+2. Run the Cocoapods linter to make sure that everything is going to pass
 
    ```bash
    pod lib lint
@@ -60,15 +53,12 @@ CardScan uses [semantic versioning](https://semver.org/) \(MAJOR.MINOR.PATCH\).
    # checkout https://github.com/github-changelog-generator/github-changelog-generator for installation instructions
    # put your github token in a file called github_token in the base directory
    # run:
-   github_changelog_generator -u getbouncer -p cardscan-ios -t `cat github_token`
+   github_changelog_generator -u getbouncer -p cardverify-ios -t `cat github_token`
    ```
 
 3. Check the updated Changelog manually and update any entries that need updating.
-4. Publish to CocoaPods
 
-   ```bash
-   pod trunk push
-   ```
+4. Run the `deploay.sh` script to create a new release
 
 ## Bumping a model
 
@@ -76,16 +66,16 @@ CardScan uses [semantic versioning](https://semver.org/) \(MAJOR.MINOR.PATCH\).
 2. Remove the old compiled version from the resources directory
 
    ```bash
-   rm -rf CardScan/Assets/FindFour.mlmodelc
+   rm -rf CardVerify/Assets/FindFour.mlmodelc
    ```
 
 3. Compile the new model
 
    ```bash
-   xcrun coremlc compile OriginalModels/FindFour.mlmodel CardScan/Assets
+   xcrun coremlc compile OriginalModels/FindFour.mlmodel CardVerify/Assets
    ```
 
 ## Update documentation
 
-Update the [API Docs](https://github.com/getbouncer/apidocs/blob/master/card-scan/android-integration-guide/README.md) to reflect the new version.
+Update the [API Docs](../android-integration-guide/README.md) to reflect the new version.
 
