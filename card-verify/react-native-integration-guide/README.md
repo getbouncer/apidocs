@@ -118,6 +118,7 @@ Alternatively, you can add this permission directly to your Info.plist file:
 {% tabs %}
 {% tab title="Swift" %}
 In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your API key.
+If you want to store card images with VGS to be analyzed, set the `useServerImageAnalysis` to true. 
 
 ```swift
 import UIKit
@@ -128,6 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          Bouncer.configure(apiKey: "<your_api_key_here>") 
+         Bouncer.useServerImageAnalysis = true
         // do any other necessary launch configuration
         return true
     }
@@ -137,7 +139,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 {% tab title="Objective C" %}
 If your app is configured using objective-c, in your `AppDelegate.m` file, Add an import for `CardVerify`, and set your API key.
-
+If you want to store card images with VGS to be analyzed, set the `useServerImageAnalysis` to YES. 
 ```objectivec
 #import "AppDelegate.h"
 ...
@@ -149,6 +151,7 @@ If your app is configured using objective-c, in your `AppDelegate.m` file, Add a
 {
   ...
   [Bouncer configureWithApiKey:@"<your_api_key_here>"];
+  Bouncer.useServerImageAnalysis = YES;
 
   return YES;
 }
