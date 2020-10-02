@@ -77,5 +77,5 @@ Make sure to watch the videos to double check that everything looks good.
 
 ## Update documentation
 
-Update the [API Docs](../android-integration-guide/README.md) to reflect the new version.
+Update the [API Docs](README.md) to reflect the new version.
 

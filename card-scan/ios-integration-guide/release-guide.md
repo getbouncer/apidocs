@@ -94,5 +94,5 @@ CardScan uses [semantic versioning](https://semver.org/) \(MAJOR.MINOR.PATCH\).
    ```
 
 ## Update documentation
-Update the [API Docs](../android-integration-guide/README.md)
+Update the [API Docs](README.md)
 to reflect the new version.
