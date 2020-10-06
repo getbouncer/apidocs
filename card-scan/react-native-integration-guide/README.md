@@ -122,7 +122,7 @@ In your `AppDelegate.m` file, Add an import for `CardVerify`, and set your API k
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   ...
-  [Bouncer configureWithApiKey:@"<your_api_key_here>"];
+  [ScanViewController configureWithApiKey:@"<your_api_key_here>"];
 
   return YES;
 }
