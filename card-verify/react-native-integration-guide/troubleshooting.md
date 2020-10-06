@@ -80,6 +80,6 @@ This is a [known issue with react-native](https://github.com/react-native-commun
 * react-native was unable to start the app after installing it. To start it manually, run the following command:
 
   ```bash
-  adb reverse tcp:8081 tcp:8081 && adb shell am start -n com.example/com.example.MainActivity
+  adb reverse tcp:8081 tcp:8081 && adb shell am start -n com.getbouncer.example/com.getbouncer.example.MainActivity
   ```
 

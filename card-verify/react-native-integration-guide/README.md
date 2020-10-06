@@ -244,7 +244,7 @@ To run the example app, do the following:
 
 * Add your repository username and password to `android/build.gradle`.
 * Add your API key to the cocoapods configuration file `ios/Podfile`.
-* Add your API key to `android/app/src/main/java/com/example/MainApplication.java` and `ios/example/AppDelegate.m`.
+* Add your API key to `android/app/src/main/java/com/getbouncer/example/MainApplication.java` and `ios/example/AppDelegate.m`.
 * Point the android app to the SDK: create a file `example/android/local.properties` with a line
 
   ```text
