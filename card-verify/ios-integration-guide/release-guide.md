@@ -58,7 +58,7 @@ Make sure to watch the videos to double check that everything looks good.
 
 3. Check the updated Changelog manually and update any entries that need updating.
 
-4. Run the `deploay.sh` script to create a new release
+4. Run the `deploy.sh` script to create a new release
 
 ## Bumping a model
 

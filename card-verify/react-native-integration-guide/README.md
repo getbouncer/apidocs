@@ -23,7 +23,7 @@ Add the `CardVerify` and `react-native-cardverify` pods to the `~/ios/Podfile` f
 ```ruby
 target 'Your App' do
   ...
-  pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-1.0.5031.tgz'
+  pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-1.0.5036.tgz'
   pod 'react-native-cardverify', :path => '../node_modules/react-native-cardverify/react-native-cardverify.podspec'
 end
 ```
@@ -53,7 +53,7 @@ Add the cardverify dependencies to the android section of your react-native proj
 
 ```text
 dependencies {
-   implementation 'com.getbouncer:cardverify-ui:2.0.0045'
+   implementation 'com.getbouncer:cardverify-ui:2.0.0046'
 }
 ```
 
