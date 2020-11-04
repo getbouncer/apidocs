@@ -23,7 +23,7 @@ Add the `CardVerify` and `react-native-cardverify` pods to the `~/ios/Podfile` f
 ```ruby
 target 'Your App' do
   ...
-  pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-1.0.5036.tgz'
+  pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-1.0.5038.tgz'
   pod 'react-native-cardverify', :path => '../node_modules/react-native-cardverify/react-native-cardverify.podspec'
 end
 ```
@@ -53,7 +53,7 @@ Add the cardverify dependencies to the android section of your react-native proj
 
 ```text
 dependencies {
-   implementation 'com.getbouncer:cardverify-ui:2.0.0049'
+   implementation 'com.getbouncer:cardverify-ui:2.0.0050'
 }
 ```
 
@@ -119,6 +119,7 @@ Alternatively, you can add this permission directly to your Info.plist file:
 {% tab title="Swift" %}
 In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your API key.
 If you want to store card images with VGS to be analyzed, set the `useServerImageAnalysis` to true. 
+If you want to use enhanced card validation using the camera flash, set the `useFlashFlow` to true.
 
 ```swift
 import UIKit
@@ -130,6 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          Bouncer.configure(apiKey: "<your_api_key_here>") 
          Bouncer.useServerImageAnalysis = true
+         Bouncer.useFlashFlow = true
         // do any other necessary launch configuration
         return true
     }
@@ -140,6 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% tab title="Objective C" %}
 If your app is configured using objective-c, in your `AppDelegate.m` file, Add an import for `CardVerify`, and set your API key.
 If you want to store card images with VGS to be analyzed, set the `useServerImageAnalysis` to YES. 
+If you want to use enhanced card validation using the camera flash, set the `useFlashFlow` to YES.
 ```objectivec
 #import "AppDelegate.h"
 ...
@@ -152,6 +155,7 @@ If you want to store card images with VGS to be analyzed, set the `useServerImag
   ...
   [Bouncer configureWithApiKey:@"<your_api_key_here>"];
   Bouncer.useServerImageAnalysis = YES;
+  Bouncer.useFlashFlow = YES;
 
   return YES;
 }
