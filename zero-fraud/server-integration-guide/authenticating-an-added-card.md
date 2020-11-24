@@ -16,8 +16,8 @@ On a completed Card Verify scan using the iOS or Android SDKs, the SDK will retu
 | :--- | :--- | :--- | :--- |
 | `payload` | `string` | yes | CardVerify Payload from the client side CardVerify scan |
 | `payload_version` | `int` | no | The version of the payload from the client CardVerify scan. If omitted, this defaults to `1` |
-| `bin` | `string` | no | BIN of the challenged card |
-| `last4` | `string` | yes | Last 4 of the challenged card |
+| `bin` | `string` | no | BIN of the payment card for this transaction |
+| `last4` | `string` | yes | Last 4 of the payment card for this transaction |
 | `exp_month` | `string` | no | Expiration month of the challenged card. Used to check whether the user scanned card matches the challenged card. |
 | `exp_year` | `string` | no | Expiration year of the challenged card. Used to check whether the user scanned card matches the challenged card. |
 

@@ -74,4 +74,5 @@
 * [Android integration guide](zero-fraud/android-integration-guide.md)
 * [Server integration guide](zero-fraud/server-integration-guide/README.md)
   * [Authenticating an added card](zero-fraud/server-integration-guide/authenticating-an-added-card.md)
+  * [Validating a card authentication token](zero-fraud/server-integration-guide/validating-a-card-authentication-token.md)
 
