@@ -21,7 +21,7 @@ class PaymentMethodViewController: UIViewController, VerifyCardAddResult {
     @IBAction func addCardPress() {
         // invoke the VerifyCardAdd flow and register for notifications
         // when it is complete or the user cancels
-        let vc = VerifyCardAddViewController()
+        let vc = VerifyCardAddViewController(userId: userId)
         vc.cardAddDelegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -53,4 +53,12 @@ Bouncer.generateCardAuthenticationPayload() { (payload: String?) in
     // use this payload to send to the server to authenticate the payment method
 }
 ```
+
+## Customizing the UI
+
+Zero Fraud supports full UI customization via subclassing our base classes and overriding our programmatic UI. Here is what the default scan and card detail entry views look like:
+
+![](../.gitbook/assets/img_0806.png)
+
+![](../.gitbook/assets/img_0807.png)
 
