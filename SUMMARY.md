@@ -72,5 +72,6 @@
 * [Integration overview](zero-fraud/integration-overview.md)
 * [iOS integration guide](zero-fraud/ios-integration-guide.md)
 * [Android integration guide](zero-fraud/android-integration-guide.md)
-* [Server integration guide](zero-fraud/server-integration-guide.md)
+* [Server integration guide](zero-fraud/server-integration-guide/README.md)
+  * [Authenticating an added card](zero-fraud/server-integration-guide/authenticating-an-added-card.md)
 
