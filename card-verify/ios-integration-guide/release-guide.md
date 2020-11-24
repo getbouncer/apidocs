@@ -21,17 +21,15 @@ CardVerify uses [semantic versioning](https://semver.org/) \(MAJOR.MINOR.PATCH\)
 
 1. Bump library version in the `CardVerify.podspec` file.
 
-    A. If you're also planning to release a new version of CardScan, make sure to:
-    
-    - Bump CardScan first
-    - Update the CardScan dependency in the CardVerify.podspec to the new version
-    - Make sure the example Podfile is pointing to production CardScan in Cocoapod
+   A. If you're also planning to release a new version of CardScan, make sure to:
+
+   * Bump CardScan first
+   * Update the CardScan dependency in the CardVerify.podspec to the new version
+   * Make sure the example Podfile is pointing to production CardScan in Cocoapod
 
 ### Run required tests
 
-1. Run [CardScan systems iOS test](system-test-guide.md).
-Make sure to watch the videos to double check that everything looks good.
-
+1. Run [CardScan systems iOS test](). Make sure to watch the videos to double check that everything looks good.
 2. Run the Cocoapods linter to make sure that everything is going to pass
 
    ```bash
@@ -57,7 +55,6 @@ Make sure to watch the videos to double check that everything looks good.
    ```
 
 3. Check the updated Changelog manually and update any entries that need updating.
-
 4. Run the `deploy.sh` script to create a new release
 
 ## Bumping a model
@@ -77,5 +74,5 @@ Make sure to watch the videos to double check that everything looks good.
 
 ## Update documentation
 
-Update the [API Docs](README.md) to reflect the new version.
+Update the [API Docs](./) to reflect the new version.
 

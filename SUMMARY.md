@@ -9,7 +9,7 @@
   * [Customization guide](card-scan/ios-integration-guide/ios-customization-guide.md)
   * [Card support guide](card-scan/ios-integration-guide/card-support.md)
   * [System tests guide](card-scan/ios-integration-guide/system-test-guide.md)
-  * [Release guide](card-scan/ios-integration-guide/release-guide.md)
+  * [Release guide](card-verify/ios-integration-guide/release-guide.md)
 * [Android integration guide](card-scan/android-integration-guide/README.md)
   * [UI customization guide](card-scan/android-integration-guide/ui-customization-guide.md)
   * [Card issuer support guide](card-scan/android-integration-guide/card-support.md)
@@ -65,4 +65,13 @@
 ## Bouncer Insight
 
 * [JavaScript Beacon](bouncer-insight/javascript-beacon.md)
+
+## Zero Fraud \(RFC\) <a id="zero-fraud"></a>
+
+* [Get started](zero-fraud/get-started.md)
+* [Integration overview](zero-fraud/integration-overview.md)
+* [iOS integration guide](zero-fraud/ios-integration-guide.md)
+* [Android integration guide](zero-fraud/android-integration-guide.md)
+* [Signals integration guide](zero-fraud/signals-integration-guide.md)
+* [Server integration guide](zero-fraud/server-integration-guide.md)
 

@@ -117,9 +117,7 @@ Alternatively, you can add this permission directly to your Info.plist file:
 
 {% tabs %}
 {% tab title="Swift" %}
-In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your API key.
-If you want to store card images with VGS to be analyzed, set the `useServerImageAnalysis` to true. 
-If you want to use enhanced card validation using the camera flash, set the `useFlashFlow` to true.
+In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your API key. If you want to store card images with VGS to be analyzed, set the `useServerImageAnalysis` to true. If you want to use enhanced card validation using the camera flash, set the `useFlashFlow` to true.
 
 ```swift
 import UIKit
@@ -140,9 +138,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endtab %}
 
 {% tab title="Objective C" %}
-If your app is configured using objective-c, in your `AppDelegate.m` file, Add an import for `CardVerify`, and set your API key.
-If you want to store card images with VGS to be analyzed, set the `useServerImageAnalysis` to YES. 
-If you want to use enhanced card validation using the camera flash, set the `useFlashFlow` to YES.
+If your app is configured using objective-c, in your `AppDelegate.m` file, Add an import for `CardVerify`, and set your API key. If you want to store card images with VGS to be analyzed, set the `useServerImageAnalysis` to YES. If you want to use enhanced card validation using the camera flash, set the `useFlashFlow` to YES.
+
 ```objectivec
 #import "AppDelegate.h"
 ...

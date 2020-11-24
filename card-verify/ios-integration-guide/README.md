@@ -239,7 +239,7 @@ This library is built to be customized to fit your UI. See the [customization do
 
 ## Supporting more cards
 
-Though CardScan supports several cards, you may need to add support for cards specific to your business, instructions can be found in the [card support docs]().
+Though CardScan supports several cards, you may need to add support for cards specific to your business, instructions can be found in the [card support docs](./).
 
 ## Authors
 
