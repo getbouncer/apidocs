@@ -4,11 +4,6 @@
 
 * Objective C or Swift 4.0 or higher
 * iOS 11.2 or higher \(supports development target of iOS 10.0 or higher\)
-* iOS 13 or higher for our name and expiration models. The number model will
-
-  work on older versions of iOS and it will always return nil for the name and
-
-  expiration fields.
 
 ## iPad Support
 
@@ -114,5 +109,41 @@ Configure the library when your application launches by adding CardScan to your 
 {% endtab %}
 {% endtabs %}
 
-## 
+## Using Zero Fraud
+
+To use Zero Fraud, you invoke the `VerifyAddCardViewController` and register as a `VerifyAddCardResult` delegate to get notified when either the user cancels the card add process or when they are done and ready to save the new card.
+
+```swift
+import CardVerify
+import UIKit
+
+class PaymentMethodViewController: UIViewController, VerifyCardAddResult {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    @IBAction func addCardPress() {
+        // invoke the VerifyCardAdd flow and register for notifications
+        // when it is complete or the user cancels
+        let vc = VerifyCardAddViewController()
+        vc.cardAddDelegate = self
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // -MARK: VerifyCardAddResults protocol implementation
+    func userDidCancel(_ viewController: VerifyCardAddViewController) {
+        // The user decided to not add a card
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func userDidPressSave(creditCard: CreditCard) {
+        // the user finished entering their card details and all of the
+        // details are stored in the `creditCard` object.
+        navigationController?.popViewController(animated: true)
+        
+        // Tokenize the card
+    }
+}
+```
 
