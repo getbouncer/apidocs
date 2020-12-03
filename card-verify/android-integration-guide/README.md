@@ -36,7 +36,7 @@ android {
 
 ## Integration
 
-Unlike CardScan, this library is not publicly available. It can be downloaded from our [BinTray](https://bintray.com/bouncerpaid/) repository. You should have been provided with a username and password when you contracted with Bouncer Technologies to use this library. Use those values in your `build.gradle` file to use CardVerify in your app.
+Unlike CardScan, this library is not publicly available. You should have been provided with a username and password when you contracted with Bouncer Technologies to use this library. Use those values in your `build.gradle` file to use CardVerify in your app.
 
 If you do not have the appropriate credentials, please contact [Support](mailto:support@getbouncer.com) and we will provide them.
 
