@@ -56,11 +56,11 @@ repositories {
 
 ```text
 dependencies {
-    implementation "com.getbouncer:scan-framework:2.0.0054"
-    implementation "com.getbouncer:scan-camera:2.0.0054"
-    implementation "com.getbouncer:scan-ui:2.0.0054"
-    implementation "com.getbouncer:scan-payment:2.0.0054"
-    implementation 'com.getbouncer:cardverify-ui:2.0.0054'
+    implementation "com.getbouncer:scan-framework:2.0.0056"
+    implementation "com.getbouncer:scan-camera:2.0.0056"
+    implementation "com.getbouncer:scan-ui:2.0.0056"
+    implementation "com.getbouncer:scan-payment:2.0.0056"
+    implementation 'com.getbouncer:cardverify-ui:2.0.0056'
 }
 ```
 
