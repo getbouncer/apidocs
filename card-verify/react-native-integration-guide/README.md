@@ -23,8 +23,23 @@ Add the `CardVerify` and `react-native-cardverify` pods to the `~/ios/Podfile` f
 ```ruby
 target 'Your App' do
   ...
-  pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-1.0.5038.tgz'
+  pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-1.0.5041-xcframework-test6.tgz'
   pod 'react-native-cardverify', :path => '../node_modules/react-native-cardverify/react-native-cardverify.podspec'
+end
+```
+
+CardVerify uses xcframeworks for its native package. Add the following to your `~/ios/Podfile` file in your app to enable this:
+
+```ruby
+pre_install do |installer|
+  installer.pod_targets.each do |pod|
+    if dynamic_frameworks.include?(pod.name)
+      puts "Overriding the build_as_static_framework? method for #{pod.name}"
+      def pod.build_as_static_framework?;
+        false
+      end
+    end
+  end
 end
 ```
 
