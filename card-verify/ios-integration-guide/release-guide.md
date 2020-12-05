@@ -29,7 +29,7 @@ CardVerify uses [semantic versioning](https://semver.org/) \(MAJOR.MINOR.PATCH\)
 
 ### Run required tests
 
-1. Run [CardScan systems iOS test](). Make sure to watch the videos to double check that everything looks good.
+1. Run [CardScan systems iOS test](release-guide.md). Make sure to watch the videos to double check that everything looks good.
 2. Run the Cocoapods linter to make sure that everything is going to pass
 
    ```bash

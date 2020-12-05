@@ -12,5 +12,5 @@ description: >-
 
 {% page-ref page="react-native-integration-guide/" %}
 
-![](../.gitbook/assets/cardscan%20%281%29.gif)
+![](../.gitbook/assets/cardscan%20%281%29%20%281%29.gif)
 

@@ -31,6 +31,8 @@ end
 CardVerify uses xcframeworks for its native package. Add the following to your `~/ios/Podfile` file in your app to enable this:
 
 ```ruby
+dynamic_frameworks = ['CardVerify']
+
 pre_install do |installer|
   installer.pod_targets.each do |pod|
     if dynamic_frameworks.include?(pod.name)

@@ -18,7 +18,7 @@ description: >-
 
 The CardScan SDK is built from multiple android modules, each of which builds upon more base modules. The structure of the modules used in CardScan looks like this:
 
-![module structure](../../.gitbook/assets/cardscan_android_module_dependencies.png)
+![module structure](../../.gitbook/assets/module_dependencies%20%281%29.png)
 
 The CardScan SDK consists of these modules as well as a demo app:
 
