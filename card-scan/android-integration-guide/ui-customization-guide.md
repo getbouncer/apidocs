@@ -38,6 +38,7 @@ The CardScan SDK uses the following text fields:
 | **`bouncer_error_camera_access`** | Message of the dialog shown to the user when an error accessing the camera occurs | `Permission was denied when turning on the camera` |
 | **`bouncer_error_camera_unsupported`** | Message of the dialog shown to the user when the camera is not supported | `This device does not support the required camera features` |
 | **`bouncer_error_camera_acknowledge_button`** | Affirmative button shown as part of the camera error dialog | `Close` |
+| **`bouncer_processing_card`** | Text shown while processing details of a card | `Processing, please wait` |
 | **`bouncer_api_key_invalid_title`** | Title of the dialog shown to the user when an invalid API key is specified | `Network Problem` |
 | **`bouncer_api_key_invalid_message`** | Message of the dialog shown to the user when an invalid API key is specified | `Sorry, this API key is not valid.` |
 | **`bouncer_api_key_invalid_ok`** | Affirmative button shown as part of the invalid API key dialog | `OK` |
