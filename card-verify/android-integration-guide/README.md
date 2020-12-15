@@ -164,8 +164,12 @@ class LaunchActivity : Activity, CardVerifyActivityResultHandler {
          */
     }
 
-    override fun missingCard(scanId: String?) {
+    override fun userMissingCard(scanId: String?) {
         // The user does not have possession of this card
+    }
+
+    override fun enterManually(scanId: String?) {
+        // The user wants to manually enter a card
     }
 
     override fun userCanceled(scanId: String?) {
@@ -240,8 +244,13 @@ class LaunchActivity
     }
 
     @Override
-    public void missingCard(@Nullable String scanId) {
+    public void userMissingCard(@Nullable String scanId) {
         // The user does not have possession of this card
+    }
+
+    @Override
+    public void enterManually(@Nullable String scanId) {
+        // The user wants to manually enter a card
     }
 
     @Override
