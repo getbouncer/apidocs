@@ -26,8 +26,8 @@ repositories {
 
 ```text
 dependencies {
-    implementation "com.getbouncer:scan-framework:2.0.0056"
-    implementation 'com.getbouncer:insights:2.0.0056'
+    implementation "com.getbouncer:scan-framework:2.0.0057"
+    implementation 'com.getbouncer:insights:2.0.0057'
 }
 ```
 
