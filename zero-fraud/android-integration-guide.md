@@ -4,9 +4,32 @@ description: Android zero-fraud integration guide.
 
 # Android integration guide
 
-## Installing Card Verify
+## Installation
 
-Please follow the [general instructions](../card-verify/android-integration-guide/) for installing, setting up permissions, and configuring Card Verify.
+This library is not publicly available. You should have been provided with a username and password when you contracted with Bouncer Technologies to use this library. Use those values in your `build.gradle` file to use Instrumentation in your app.
+
+If you do not have the appropriate credentials, please contact [Support](mailto:support@getbouncer.com) and we will provide them.
+
+```text
+// Add the Bouncer repo to both the buildscript and allprojects elements
+repositories {
+    ...
+    maven {
+        url "https://bouncerpaid.bintray.com/instrumentation-android"
+        credentials {
+            username "<FILL_IN_YOUR_USERNAME>"
+            password "<FILL_IN_YOUR_PASSWORD>"
+        }
+    }
+}
+```
+
+```text
+dependencies {
+    implementation "com.getbouncer:scan-framework:2.0.0056"
+    implementation 'com.getbouncer:insights:2.0.0056'
+}
+```
 
 ## Using Zero Fraud
 
