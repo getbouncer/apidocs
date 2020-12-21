@@ -9,6 +9,8 @@ These requests should be made after each of these events:
 - payment method added
 - transaction performed
 
+### Sign Up
+
 {% tabs %}
 {% tab title="Request" %}
 
@@ -19,50 +21,161 @@ POST https://api.getbouncer.com/insight/v1/events/add
 x-bouncer-auth: <your_api_key>
 
 {
-    "event_name": String("<One of the following: new_account, account_login, add_payment_method, transaction>"),
-    "event_result": String("<One of the following: success, failure, error>"),
+    "event": "user_create",
+    "occurred_at": Long("<the time in MS since epoch when the event occurred>"),
+    "ip_address": String("<IP address of the client performing the action>"),
+    "session_id": Optional String("<the ID of the session for this user>"),
     "user_id": String("<id of the user>"),
-    "client_ip": String("<IP address of the client performing the action>"),
-    "metadata": Object of String:Any
-}
-```
-
-The `metadata` field should contain information about the event. Each event expects different metadata:
-
-### Signup
-no additional metadata (field can be null)
-
-### Login
-no additional metadata (field can be null)
-
-### Add payment method
-Metadata should contain:
-
-```json
-{
-  "instrument_last_four": "<payment method last 4 digits>",
-  "instrument_iin": "<payment method first 6 digits>",
-  "instrument_token": "<stripe token for the payment method>",
-  "customer_id": "<stripe customer id>"
-}
-```
-
-### Performing a transaction with a payment method
-Metadata should contain:
-
-```json
-{
-  "instrument_last_four": "<payment method last 4 digits>",
-  "instrument_iin": "<payment method first 6 digits>",
-  "instrument_token": "<stripe token for the payment method>",
-  "customer_id": "<stripe customer id>"
+    "user_name": Optional String("<username performing the event>"),
+    "phone_number": Optional String,
+    "first_name": Optional String,
+    "last_name": Optional String,
+    "full_name": Optional String,
+    "email": Optional String,
+    "shipping_address": Optional String,
+    "billing_address": Optional String
 }
 ```
 
 {% endtab %}
 {% tab title="Response" %}
 
-The response will include a score from Bouncer and a recommendation to challenge or allow the transaction.
+```
+HTTP 200 OK
+{
+    "result": "ok"
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+### Login
+
+{% tabs %}
+{% tab title="Request" %}
+
+The request must include details about the event, including the user ID and IP. The request must additionally be authenticated with your API key.
+
+```
+POST https://api.getbouncer.com/insight/v1/events/add
+x-bouncer-auth: <your_api_key>
+
+{
+    "event": "user_login",
+    "occurred_at": Long("<the time in MS since epoch when the event occurred>"),
+    "ip_address": String("<IP address of the client performing the action>"),
+    "session_id": Optional String("<the ID of the session for this user>"),
+    "success": Boolean("<whether or not the login attempt succeeded>"),
+    "failure_reason": String("<reason the login failed, one of the following: account_unknown, bad_credentials>"),
+    "user_id": Optional String("<id of the user>"),
+    "user_name": Optional String("<username performing the event>")
+}
+```
+
+{% endtab %}
+{% tab title="Response" %}
+
+```
+HTTP 200 OK
+{
+    "result": "ok"
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+### User Update
+
+{% tabs %}
+{% tab title="Request" %}
+
+The request must include details about the event, including the user ID and IP. The request must additionally be authenticated with your API key.
+
+```
+POST https://api.getbouncer.com/insight/v1/events/add
+x-bouncer-auth: <your_api_key>
+
+{
+    "event": "user_update",
+    "occurred_at": Long("<the time in MS since epoch when the event occurred>"),
+    "ip_address": String("<IP address of the client performing the action>"),
+    "session_id": Optional String("<the ID of the session for this user>"),
+    "user_id": String("<id of the user>"),
+    "user_name": Optional String("<username performing the event>"),
+    "phone_number": Optional String,
+    "first_name": Optional String,
+    "last_name": Optional String,
+    "full_name": Optional String,
+    "email": Optional String,
+    "shipping_address": Optional String,
+    "billing_address": Optional String
+}
+```
+
+{% endtab %}
+{% tab title="Response" %}
+
+```
+HTTP 200 OK
+{
+    "result": "ok"
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+### Add payment method
+
+{% tabs %}
+{% tab title="Request" %}
+
+The request must include details about the event, including the user ID and IP. The request must additionally be authenticated with your API key.
+
+```
+POST https://api.getbouncer.com/insight/v1/events/add
+x-bouncer-auth: <your_api_key>
+
+{
+    "event": "payment_method_add",
+    "occurred_at": Long("<the time in MS since epoch when the event occurred>"),
+    "ip_address": String("<IP address of the client performing the action>"),
+    "session_id": Optional String("<the ID of the session for this user>"),
+    "user_id": Optional String("<id of the user>"),
+    "payment_method_id": String("<customer-defined payment method ID>"),
+    "payment_method_type": String,
+    "payment_gateway": String,
+    "success": Boolean("<true if the payment method was added successfully>"),
+    "card": Optional {
+        "card_brand": Optional String,
+        "card_funding": Optional String,
+        "card_fingerprint": Optional String,
+        "card_bin": Optional String,
+        "card_last4": Optional String,
+        "card_exp_month": Optional String,
+        "card_exp_year": Optional String,
+        "card_name": Optional String,
+        "card_cvc_check": Optional String,
+        "card_zip_check": Optional String,
+        "card_address": Optional {
+            "street1": Optional String,
+            "street2": Optional String,
+            "city": Optional String,
+            "state": Optional String,
+            "zip": Optional String,
+            "country_iso": Optional String
+        }
+    },
+    "failure_type": String,
+    "decline_code": String,
+    "failure_reason": String
+}
+```
+
+{% endtab %}
+{% tab title="Response" %}
 
 ```
 HTTP 200 OK
