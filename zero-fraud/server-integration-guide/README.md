@@ -71,8 +71,6 @@ HTTP 200 OK
 }
 ```
 
-`challenge_recommended` will be a boolean indicating whether bouncer recommends challenging the transaction. `fraud_risk_score` will be a float between 0 and 1 (inclusive) that indicates how fraudulent Bouncer believes this transaction to be.
-
 {% endtab %}
 {% endtabs %}
 
@@ -109,8 +107,6 @@ HTTP 200 OK
     "result": "ok"
 }
 ```
-
-`challenge_recommended` will be a boolean indicating whether bouncer recommends challenging the transaction. `fraud_risk_score` will be a float between 0 and 1 (inclusive) that indicates how fraudulent Bouncer believes this transaction to be.
 
 {% endtab %}
 {% endtabs %}
