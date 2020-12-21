@@ -62,7 +62,7 @@ These libraries are published in the [jcenter](https://jcenter.bintray.com/com/g
 
 ```text
 dependencies {
-    implementation 'com.getbouncer:cardscan-ui:2.0.0058'
+    implementation 'com.getbouncer:cardscan-ui:2.0.0059'
 }
 ```
 
