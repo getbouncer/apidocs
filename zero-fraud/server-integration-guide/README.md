@@ -1,5 +1,12 @@
 # Server integration guide
 
+To improve the accuracy of Bouncer's fraud detection, we recommend notifying bouncer for the following:
+
+- Account Events
+- Payment Card Tokenization
+
+Your service can query Bouncer servers at any time (e.g. before allowing a purchase) for a fraud risk score for a given user. 
+
 ## Account Events
 
 When the client performs an event that should be tracked by Bouncer, call this endpoint from your server.
@@ -8,8 +15,8 @@ These requests should be made after each of these events:
 
 * user signup
 * user login
+* user update
 * payment method added
-* transaction performed
 
 ### Sign Up
 
