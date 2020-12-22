@@ -44,7 +44,9 @@ dependencies {
 ```
 
 ## Using Zero Fraud
+
 Zero Fraud consists of the following parts:
+
 1. The bouncer card scanner for adding payment methods to user accounts
 1. An instrumented payment method add form
 1. Instrumented user events (signup, login)
@@ -291,11 +293,14 @@ class AddCardActivity : AppCompatActivity(), CoroutineScope {
 ```
 
 ### Instrumenting User Events
+
 For better fraud accuracy, add Bouncer instrumentation to the following events for your users:
+
 1. User Creation
 1. User Login
 
 #### Tracking user creation
+
 In your user signup flow, create an `EventTracker` by calling `BouncerUserInstrumentation.trackUserCreate`. Optionally, you can provide a unique device identifier if you have one.
 
 ```kotlin
