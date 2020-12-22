@@ -7,38 +7,13 @@ description: Scan a payment card with CardScan for iOS.
 ## Requirements
 
 * Objective C or Swift 4.0 or higher
-* iOS 11.2 or higher \(supports development target of iOS 10.0 or higher\)
-* iOS 13 or higher for our name and expiration models. The number model will
-
-  work on older versions of iOS and it will always return nil for the name and
-
-  expiration fields.
+* Xcode 11 or higher
+* iOS 11.2 or higher
+* iOS 13 or higher for name and expiration extraction. 
 
 ## Demo
 
-The [cardscan repository](https://github.com/getbouncer/cardscan-ios) contains a demonstration app for the CardScan product. To build and install this library follow the following steps:
-
-1. Clone the repository from github
-
-   ```bash
-   git clone --recursive https://github.com/getbouncer/cardscan-ios
-   ```
-
-2. Install the cocoapods in the Example directory
-
-   ```bash
-   cd Example
-   pod install
-   ```
-
-3. Open the project in XCode and run the example
-   * File → Open
-   * Naviate to `Example/CardScan.xcworkspace`
-4. Run the example using XCode
-   * Select `CardScan_Example` and point it to your device
-   * Click the play button to run the demo app on your device
-
-     ![build\_xcode](../../.gitbook/assets/ios_build_xcode.png)
+We have a repo on github that includes [examples of using CardScan](https://github.com/getbouncer/cardscan-ios-example.git) with both Cocoapods and Swift Package Manager. Please see that repo for more details.
 
 ## iPad Support
 
@@ -46,7 +21,9 @@ CardScan defaults to a `formSheet` for the iPad, which handles all screen orient
 
 ## Installation
 
-CardScan is available through [CocoaPods](https://cocoapods.org/) and [Carthage](https://github.com/Carthage/Carthage).
+CardScan is available through CocoaPods and Swift Package Manager. With version 2.0 we dropped support for Carthage because the Carthage tools were too reliable. If you require Carthage support we suggest moving to Swift Package Manager or reach out and we'll try to work with you.
+
+In our deployments we use XCFrameworks to encapsulate our code and resources. XCFrameworks have the advantage of faster compilation times and simplified bundle management, but if you need source we make it available in our [CardScan repo](https://github.com/getbouncer/cardscan-ios).
 
 {% tabs %}
 {% tab title="CocoaPods" %}
@@ -76,14 +53,8 @@ open YourProject.xcworkspace
 ```
 {% endtab %}
 
-{% tab title="Carthage" %}
-Add the following line to your Cartfile:
-
-```text
-github "getbouncer/cardscan-ios" "master"
-```
-
-Follow the [Carthage instructions for building for iOS](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos)
+{% tab title="Swift Package Manager" %}
+To use Swift Package Manager, in Xcode add the `https://github.com/getbouncer/cardscan-ios/git` repo and choose the latest version up to the next major version. For example, if CardScan is on version `2.0.2` then you'd select `2.0.2 - Next Major`
 {% endtab %}
 {% endtabs %}
 
@@ -273,30 +244,6 @@ class ViewController: UIViewController, ScanDelegate {
 }
 
 @end
-```
-{% endtab %}
-{% endtabs %}
-
-## Using CardScan on iOS 10
-
-CardScan makes heavy use of CoreML, which Apple introduced in iOS 11. You can include the CardScan library in any projects that support a development target of iOS 10.0 or higher, but it will only run on devices that are running iOS 11 or higher.
-
-To check if a device supports CardScan at runtime, use the `ScanViewController.isCompatible` method:
-
-{% tabs %}
-{% tab title="Swift" %}
-```swift
-if !ScanViewController.isCompatible() {
-    self.scanCardButton.isHidden = true
-}
-```
-{% endtab %}
-
-{% tab title="Objective C" %}
-```objectivec
-if (![ScanViewController isCompatible]) {
-    self.scanCardButton.isHidden = true;
-}
 ```
 {% endtab %}
 {% endtabs %}

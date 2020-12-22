@@ -5,6 +5,7 @@ description: Android zero-fraud integration guide.
 # Android integration guide
 
 ## Installation
+
 This library is not publicly available. You should have been provided with a username and password when you contracted with Bouncer Technologies to use this library. Use those values in your `build.gradle` file to use Instrumentation in your app.
 
 If you do not have the appropriate credentials, please contact [Support](mailto:support@getbouncer.com) and we will provide them.
@@ -43,16 +44,17 @@ dependencies {
 ```
 
 ## Using Zero Fraud
-Zero Fraud consists of the following parts:
-1. The bouncer card scanner for adding payment methods to user accounts
-1. An instrumented payment method add form
-1. Instrumented account events (signup, login, payment add, transaction)
+
+Zero Fraud consists of the following parts: 1. The bouncer card scanner for adding payment methods to user accounts 1. An instrumented payment method add form 1. Instrumented account events \(signup, login, payment add, transaction\)
 
 ### Scanning to add a card
+
 #### 1. Library warm up
+
 CardVerify will download ML models for use in verifying the authenticity of payment cards. To ensure these models are downloaded by the time CardVerify runs, please make sure to call the `warmUp` method on CardVerify as early in the app flow as possible. In most cases, this can be done in the `onApplicationCreate` method of your app. Note that `warmUp` processes on a background thread and will not affect your app's startup time.
 
-##### Adding an application lifecycle listener
+**Adding an application lifecycle listener**
+
 If your app doesn't already listen to application lifecycle events, you can extend the `Application` object and connect it using your manifest by setting `android:name` on your application node:
 
 ```markup
@@ -92,6 +94,7 @@ public class MyApplication extends Application {
 ```
 
 #### 2. Starting the flow
+
 To start the flow, `CardVerifyActivity` provides a `start` method which takes the required parameters and launches the flow. Be sure to include a unique ID for the user that you will use to look up the user later.
 
 {% tabs %}
@@ -232,12 +235,14 @@ class LaunchActivity
 {% endtab %}
 {% endtabs %}
 
-To use Zero Fraud, invoke the `CardVerifyActivity.start`  method and add implement the `CardVerifyActivityResultHandler` to be notified when a user has successfully scanned a card or has asked to enter details manually. 
+To use Zero Fraud, invoke the `CardVerifyActivity.start` method and add implement the `CardVerifyActivityResultHandler` to be notified when a user has successfully scanned a card or has asked to enter details manually.
 
 ### Instrumenting the payment card form
+
 Soon, Bouncer will provide a payment card entry form. Until then, Bouncer Insights is designed to use your own existing payment card entry form.
 
 #### Using your own card entry form
+
 If you plan to build or already have your own card entry form, you can add bouncer instrumentation to the form.
 
 ```kotlin
@@ -284,13 +289,11 @@ class AddCardActivity : AppCompatActivity(), CoroutineScope {
 ```
 
 ### Instrumenting Account Events
-For better fraud accuracy, add Bouncer instrumentation to the following events for your users:
-1. Account Creation
-1. Account Log In
-1. Add payment method
-1. Use payment method
+
+For better fraud accuracy, add Bouncer instrumentation to the following events for your users: 1. Account Creation 1. Account Log In 1. Add payment method 1. Use payment method
 
 #### Tracking account creation
+
 In your new account flow, create an `EventTracker` by calling `BouncerAccountInstrumentation.trackNewAccount`. Optionally, you can provide a unique device identifier if you have one.
 
 ```kotlin
@@ -312,6 +315,7 @@ class UserSignUpActivity : AppCompatActivity() {
 ```
 
 #### Tracking account login
+
 In your login flow, create an `EventTracker` by calling `BouncerAccountInstrumentation.trackAccountLogIn`. Optionally, you can provide the user ID and unique device identifier if you have them.
 
 ```kotlin
@@ -327,7 +331,7 @@ class UserLoginActivity : AppCompatActivity() {
         // create a user
         try {
             val authToken = user.logIn(password)
-            
+
             if (authToken != null) {
                 bouncerTracker.recordSuccess(this, user.id)
                 storeAuthToken(authToken)
@@ -344,6 +348,7 @@ class UserLoginActivity : AppCompatActivity() {
 ```
 
 #### Tracking adding a payment method
+
 In your add payment method form, create an `EventTracker` by calling `BouncerAccountInstrumentation.trackAddPaymentMethod`. Optionally, you can provide the user ID and a unique device identifier if you have them.
 
 ```kotlin
@@ -377,7 +382,8 @@ class AddCardActivity : AppCompatActivity() {
 ```
 
 #### Tracking using a payment method
-In your checkout flow, create an `EventTracker` by calling `BouncerAccountInstrumentation.trackTransaction`. Optionally, you can provide the user ID, a unique device identifier, the amount of the transaction, and the currency of the transaction. Currency should be a 3-letter representation (e.g. `"USD"` for the U.S. Dollar).
+
+In your checkout flow, create an `EventTracker` by calling `BouncerAccountInstrumentation.trackTransaction`. Optionally, you can provide the user ID, a unique device identifier, the amount of the transaction, and the currency of the transaction. Currency should be a 3-letter representation \(e.g. `"USD"` for the U.S. Dollar\).
 
 ```kotlin
 class CheckOutActivity : AppCompatActivity() {
@@ -412,4 +418,6 @@ class CheckOutActivity : AppCompatActivity() {
 ```
 
 ## Getting a fraud risk score from Bouncer
-Before allowing a transaction to proceed, your servers should query Bouncer servers with the userId, payment method identifier (e.g. stripe token), transaction amount, and transaction currency. Bouncer servers will respond with a risk score. See the [Server Integration Guide](server-integration-guide/README.md) for details.
+
+Before allowing a transaction to proceed, your servers should query Bouncer servers with the userId, payment method identifier \(e.g. stripe token\), transaction amount, and transaction currency. Bouncer servers will respond with a risk score. See the [Server Integration Guide](server-integration-guide/) for details.
+
