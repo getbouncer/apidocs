@@ -21,7 +21,7 @@ CardScan defaults to a `formSheet` for the iPad, which handles all screen orient
 
 ## Installation
 
-CardScan is available through CocoaPods and Swift Package Manager. With version 2.0 we dropped support for Carthage because the Carthage tools were too reliable. If you require Carthage support we suggest moving to Swift Package Manager or reach out and we'll try to work with you.
+CardScan is available through CocoaPods and Swift Package Manager. With version 2.0 we dropped support for Carthage. If you require Carthage support we suggest moving to Swift Package Manager or reach out and we'll try to work with you.
 
 In our deployments we use XCFrameworks to encapsulate our code and resources. XCFrameworks have the advantage of faster compilation times and simplified bundle management, but if you need source we make it available in our [CardScan repo](https://github.com/getbouncer/cardscan-ios).
 
