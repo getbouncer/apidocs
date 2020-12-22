@@ -44,8 +44,10 @@ dependencies {
 ```
 
 ## Using Zero Fraud
-
-Zero Fraud consists of the following parts: 1. The bouncer card scanner for adding payment methods to user accounts 1. An instrumented payment method add form 1. Instrumented account events \(signup, login, payment add, transaction\)
+Zero Fraud consists of the following parts:
+1. The bouncer card scanner for adding payment methods to user accounts
+1. An instrumented payment method add form
+1. Instrumented user events (signup, login)
 
 ### Scanning to add a card
 
@@ -288,136 +290,66 @@ class AddCardActivity : AppCompatActivity(), CoroutineScope {
 }
 ```
 
-### Instrumenting Account Events
+### Instrumenting User Events
+For better fraud accuracy, add Bouncer instrumentation to the following events for your users:
+1. User Creation
+1. User Login
 
-For better fraud accuracy, add Bouncer instrumentation to the following events for your users: 1. Account Creation 1. Account Log In 1. Add payment method 1. Use payment method
-
-#### Tracking account creation
-
-In your new account flow, create an `EventTracker` by calling `BouncerAccountInstrumentation.trackNewAccount`. Optionally, you can provide a unique device identifier if you have one.
+#### Tracking user creation
+In your user signup flow, create an `EventTracker` by calling `BouncerUserInstrumentation.trackUserCreate`. Optionally, you can provide a unique device identifier if you have one.
 
 ```kotlin
-class UserSignUpActivity : AppCompatActivity() {
+class SignUpActivity : AppCompatActivity() {
 
-    private val bouncerTracker = BouncerAccountInstrumentation.trackNewAccount()
+    private val bouncerTracker = BouncerUserInstrumentation.trackUserCreate()
 
     // ...
 
-    private fun createUser(userName: String, password: String) {
+    private fun createUser(userName: String, password: String): Boolean {
         // create a user
         val user = MyApi.createUser(userName, password)
-        bouncerTracker.recordSuccess(
-            context = this,
-            userId = user.id,
-        )
+        if (user != null) {
+            bouncerTracker.recordSuccess(
+                context = this,
+                userId = user.id,
+                loginIdentifier = userName,
+            )
+        }
+
+        return user != null
     }
 }
 ```
 
-#### Tracking account login
+#### Tracking user login
 
-In your login flow, create an `EventTracker` by calling `BouncerAccountInstrumentation.trackAccountLogIn`. Optionally, you can provide the user ID and unique device identifier if you have them.
+In your user login flow, create an `EventTracker` by calling `BouncerUserInstrumentation.trackUserLogin`. Optionally, you can provide the user ID and unique device identifier if you have them.
 
 ```kotlin
 class UserLoginActivity : AppCompatActivity() {
 
-    private val bouncerTracker = BouncerAccountInstrumentation.trackAccountLogIn()
+    private val bouncerTracker = BouncerUserInstrumentation.trackUserLogin()
 
     // ...
 
-    private fun userLogIn(userName: String, password: String) {
+    private fun userLogIn(userName: String, password: String): Boolean {
+        // log the user in
         val user = MyApi.getUserFromUserName(userName)
+        val authToken = user?.logIn(password)
 
-        // create a user
-        try {
-            val authToken = user.logIn(password)
-
-            if (authToken != null) {
-                bouncerTracker.recordSuccess(this, user.id)
-                storeAuthToken(authToken)
-            } else {
-                bouncerTracker.recordFailure(this, user.id)
-                showLoginFailed()
-            }
-        } catch (t: Throwable) {
-            bouncerTracker.recordError(this, user.id, error = t)
-            showLoginError()
+        if (authToken != null) {
+            bouncerTracker.recordSuccess(this, userName, user.id, metaData = null)
+        } else {
+            bouncerTracker.recordFailure(this, userName, user?.id, metaData = null)
+            showLoginFailed()
         }
-    }
-}
-```
 
-#### Tracking adding a payment method
-
-In your add payment method form, create an `EventTracker` by calling `BouncerAccountInstrumentation.trackAddPaymentMethod`. Optionally, you can provide the user ID and a unique device identifier if you have them.
-
-```kotlin
-class AddCardActivity : AppCompatActivity() {
-
-    private val bouncerTracker = BouncerAccountInstrumentation.trackAddPaymentMethod()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        viewBinding.addCardButton.setOnClickListener {
-            // attempt to add the payment method to the user's account
-
-            try {
-                val paymentToken = MyApi.addPaymentMethod(userId, viewBinding.cardAddWidget.cardParams)
-
-                if (paymentToken != null) {
-                    bouncerTracker.recordSuccess(this, userId)
-                    storePaymentToken(paymentToken)
-                } else {
-                    bouncerTracker.recordFailure(this, userId)
-                    showPaymentMethodAddFailed()
-                }
-            } catch (t: Throwable) {
-                bouncerTracker.recordError(this, userId, error = t)
-                showPaymentMethodAddError()
-            }
-        }
-    }
-}
-```
-
-#### Tracking using a payment method
-
-In your checkout flow, create an `EventTracker` by calling `BouncerAccountInstrumentation.trackTransaction`. Optionally, you can provide the user ID, a unique device identifier, the amount of the transaction, and the currency of the transaction. Currency should be a 3-letter representation \(e.g. `"USD"` for the U.S. Dollar\).
-
-```kotlin
-class CheckOutActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val bouncerTracker = BouncerAccountInstrumentation.trackTransaction(
-            transactionAmount = getTransactionAmount(),
-            transactionCurrency = "AUD"  // e.g. Australian dollars
-        )
-
-        viewBinding.addCardButton.setOnClickListener {
-            // attempt to add the payment method to the user's account
-
-            try {
-                val transactionSuccess = MyApi.chargePayment(userId, paymentToken)
-
-                if (transactionSuccess) {
-                    bouncerTracker.recordSuccess(this, userId)
-                    showTransactionSuccess()
-                } else {
-                    bouncerTracker.recordFailure(this, userId)
-                    showTransactionFailed()
-                }
-            } catch (t: Throwable) {
-                bouncerTracker.recordError(this, userId, error = t)
-                showTransactionError()
-            }
-        }
+        return authToken != null
     }
 }
 ```
 
 ## Getting a fraud risk score from Bouncer
 
-Before allowing a transaction to proceed, your servers should query Bouncer servers with the userId, payment method identifier \(e.g. stripe token\), transaction amount, and transaction currency. Bouncer servers will respond with a risk score. See the [Server Integration Guide](server-integration-guide/) for details.
+Before allowing a transaction to proceed, your servers should query Bouncer servers with the userId, payment method identifier \(e.g. stripe token\), transaction amount, and transaction currency. Bouncer servers will respond with a risk score. See the [Server Integration Guide](server-integration-guide/README.md) for details.
 
