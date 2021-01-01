@@ -48,8 +48,8 @@ dependencies {
 Zero Fraud consists of the following parts:
 
 1. The bouncer card scanner for adding payment methods to user accounts
-1. An instrumented payment method add form
-1. Instrumented user events (signup, login)
+2. An instrumented payment method add form
+3. Instrumented user events \(signup, login\)
 
 ### Scanning to add a card
 
@@ -297,7 +297,7 @@ class AddCardActivity : AppCompatActivity(), CoroutineScope {
 For better fraud accuracy, add Bouncer instrumentation to the following events for your users:
 
 1. User Creation
-1. User Login
+2. User Login
 
 #### Tracking user creation
 
@@ -356,5 +356,5 @@ class UserLoginActivity : AppCompatActivity() {
 
 ## Getting a fraud risk score from Bouncer
 
-Before allowing a transaction to proceed, your servers should query Bouncer servers with the userId, payment method identifier \(e.g. stripe token\), transaction amount, and transaction currency. Bouncer servers will respond with a risk score. See the [Server Integration Guide](server-integration-guide/README.md) for details.
+Before allowing a transaction to proceed, your servers should query Bouncer servers with the userId, payment method identifier \(e.g. stripe token\), transaction amount, and transaction currency. Bouncer servers will respond with a risk score. See the [Server Integration Guide](server-integration-guide/) for details.
 

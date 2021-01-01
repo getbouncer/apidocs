@@ -2,10 +2,10 @@
 
 To improve the accuracy of Bouncer's fraud detection, we recommend notifying bouncer for the following:
 
-- Account Events
-- Payment Card Tokenization
+* Account Events
+* Payment Card Tokenization
 
-Your service can query Bouncer servers at any time (e.g. before allowing a purchase) for a fraud risk score for a given user. 
+Your service can query Bouncer servers at any time \(e.g. before allowing a purchase\) for a fraud risk score for a given user.
 
 ## Account Events
 
