@@ -16,7 +16,7 @@ By default, we provide internationalization support and translations for all of 
 | **VerifyCardExplanationViewController.scanCardButtonText** | Scan button text | Scan my card |
 | **VerifyCardExplanationViewController.tryAnotherCardButtonText** | Pay another way button text | Try to pay another way |
 
-### Updating UI components
+## Updating UI components
 
 In addition to customizing the UI components from `SimpleScanViewController` you can also update the components from the Verify ViewControllers. Please reach out to Bouncer to discuss options for this and to get more information.
 
