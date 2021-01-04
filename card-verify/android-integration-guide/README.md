@@ -18,9 +18,9 @@ We try to keep our SDK as small as possible while maintaining good performance. 
 
 |  | Base SDK | TFLite Framework | Total |
 | :--- | :--- | :--- | :--- |
-| App does not yet use TFLite & app _is not_ published as bundle | 3.4MB | 4.0MB | 7.4MB |
-| App does not yet use TFLite & app _is_ published as a bundle | 3.4MB | 1.0MB | 4.4MB |
-| App already uses TFLite | 3.4MB | 0.0MB | 3.4MB |
+| App does not yet use TFLite & app _is not_ published as bundle | 3.9MB | 4.0MB | 7.9MB |
+| App does not yet use TFLite & app _is_ published as a bundle | 3.9MB | 1.0MB | 4.9MB |
+| App already uses TFLite | 3.9MB | 0.0MB | 3.9MB |
 
 If your app is not packaged as a bundle, you can reduce the size of the TFLite framework by restricting the binaries included in your APK. Add the following to your `build.gradle` file to include only the `arm` binaries:
 
