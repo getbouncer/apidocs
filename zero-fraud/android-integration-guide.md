@@ -34,11 +34,11 @@ repositories {
 
 ```text
 dependencies {
-    implementation "com.getbouncer:cardverify-ui-zerofraud:2.0.0059"
-    implementation "com.getbouncer:insights:2.0.0059"
-    implementation "com.getbouncer:scan-camera:2.0.0059"
-    implementation "com.getbouncer:scan-framework:2.0.0059"
-    implementation "com.getbouncer:scan-payment:2.0.0059"
+    implementation "com.getbouncer:cardverify-ui-zerofraud:2.0.0062"
+    implementation "com.getbouncer:insights:2.0.0062"
+    implementation "com.getbouncer:scan-camera:2.0.0062"
+    implementation "com.getbouncer:scan-framework:2.0.0062"
+    implementation "com.getbouncer:scan-payment:2.0.0062"
     implementation "com.getbouncer:scan-ui:2.0.058"
 }
 ```
@@ -292,12 +292,24 @@ class AddCardActivity : AppCompatActivity(), CoroutineScope {
 }
 ```
 
+If you're not using the `CardVerifyActivity.warmUp()` at application start, you'll have to manually set your API key before instrumenting your payment form. You can do this by setting:
+
+```kotlin
+com.getbouncer.scan.framework.Config.apiKey = "<your_api_key_here>"
+```
+
 ### Instrumenting User Events
 
 For better fraud accuracy, add Bouncer instrumentation to the following events for your users:
 
 1. User Creation
 2. User Login
+
+If you're not using the `CardVerifyActivity.warmUp()` at application start, you'll have to manually set your API key before instrumenting your user events. You can do this by setting:
+
+```kotlin
+com.getbouncer.scan.framework.Config.apiKey = "<your_api_key_here>"
+```
 
 #### Tracking user creation
 
