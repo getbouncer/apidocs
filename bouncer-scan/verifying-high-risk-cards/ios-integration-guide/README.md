@@ -194,7 +194,7 @@ class VerifyAddFlowViewController: UIViewController, VerifyCardExplanationResult
     }
     
     func userDidScanCardAdd(_ viewController: UIViewController, creditCard: CreditCard) {
-        // don't do anything here, wait for the fraud result to come back
+        // The flow is complete, but fraud results aren't back yet
     }
     
     func userDidPressManualCardAdd(_ viewController: UIViewController) {
@@ -206,6 +206,68 @@ class VerifyAddFlowViewController: UIViewController, VerifyCardExplanationResult
 ### Allowing users to scan any card during high risk transactions
 
 You can also use `VerifyCardAddViewController` to verify high risk transactions without limiting them to the specific card that you have on file for the transaction. To support this flow, follow the instructions in the [Using VerifyCardAddViewController](./#using-verifycardaddviewcontroller-to-verify-cards-when-users-add-them) section, but disable the button that allows users to enter card details manually by setting the `enableManualEntry` property on the `VerifyCardAddViewController` to `false`
+
+{% tabs %}
+{% tab title="Swift" %}
+```swift
+import UIKit
+import CardVerify
+
+class ViewController: UIViewController, VerifyCardExplanationResult, VerifyCardAddResult {
+    @IBAction func buttonPressed() {
+        let vc = VerifyCardExplanationViewController()
+        vc.lastFourForDisplay = self.lastFourOnFile
+        vc.cardNetworkForDisplay = self.networkOfCardOnFile
+        vc.expiryOrNameForDisplay = nameOnFile ?? expiryOnFile ?? ""
+        vc.delegate = self
+        
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    // MARK: -Explanation protocol implementation
+    func userDidPressScanCardExplaination(_ viewController: VerifyCardExplanationViewController) {
+        // Start the Verification process
+        let vc = VerifyCardAddViewController(userId: "1234")
+        vc.cardAddDelegate = self
+        vc.enableManualEntry = false
+        
+        viewController.present(vc, animated: true, completion: nil)
+    }
+    
+    func userDidPressPayAnotherWayExplanation(_ viewController: VerifyCardExplanationViewController) {
+        dismiss(animated: true)
+        // let the user select a different card for this transaction
+    }
+    
+    func userDidPressCloseExplanation(_ viewController: VerifyCardExplanationViewController) {
+        dismiss(animated: true)
+    }
+    
+    // MARK: -VerifyCardAddResult protocol
+    func fraudModelResultsVerifyCardAdd(viewController: UIViewController, creditCard: CreditCard, encryptedPayload: String?, extraData: [String: Any]) {
+        // at this point the scan is done, send the encrypted payload
+        // to your servers which will get the result from Bouncer's
+        // servers
+        
+        // depending on the results from Bouncer + if the card matched
+        // what you were expecting handle each case
+    }
+    
+    func userDidScanCardAdd(_ viewController: UIViewController, creditCard: CreditCard) {
+        // don't do anything here, wait for the fraud result to come back
+    }
+    
+    func userDidPressManualCardAdd(_ viewController: UIViewController) {
+        preconditionFailure("Manual button not shown")
+    }
+    
+    func userDidCancelCardAdd(_ viewController: UIViewController) {
+        dismiss(animated: true)
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Customizing
 
