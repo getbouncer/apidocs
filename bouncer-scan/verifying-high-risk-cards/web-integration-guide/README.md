@@ -89,7 +89,7 @@ function launchCardScan() {
 }
 ```
 
-The `verificationResults` parameter can be used to determine the legitimacy of the card scanned. See [Verifying High Risk Cards](../../verifying-high-risk-cards/README.md) for more information.
+To determine the authenticity of the scanned card, pass the `verificationResults` back to your server. Details about the network call are available in the [Rest APIs documentation](../rest-apis/v1-card-verify.md).
 
 ## Localization
 

@@ -14,6 +14,7 @@
     * [Architecture guide](bouncer-scan/credit-card-ocr/android-integration-guide/architecture-overview.md)
     * [Development guide](bouncer-scan/credit-card-ocr/android-integration-guide/development-guide.md)
     * [Release guide](bouncer-scan/credit-card-ocr/android-integration-guide/release-guide.md)
+  * [Web integration guide](bouncer-scan/credit-card-ocr/web-integration-guide/README.md)
   * [React-native integration guide](bouncer-scan/credit-card-ocr/react-native-integration-guide/README.md)
     * [Linking native dependencies](bouncer-scan/credit-card-ocr/react-native-integration-guide/link-native-dependencies.md)
     * [Troubleshooting](bouncer-scan/credit-card-ocr/react-native-integration-guide/troubleshooting.md)
