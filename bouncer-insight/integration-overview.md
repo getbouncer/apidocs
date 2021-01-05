@@ -8,7 +8,7 @@
 * Track and log signals about the device and user, and send these signals back to Bouncer
 * Return an "authentication payload" that the server can use to verify that a card was authentic when the user added it to the app.
 
-**Note:** The Bouncer SDK will not directly expose whether this was a legitimate scan of a real card to the client App. It’ll be up to the client App to pass the "authentication payload" back to the client servers and make a subsequent server to server call to get the authentication results.
+**Note:** The Bouncer SDK will not directly expose whether this was a legitimate scan of a real card to the client App. It’ll be up to the client App to make a subsequent server-to-server call to get the authentication results.
 
 ### **Role of the Bouncer Server:**
 
