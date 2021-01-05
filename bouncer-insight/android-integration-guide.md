@@ -43,9 +43,9 @@ dependencies {
 }
 ```
 
-## Using Zero Fraud
+## Using Bouncer Insight
 
-Zero Fraud consists of the following parts:
+Bouncer Insight for Android consists of the following parts:
 
 1. The bouncer card scanner for adding payment methods to user accounts
 2. An instrumented payment method add form
