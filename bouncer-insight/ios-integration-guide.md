@@ -99,7 +99,7 @@ To provide signals for our risk engine, we also log events around signup and log
 
 ### Signup events
 
-In your user signup flow, create an `UserCreateEvent` and invoke `recordSuccess` after creating a user successfully:
+In your user signup flow, create an `UserCreateEvent` object and invoke the `recordSuccess` method after creating a user successfully:
 
 ```swift
 import CardVerify
@@ -122,7 +122,7 @@ class SignupViewController: UIViewController {
 
 ### Login events
 
-In your login flow, create an `UserLoginEvent` object and invoke the `recordSuccess` method after a successful login attempt, and invoke the `recordFailure` method after an unsuccessful login attempt.
+In your login flow, create an `UserLoginEvent` object and invoke the `recordSuccess` method after a successful login attempt, and invoke the `recordFailure` method after an unsuccessful login attempt:
 
 ```swift
 class UserLoginViewController: UIViewController {
