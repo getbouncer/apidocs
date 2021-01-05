@@ -225,7 +225,7 @@ class VerifyAddFlowViewController: UIViewController, VerifyCardExplanationResult
 
 ### Allowing users to scan any card during high risk transactions
 
-You can also use `VerifyCardAddViewController` to verify high risk transactions without limiting them to the specific card that you have on file for the transaction. To support this flow, follow the instructions in the "Using VerifyCardAddViewController to verify cards when users add them" section, but disable the button that allows users to enter card details manually \(setting the `enableManualEntry` property on the `VerifyCardAddViewController` to `false`\).
+You can also use `VerifyCardAddViewController` to verify high risk transactions without limiting them to the specific card that you have on file for the transaction. To support this flow, follow the instructions in the [Using VerifyCardAddViewController](./#using-verifycardaddviewcontroller-to-verify-cards-when-users-add-them) section, but disable the button that allows users to enter card details manually by setting the `enableManualEntry` property on the `VerifyCardAddViewController` to `false`
 
 ## Customizing
 
@@ -233,7 +233,7 @@ This library is built to be customized to fit your UI. We provide translated str
 
 ## Supporting more cards
 
-Though CardScan supports several cards, you may need to add support for cards specific to your business, instructions can be found in the [card support docs](./).
+Though Bouncer Scan supports several cards, you may need to add support for cards specific to your business, instructions can be found in the [card support docs](./).
 
 ## Authors
 
