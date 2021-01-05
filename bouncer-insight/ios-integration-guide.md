@@ -1,3 +1,7 @@
+---
+description: The Bouncer Insight iOS SDK integration guide.
+---
+
 # iOS integration guide
 
 ## Installing the CardVerify module

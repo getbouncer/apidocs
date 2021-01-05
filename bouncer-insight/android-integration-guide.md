@@ -1,5 +1,5 @@
 ---
-description: The Bouncer Insight Android integration guide.
+description: The Bouncer Insight Android SDK integration guide.
 ---
 
 # Android integration guide
