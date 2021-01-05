@@ -134,7 +134,7 @@ class UserLoginViewController: UIViewController {
             showLoginFailed()
             return
         }
-        user.logIn(password) { authToken in
+        user.login(password) { authToken in
             if (authToken != null) {
                 userLoginEvent.recordSuccess(userId: user.id, loginIdentifier: userName)
             } else {
