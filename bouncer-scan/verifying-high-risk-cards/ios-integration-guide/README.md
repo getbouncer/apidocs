@@ -171,32 +171,12 @@ import UIKit
 
 class VerifyAddFlowViewController: UIViewController, VerifyCardExplanationResult, VerifyCardAddResult {
     @IBAction func buttonPressed() {
-        let vc = VerifyCardExplanationViewController()
-        vc.lastFourForDisplay = self.lastFourOnFile
-        vc.cardNetworkForDisplay = self.networkOfCardOnFile
-        vc.expiryOrNameForDisplay = nameOnFile ?? expiryOnFile ?? ""
-        vc.delegate = self
-        
-        self.present(vc, animated: true, completion: nil)
-    }
-    
-    // MARK: -Explanation protocol implementation
-    func userDidPressScanCardExplaination(_ viewController: VerifyCardExplanationViewController) {
         // Start the Verification process
         let vc = VerifyCardAddViewController(userId: "1234")
         vc.cardAddDelegate = self
         vc.enableManualEntry = true
         
         viewController.present(vc, animated: true, completion: nil)
-    }
-    
-    func userDidPressPayAnotherWayExplanation(_ viewController: VerifyCardExplanationViewController) {
-        dismiss(animated: true)
-        // let the user select a different card for this transaction
-    }
-    
-    func userDidPressCloseExplanation(_ viewController: VerifyCardExplanationViewController) {
-        dismiss(animated: true)
     }
     
     // MARK: -VerifyCardAddResult protocol implementation
@@ -218,7 +198,7 @@ class VerifyAddFlowViewController: UIViewController, VerifyCardExplanationResult
     }
     
     func userDidPressManualCardAdd(_ viewController: UIViewController) {
-        preconditionFailure("not needed")
+        // The user pressed "manual entry", go directly to the card entry form
     }
 }
 ```
