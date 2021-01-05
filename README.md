@@ -8,13 +8,9 @@ description: A user first approach to mobile payments and fraud prevention
 
 Scan credit cards in your app for smooth onboarding
 
-{% page-ref page="card-scan/introduction.md" %}
-
 ## Authenticate payments with Card Verify
 
 Our verification checks prove that your users have the genuine credit card while stopping fraudsters
-
-{% page-ref page="card-verify/get-started.md" %}
 
 ## Solve fraud with Bouncer Insight \(Coming Soon\)
 

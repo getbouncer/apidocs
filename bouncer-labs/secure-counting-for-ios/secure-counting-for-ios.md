@@ -6,7 +6,7 @@ For more information on how to access counts server side, see our [REST API](sec
 
 ## iOS APIs for incrementing counts
 
-After integrating [Card Verify](../../card-verify/get-started.md) into your app, you can access high level APIs to increment counts at key parts in your app.
+After integrating [Card Verify]() into your app, you can access high level APIs to increment counts at key parts in your app.
 
 We include a pre-defined API for incrementing cards added to a device that your app should invoke after a user successfully adds a card:
 
