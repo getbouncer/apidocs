@@ -95,6 +95,10 @@ class PaymentFormViewController: UIViewController {
 
 ## Logging signup and login events
 
+To provide signals for our risk engine, we also log events around signup and login actions.
+
+### Signup events
+
 In your user signup flow, create an `UserCreateEvent` and invoke `recordSuccess` after creating a user successfully:
 
 ```swift
@@ -104,7 +108,7 @@ class SignupViewController: UIViewController {
 
     private let userCreateEvent = UserCreateEvent()
     
-    private func createUser(userName: String, password: String): Boolean {
+    private func createUser(userName: String, password: String) -> Bool {
         // create a user
         val user = MyApi.createUser(userName, password)
         if (user != null) {
@@ -112,6 +116,33 @@ class SignupViewController: UIViewController {
         }
 
         return user != null
+    }
+}
+```
+
+### Login events
+
+In your login flow, create an `UserLoginEvent` object and invoke the `recordSuccess` method after a successful login attempt, and invoke the `recordFailure` method after an unsuccessful login attempt.
+
+```swift
+class UserLoginViewController: UIViewController {
+
+    private let userLoginEvent = UserLoginEvent()
+
+    private func userLogIn(userName: String, password: String) {
+        // log the user in
+        guard let user = MyApi.getUserFromUserName(userName) else {
+            showLoginFailed()
+            return
+        }
+        user.logIn(password) { authToken in
+            if (authToken != null) {
+                userLoginEvent.recordSuccess(userId: user.id, loginIdentifier: userName)
+            } else {
+                userLoginEvent.recordFailure(loginIdentifier: userName)
+                showLoginFailed()
+            }
+        }
     }
 }
 ```
