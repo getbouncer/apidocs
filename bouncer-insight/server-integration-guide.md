@@ -7,7 +7,7 @@ To improve the accuracy of Bouncer's fraud detection, we recommend notifying bou
 
 Your service can query Bouncer servers at any time \(e.g. before allowing a purchase\) for a fraud risk score for a given user.
 
-## Required calls: card tokenization and fraud score on transaction
+## \[Required\] Card tokenization and fraud score on transaction
 
 ### Tokenizing a Payment Card
 
