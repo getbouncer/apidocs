@@ -128,8 +128,7 @@ In your login flow, create an `UserLoginEvent` object and invoke the `recordSucc
 class UserLoginViewController: UIViewController {
 
     private let userLoginEvent = UserLoginEvent()
-
-    private func userLogIn(userName: String, password: String) {
+    private func userLogin(userName: String, password: String) {
         // log the user in
         guard let user = MyApi.getUserFromUserName(userName) else {
             showLoginFailed()
