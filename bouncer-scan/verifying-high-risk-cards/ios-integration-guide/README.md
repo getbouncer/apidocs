@@ -169,7 +169,7 @@ Our `VerifyCardViewController` flow verifies a specific card for a high-risk tra
 import CardVerify
 import UIKit
 
-class VerifyAddFlowViewController: UIViewController, VerifyCardExplanationResult, VerifyCardAddResult {
+class VerifyAddFlowViewController: UIViewController, VerifyCardAddResult {
     @IBAction func buttonPressed() {
         // Start the Verification process
         let vc = VerifyCardAddViewController(userId: "1234")
