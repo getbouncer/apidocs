@@ -14,7 +14,7 @@ import UIKit
 
 class VerifyAddFlowViewController: UIViewController, VerifyCardExplanationResult, VerifyCardAddResult {
     @IBAction func buttonPressed() {
-        let vc = VerifyCardAddViewController(userId: "1234")
+        let vc = VerifyCardAddViewController(userId: self.currentUser.userId)
         vc.cardAddDelegate = self
         
         // only use this if you're using a "default to scan" flow
@@ -94,4 +94,25 @@ class PaymentFormViewController: UIViewController {
 {% endtabs %}
 
 ## Logging signup and login events
+
+In your user signup flow, create an `UserCreateEvent` and invoke `recordSuccess` after creating a user successfully:
+
+```swift
+import CardVerify
+
+class SignupViewController: UIViewController {
+
+    private let userCreateEvent = UserCreateEvent()
+    
+    private func createUser(userName: String, password: String): Boolean {
+        // create a user
+        val user = MyApi.createUser(userName, password)
+        if (user != null) {
+            userCreateEvent.recordSuccess(userId: user.id, loginIdentifier: userName)
+        }
+
+        return user != null
+    }
+}
+```
 
