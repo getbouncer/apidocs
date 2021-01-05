@@ -7,7 +7,7 @@ description: >-
 
 # Get started
 
-You can use Bouncer Insight's risk score for your [web app](javascript-beacon.md), [iOS app](ios-integration-guide.md), and [Android app](android-integration-guide.md). These client libraries instrument key parts of your app to detect suspicious behavior. Then, [your server can query Bouncer's servers](server-integration-guide/) to get a risk score for each transaction.
+You can use Bouncer Insight's risk score for your [web app](javascript-beacon.md), [iOS app](ios-integration-guide.md), and [Android app](android-integration-guide.md). These client libraries instrument key parts of your app to detect suspicious behavior. Then, [your server can query Bouncer's servers](server-integration-guide.md) to get a risk score for each transaction.
 
 For iOS and Android, Bouncer Insight does include user-visible changes around the flows in your app for adding a payment card to an account. For these payments flows, you should either [default to scanning](get-started.md#the-default-to-scan-ux) a card or provide an [optional scan](get-started.md#the-optional-scan-ux) button that users can use. When they scan their card, we'll run our fraud checks and use this data when the user initiates a transaction later.
 

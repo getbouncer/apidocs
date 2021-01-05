@@ -40,9 +40,7 @@
 * [Integration overview](bouncer-insight/integration-overview.md)
 * [iOS integration guide](bouncer-insight/ios-integration-guide.md)
 * [Android integration guide](bouncer-insight/android-integration-guide.md)
-* [Server integration guide](bouncer-insight/server-integration-guide/README.md)
-  * [Authenticating an added card](bouncer-insight/server-integration-guide/authenticating-an-added-card.md)
-  * [Validating a card authentication token](bouncer-insight/server-integration-guide/validating-a-card-authentication-token.md)
+* [Server integration guide](bouncer-insight/server-integration-guide.md)
 * [JavaScript Beacon](bouncer-insight/javascript-beacon.md)
 
 ## Bouncer labs

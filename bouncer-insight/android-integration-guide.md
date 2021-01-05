@@ -368,5 +368,5 @@ class UserLoginActivity : AppCompatActivity() {
 
 ## Getting a fraud risk score from Bouncer
 
-Before allowing a transaction to proceed, your servers should query Bouncer servers with the userId, payment method identifier \(e.g. stripe token\), transaction amount, and transaction currency. Bouncer servers will respond with a risk score. See the [Server Integration Guide](server-integration-guide/) for details.
+Before allowing a transaction to proceed, your servers should query Bouncer servers with the userId, payment method identifier \(e.g. stripe token\), transaction amount, and transaction currency. Bouncer servers will respond with a risk score. See the [Server Integration Guide](server-integration-guide.md) for details.
 
