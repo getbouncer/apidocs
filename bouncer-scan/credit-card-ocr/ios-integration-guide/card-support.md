@@ -8,9 +8,8 @@ description: >-
 
 ## Contents
 
-* [Currently Supported Cards]()
-* [Supporting New Cards]()
-* [Formatting]()
+* [Currently Supported Cards](card-support.md#currently-supported-cards)
+* [Supporting New Cards](card-support.md#supporting-new-cards)
 
 ## Currently Supported Cards
 
