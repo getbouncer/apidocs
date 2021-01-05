@@ -6,12 +6,6 @@ description: >-
 
 # Card issuer support guide
 
-## Contents
-
-* [Currently Supported Cards]()
-* [Supporting New Cards]()
-* [Formatting]()
-
 ## Currently Supported Cards
 
 Cards have a variety of properties that can be used to recognize them, this includes the IIN range, the pan length, and the CVC length. These values correspond to the first six numbers on a card, the length of a credit card number, and the length of the security code respectively.
