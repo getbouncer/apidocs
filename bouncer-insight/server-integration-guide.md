@@ -87,9 +87,7 @@ HTTP 200 OK
 
 ## \[Optional\] Server-to-server account events
 
-When you use Bouncer's SDKs, the SDK communicates back with Bouncer's servers automatically. However, if you'd like to roll out a purely server-based implementation, you can use our Account Events APIs for this purpose. 
-
-When the client performs an event that should be tracked by Bouncer, call this endpoint from your server.
+When you use Bouncer's SDKs for [iOS](ios-integration-guide.md), [Android](android-integration-guide.md), and [Web](javascript-beacon.md), the SDK communicates back with Bouncer's servers automatically. However, if you'd like to roll out a purely server-based implementation, you can use our Account Events APIs for this purpose. 
 
 These requests should be made after each of these events:
 
