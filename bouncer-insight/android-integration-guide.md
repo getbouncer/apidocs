@@ -1,5 +1,5 @@
 ---
-description: Android zero-fraud integration guide.
+description: The Bouncer Insight Android integration guide.
 ---
 
 # Android integration guide
