@@ -47,7 +47,7 @@ We try to keep our SDK as small as possible while maintaining good performance.
 
 | Component | Size |
 | :--- | :--- |
-| Base SDK | 2.94 MB |
+| Base SDK | 1.58 MB |
 | TensorFlow JS | 0.25 MB |
 
 ## Installation
