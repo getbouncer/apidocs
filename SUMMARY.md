@@ -28,6 +28,7 @@
     * [Architecture guide](bouncer-scan/verifying-high-risk-cards/android-integration-guide/architecture-overview.md)
     * [Development guide](bouncer-scan/verifying-high-risk-cards/android-integration-guide/development-guide.md)
     * [Release guide](bouncer-scan/verifying-high-risk-cards/android-integration-guide/release-guide.md)
+  * [Web integration guide](bouncer-scan/verifying-high-risk-cards/web-integration-guide/README.md)
   * [React-native integration guide](bouncer-scan/verifying-high-risk-cards/react-native-integration-guide/README.md)
     * [Linking native dependencies](bouncer-scan/verifying-high-risk-cards/react-native-integration-guide/link-native-dependencies.md)
   * [Troubleshooting](bouncer-scan/verifying-high-risk-cards/troubleshooting.md)
