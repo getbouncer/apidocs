@@ -70,7 +70,7 @@ Add the cardverify dependencies to the android section of your react-native proj
 
 ```text
 dependencies {
-   implementation 'com.getbouncer:cardverify-ui:2.0.0062'
+   implementation 'com.getbouncer:cardverify-ui:2.0.2.0.0065'
 }
 ```
 
