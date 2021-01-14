@@ -70,9 +70,6 @@ To launch the Bouncer CardScan modal, call the `BouncerCardScan.scanCard` method
 The following javascript will launch the Bouncer CardScan modal and collect the results.
 
 ```javascript
-// pre-download the ML models onto the client in the background for faster scan load times.
-bouncerCardScan.warmUp();
-
 const onCardScanComplete = function(
     number,
     cardholderName,
