@@ -25,7 +25,7 @@ CardVerify is published to the bouncer private repositories. Please request acce
 CardVerify is available through [CocoaPods](https://cocoapods.org/). To install it, simply add the following line to your Podfile:
 
 ```bash
-pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-2.0.5.tgz'
+pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-2.0.7.tgz'
 ```
 
 Next, install the new pod. From a terminal, run:
@@ -39,6 +39,8 @@ When using Cocoapods, you use the `.xcworkspace` instead of the `.xcodeproj`. Ag
 ```bash
 open YourProject.xcworkspace
 ```
+
+##### Note: The Podfile can specify the iOS platform target to be lower than 11.2. However, as stated in the requirements CardVerify will only run on iOS 11.2 or higher. 
 
 ## Set up permissions
 
@@ -292,4 +294,3 @@ A licensing agreement is required to use this library.
   us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
 All contributors must agree to the [CLA](https://github.com/getbouncer/cardscan-android/blob/master/Contributor%20License%20Agreement).
-
