@@ -52,7 +52,6 @@ When using Cocoapods, you use the `.xcworkspace` instead of the `.xcodeproj`. Ag
 open YourProject.xcworkspace
 ```
 
-
 ##### Note: The Podfile can specify the iOS platform target to be lower than 11.2. Hoewever, as stated in the requirements CardVerify will only run on iOS 11.2 or higher. 
 {% endtab %}
 
