@@ -90,11 +90,7 @@ curl -X POST "https://api.getbouncer.com/v1/card/verify_web"
   -H "Content-Type: application/json"
   -H "Authorization: Bearer API_KEY"
   -d '{
-    "verification_results": [
-      "<verification_result_1>",
-      "<verification_result_2>",
-      ...
-    ],
+    "verification_result": "<verification_result>",
     "card_challenged": {
       "bin": "424242",
       "last4": "0123",

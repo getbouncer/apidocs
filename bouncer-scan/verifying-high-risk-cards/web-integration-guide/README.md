@@ -75,7 +75,7 @@ const onCardScanComplete = function(
     cardholderName,
     expiryMonth,
     expiryYear,
-    verificationResults
+    verificationResult
 ) {
     // The user scanned a card
 }
@@ -89,7 +89,7 @@ function launchCardScan() {
 }
 ```
 
-To determine the authenticity of the scanned card, pass the `verificationResults` back to your server. Details about the network call are available in the [Rest APIs documentation](../rest-apis/v1-card-verify.md).
+To determine the authenticity of the scanned card, pass the `verificationResult` back to your server. Details about the network call are available in the [Rest APIs documentation](../rest-apis/v1-card-verify.md).
 
 ## Localization
 

@@ -75,7 +75,7 @@ const onCardScanComplete = function(
     cardholderName,
     expiryMonth,
     expiryYear,
-    verificationResults
+    verificationResult
 ) {
     // The user scanned a card
 }
@@ -89,7 +89,7 @@ function launchCardScan() {
 }
 ```
 
-The `verificationResults` parameter can be used to determine the legitimacy of the card scanned. See [Verifying High Risk Cards](../../verifying-high-risk-cards/README.md) for more information.
+The `verificationResult` parameter can be used to determine the legitimacy of the card scanned. See [Verifying High Risk Cards](../../verifying-high-risk-cards/README.md) for more information.
 
 ## Localization
 
