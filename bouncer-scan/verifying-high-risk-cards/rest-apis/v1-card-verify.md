@@ -69,7 +69,7 @@ On a completed scan using the web SDK, the SDK will return an array of strings i
 
 | parameter | type | required | description |
 | :--- | :--- | :--- | :--- |
-| `verification_results` | `array of strings` | yes | The list of strings from the `verificationResults` SDK callback |
+| `verification_result` | `strings` | yes | The `verificationResult` from the SDK callback |
 | `card_challenged` | `CardDetails` | no | Details about the card that the user was expected to scan |
 | `ocr_result` | `CardDetails` | yes | Details about the card that was scanned |
 
