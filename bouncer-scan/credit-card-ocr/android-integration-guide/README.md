@@ -318,7 +318,7 @@ To modify text, colors, or padding of the default UI, see the [customization doc
 
 ### Extensive modifications
 
-To modify arrangement or UI functionality, you can create a custom implementation of this library. See the [example single-activity demo app](https://github.com/getbouncer/cardscan-android/blob/master/demo/src/main/java/com/getbouncer/cardscan/demo/SingleActivityDemo.java).
+To modify arrangement or UI functionality, you can create a custom implementation of this library. See the [example single-activity demo app](https://github.com/getbouncer/cardscan-android/blob/master/cardscan-demo/src/main/java/com/getbouncer/cardscan/demo/SingleActivityDemo.java).
 
 ## Supporting more cards
 
