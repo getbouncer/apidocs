@@ -27,7 +27,7 @@ We try to keep our SDK as small as possible while maintaining good performance.
 In your HTML, add the following script tags
 
 ```markup
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.8.4/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.0.0/dist/tf.min.js"></script>
 <script src="https://cardscan-web.s3.us-east-2.amazonaws.com/bouncer_cardscan.bundle.js"></script>
 ```
 

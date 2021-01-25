@@ -27,7 +27,7 @@ We try to keep our SDK as small as possible while maintaining good performance.
 In your HTML, add the following script tags
 
 ```markup
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.8.4/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.0.0/dist/tf.min.js"></script>
 <script src="https://cardscan-web.s3.us-east-2.amazonaws.com/bouncer_cardscan.bundle.js"></script>
 ```
 
@@ -35,7 +35,13 @@ Importing these scripts will add the Bouncer scan model DOM elements to the end 
 
 ## Using
 
-To launch the Bouncer CardScan modal, call the `BouncerCardScan.scanCard` method and provide callback methods for the success and canceled cases.
+To launch the Bouncer CardScan modal for card verification, first set the Bouncer modal to use the verification pipeline:
+
+```
+bouncerCardScan.getConfig().runVerifyPipeline = true;
+```
+
+Once you're ready to scan, call the `BouncerCardScan.scanCard` method and provide callback methods for the success and canceled cases.
 
 ### Example
 
