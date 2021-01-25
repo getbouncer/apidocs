@@ -40,7 +40,7 @@ When using Cocoapods, you use the `.xcworkspace` instead of the `.xcodeproj`. Ag
 open YourProject.xcworkspace
 ```
 
-##### Note: The Podfile can specify the iOS platform target to be lower than 11.2. However, as stated in the requirements CardVerify will only run on iOS 11.2 or higher. 
+#### Note: The Podfile can specify the iOS platform target to be lower than 11.2. However, as stated in the requirements CardVerify will only run on iOS 11.2 or higher.
 
 ## Set up permissions
 
@@ -125,34 +125,34 @@ class ViewController: UIViewController, VerifyCardExplanationResult, VerifyCardR
         vc.cardNetworkForDisplay = self.networkOfCardOnFile
         vc.expiryOrNameForDisplay = nameOnFile ?? expiryOnFile ?? ""
         vc.delegate = self
-        
+
         self.present(vc, animated: true, completion: nil)
     }
-    
+
     // MARK: -Explanation protocol implementation
     func userDidPressScanCardExplaination(_ viewController: VerifyCardExplanationViewController) {
         // Start the Verification process
         guard let lastFour = lastFourOnFile, let bin = binOnFile else { return }
         let vc = VerifyCardViewController(userId: "1234", lastFour: lastFour, bin: bin, cardNetwork: nil)
         vc.verifyCardDelegate = self
-        
+
         viewController.present(vc, animated: true, completion: nil)
     }
-    
+
     func userDidPressPayAnotherWayExplanation(_ viewController: VerifyCardExplanationViewController) {
         dismiss(animated: true)
         // let the user select a different card for this transaction
     }
-    
+
     func userDidPressCloseExplanation(_ viewController: VerifyCardExplanationViewController) {
         dismiss(animated: true)
     }
-    
+
     // MARK: -VerifyCardResult protocol
     func userCanceledVerifyCard(viewController: VerifyCardViewController) {
         dismiss(animated: true)
     }
-    
+
     func fraudModelResultsVerifyCard(viewController: VerifyCardViewController, creditCard: CreditCard, encryptedPayload: String?, extraData: [String : Any]) {
         // at this point the scan is done, send the encrypted payload
         // to your servers which will get the result from Bouncer's
@@ -165,7 +165,7 @@ class ViewController: UIViewController, VerifyCardExplanationResult, VerifyCardR
 
 ### Using VerifyCardAddViewController to verify cards when users add them
 
-Our `VerifyCardViewController` flow verifies a specific card for a high-risk transaction and our `VerifyCardAddViewController` flow proactively verifies any cards that users add to your platform.  To support this flow, you should use the `VerifyCardAddViewController` instead of the `VerifyCardViewController`, and implement the optional `fraudModelResultsVerifyCardAdd` protocol method in the `VerifyCardAddResult` protocol:
+Our `VerifyCardViewController` flow verifies a specific card for a high-risk transaction and our `VerifyCardAddViewController` flow proactively verifies any cards that users add to your platform. To support this flow, you should use the `VerifyCardAddViewController` instead of the `VerifyCardViewController`, and implement the optional `fraudModelResultsVerifyCardAdd` protocol method in the `VerifyCardAddResult` protocol:
 
 ```swift
 import CardVerify
@@ -177,28 +177,28 @@ class VerifyAddFlowViewController: UIViewController, VerifyCardAddResult {
         let vc = VerifyCardAddViewController(userId: "1234")
         vc.cardAddDelegate = self
         vc.enableManualEntry = true
-        
+
         viewController.present(vc, animated: true, completion: nil)
     }
-    
+
     // MARK: -VerifyCardAddResult protocol implementation
     func userDidCancelCardAdd(_ viewController: UIViewController) {
         dismiss(animated: true)
     }
-    
+
     func fraudModelResultsVerifyCardAdd(viewController: UIViewController, creditCard: CreditCard, encryptedPayload: String?, extraData: [String: Any]) {
         // at this point the scan is done, send the encrypted payload
         // to your servers which will get the result from Bouncer's
         // servers
-        
+
         // depending on the results from Bouncer + if the card matched
         // what you were expecting handle each case
     }
-    
+
     func userDidScanCardAdd(_ viewController: UIViewController, creditCard: CreditCard) {
         // The flow is complete, but fraud results aren't back yet
     }
-    
+
     func userDidPressManualCardAdd(_ viewController: UIViewController) {
         // The user pressed "manual entry", go directly to the card entry form
     }
@@ -222,47 +222,47 @@ class ViewController: UIViewController, VerifyCardExplanationResult, VerifyCardA
         vc.cardNetworkForDisplay = self.networkOfCardOnFile
         vc.expiryOrNameForDisplay = nameOnFile ?? expiryOnFile ?? ""
         vc.delegate = self
-        
+
         self.present(vc, animated: true, completion: nil)
     }
-    
+
     // MARK: -Explanation protocol implementation
     func userDidPressScanCardExplaination(_ viewController: VerifyCardExplanationViewController) {
         // Start the Verification process
         let vc = VerifyCardAddViewController(userId: "1234")
         vc.cardAddDelegate = self
         vc.enableManualEntry = false
-        
+
         viewController.present(vc, animated: true, completion: nil)
     }
-    
+
     func userDidPressPayAnotherWayExplanation(_ viewController: VerifyCardExplanationViewController) {
         dismiss(animated: true)
         // let the user select a different card for this transaction
     }
-    
+
     func userDidPressCloseExplanation(_ viewController: VerifyCardExplanationViewController) {
         dismiss(animated: true)
     }
-    
+
     // MARK: -VerifyCardAddResult protocol
     func fraudModelResultsVerifyCardAdd(viewController: UIViewController, creditCard: CreditCard, encryptedPayload: String?, extraData: [String: Any]) {
         // at this point the scan is done, send the encrypted payload
         // to your servers which will get the result from Bouncer's
         // servers
-        
+
         // depending on the results from Bouncer + if the card matched
         // what you were expecting handle each case
     }
-    
+
     func userDidScanCardAdd(_ viewController: UIViewController, creditCard: CreditCard) {
         // don't do anything here, wait for the fraud result to come back
     }
-    
+
     func userDidPressManualCardAdd(_ viewController: UIViewController) {
         preconditionFailure("Manual button not shown")
     }
-    
+
     func userDidCancelCardAdd(_ viewController: UIViewController) {
         dismiss(animated: true)
     }
@@ -294,3 +294,4 @@ A licensing agreement is required to use this library.
   us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
 All contributors must agree to the [CLA](https://github.com/getbouncer/cardscan-android/blob/master/Contributor%20License%20Agreement).
+

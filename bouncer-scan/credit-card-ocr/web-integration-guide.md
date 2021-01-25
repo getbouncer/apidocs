@@ -2,7 +2,7 @@
 description: Scan a payment card with CardScan for Android.
 ---
 
-# Android integration guide
+# Web integration guide
 
 ## Requirements
 
@@ -11,7 +11,7 @@ description: Scan a payment card with CardScan for Android.
 
 ## Demo
 
-A demo checkout page is available at https://cardscan-web.s3.us-east-2.amazonaws.com/index.html
+A demo checkout page is available at [https://cardscan-web.s3.us-east-2.amazonaws.com/index.html](https://cardscan-web.s3.us-east-2.amazonaws.com/index.html)
 
 ## SDK Size
 
@@ -26,7 +26,7 @@ We try to keep our SDK as small as possible while maintaining good performance.
 
 In your HTML, add the following script tags
 
-```html
+```markup
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.8.4/dist/tf.min.js"></script>
 <script src="https://cardscan-web.s3.us-east-2.amazonaws.com/bouncer_cardscan.bundle.js"></script>
 ```
@@ -61,7 +61,7 @@ function launchCardScan() {
 }
 ```
 
-The `verificationResult` parameter can be used to determine the legitimacy of the card scanned. See [Verifying High Risk Cards](../../verifying-high-risk-cards/README.md) for more information.
+The `verificationResult` parameter can be used to determine the legitimacy of the card scanned. See [Verifying High Risk Cards](../verifying-high-risk-cards/) for more information.
 
 ## Localization
 
@@ -117,3 +117,4 @@ What’s not allowed under the license:
 * Indemnification: using this free software is ‘at your own risk’, so you can’t sue Bouncer Technologies, Inc. for problems caused by this library
 
 Questions? Concerns? Please email us at [license@getbouncer.com](mailto:license@getbouncer.com) or ask us on [slack](https://getbouncer.slack.com/).
+

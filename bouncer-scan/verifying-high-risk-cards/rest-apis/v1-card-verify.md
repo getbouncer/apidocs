@@ -77,7 +77,7 @@ Card details have the following parameters:
 
 | parameter | type | required | description |
 | :--- | :--- | :--- | :--- |
-| `bin` | `string` | no | BIN (first 6 digits) of the card |
+| `bin` | `string` | no | BIN \(first 6 digits\) of the card |
 | `last4` | `string` | yes | Last 4 digits of the card |
 | `exp_month` | `string` | no | Expiration month of the card. Used to check whether the user scanned card matches the challenged card. |
 | `exp_year` | `string` | no | Expiration year of the card. Used to check whether the user scanned card matches the challenged card. |
@@ -125,3 +125,4 @@ Returns a `CardVerifyToken` object
 ```
 {% endtab %}
 {% endtabs %}
+
