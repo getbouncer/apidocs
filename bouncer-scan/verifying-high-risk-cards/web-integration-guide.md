@@ -37,7 +37,7 @@ Importing these scripts will add the Bouncer scan model DOM elements to the end 
 
 To launch the Bouncer CardScan modal for card verification, first set the Bouncer modal to use the verification pipeline:
 
-```
+```text
 bouncerCardScan.getConfig().runVerifyPipeline = true;
 ```
 

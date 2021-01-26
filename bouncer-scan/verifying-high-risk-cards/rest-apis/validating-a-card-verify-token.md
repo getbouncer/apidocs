@@ -45,6 +45,7 @@ Returns a `TokenValidate` response JSON object
 * `screen_detected` Present if the card scanned does not appear to be a physical card. We check for whether the card appears to be a recaptured image on a screen \(i.e. the user is scanning a picture of a card on another phone, or a Google Doc\) or a card image that is printed on paper.
 * `card_number_mismatch` Present if the BIN \(if provided in `/v1/card/verify`\) and the last4 of the card that was challenged do not match the output of the corresponding scan.
 * `tampered_request` Present if the request payload has been tampered with or is corrupt. For example, a man-in-the-middle attack that attempts to modify the request payload will trigger this failure reason.
+* `device_rate_limited`Present if the device on which this scan was performed has hit a hardware rate limit. If this is present, it may indicate that an attacker is reusing the same device multiple times.
 
 ### Response Examples
 
@@ -81,7 +82,8 @@ Card not verified
     "bin_mismatch",
     "card_number_mismatch",
     "screen_detected",
-    "tampered_request"
+    "tampered_request",
+    "device_rate_limited"
   ]
 }
 ```
