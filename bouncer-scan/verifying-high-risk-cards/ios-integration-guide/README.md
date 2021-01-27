@@ -7,7 +7,8 @@ description: Scan a payment card for fraud protection with Bouncer Scan for iOS.
 ## Requirements
 
 * Xcode 11 or higher
-* iOS 11.2 or higher
+* iOS 11 or higher for integration
+* iOS 11.2 or higher for using the scanning view controllers
 * iOS 13 or higher for our name and expiration models. The number model will
 
   work on older versions of iOS and it will always return nil for the name and
