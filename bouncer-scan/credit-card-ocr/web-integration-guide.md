@@ -39,6 +39,11 @@ To launch the Bouncer CardScan modal, call the `BouncerCardScan.scanCard` method
 
 ### Example
 
+First, check to make sure that CardScan is supported on the user's browser with the following call:
+```javascript
+const isBouncerScanSupported = bouncerCardScan.isSupported();
+```
+
 The following javascript will launch the Bouncer CardScan modal and collect the results.
 
 ```javascript
