@@ -34,6 +34,8 @@ Given the above table, select the framework you'll be using to calculate the imp
 | App supports ARM only | yes | 3.9MB | 0.6MB | 4.5MB |
 | App already uses TFLite | any | 3.9MB | 0.0MB | 3.9MB |
 
+Bouncer provides a method `Scan.isDeviceArchitectureArm()` which will return true if the device is running an ARM architecture. This can be used to determine if the device supports scanning when the `-arm-only` TFLite framework is in use.
+
 ## Integration
 
 Unlike CardScan, this library is not publicly available. You should have been provided with a username and password when you contracted with Bouncer Technologies to use this library. Use those values in your `build.gradle` file to use CardVerify in your app.

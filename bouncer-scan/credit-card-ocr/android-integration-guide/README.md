@@ -56,6 +56,8 @@ Given the above table, select the framework you'll be using to calculate the imp
 | App supports ARM only | yes | 3.9MB | 0.6MB | 4.5MB |
 | App already uses TFLite | any | 3.9MB | 0.0MB | 3.9MB |
 
+Bouncer provides a method `Scan.isDeviceArchitectureArm()` which will return true if the device is running an ARM architecture. This can be used to determine if the device supports scanning when the `-arm-only` TFLite framework is in use.
+
 ## Installation
 
 These libraries are published in the [jcenter](https://jcenter.bintray.com/com/getbouncer/) repository, so for most gradle configurations you only need to add the dependencies to your app's `build.gradle` file:
