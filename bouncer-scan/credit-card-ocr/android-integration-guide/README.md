@@ -40,8 +40,8 @@ We try to keep our SDK as small as possible while maintaining good performance. 
 
 We also provide custom implementations of the TensorFlow Lite library that are stripped-down to only support the functions our SDK uses. These custom implementations can drastically reduce the size of the SDK overall.
 
-| TF Flavor | Size (bundled) | Size (not bundled) | Dependency |
-| :-------- | :------------- | :----------------- | :--------- |
+| TF Flavor | Size (not bundled) | Size (bundled) | Dependency |
+| :-------- | :----------------- | :------------- | :--------- |
 | TensorFlow official release | 4.0MB | 1.0MB | `com.tensorflow:tensorflow-lite:2.4.0` |
 | Bouncer TF all architectures | 2.3MB | 0.6MB | `com.tensorflow:tensorflow-lite:2.4.0` |
 | Bouncer TF arm only | 1.2MB | 0.6MB | `com.getbouncer:tensorflow-lite:2.0.0071` |
