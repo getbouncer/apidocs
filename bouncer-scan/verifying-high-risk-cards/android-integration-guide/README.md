@@ -16,23 +16,23 @@ _Note: Your app does not have to be written in kotlin to integrate this library,
 
 We try to keep our SDK as small as possible while maintaining good performance. The size impact including our SDK into your app varies depending on some features of your app:
 
-|  | Base SDK | TFLite Framework | Total |
-| :--- | :--- | :--- | :--- |
-| App does not yet use TFLite & app _is not_ published as bundle | 3.9MB | 4.0MB | 7.9MB |
-| App does not yet use TFLite & app _is_ published as a bundle | 3.9MB | 1.0MB | 4.9MB |
-| App already uses TFLite | 3.9MB | 0.0MB | 3.9MB |
+We also provide custom implementations of the TensorFlow Lite library that are stripped-down to only support the functions our SDK uses. These custom implementations can drastically reduce the size of the SDK overall.
 
-If your app is not packaged as a bundle, you can reduce the size of the TFLite framework by restricting the binaries included in your APK. Add the following to your `build.gradle` file to include only the `arm` binaries:
+| TF Flavor | Size (bundled) | Size (not bundled) | Dependency |
+| :-------- | :------------- | :----------------- | :--------- |
+| TensorFlow official release | 4.0MB | 1.0MB | `implementation 'com.tensorflow:tensorflow-lite:2.4.0'` |
+| Bouncer TF all architectures | 2.3MB | 0.6MB | `implementation 'com.tensorflow:tensorflow-lite:2.4.0'` |
+| Bouncer TF arm only | 1.2MB | 0.6MB | `implementation 'com.getbouncer:tensorflow-lite:2.0.0071'` |
 
-```text
-android {
-    defaultConfig {
-        ndk {
-            abiFilters 'armeabi-v7a', 'arm64-v8a'
-        }
-    }
-}
-```
+Given the above table, select the framework you'll be using to calculate the impact that the bouncer SDK will have on the size of your SDK:
+
+|  | Published as bundle? | Base SDK | TFLite Framework | Total |
+| :--- | :--- | :--- | :--- | :--- |
+| App supports all architectures | no | 3.9MB | 2.3MB | 6.2MB |
+| App supports all architectures | yes | 3.9MB | 0.6MB | 4.5MB |
+| App supports ARM only | no | 3.9MB | 1.2MB | 5.1MB |
+| App supports ARM only | yes | 3.9MB | 0.6MB | 4.5MB |
+| App already uses TFLite | any | 3.9MB | 0.0MB | 3.9MB |
 
 ## Integration
 
@@ -56,11 +56,26 @@ repositories {
 
 ```text
 dependencies {
-    implementation "com.getbouncer:scan-framework:2.0.0069"
-    implementation "com.getbouncer:scan-camera:2.0.0069"
-    implementation "com.getbouncer:scan-ui:2.0.0069"
-    implementation "com.getbouncer:scan-payment:2.0.0069"
-    implementation 'com.getbouncer:cardverify-ui:2.0.0069'
+    implementation "com.getbouncer:scan-framework:2.0.0071"
+    implementation "com.getbouncer:scan-camera:2.0.0071"
+    implementation "com.getbouncer:scan-ui:2.0.0071"
+    implementation "com.getbouncer:scan-payment:2.0.0071"
+    implementation "com.getbouncer:scan-payment-card-detect:2.0.0071"
+    implementation 'com.getbouncer:cardverify-ui:2.0.0071'
+
+    // you must select one of the following tensorflow-lite libraries. See the
+    // above chart to understand how each will affect the size of your app.
+
+    // If you're already using tensorflow lite elsewhere in your project, make
+    // sure you depend on the TFLite framework.
+    implementation 'com.tensorflow:tensorflow-lite:2.4.0'
+
+    // If you need to support both ARM and x86 devices (< 1% of all android
+    // devices), include this dependency.
+    implementation 'com.getbouncer:tensorflow-lite:2.0.0071'
+
+    // If you only plan to support ARM devices, use this library
+    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.0.0071'
 }
 ```
 
