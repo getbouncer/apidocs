@@ -51,7 +51,7 @@ Given the above table, select the framework you'll be using to calculate the imp
 |  | Published as bundle? | Base SDK | TFLite Framework | Total |
 | :--- | :--- | :--- | :--- | :--- |
 | App supports all architectures | no | 3.9MB | 3.3MB | 7.2MB |
-| App supports all architectures | yes | 3.9MB | 0.8MB | 4.5MB |
+| App supports all architectures | yes | 3.9MB | 0.8MB | 4.7MB |
 | App supports ARM only | no | 3.9MB | 1.9MB | 5.8MB |
 | App supports ARM only | yes | 3.9MB | 0.5MB | 4.4MB |
 | App already uses TFLite | any | 3.9MB | 0.0MB | 3.9MB |
