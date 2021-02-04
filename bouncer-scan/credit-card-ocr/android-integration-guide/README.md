@@ -44,7 +44,7 @@ We also provide custom implementations of the TensorFlow Lite library that are s
 | :-------- | :----------------- | :------------- | :--------- |
 | TensorFlow official release | 4.0MB | 1.0MB | `com.tensorflow:tensorflow-lite:2.4.0` |
 | Bouncer TF all architectures | 3.3MB | 0.8MB | `com.getbouncer:tensorflow-lite:2.0.0071` |
-| Bouncer TF arm only | 1.9MB | 0.5MB | `com.getbouncer:tensorflow-lite-arm-only:2.0.0071` |
+| Bouncer TF arm only | 1.9MB | 0.8MB | `com.getbouncer:tensorflow-lite-arm-only:2.0.0071` |
 
 Given the above table, select the framework you'll be using to calculate the impact that the bouncer SDK will have on the size of your SDK:
 
