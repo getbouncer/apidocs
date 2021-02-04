@@ -26,13 +26,12 @@ We also provide custom implementations of the TensorFlow Lite library that are s
 
 Given the above table, select the framework you'll be using to calculate the impact that the bouncer SDK will have on the size of your SDK:
 
-|  | Published as bundle? | Base SDK | TFLite Framework | Total |
+|  | Base SDK | TFLite Framework | Total |
 | :--- | :--- | :--- | :--- | :--- |
-| App supports all architectures | no | 3.9MB | 3.3MB | 7.2MB |
-| App supports all architectures | yes | 3.9MB | 0.8MB | 4.7MB |
-| App supports ARM only | no | 3.9MB | 1.9MB | 5.8MB |
-| App supports ARM only | yes | 3.9MB | 0.5MB | 4.4MB |
-| App already uses TFLite | any | 3.9MB | 0.0MB | 3.9MB |
+| App supports all architectures and not bundled | 3.9 MB | 3.3 MB | 7.2 MB |
+| App supports ARM only and not bundled | 3.9 MB | 1.9 MB | 5.8 MB |
+| App released as bundle | 3.9 MB | 0.8 MB | 4.7 MB |
+| App already uses TFLite | 3.9 MB | 0.0 MB | 3.9 MB |
 
 Bouncer provides a method `Scan.isDeviceArchitectureArm()` which will return true if the device is running an ARM architecture. This can be used to determine if the device supports scanning when the `-arm-only` TFLite framework is in use.
 
