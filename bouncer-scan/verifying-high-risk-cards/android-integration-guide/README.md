@@ -295,6 +295,15 @@ class LaunchActivity
 
 CardVerify will return an encrypted payload containing information about the payment card the user scanned. As in the example above, you can receive this payload using your activity or fragment's `onActivityResult` method.
 
+## Name and Expiry Extraction
+
+Name and expiry extraction are in beta, and must be manually enabled. The following steps enable them:
+
+1. In the `warmUp` method, set the optional `initializeNameAndExpiryExtraction` parameter to `true`.
+1. In the `start` method, set the optional `enableNameExtraction` and/or `enableExpiryExtraction` parameters to `true`.
+
+The scanner will now attempt to extract the cardholder name and card expiry during scan, and will return the values in the `cardScanned` method.
+
 ## Customizing
 
 CardVerify is built to be customized to fit your UI.
