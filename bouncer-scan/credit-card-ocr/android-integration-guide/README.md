@@ -323,6 +323,17 @@ public class MyApplication extends Application {
 {% endtab %}
 {% endtabs %}
 
+## Name and Expiry Extraction
+
+Name and expiry extraction are in beta, and must be manually enabled. The following steps enable them:
+
+1. In the `warmUp` method, set the optional `initializeNameAndExpiryExtraction` parameter to `true`.
+1. In the `start` method, set the optional `enableNameExtraction` and/or `enableExpiryExtraction` parameters to `true`.
+
+The scanner will now attempt to extract the cardholder name and card expiry during scan, and will return the values in the `cardScanned` method.
+
+Note that name extraction requires additional permissions on your API key. Please contact us as [license@getbouncer.com](mailto:license@getbouncer.com) to add that permission.
+
 ## Customizing
 
 This library is built to be customized to fit your UI.
