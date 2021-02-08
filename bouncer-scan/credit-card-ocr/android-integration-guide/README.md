@@ -43,8 +43,8 @@ We also provide custom implementations of the TensorFlow Lite library that are s
 | TF Flavor | Size (not bundled) | Size (bundled) | Dependency |
 | :-------- | :----------------- | :------------- | :--------- |
 | TensorFlow official release | 4.0MB | 1.0MB | `com.tensorflow:tensorflow-lite:2.4.0` |
-| Bouncer TF all architectures | 3.3MB | 0.8MB | `com.getbouncer:tensorflow-lite:2.0.0071` |
-| Bouncer TF arm only | 1.9MB | 0.8MB | `com.getbouncer:tensorflow-lite-arm-only:2.0.0071` |
+| Bouncer TF all architectures | 3.3MB | 0.8MB | `com.getbouncer:tensorflow-lite:2.0.0072` |
+| Bouncer TF arm only | 1.9MB | 0.8MB | `com.getbouncer:tensorflow-lite-arm-only:2.0.0072` |
 
 Given the above table, select the framework you'll be using to calculate the impact that the bouncer SDK will have on the size of your SDK:
 
@@ -63,7 +63,7 @@ These libraries are published in the [jcenter](https://jcenter.bintray.com/com/g
 
 ```text
 dependencies {
-    implementation 'com.getbouncer:cardscan-ui:2.0.0071'
+    implementation 'com.getbouncer:cardscan-ui:2.0.0072'
 
     // you must select one of the following tensorflow-lite libraries. See the
     // above chart to understand how each will affect the size of your app.
@@ -74,10 +74,10 @@ dependencies {
 
     // If you need to support both ARM and x86 devices (< 1% of all android
     // devices), include this dependency.
-    implementation 'com.getbouncer:tensorflow-lite:2.0.0071'
+    implementation 'com.getbouncer:tensorflow-lite:2.0.0072'
 
     // If you only plan to support ARM devices, use this library
-    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.0.0071'
+    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.0.0072'
 }
 ```
 
