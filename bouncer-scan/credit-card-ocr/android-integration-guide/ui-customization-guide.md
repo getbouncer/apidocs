@@ -242,18 +242,22 @@ This will result in the following change to the interface:
 
 ![customized icons](../../../.gitbook/assets/customized_icons.png)
 
-## Screen Elements
+## Scan Features
 
-Screen elements can be turned on and off when launching the scan flow. The following options are available:
+Scan features can be turned on and off when launching the scan flow. The following options are available:
+
+### Start parameters
 
 * `Enter Card Manually` button which will close the scan window and notify the app that the user wishes to enter a card manually.
-* `Display Card Pan` will show the full number of the card as it is being scanned.
-* `Display Cardholder Name` will show the full name of the card holder as it is being scanned.
-* `Display Logo` will display the CardScan logo at the top of the screen.
+
+### Config parameters
+
+* `com.getbouncer.scan.framework.Config.displayLogo` a boolean indicating if the logo should be displayed
+* `com.getbouncer.scan.framework.Config.isDebug` a boolean indicating if debug mode should be turned on
 
 ### Example
 
-When starting the scan activity, specify which screen elements should be turned on or off.
+When starting the scan activity, specify which features should be turned on or off.
 
 ```java
 CardScanActivity.start(
@@ -261,11 +265,7 @@ CardScanActivity.start(
     /* apiKey */ API_KEY,
     /* enableEnterCardManually */ true,
     /* enableNameExtraction */ false,
-    /* enableNameExtraction */ false,
-    /* displayCardPan */ true,
-    /* displayCardholderName */ false,
-    /* displayCardScanLogo */ true,
-    /* enableDebug */ false
+    /* enableNameExtraction */ false
 );
 ```
 
