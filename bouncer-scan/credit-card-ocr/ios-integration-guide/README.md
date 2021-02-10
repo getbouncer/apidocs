@@ -57,7 +57,7 @@ open YourProject.xcworkspace
 {% endtab %}
 
 {% tab title="Swift Package Manager" %}
-To use Swift Package Manager, in Xcode add the `https://github.com/getbouncer/cardscan-ios/git` repo and choose the latest version up to the next major version. For example, if CardScan is on version `2.0.2` then you'd select `2.0.2 - Next Major`
+To use Swift Package Manager, in Xcode add the `https://github.com/getbouncer/cardscan-ios.git` repo and choose the latest version up to the next major version. For example, if CardScan is on version `2.0.2` then you'd select `2.0.2 - Next Major`
 {% endtab %}
 {% endtabs %}
 
