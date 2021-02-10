@@ -18,8 +18,8 @@ We try to keep our SDK as small as possible while maintaining good performance. 
 
 We also provide custom implementations of the TensorFlow Lite library that are stripped-down to only support the functions our SDK uses. These custom implementations can drastically reduce the size of the SDK overall.
 
-| TF Flavor | Size (not bundled) | Size (bundled) | Dependency |
-| :-------- | :----------------- | :------------- | :--------- |
+| TF Flavor | Size \(not bundled\) | Size \(bundled\) | Dependency |
+| :--- | :--- | :--- | :--- |
 | TensorFlow official release | 4.0MB | 1.0MB | `com.tensorflow:tensorflow-lite:2.4.0` |
 | Bouncer TF all architectures | 3.3MB | 0.8MB | `com.getbouncer:tensorflow-lite:2.0.0072` |
 | Bouncer TF arm only | 1.9MB | 0.8MB | `com.getbouncer:tensorflow-lite-arm-only:2.0.0072` |
@@ -27,7 +27,7 @@ We also provide custom implementations of the TensorFlow Lite library that are s
 Given the above table, select the framework you'll be using to calculate the impact that the bouncer SDK will have on the size of your SDK:
 
 |  | Base SDK | TFLite Framework | Total |
-| :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- |
 | App supports all architectures and not bundled | 3.9 MB | 3.3 MB | 7.2 MB |
 | App supports ARM only and not bundled | 3.9 MB | 1.9 MB | 5.8 MB |
 | App released as bundle | 3.9 MB | 0.8 MB | 4.7 MB |
@@ -300,7 +300,7 @@ CardVerify will return an encrypted payload containing information about the pay
 Name and expiry extraction are in beta, and must be manually enabled. The following steps enable them:
 
 1. In the `warmUp` method, set the optional `initializeNameAndExpiryExtraction` parameter to `true`.
-1. In the `start` method, set the optional `enableNameExtraction` and/or `enableExpiryExtraction` parameters to `true`.
+2. In the `start` method, set the optional `enableNameExtraction` and/or `enableExpiryExtraction` parameters to `true`.
 
 The scanner will now attempt to extract the cardholder name and card expiry during scan, and will return the values in the `cardScanned` method.
 

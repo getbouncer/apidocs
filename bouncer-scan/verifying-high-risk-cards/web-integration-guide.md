@@ -46,6 +46,7 @@ Once you're ready to scan, call the `BouncerCardScan.scanCard` method and provid
 ### Example
 
 First, check to make sure that CardScan is supported on the user's browser with the following call:
+
 ```javascript
 const isBouncerScanSupported = bouncerCardScan.isSupported();
 ```
