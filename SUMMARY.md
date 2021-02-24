@@ -25,6 +25,7 @@
   * [Android integration guide](bouncer-scan/verifying-high-risk-cards/android-integration-guide/README.md)
     * [UI customization guide](bouncer-scan/verifying-high-risk-cards/android-integration-guide/ui-customization-guide.md)
     * [Card issuer support guide](bouncer-scan/verifying-high-risk-cards/android-integration-guide/card-support.md)
+    * [Advanced customization](bouncer-scan/verifying-high-risk-cards/android-integration-guide/advanced-customization.md)
     * [Architecture guide](bouncer-scan/verifying-high-risk-cards/android-integration-guide/architecture-overview.md)
     * [Development guide](bouncer-scan/verifying-high-risk-cards/android-integration-guide/development-guide.md)
     * [Release guide](bouncer-scan/verifying-high-risk-cards/android-integration-guide/release-guide.md)

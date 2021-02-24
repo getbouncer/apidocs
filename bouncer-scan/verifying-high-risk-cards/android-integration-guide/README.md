@@ -21,8 +21,8 @@ We also provide custom implementations of the TensorFlow Lite library that are s
 | TF Flavor | Size \(not bundled\) | Size \(bundled\) | Dependency |
 | :--- | :--- | :--- | :--- |
 | TensorFlow official release | 4.0MB | 1.0MB | `com.tensorflow:tensorflow-lite:2.4.0` |
-| Bouncer TF all architectures | 3.3MB | 0.8MB | `com.getbouncer:tensorflow-lite:2.0.0073` |
-| Bouncer TF arm only | 1.9MB | 0.8MB | `com.getbouncer:tensorflow-lite-arm-only:2.0.0073` |
+| Bouncer TF all architectures | 3.3MB | 0.8MB | `com.getbouncer:tensorflow-lite:2.0.0074` |
+| Bouncer TF arm only | 1.9MB | 0.8MB | `com.getbouncer:tensorflow-lite-arm-only:2.0.0074` |
 
 Given the above table, select the framework you'll be using to calculate the impact that the bouncer SDK will have on the size of your SDK:
 
@@ -57,12 +57,12 @@ repositories {
 
 ```text
 dependencies {
-    implementation "com.getbouncer:scan-framework:2.0.0073"
-    implementation "com.getbouncer:scan-camera:2.0.0073"
-    implementation "com.getbouncer:scan-ui:2.0.0073"
-    implementation "com.getbouncer:scan-payment:2.0.0073"
-    implementation "com.getbouncer:scan-payment-card-detect:2.0.0073"
-    implementation 'com.getbouncer:cardverify-ui:2.0.0073'
+    implementation "com.getbouncer:scan-framework:2.0.0074"
+    implementation "com.getbouncer:scan-camera:2.0.0074"
+    implementation "com.getbouncer:scan-ui:2.0.0074"
+    implementation "com.getbouncer:scan-payment:2.0.0074"
+    implementation "com.getbouncer:scan-payment-card-detect:2.0.0074"
+    implementation 'com.getbouncer:cardverify-ui:2.0.0074'
 
     // you must select one of the following tensorflow-lite libraries. See the
     // above chart to understand how each will affect the size of your app.
@@ -73,10 +73,10 @@ dependencies {
 
     // If you need to support both ARM and x86 devices (< 1% of all android
     // devices), include this dependency.
-    implementation 'com.getbouncer:tensorflow-lite:2.0.0073'
+    implementation 'com.getbouncer:tensorflow-lite:2.0.0074'
 
     // If you only plan to support ARM devices, use this library
-    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.0.0073'
+    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.0.0074'
 }
 ```
 
@@ -303,6 +303,8 @@ Name and expiry extraction are in beta, and must be manually enabled. The follow
 2. In the `start` method, set the optional `enableNameExtraction` and/or `enableExpiryExtraction` parameters to `true`.
 
 The scanner will now attempt to extract the cardholder name and card expiry during scan, and will return the values in the `cardScanned` method.
+
+To fine-tune the number of images that name and expiry extraction use, see the [advanced customization](advanced-customization.md) documentation.
 
 ## Customizing
 
