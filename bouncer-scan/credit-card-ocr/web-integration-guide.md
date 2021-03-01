@@ -11,7 +11,7 @@ description: Scan a payment card with CardScan for Android.
 
 ## Demo
 
-A demo checkout page is available at [https://cardscan-web.s3.us-east-2.amazonaws.com/index.html](https://cardscan-web.s3.us-east-2.amazonaws.com/index.html)
+A demo checkout page is available at [https://cardscan-web.s3.us-east-2.amazonaws.com/index.html](https://cardscan-web.s3.us-east-2.amazonaws.com/demo.html)
 
 ## SDK Size
 
