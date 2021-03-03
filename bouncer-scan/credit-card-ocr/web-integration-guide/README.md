@@ -75,7 +75,11 @@ This library supports full string localization. Strings are stored in the Bounce
 
 | Variable | Default Value |
 | :--- | :--- |
-| instructionsString | `Scan Your Card` |
+| instructionsLoadingString | `Loading...` |
+| instructionsScanString | `Scan Your Card` |
+| instructionsReadingString | `Reading card...` |
+| instructionsCapturingImages | `Almost done...` |
+| instructionsProcessingString | `Processing...` |
 | securityNotificationString | `Your card info is secure` |
 | networkErrorString | `Network Error` |
 
