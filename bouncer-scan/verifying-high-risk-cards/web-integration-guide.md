@@ -41,7 +41,7 @@ To launch the Bouncer CardScan modal for card verification, first set the Bounce
 bouncerCardScan.getConfig().runVerifyPipeline = true;
 ```
 
-Once you're ready to scan, call the `BouncerCardScan.scanCard` method and provide callback methods for the success and canceled cases.
+Once you're ready to scan, call the `BouncerCardScan.scanCard` method and provide callback methods for the success and canceled cases. API keys can be created through the [Bouncer API console](https://api.getbouncer.com/console).
 
 ### Example
 
