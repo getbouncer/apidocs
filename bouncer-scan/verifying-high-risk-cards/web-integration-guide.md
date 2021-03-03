@@ -89,11 +89,11 @@ This library supports full string localization. Strings are stored in the Bounce
 | securityNotificationString | `Your card info is secure` |
 | networkErrorString | `Network Error` |
 
-For example, to change the text for the instructions, set the value of `instructionsString` before starting the scan.
+For example, to change the text for the instructions, set the value of `instructionsScanString` before starting the scan.
 
 ```javascript
 // localize the instructions to Spanish
-bouncerCardScan.getConfig().instructionsString = "Escanea tu tarjeta";
+bouncerCardScan.getConfig().instructionsScanString = "Escanea tu tarjeta";
 
 // At some point later, launch the CardScan modal
 bouncerCardScan.scanCard(...)
