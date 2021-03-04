@@ -35,7 +35,13 @@ Importing these scripts will add the Bouncer scan model DOM elements to the end 
 
 ## Using
 
-To launch the Bouncer CardScan modal, call the `BouncerCardScan.scanCard` method and provide callback methods for the success and canceled cases. API keys can be created through the [Bouncer API console](https://api.getbouncer.com/console).
+First, add the Bouncer modal to your page's DOM by calling the `setUpScan` method once your page's DOM has completed loading:
+
+```javascript
+window.addEventListener('DOMContentLoaded', bouncerCardScan.setUpScan);
+```
+
+Once you're ready to scan, call the `BouncerCardScan.scanCard` method and provide callback methods for the success and canceled cases. API keys can be created through the [Bouncer API console](https://api.getbouncer.com/console).
 
 ### Example
 

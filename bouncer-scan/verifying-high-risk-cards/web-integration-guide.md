@@ -35,7 +35,13 @@ Importing these scripts will add the Bouncer scan model DOM elements to the end 
 
 ## Using
 
-To launch the Bouncer CardScan modal for card verification, first set the Bouncer modal to use the verification pipeline:
+First, add the Bouncer modal to your page's DOM by calling the `setUpScan` method once your page's DOM has completed loading:
+
+```javascript
+window.addEventListener('DOMContentLoaded', bouncerCardScan.setUpScan);
+```
+
+If you're using Bouncer CardScan for card verification, set the Bouncer modal to use the verification pipeline:
 
 ```text
 bouncerCardScan.getConfig().runVerifyPipeline = true;
