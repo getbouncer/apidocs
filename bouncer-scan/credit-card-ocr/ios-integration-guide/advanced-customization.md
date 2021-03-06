@@ -13,7 +13,7 @@ Parts of the scan flow can be customized to perform better on slower devices at 
 
 When instantiating `SimpleScanViewController`, you have the option to set `scanPerformancePriority` and `maxErrorCorrectionDuration`.
 
-_Note that you should only consider configuring the scan flow only with devices iOS11.2 and higher._
+_Note that you should only consider configuring the scan flow with devices iOS 11.2 and higher._
 
 ### Recommended configuration for markets with older devices
 
