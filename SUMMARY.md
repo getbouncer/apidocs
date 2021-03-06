@@ -24,7 +24,7 @@
   * [Integration Overview](bouncer-scan/verifying-high-risk-cards/integration-overview.md)
   * [iOS integration guide](bouncer-scan/verifying-high-risk-cards/ios-integration-guide/README.md)
     * [Customizing the Verify UI and UX](bouncer-scan/verifying-high-risk-cards/ios-integration-guide/customizing-the-verify-ui-and-ux.md)
- 	* [Advanced customization](bouncer-scan/verifying-high-risk-cards/ios-integration-guide/advanced-customization.md)
+ 	* [Advanced customization guide](bouncer-scan/verifying-high-risk-cards/ios-integration-guide/advanced-customization.md)
   * [Android integration guide](bouncer-scan/verifying-high-risk-cards/android-integration-guide/README.md)
     * [UI customization guide](bouncer-scan/verifying-high-risk-cards/android-integration-guide/ui-customization-guide.md)
     * [Card issuer support guide](bouncer-scan/verifying-high-risk-cards/android-integration-guide/card-support.md)
