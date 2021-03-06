@@ -1,7 +1,7 @@
 ---
 description: >-
-This document outlines the advanced customization options available in the
-CardVerify framework.
+  This document outlines the advanced customization options available in the
+  CardVerify framework.
 ---
 
 # Advanced Customization
