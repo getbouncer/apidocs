@@ -82,6 +82,33 @@ dependencies {
 
 If you are already using CardScan, leave that dependency in place.
 
+## Types of verification
+
+The library provides three forms of verification:
+- Network
+- Local
+- ZeroFraud
+
+### Network verification
+
+This is the standard way of verifying payment cards. It involves integration with Bouncer servers to run the most complete set of validation logic on the results from the scan.
+
+To use network verification, use the `com.getbouncer.cardverify.ui.network` packages to launch the verification flow.
+
+_Important note: At no point does any sensitive information (e.g. card number) leave the device._
+
+### Local verification
+
+This is a less stringent verification flow than network verification, as the verification logic runs locally on the device. In cases where it is not viable to send a payload to Bouncer servers, this can be used to verify the authenticity of a card, but will be less accurate than network verification.
+
+To use local verification, use the `com.getbouncer.cardverify.ui.local` packages to launch the verification flow.
+
+### ZeroFraud verification
+
+This flow is designed for verifying the authenticity of cards when adding them to a platform. It is the same as network verification, but does not return an encrypted payload from the scan. Instead, the payload is automatically uploaded to bouncer servers, where the result of the card add scan can be referenced later, for example during a transaction attempt.
+
+To use zerofraud verification, use the `com.getbouncer.cardverify.ui.zerofraud` packages to launch the verification flow.
+
 ## Using
 
 This library provides a user interface through which payment cards can be verified. API keys can be created through the [Bouncer API console](https://api.getbouncer.com/console). Please contact [support](mailto:support@getbouncer.com) to ensure the correct permissions have been added to your API key.
