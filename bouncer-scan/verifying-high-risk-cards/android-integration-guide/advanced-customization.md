@@ -43,6 +43,34 @@ This state can be reached in the following conditions:
 
 The timeouts and desired counts are driven by values in the `VerifyConfig` object.
 
+### Recommended configuration for markets with older devices
+
+In markets that primarily have older, slower android devices, we recommend that you add the following to your code before launching the card verify scanner:
+
+{% tabs %}
+{% tab title="Kotlin" %}
+```kotlin
+VerifyConfig.DESIRED_SIDE_COUNT = 16
+VerifyConfig.PAN_SEARCH_DURATION = 15.seconds
+VerifyConfig.PAN_AND_CARD_SEARCH_DURATION = 30.seconds
+VerifyConfig.MAX_SAVED_FRAMES_PER_TYPE = 16
+VerifyConfig.MINIMUM_NAME_AGREEMENT = 1
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+VerifyConfig.INSTANCE.setDESIRED_SIDE_COUNT(16);
+VerifyConfig.INSTANCE.setPAN_SEARCH_DURATION(DurationKt.getSeconds(15));
+VerifyConfig.INSTANCE.setPAN_AND_CARD_SEARCH_DURATION(DurationKt.getSeconds(30));
+VerifyConfig.INSTANCE.setMAX_SAVED_FRAMES_PER_TYPE(16);
+VerifyConfig.INSTANCE.setMINIMUM_NAME_AGREEMENT(1);
+```
+{% endtab %}
+{% endtabs %}
+
+_Note that settings these values will make the scan take longer overall, but with a much higher chance of extracting the name and expiry._
+
 ### Overall scan time limit
 
 Bouncer imposes a maximum amount of time that a scan can run for once a card has been detected. By default, this is set to 10 seconds. For slower devices, this can be increased to improve the accuracy of the name and expiry extraction.
@@ -90,3 +118,27 @@ If the wrong card is scanned, the scanner will display the wrong card state for 
 | field | default value |
 | ----- | ------------- |
 | VerifyConfig.WRONG_CARD_DURATION | `2.seconds` |
+
+### Saved frames for analysis
+
+This field describes the maximum number of frames to save to memory for name & expiry extraction and fraud detection.
+
+| field | default value |
+| ----- | ------------- |
+| VerifyConfig.MAX_SAVED_FRAMES_PER_TYPE | `6` |
+
+### Minimum name agreement
+
+The minimum card number agreement field indicates how many images with matching names are required to return a name from the scan. If less that this number of images have been found, the scan will return `null` for the name.
+
+| field | default value |
+| ----- | ------------- |
+| VerifyConfig.MINIMUM_NAME_AGREEMENT | `2` |
+
+### Minimum expiry agreement
+
+The minimum card number agreement field indicates how many images with matching expiry are required to return a name from the scan. If less that this number of images have been found, the scan will return `null` for the expiry.
+
+| field | default value |
+| ----- | ------------- |
+| VerifyConfig.MINIMUM_EXPIRY_AGREEMENT | `2` |
