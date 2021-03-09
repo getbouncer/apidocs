@@ -334,7 +334,25 @@ The scanner will now attempt to extract the cardholder name and card expiry duri
 
 Note that name extraction requires additional permissions on your API key. Please contact us as [license@getbouncer.com](mailto:license@getbouncer.com) to add that permission.
 
-## Customizing
+## Model Downloading
+
+By default, the SDK will download updates to ML models used to extract card information. To disable model downloading, set the following flag to `false` before calling warmup or starting the scan:
+
+{% tabs %}
+{% tab title="Kotlin" %}
+```kotlin
+com.getbouncer.scan.framework.Config.downloadModels = false
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+com.getbouncer.scan.framework.Config.setDownloadModels(false);
+```
+{% endtab %}
+{% endtabs %}
+
+## UI Customizing
 
 This library is built to be customized to fit your UI.
 

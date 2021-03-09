@@ -333,7 +333,25 @@ The scanner will now attempt to extract the cardholder name and card expiry duri
 
 To fine-tune the number of images that name and expiry extraction use, see the [advanced customization](advanced-customization.md) documentation.
 
-## Customizing
+## Model Downloading
+
+By default, the SDK will download updates to ML models used to extract card information. To disable model downloading, set the following flag to `false` before calling warmup or starting the scan:
+
+{% tabs %}
+{% tab title="Kotlin" %}
+```kotlin
+com.getbouncer.scan.framework.Config.downloadModels = false
+```
+{% endtab %}
+
+{% tab title="Java" %}
+```java
+com.getbouncer.scan.framework.Config.setDownloadModels(false);
+```
+{% endtab %}
+{% endtabs %}
+
+## UI Customizing
 
 CardVerify is built to be customized to fit your UI.
 
