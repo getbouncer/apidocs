@@ -4,7 +4,7 @@ description: >-
   interface design.
 ---
 
-# Customization guide
+# UI Customization guide
 
 Overall we provide two different classes for scanning credit and debit cards with varying levels of UI customizability: `SimpleScanViewController` and `ScanViewController`. `SimpleScanViewController` is a functionally complete card scanner, but has a simple UI that you can customize either by setting properties or by subclassing for full UI customization. Because `SimpleScanViewController` uses programmatic UI layout you can subclass it for full customization.
 
