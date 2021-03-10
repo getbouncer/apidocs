@@ -1,6 +1,6 @@
 # Customizing the Verify UI
 
-The views `VerifyCardViewController` and `VerifyCardAddViewController` subclas `SimpleScanViewController` and you can customize these views by overriding member variables directly. Please see the section below for customizing the remaining components.
+you can customize `VerifyCardViewController` and `VerifyCardAddViewController` by overriding member variables directly. Please see the section below for customizing the remaining components.
 
 ## Localization
 
