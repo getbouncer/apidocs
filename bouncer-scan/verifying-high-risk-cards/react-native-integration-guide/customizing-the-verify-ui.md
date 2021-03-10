@@ -1,8 +1,9 @@
 # Customizing the Verify UI
 
-you can customize `VerifyCardViewController` and `VerifyCardAddViewController` by overriding member variables directly. Please see the section below for customizing the remaining components.
+## iOS UI Customization
+You can customize `VerifyCardViewController` and `VerifyCardAddViewController` by overriding member variables directly. Please see the section below for customizing the remaining components.
 
-## Localization
+### Localization
 
 By default, we provide internationalization support and translations for all of our strings in English, Spanish, French, Portuguese, German, Chinese \(simplified and traditional\), Hindi, Hebrew, Japanese, Korean, Arabic, and Indonesian. However, if you want to set strings yourself, you can do so by setting the following fields to meet your localization needs:
 
@@ -23,7 +24,7 @@ The following strings are available in both `VerifyCardViewController` and `Veri
 | **VerifyViewController.closeButtonString** | Close button shown in the top left corner of the scan window | Close |
 | **VerifyViewController.torchButtonString** | Torch button shown in the top right corner of the scan window | Torch |
 
-### Localization Example
+#### Localization Example
 {% tabs %}
 {% tab title="Objective-C" %}
 ```swift
