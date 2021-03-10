@@ -272,6 +272,66 @@ class ViewController: UIViewController, VerifyCardExplanationResult, VerifyCardA
 {% endtab %}
 {% endtabs %}
 
+### Local Verification
+This is a less stringent verification flow than network verification, as the verification logic runs locally on the device. In cases where it is not viable to send a payload to Bouncer servers, this can be used to verify the authenticity of a card, but will be less accurate than network verification.
+
+Once you conform to the `verifyCardDelegate` and `cardAddDelegate` protocol when utilizing `VerifyCardViewController` and `VerifyCardAddViewController`, the function `fraudModelResultsVerifyCardAdd` and `fraudModelResultsVerifyCard` will provide an encrypted payload and a field called `extraData`. 
+
+`extraData` is a dictionary that contain the results of the local verification. The following will list the available result values: 
+#### Local Verification Extra Data 
+| Key | Value Type | 
+| :--- | :--- |
+| "isCardValid" | Bool |
+| "validationFailureReason" | String? | 
+
+{% tabs %}
+{% tab title="Swift" %}
+```swift
+import UIKit
+import CardVerify
+
+extension ViewController: VerifyCardResult {
+    func userCanceledVerifyCard(viewController: VerifyCardViewController) {
+        dismiss(animated: true)
+    }
+
+    func fraudModelResultsVerifyCard(viewController: VerifyCardViewController, creditCard: CreditCard, encryptedPayload: String?, extraData: [String : Any]) {
+        // at this point the scan is done, you will receive the encrypted payload
+        // and the local verification result in extraData. Parse the extraData dictionary 
+        // to extract the local verification values. 
+
+        let localIsValid = extraData["isCardValid"] as? Bool ?? false
+        let localValidationFailureReason = extraData["validationFailureReason"] as? String ?? ""
+    }
+}
+
+extension ViewController: VerifyCardAddResult {
+    func fraudModelResultsVerifyCardAdd(viewController: UIViewController, creditCard: CreditCard, encryptedPayload: String?, extraData: [String: Any]) {
+        // at this point the scan is done, you will receive the encrypted payload
+        // and the local verification result in extraData. Parse the extraData dictionary 
+        // to extract the local verification values.
+
+        let localIsValid = extraData["isCardValid"] as? Bool ?? false
+        let localValidationFailureReason = extraData["validationFailureReason"] as? String ?? ""
+    }
+
+    func userDidScanCardAdd(_ viewController: UIViewController, creditCard: CreditCard) {
+        // don't do anything here, wait for the fraud result to come back
+    }
+
+    func userDidPressManualCardAdd(_ viewController: UIViewController) {
+        preconditionFailure("Manual button not shown")
+    }
+
+    func userDidCancelCardAdd(_ viewController: UIViewController) {
+        dismiss(animated: true)
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
+
 ## Customizing
 
 This library is built to be customized to fit your UI. We provide translated strings and localization support by default for all UI elements in our flows, and we provide mechanisms for you to set these strings yourself. See the [customization documentation](customizing-the-verify-ui-and-ux.md) for more details.
