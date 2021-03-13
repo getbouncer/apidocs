@@ -13,23 +13,37 @@ Parts of the scan flow can be customized to perform better on slower devices at 
 
 When instantiating `SimpleScanViewController`, you have the option to set `scanPerformancePriority` and `maxErrorCorrectionDuration`.
 
-_Note that you should only consider configuring the scan flow with devices iOS 11.2 and higher._
+_Note that you should only consider configuring the scan flow with devices iOS 13.0 and higher._
 
 ### Recommended configuration for markets with older devices
 
 In markets that primarily have older iOS devices, we recommend that you add the following to your code before presenting the `SimpleScanViewController`:
 
+{% tabs %}
+{% tab title="Swift" %}
 ```swift
-if #available(iOS 11.2, *) {
+@IBAction func pressSimpleScanViewControllerButton() {
     let vc = SimpleScanViewController.createViewController()
     vc.scanPerformancePriority = .accurate
     vc.maxErrorCorrectionDuration = 4.0
     vc.delegate = self
+    self.present(vc, animated: true)
 }
-
-self.present(vc, animated: true)
 ```
+{% endtab %}
 
+{% tab title="Objective-C" %}
+```swift
+- (IBAction)pressSimpleScanViewControllerButton:(id)sender {
+    SimpleScanViewController *vc = [SimpleScanViewController createViewController];
+    vc.scanPerformancePriority = ScanPerformanceAccurate;
+    vc.maxErrorCorrectionDuration = 4.0;
+    vc.delegate = self;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+```
+{% endtab %}
+{% endtabs %}
 
 _Note that settings these values will make the scan take longer overall, but with a much higher chance of extracting the name and expiry._
 
