@@ -331,6 +331,23 @@ extension ViewController: VerifyCardAddResult {
 {% endtab %}
 {% endtabs %}
 
+## Model Downloading
+By default, the SDK will download updates to ML models used to extract card information. To disable model downloading, set the following flag to false before calling configure in your AppDelegate:
+
+{% tabs %}
+{% tab title="Swift" %}
+```swift
+Bouncer.downloadModels = false
+Bouncer.configure(apiKey: "API_KEY")
+```
+{% endtab %}
+{% tab title="Objective-C" %}
+```swift
+Bouncer.downloadModels = false;
+[Bouncer configureWithApiKey:@"API_KEY"];
+```
+{% endtab %}
+{% endtabs %}
 
 ## Customizing
 
