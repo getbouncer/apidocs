@@ -68,8 +68,12 @@ const onCardScanCanceled = function() {
     // the user closed the scan modal without scanning a card
 }
 
+const onScanError = function(error) {
+    // An error occurred during the scan. return true to stop the scan, false to attempt to continue scanning.
+}
+
 function launchCardScan() {
-    bouncerCardScan.scanCard("<your_api_key_here>", onCardScanComplete, onCardScanCanceled);
+    bouncerCardScan.scanCard("<your_api_key_here>", onCardScanComplete, onCardScanCanceled, onScanError);
 }
 ```
 
