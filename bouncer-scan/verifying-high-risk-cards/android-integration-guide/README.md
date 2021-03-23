@@ -20,17 +20,34 @@ We also provide custom implementations of the TensorFlow Lite library that are s
 
 | TF Flavor | Size \(not bundled\) | Size \(bundled\) | Dependency |
 | :--- | :--- | :--- | :--- |
-| TensorFlow official release | 4.0MB | 1.0MB | `com.tensorflow:tensorflow-lite:2.4.0` |
-| Bouncer TF all architectures | 3.3MB | 0.8MB | `com.getbouncer:tensorflow-lite:2.0.0076` |
-| Bouncer TF arm only | 1.9MB | 0.8MB | `com.getbouncer:tensorflow-lite-arm-only:2.0.0076` |
+| TensorFlow official release | 4.00MB | 1.00MB | `com.tensorflow:tensorflow-lite:2.4.0` |
+| Bouncer TF all architectures | 2.12MB | 0.62MB | `com.getbouncer:tensorflow-lite:2.0.0076` |
+| Bouncer TF arm only | 1.06MB | 0.62MB | `com.getbouncer:tensorflow-lite-arm-only:2.0.0076` |
 
-Given the above table, select the framework you'll be using to calculate the impact that the bouncer SDK will have on the size of your SDK:
+There are two variants of our ML models that you can choose to include in your application; the larger size, faster performing and smaller size, slower performing models. If selecting the slower performing models, the SDK will still attempt to download the faster models over the internet once your app has launched. This helps reduce the size of your app while still guaranteeing performance.
 
-|  | Base SDK | TFLite Framework | Total |
+| ML Model | Flavor | Size \(not bundled\) | Size \(bundled\) | dependency |
+| :--- | :--- | :--- | :--- | :--- |
+| OCR | full size | 1.6 MB | 1.5 MB | `com.getbouncer:scan-payment-ocr:2.0.0076` |
+| Card Detection | full size | 1.3 MB | 1.2 MB | `com.getbouncer:scan-payment-card-detect:2.0.0076` |
+| OCR | minimal | 1.1 MB | 0.9 MB | `com.getbouncer:scan-payment-ocr-minimal:2.0.0076` |
+| Card Detection | minimal | 0.5 MB | 0.3 MB | `com.getbouncer:scan-payment-card-detect-minimal:2.0.0076` |
+
+Given the above table, select the framework you'll be using to calculate the impact that the bouncer SDK will have on the size of your application:
+
+| Using minimal models | Base SDK | TFLite Framework | Total |
 | :--- | :--- | :--- | :--- |
-| App supports all architectures and not bundled | 3.9 MB | 3.3 MB | 7.2 MB |
-| App supports ARM only and not bundled | 3.9 MB | 1.9 MB | 5.8 MB |
-| App released as bundle | 3.9 MB | 0.8 MB | 4.7 MB |
+| App supports all architectures and not bundled | 2.99 MB | 2.12 MB | 5.11 MB |
+| App supports ARM only and not bundled | 2.99 MB | 1.06 MB | 4.05 MB |
+| App already uses TFLite and not bundled | 2.99 MB | 0.0 MB | 2.99 MB |
+| App released as bundle | 2.04 MB | 0.62 MB | 2.66 MB |
+| App already uses TFLite and bundled | 2.04 MB | 0.0 MB | 2.04 MB |
+
+| Using full size models | Base SDK | TFLite Framework | Total |
+| :--- | :--- | :--- | :--- |
+| App supports all architectures and not bundled | 3.9 MB | 2.1 MB | 6.0 MB |
+| App supports ARM only and not bundled | 3.9 MB | 1.1 MB | 5.0 MB |
+| App released as bundle | 3.9 MB | 0.6 MB | 4.5 MB |
 | App already uses TFLite | 3.9 MB | 0.0 MB | 3.9 MB |
 
 Bouncer provides a method `Scan.isDeviceArchitectureArm()` which will return true if the device is running an ARM architecture. This can be used to determine if the device supports scanning when the `-arm-only` TFLite framework is in use.
@@ -60,9 +77,26 @@ dependencies {
     implementation "com.getbouncer:scan-framework:2.0.0076"
     implementation "com.getbouncer:scan-camera:2.0.0076"
     implementation "com.getbouncer:scan-ui:2.0.0076"
-    implementation "com.getbouncer:scan-payment:2.0.0076"
-    implementation "com.getbouncer:scan-payment-card-detect:2.0.0076"
+    implementation "com.getbouncer:scan-payment-base:2.0.0076"
     implementation 'com.getbouncer:cardverify-ui:2.0.0076'
+    
+    // you must select one of the following sets of OCR and CardDetect
+    // frameworks. See the above chart to see how your selection will affect
+    // the size of the SDK.
+    
+    // To minimize the size of the SDK, use the following dependencies. These
+    // perform slightly slower than the larger normal ML models, but will be
+    // upgraded over the internet automatically for your users.
+    implementation "com.getbouncer:scan-payment-ocr-minimal:2.0.0076"
+    implementation "com.getbouncer:scan-payment-card-detect-minimal:2.0.0076"
+    
+    // To ensure the maximum performance of the SDK regardless of network
+    // connection, but at the cost of a larger SDK, use the following
+    // dependencies.
+    implementation "com.getbouncer:scan-payment-ocr:2.0.0076"
+    implementation "com.getbouncer:scan-payment-card-detect:2.0.0076"
+    
+    
 
     // you must select one of the following tensorflow-lite libraries. See the
     // above chart to understand how each will affect the size of your app.
