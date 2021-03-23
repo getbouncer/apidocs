@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded', bouncerCardScan.setUpScan);
 If you're using Bouncer CardScan for card verification, set the Bouncer modal to use the verification pipeline:
 
 ```text
-bouncerCardScan.getConfig().runVerifyPipeline = true;
+bouncerCardScan.getConfig().setRunVerifyPipeline(true);
 ```
 
 Once you're ready to scan, call the `BouncerCardScan.scanCard` method and provide callback methods for the success and canceled cases. API keys can be created through the [Bouncer API console](https://api.getbouncer.com/console).
@@ -87,7 +87,7 @@ To determine the authenticity of the scanned card, pass the `verificationResult`
 
 ## Localization
 
-This library supports full string localization. Strings are stored in the BouncerConfiguration object, accessible via `bouncerCardScan.getConfig()`. The following strings are available for localization:
+This library supports full string localization. Strings are stored in the BouncerConfiguration object, accessible via `bouncerCardScan.getConfig().localize()`. The following strings are available for localization:
 
 | Variable | Default Value |
 | :--- | :--- |
@@ -103,7 +103,7 @@ For example, to change the text for the instructions, set the value of `instruct
 
 ```javascript
 // localize the instructions to Spanish
-bouncerCardScan.getConfig().instructionsScanString = "Escanea tu tarjeta";
+bouncerCardScan.getConfig().localize("Cargando...", "Escanea tu tarjeta");
 
 // At some point later, launch the CardScan modal
 bouncerCardScan.scanCard(...)

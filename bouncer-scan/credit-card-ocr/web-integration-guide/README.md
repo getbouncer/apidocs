@@ -81,7 +81,7 @@ The `verificationResult` parameter can be used to determine the legitimacy of th
 
 ## Localization
 
-This library supports full string localization. Strings are stored in the BouncerConfiguration object, accessible via `bouncerCardScan.getConfig()`. The following strings are available for localization:
+This library supports full string localization. Strings are stored in the BouncerConfiguration object, accessible via `bouncerCardScan.getConfig().localize()`. The following strings are available for localization:
 
 | Variable | Default Value |
 | :--- | :--- |
@@ -97,7 +97,7 @@ For example, to change the text for the instructions, set the value of `instruct
 
 ```javascript
 // localize the instructions to Spanish
-bouncerCardScan.getConfig().instructionsScanString = "Escanea tu tarjeta";
+bouncerCardScan.getConfig().localize("Cargando...", "Escanea tu tarjeta");
 
 // At some point later, launch the CardScan modal
 bouncerCardScan.scanCard(...)
