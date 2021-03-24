@@ -45,7 +45,7 @@ Returns a `CardVerifyToken` object
 
 ### `CardVerifyToken`
 
-`token: string` A unique ID representing a CardVerify scan. Can be exchanged for a `TokenResponse` object with a [`/v1/token/validate`](https://docs.google.com/document/d/1zPc-20khzrr0VZ5gcohaso7JYx9MChHk1i5sahyOfpo/edit#) call.
+`token: string` A unique ID representing a CardVerify scan. Can be exchanged for a `TokenResponse` object with a [`/v1/token/validate`](validating-a-card-verify-token.md) call.
 
 ```bash
 {
