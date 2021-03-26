@@ -24,6 +24,10 @@ We try to keep our SDK as small as possible while maintaining good performance.
 
 ## Installation
 
+Bouncer CardScan can be included in your web app either by script imports or as an NPM package.
+
+### Script imports
+
 In your HTML, add the following script tags
 
 ```markup
@@ -31,7 +35,19 @@ In your HTML, add the following script tags
 <script src="https://cardscan-web.s3.us-east-2.amazonaws.com/bouncer_cardscan.bundle.js"></script>
 ```
 
-Importing these scripts will add the Bouncer scan model DOM elements to the end of your HTML and hide them. It will also expose a global JavaScript variable `bouncerCardScan`.
+Importing these scripts expose a global JavaScript variable `bouncerCardScan`.
+
+### NPM Package
+
+Bouncer CardScan is available at https://www.npmjs.com/package/web-cardscan. To add this to your project, run the following in your terminal:
+```bash
+$ npm i --save web-cardscan
+```
+
+To access bouncer cardscan, use the following import:
+```javascript
+import * as bouncerCardScan from "web-cardscan";
+```
 
 ## Using
 
@@ -78,10 +94,24 @@ const onScanError = function(error) {
     // An error occurred during the scan. return true to stop the scan, false to attempt to continue scanning.
 }
 
-function launchCardScan() {
-    bouncerCardScan.scanCard("<your_api_key_here>", onCardScanComplete, onCardScanCanceled, onScanError);
+const onCannotScan = function() {
+    // The user tapped the `I can't scan this card` button
+}
+
+function launchCardScan(requiredCardBin, requiredCardLastFour) {
+    bouncerCardScan.scanCard(
+        "<your_api_key_here>",
+        onCardScanComplete,
+        onCardScanCanceled,
+        onScanError,
+        onCannotScan,
+        requiredCardBin, // optional
+        requiredCardLastFour // optional
+    );
 }
 ```
+
+If `requiredCardBin` or `requiredCardLastFour` are specified, CardScan will only scan cards that match those fields.
 
 To determine the authenticity of the scanned card, pass the `verificationResult` back to your server. Details about the network call are available in the [Rest APIs documentation](rest-apis/v1-card-verify.md).
 
@@ -96,8 +126,11 @@ This library supports full string localization. Strings are stored in the Bounce
 | instructionsReadingString | `Reading card...` |
 | instructionsCapturingImages | `Almost done...` |
 | instructionsProcessingString | `Processing...` |
+| instructionsWrongCardString | `Wrong card!` |
 | securityNotificationString | `Your card info is secure` |
 | networkErrorString | `Network Error` |
+| cardDetailsString | `{issuer} {iin} **** {lastFour}` |
+| cannotScanString | `I can't scan this card` |
 
 For example, to change the text for the instructions, set the value of `instructionsScanString` before starting the scan.
 
