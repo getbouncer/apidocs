@@ -22,23 +22,11 @@ CardScan uses [semantic versioning](https://semver.org/) \(MAJOR.MINOR.PATCH\).
 
 ## Releasing a new version
 
-1. Create a tag from master branch
+1. Create a new release on [github](https://github.com/getbouncer/cardscan-android/releases) to create a new release. This will automatically update the changelog, the `gradle.properties` file, and publish a release to maven central.
+   
+1. To view the status of the automatic release, view the latest [github action](https://github.com/getbouncer/cardscan-android/actions?query=event%3Arelease).
 
-   ```bash
-   git tag -a <version_number> -m "<version description>"
-   ```
-
-2. Push the tag to github
-
-   ```bash
-   git push origin --tags
-   ```
-
-3. Publish the tag on [github](https://github.com/getbouncer/cardscan-android/releases) to create a new release
-
-This will automatically update the changelog, the `gradle.properties` file, and publish a release to maven central. To view the status of the automatic release, view the latest [github action](https://github.com/getbouncer/cardscan-android/actions?query=event%3Arelease).
-
-To view the status of the repository in maven central, see the [nexus repository manager](https://s01.oss.sonatype.org/).
+1. To view the status of the repository in maven central, see the [nexus repository manager](https://s01.oss.sonatype.org/).
 
 ## Update documentation
 
