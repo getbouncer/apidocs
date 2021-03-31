@@ -54,31 +54,13 @@ Bouncer provides a method `Scan.isDeviceArchitectureArm()` which will return tru
 
 ## Integration
 
-Unlike CardScan, this library is not publicly available. You should have been provided with a username and password when you contracted with Bouncer Technologies to use this library. Use those values in your `build.gradle` file to use CardVerify in your app.
-
-If you do not have the appropriate credentials, please contact [Support](mailto:support@getbouncer.com) and we will provide them.
-
-```text
-// Add the Bouncer repo to both the buildscript and allprojects elements
-repositories {
-    ...
-    maven {
-        url "https://bouncerpaid.bintray.com/cardverify-ui-android"
-        credentials {
-            username "<FILL_IN_YOUR_USERNAME>"
-            password "<FILL_IN_YOUR_PASSWORD>"
-        }
-    }
-}
-```
-
 ```text
 dependencies {
-    implementation "com.getbouncer:scan-framework:2.0.0082"
-    implementation "com.getbouncer:scan-camera:2.0.0082"
-    implementation "com.getbouncer:scan-ui:2.0.0082"
-    implementation "com.getbouncer:scan-payment-base:2.0.0082"
     implementation 'com.getbouncer:cardverify-ui:2.0.0082'
+    implementation "com.getbouncer:scan-camera:2.0.0082"
+    implementation "com.getbouncer:scan-framework:2.0.0082"
+    implementation "com.getbouncer:scan-payment-base:2.0.0082"
+    implementation "com.getbouncer:scan-ui:2.0.0082"
     
     // you must select one of the following sets of OCR and CardDetect
     // frameworks. See the above chart to see how your selection will affect

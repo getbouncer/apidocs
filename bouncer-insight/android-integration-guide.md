@@ -6,40 +6,46 @@ description: The Bouncer Insight Android SDK integration guide.
 
 ## Installation
 
-This library is not publicly available. You should have been provided with a username and password when you contracted with Bouncer Technologies to use this library. Use those values in your `build.gradle` file to use Instrumentation in your app.
-
-If you do not have the appropriate credentials, please contact [Support](mailto:support@getbouncer.com) and we will provide them.
-
-```text
-// Add the Bouncer repositories
-repositories {
-    ...
-    maven {
-        url "https://bouncerpaid.bintray.com/insights-android"
-        credentials {
-            username "<FILL_IN_YOUR_USERNAME>"
-            password "<FILL_IN_YOUR_PASSWORD>"
-        }
-    }
-
-    maven {
-        url "https://bouncerpaid.bintray.com/cardverify-ui-android"
-        credentials {
-            username "<FILL_IN_YOUR_USERNAME>"
-            password "<FILL_IN_YOUR_PASSWORD>"
-        }
-    }
-}
-```
-
 ```text
 dependencies {
     implementation "com.getbouncer:cardverify-ui:2.0.0082"
     implementation "com.getbouncer:insights:2.0.0082"
     implementation "com.getbouncer:scan-camera:2.0.0082"
     implementation "com.getbouncer:scan-framework:2.0.0082"
-    implementation "com.getbouncer:scan-payment:2.0.0082"
+    implementation "com.getbouncer:scan-payment-base:2.0.0082"
     implementation "com.getbouncer:scan-ui:2.0.0082"
+    
+    // you must select one of the following sets of OCR and CardDetect
+    // frameworks. See the above chart to see how your selection will affect
+    // the size of the SDK.
+    
+    // To minimize the size of the SDK, use the following dependencies. These
+    // perform slightly slower than the larger normal ML models, but will be
+    // upgraded over the internet automatically for your users.
+    implementation "com.getbouncer:scan-payment-ocr-minimal:2.0.0082"
+    implementation "com.getbouncer:scan-payment-card-detect-minimal:2.0.0082"
+    
+    // To ensure the maximum performance of the SDK regardless of network
+    // connection, but at the cost of a larger SDK, use the following
+    // dependencies.
+    implementation "com.getbouncer:scan-payment-ocr:2.0.0082"
+    implementation "com.getbouncer:scan-payment-card-detect:2.0.0082"
+    
+    
+
+    // you must select one of the following tensorflow-lite libraries. See the
+    // above chart to understand how each will affect the size of your app.
+
+    // If you're already using tensorflow lite elsewhere in your project, make
+    // sure you depend on the TFLite framework.
+    implementation 'com.tensorflow:tensorflow-lite:2.4.0'
+
+    // If you need to support both ARM and x86 devices (< 1% of all android
+    // devices), include this dependency.
+    implementation 'com.getbouncer:tensorflow-lite:2.0.0082'
+
+    // If you only plan to support ARM devices, use this library
+    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.0.0082'
 }
 ```
 
