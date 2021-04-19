@@ -83,3 +83,16 @@ This is a [known issue with react-native](https://github.com/react-native-commun
   adb reverse tcp:8081 tcp:8081 && adb shell am start -n com.getbouncer.example/com.getbouncer.example.MainActivity
   ```
 
+### Cards will not scan
+
+If the scanner is not scanning cards, or you're seeing the following error in console:
+```
+This file can not be opened as a file descriptor; it is probably compressed
+```
+
+Please add the following to your `android/app/build.gradle` file in the `android` section:
+```groovy
+aaptOptions {
+    noCompress "tflite"
+}
+```

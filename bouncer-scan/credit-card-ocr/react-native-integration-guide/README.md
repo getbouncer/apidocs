@@ -34,6 +34,30 @@ _More installation options for iOS can be found in the **Installation** section 
 
 For react-native version 0.59 and below, follow the [linking native dependencies](link-native-dependencies.md) guide.
 
+### 4. Install the android native library
+
+_Note: You will need a username and password to set up these repositories. Please contact_ [_license@getbouncer.com_](mailto:license@getbouncer.com) _to request credentials._
+
+Add the CardVerify repository to the android section of your react-native project. In your `android/build.gradle` file, append the following to repositories:
+
+```text
+repositories {
+    ...
+    mavenCentral()
+}
+```
+
+Add the cardverify dependencies to the android section of your react-native project. In your `android/app/build.gradle` file, append the following to dependencies:
+
+```text
+dependencies {
+    implementation "com.getbouncer:cardscan-ui:2.0.0083"
+    implementation "com.getbouncer:scan-payment-card-detect:2.0.0083"
+    implementation "com.getbouncer:scan-payment-ocr:2.0.0083"
+    implementation "com.getbouncer:tensorflow-lite:2.0.0083"
+}
+```
+
 ## Configuration
 
 ### 1. Create an API key

@@ -56,13 +56,7 @@ Add the CardVerify repository to the android section of your react-native projec
 ```text
 repositories {
     ...
-    maven {
-        url "https://bouncerpaid.bintray.com/cardverify-ui-android"
-        credentials {
-            username "<FILL_IN_YOUR_USERNAME>"
-            password "<FILL_IN_YOUR_PASSWORD>"
-        }
-    }
+    mavenCentral()
 }
 ```
 
@@ -70,7 +64,10 @@ Add the cardverify dependencies to the android section of your react-native proj
 
 ```text
 dependencies {
-   implementation 'com.getbouncer:cardverify-ui:2.0.0082'
+    implementation "com.getbouncer:cardverify-ui:2.0.0083"
+    implementation "com.getbouncer:scan-payment-card-detect:2.0.0083"
+    implementation "com.getbouncer:scan-payment-ocr:2.0.0083"
+    implementation "com.getbouncer:tensorflow-lite:2.0.0083"
 }
 ```
 
@@ -278,7 +275,7 @@ To run the example app, do the following:
 
 ## Troubleshooting
 
-See the [troubleshooting](./) documentation.
+See the [troubleshooting](../../credit-card-ocr/react-native-integration-guide/troubleshooting.md) documentation.
 
 ## Authors
 
