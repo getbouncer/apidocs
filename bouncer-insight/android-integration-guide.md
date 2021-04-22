@@ -8,12 +8,12 @@ description: The Bouncer Insight Android SDK integration guide.
 
 ```text
 dependencies {
-    implementation "com.getbouncer:cardverify-ui:2.0.0083"
-    implementation "com.getbouncer:insights:2.0.0083"
-    implementation "com.getbouncer:scan-camera:2.0.0083"
-    implementation "com.getbouncer:scan-framework:2.0.0083"
-    implementation "com.getbouncer:scan-payment-base:2.0.0083"
-    implementation "com.getbouncer:scan-ui:2.0.0083"
+    implementation "com.getbouncer:cardverify-ui:2.0.0084"
+    implementation "com.getbouncer:insights:2.0.0084"
+    implementation "com.getbouncer:scan-camera:2.0.0084"
+    implementation "com.getbouncer:scan-framework:2.0.0084"
+    implementation "com.getbouncer:scan-payment-base:2.0.0084"
+    implementation "com.getbouncer:scan-ui:2.0.0084"
     
     // you must select one of the following sets of OCR and CardDetect
     // frameworks. See the above chart to see how your selection will affect
@@ -22,14 +22,14 @@ dependencies {
     // To minimize the size of the SDK, use the following dependencies. These
     // perform slightly slower than the larger normal ML models, but will be
     // upgraded over the internet automatically for your users.
-    implementation "com.getbouncer:scan-payment-ocr-minimal:2.0.0083"
-    implementation "com.getbouncer:scan-payment-card-detect-minimal:2.0.0083"
+    implementation "com.getbouncer:scan-payment-ocr-minimal:2.0.0084"
+    implementation "com.getbouncer:scan-payment-card-detect-minimal:2.0.0084"
     
     // To ensure the maximum performance of the SDK regardless of network
     // connection, but at the cost of a larger SDK, use the following
     // dependencies.
-    implementation "com.getbouncer:scan-payment-ocr:2.0.0083"
-    implementation "com.getbouncer:scan-payment-card-detect:2.0.0083"
+    implementation "com.getbouncer:scan-payment-ocr:2.0.0084"
+    implementation "com.getbouncer:scan-payment-card-detect:2.0.0084"
     
     
 
@@ -42,10 +42,10 @@ dependencies {
 
     // If you need to support both ARM and x86 devices (< 1% of all android
     // devices), include this dependency.
-    implementation 'com.getbouncer:tensorflow-lite:2.0.0083'
+    implementation 'com.getbouncer:tensorflow-lite:2.0.0084'
 
     // If you only plan to support ARM devices, use this library
-    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.0.0083'
+    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.0.0084'
 }
 ```
 

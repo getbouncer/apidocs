@@ -53,22 +53,40 @@ _Note: You will need a username and password to set up these repositories. Pleas
 
 Add the CardVerify repository to the android section of your react-native project. In your `android/build.gradle` file, append the following to repositories:
 
-```text
+```groovy
 repositories {
-    ...
+    // ...
     mavenCentral()
 }
 ```
 
 Add the cardverify dependencies to the android section of your react-native project. In your `android/app/build.gradle` file, append the following to dependencies:
 
-```text
+```groovy
 dependencies {
-    implementation "com.getbouncer:cardverify-ui:2.0.0083"
-    implementation "com.getbouncer:scan-payment-card-detect:2.0.0083"
-    implementation "com.getbouncer:scan-payment-ocr:2.0.0083"
-    implementation "com.getbouncer:tensorflow-lite:2.0.0083"
+    implementation "com.getbouncer:cardverify-ui:2.0.0084"
+    implementation "com.getbouncer:scan-payment-card-detect:2.0.0084"
+    implementation "com.getbouncer:scan-payment-ocr:2.0.0084"
+    implementation "com.getbouncer:tensorflow-lite:2.0.0084"
 }
+```
+
+Please add the following to your `android/app/build.gradle` file in the `android` section:
+```groovy
+aaptOptions {
+    noCompress "tflite"
+}
+```
+
+#### Alternative camera implementations
+
+By default, bouncer uses the Android Camera 1 API. To use Camera2 or CameraX, add one of the following imports:
+```groovy
+implementation "com.getbouncer:scan-camerax:2.0.0084"
+
+// OR
+
+implementation "com.getbouncer:scan-camera2:2.0.0084"
 ```
 
 ### 4. Link native dependencies
@@ -275,7 +293,7 @@ To run the example app, do the following:
 
 ## Troubleshooting
 
-See the [troubleshooting](../../credit-card-ocr/react-native-integration-guide/troubleshooting.md) documentation.
+See the [troubleshooting](troubleshooting.md) documentation.
 
 ## Authors
 

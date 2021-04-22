@@ -36,7 +36,7 @@
   * [React-native integration guide](bouncer-scan/verifying-high-risk-cards/react-native-integration-guide/README.md)
     * [Linking native dependencies](bouncer-scan/verifying-high-risk-cards/react-native-integration-guide/link-native-dependencies.md)
     * [Customizing the Verify UI](bouncer-scan/verifying-high-risk-cards/react-native-integration-guide/customizing-the-verify-ui.md)
-  * [Troubleshooting](bouncer-scan/verifying-high-risk-cards/troubleshooting.md)
+    * [Troubleshooting](bouncer-scan/verifying-high-risk-cards/react-native-integration-guide/troubleshooting.md)
   * [Server Integration](bouncer-scan/verifying-high-risk-cards/rest-apis/README.md)
     * [Verifying a Card Verify Payload](bouncer-scan/verifying-high-risk-cards/rest-apis/v1-card-verify.md)
     * [Validating a Card Verify Token](bouncer-scan/verifying-high-risk-cards/rest-apis/validating-a-card-verify-token.md)
