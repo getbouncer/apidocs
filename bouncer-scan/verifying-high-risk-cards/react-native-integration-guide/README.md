@@ -23,7 +23,7 @@ Add the `CardVerify` and `react-native-cardverify` pods to the `~/ios/Podfile` f
 ```ruby
 target 'Your App' do
   ...
-  pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-1.0.5041-xcframework-release.tgz'
+  pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<API_KEY>/cardverify-ios-2.0.15.tgz'
   pod 'react-native-cardverify', :path => '../node_modules/react-native-cardverify/react-native-cardverify.podspec'
 end
 ```
@@ -149,7 +149,7 @@ Alternatively, you can add this permission directly to your Info.plist file:
 
 {% tabs %}
 {% tab title="Swift" %}
-In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your API key. If you want to store card images with VGS to be analyzed, set the `useServerImageAnalysis` to true. If you want to use enhanced card validation using the camera flash, set the `useFlashFlow` to true.
+In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your API key. 
 
 ```swift
 import UIKit
@@ -160,8 +160,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          Bouncer.configure(apiKey: "<your_api_key_here>") 
-         Bouncer.useServerImageAnalysis = true
-         Bouncer.useFlashFlow = true
         // do any other necessary launch configuration
         return true
     }
@@ -170,7 +168,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endtab %}
 
 {% tab title="Objective C" %}
-If your app is configured using objective-c, in your `AppDelegate.m` file, Add an import for `CardVerify`, and set your API key. If you want to store card images with VGS to be analyzed, set the `useServerImageAnalysis` to YES. If you want to use enhanced card validation using the camera flash, set the `useFlashFlow` to YES.
+If your app is configured using objective-c, in your `AppDelegate.m` file, Add an import for `CardVerify`, and set your API key.
 
 ```objectivec
 #import "AppDelegate.h"
@@ -183,8 +181,6 @@ If your app is configured using objective-c, in your `AppDelegate.m` file, Add a
 {
   ...
   [Bouncer configureWithApiKey:@"<your_api_key_here>"];
-  Bouncer.useServerImageAnalysis = YES;
-  Bouncer.useFlashFlow = YES;
 
   return YES;
 }
