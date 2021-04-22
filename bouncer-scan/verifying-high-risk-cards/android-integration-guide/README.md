@@ -98,6 +98,17 @@ dependencies {
 
 If you are already using CardScan, leave that dependency in place.
 
+### Alternative camera implementations
+
+By default, bouncer uses the Android Camera 1 API. To use Camera2 or CameraX, add one of the following imports:
+```groovy
+implementation "com.getbouncer:scan-camerax:2.0.0084"
+
+// OR
+
+implementation "com.getbouncer:scan-camera2:2.0.0084"
+```
+
 ## Types of verification
 
 The library provides three forms of verification:

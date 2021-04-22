@@ -116,6 +116,17 @@ dependencies {
 }
 ```
 
+### Alternative camera implementations
+
+By default, bouncer uses the Android Camera 1 API. To use Camera2 or CameraX, add one of the following imports:
+```groovy
+implementation "com.getbouncer:scan-camerax:2.0.0084"
+
+// OR
+
+implementation "com.getbouncer:scan-camera2:2.0.0084"
+```
+
 ## Using
 
 This library provides a user interface through which payment cards can be scanned. API keys can be created through the [Bouncer API console](https://api.getbouncer.com/console).
