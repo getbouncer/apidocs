@@ -101,25 +101,58 @@ This library supports full string localization. Strings are stored in the Bounce
 
 | Variable | Default Value |
 | :--- | :--- |
-| instructionsLoadingString | `Loading...` |
-| instructionsScanString | `Scan Your Card` |
-| instructionsReadingString | `Reading card...` |
-| instructionsCapturingImages | `Almost done...` |
-| instructionsProcessingString | `Processing...` |
-| instructionsWrongCardString | `Wrong card!` |
-| securityNotificationString | `Your card info is secure` |
-| networkErrorString | `Network Error` |
-| cardDetailsString | `{issuer} {iin} **** {lastFour}` |
-| cannotScanString | `I can't scan this card` |
+| instructionsLoading | `Loading...` |
+| instructionsScan | `Scan Your Card` |
+| instructionsReading | `Reading card...` |
+| instructionsCapturing | `Almost done...` |
+| instructionsProcessing | `Processing...` |
+| instructionsWrongCard | `Wrong card!` |
+| instructionsTroubleScanning | `We're having trouble scanning this card` |
+| securityNotification | `Your card info is secure` |
+| networkError | `Network Error` |
+| cardDetails | `{issuer} {iin} **** {lastFour}` |
+| cannotScan | `I can't scan this card` |
 
 For example, to change the text for the instructions, set the value of `instructionsScanString` before starting the scan.
 
 ```javascript
 // localize the instructions to Spanish
-bouncerCardScan.getConfig().localize("Cargando...", "Escanea tu tarjeta");
+bouncerCardScan.getConfig().localize({
+    instructionsLoading: "Cargando...",
+    instructionsScan: "Escanea tu tarjeta",
+    cannotScan: "No puedo escanear esta tarjeta"
+});
 
 // At some point later, launch the CardScan modal
 bouncerCardScan.scanCard(...)
+```
+
+Strings which are not defined in the configuration are left at their previous value. For example, you could call `localize` multiple times:
+
+```javascript
+// localize some strings
+bouncerCardScan.getConfig().localize({
+    instructionsLoading: "Cargando...",
+    instructionsScan: "Escanea tu tarjeta"
+});
+
+// localize more strings
+bouncerCardScan.getConfig().localize({
+    cannotScan: "No puedo escanear esta tarjeta"
+});
+
+// At some point later, launch the CardScan modal
+bouncerCardScan.scanCard(...)
+```
+
+To disable a string (make it not appear in the scanner), set the value to `null` or `""`.
+
+```javascript
+// localize some strings
+bouncerCardScan.getConfig().localize({
+    instructionsLoading: null,
+    instructionsScan: ""
+});
 ```
 
 ## Authors
