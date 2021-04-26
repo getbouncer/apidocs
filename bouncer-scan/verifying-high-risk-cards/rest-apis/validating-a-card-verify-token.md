@@ -21,7 +21,7 @@ curl -X POST "https://api.getbouncer.com/v1/token/validate"
   -H "Content-Type: application/json"
   -H "Authorization: Bearer API_KEY"
   -d '{
-    "token"             : "CARD_VERIFY_TOKEN"
+    "token": "CARD_VERIFY_TOKEN"
   }'
 ```
 {% endtab %}

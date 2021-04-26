@@ -69,7 +69,7 @@ On a completed scan using the web SDK, the SDK will return an array of strings i
 
 | parameter | type | required | description |
 | :--- | :--- | :--- | :--- |
-| `verification_result` | `strings` | yes | The `verificationResult` from the SDK callback |
+| `verification_results` | `string` | yes | The `verificationResult` from the SDK callback |
 | `card_challenged` | `CardDetails` | no | Details about the card that the user was expected to scan |
 | `ocr_result` | `CardDetails` | yes | Details about the card that was scanned |
 
@@ -86,11 +86,17 @@ Card details have the following parameters:
 ### Sample Request
 
 ```bash
-curl -X POST "https://api.getbouncer.com/v1/card/verify_web"
-  -H "Content-Type: application/json"
-  -H "Authorization: Bearer API_KEY"
-  -d '{
-    "verification_result": "<verification_result>",
+curl 'https://api.getbouncer.com/v1/card/verify_web' \
+  -H 'x-bouncer-auth: qOJ_fF-WLDMbG05iBq5wvwiTNTmM2qIn' \
+  -H 'content-type: application/json' \
+  --data-raw '{
+    "ocr_result":{
+      "bin":"424242",
+      "last4":"0123",
+      "exp_month": "11",
+      "exp_year": "2024",
+      "card_name": "John Doe"
+    },
     "card_challenged": {
       "bin": "424242",
       "last4": "0123",
@@ -98,13 +104,7 @@ curl -X POST "https://api.getbouncer.com/v1/card/verify_web"
       "exp_year": "2024",
       "card_name": "John Doe"
     },
-    "ocr_result": {
-      "bin": "424242",
-      "last4": "0123",
-      "exp_month": "11",
-      "exp_year": "2024",
-      "card_name": "John Doe"
-    }
+    "verification_results":"<base64_encoded_verification_results>"
   }'
 ```
 {% endtab %}
