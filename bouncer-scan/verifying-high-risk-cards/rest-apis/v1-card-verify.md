@@ -87,7 +87,7 @@ Card details have the following parameters:
 
 ```bash
 curl 'https://api.getbouncer.com/v1/card/verify_web' \
-  -H 'x-bouncer-auth: qOJ_fF-WLDMbG05iBq5wvwiTNTmM2qIn' \
+  -H 'x-bouncer-auth: <your_api_key_here>' \
   -H 'content-type: application/json' \
   --data-raw '{
     "ocr_result":{
