@@ -38,7 +38,7 @@ dependencies {
 
     // If you're already using tensorflow lite elsewhere in your project, make
     // sure you depend on the TFLite framework.
-    implementation 'com.tensorflow:tensorflow-lite:2.4.0'
+    implementation 'org.tensorflow:tensorflow-lite:2.4.0'
 
     // If you need to support both ARM and x86 devices (< 1% of all android
     // devices), include this dependency.

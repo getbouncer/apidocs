@@ -20,7 +20,7 @@ We also provide custom implementations of the TensorFlow Lite library that are s
 
 | TF Flavor | Size \(not bundled\) | Size \(bundled\) | Dependency |
 | :--- | :--- | :--- | :--- |
-| TensorFlow official release | 4.00MB | 1.00MB | `com.tensorflow:tensorflow-lite:2.4.0` |
+| TensorFlow official release | 4.00MB | 1.00MB | `org.tensorflow:tensorflow-lite:2.4.0` |
 | Bouncer TF all architectures | 2.12MB | 0.62MB | `com.getbouncer:tensorflow-lite:2.0.0084` |
 | Bouncer TF arm only | 1.06MB | 0.62MB | `com.getbouncer:tensorflow-lite-arm-only:2.0.0084` |
 
@@ -85,7 +85,7 @@ dependencies {
 
     // If you're already using tensorflow lite elsewhere in your project, make
     // sure you depend on the TFLite framework.
-    implementation 'com.tensorflow:tensorflow-lite:2.4.0'
+    implementation 'org.tensorflow:tensorflow-lite:2.4.0'
 
     // If you need to support both ARM and x86 devices (< 1% of all android
     // devices), include this dependency.
