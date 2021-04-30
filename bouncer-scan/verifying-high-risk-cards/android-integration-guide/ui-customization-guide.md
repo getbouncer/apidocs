@@ -48,7 +48,9 @@ The CardVerify SDK uses the following text fields:
 | **`bouncer_security_description`** | Accessibility description of the security notification lock icon | `lock icon` |
 | **`bouncer_preview_description`** | Accessibility description of the camera preview window | `card scanning window` |
 | **`bouncer_debug_description`** | Accessibility description of the debug preview window | `card debug window` |
-| **`bouncer_close_button_description`** | Accessibility description of the close button | `close button` |
+| **`bouncer_close_button_description`** | Accessibility description of the close button | `Close` |
+| **`bouncer_torch_button_description`** | Accessibility description of the torch button | `Torch` |
+| **`bouncer_swap_camera_button_description`** | Accessibility description of the swap camera button | `Swap Camera` |
 | **`bouncer_card_view_finder_description`** | Accessibility description of the view finder window | `card view finder` |
 
 To override any of these values with your own, Create a new file in your app's resources \(`src/main/res/values/strings.xml`\) and define the strings you would like to override. The library will default to the values in your app.
