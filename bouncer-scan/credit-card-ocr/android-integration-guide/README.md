@@ -43,17 +43,17 @@ We also provide custom implementations of the TensorFlow Lite library that are s
 | TF Flavor | Size \(not bundled\) | Size \(bundled\) | Dependency |
 | :--- | :--- | :--- | :--- |
 | TensorFlow official release | 4.00MB | 1.00MB | `org.tensorflow:tensorflow-lite:2.4.0` |
-| Bouncer TF all architectures | 2.12MB | 0.62MB | `com.getbouncer:tensorflow-lite:2.0.0084` |
-| Bouncer TF arm only | 1.06MB | 0.62MB | `com.getbouncer:tensorflow-lite-arm-only:2.0.0084` |
+| Bouncer TF all architectures | 2.12MB | 0.62MB | `com.getbouncer:tensorflow-lite:2.0.0090` |
+| Bouncer TF arm only | 1.06MB | 0.62MB | `com.getbouncer:tensorflow-lite-arm-only:2.0.0090` |
 
 There are two variants of our ML models that you can choose to include in your application; the larger size, faster performing and smaller size, slower performing models. If selecting the slower performing models, the SDK will still attempt to download the faster models over the internet once your app has launched. This helps reduce the size of your app while still guaranteeing performance.
 
 | ML Model | Flavor | Size \(not bundled\) | Size \(bundled\) | dependency |
 | :--- | :--- | :--- | :--- | :--- |
-| OCR | full size | 1.6 MB | 1.5 MB | `com.getbouncer:scan-payment-ocr:2.0.0084` |
-| Card Detection | full size | 1.3 MB | 1.2 MB | `com.getbouncer:scan-payment-card-detect:2.0.0084` |
-| OCR | minimal | 1.1 MB | 0.9 MB | `com.getbouncer:scan-payment-ocr-minimal:2.0.0084` |
-| Card Detection | minimal | 0.5 MB | 0.3 MB | `com.getbouncer:scan-payment-card-detect-minimal:2.0.0084` |
+| OCR | full size | 1.6 MB | 1.5 MB | `com.getbouncer:scan-payment-ocr:2.0.0090` |
+| Card Detection | full size | 1.3 MB | 1.2 MB | `com.getbouncer:scan-payment-card-detect:2.0.0090` |
+| OCR | minimal | 1.1 MB | 0.9 MB | `com.getbouncer:scan-payment-ocr-minimal:2.0.0090` |
+| Card Detection | minimal | 0.5 MB | 0.3 MB | `com.getbouncer:scan-payment-card-detect-minimal:2.0.0090` |
 
 Given the above table, select the framework you'll be using to calculate the impact that the bouncer SDK will have on the size of your application:
 
@@ -80,7 +80,7 @@ These libraries are published in the [maven central repository](https://search.m
 
 ```text
 dependencies {
-    implementation 'com.getbouncer:cardscan-ui:2.0.0084'
+    implementation 'com.getbouncer:cardscan-ui:2.0.0090'
     
     // you must select one of the following sets of OCR and CardDetect
     // frameworks. See the above chart to see how your selection will affect
@@ -89,14 +89,14 @@ dependencies {
     // To minimize the size of the SDK, use the following dependencies. These
     // perform slightly slower than the larger normal ML models, but will be
     // upgraded over the internet automatically for your users.
-    implementation "com.getbouncer:scan-payment-ocr-minimal:2.0.0084"
-    implementation "com.getbouncer:scan-payment-card-detect-minimal:2.0.0084"
+    implementation "com.getbouncer:scan-payment-ocr-minimal:2.0.0090"
+    implementation "com.getbouncer:scan-payment-card-detect-minimal:2.0.0090"
     
     // To ensure the maximum performance of the SDK regardless of network
     // connection, but at the cost of a larger SDK, use the following
     // dependencies.
-    implementation "com.getbouncer:scan-payment-ocr:2.0.0084"
-    implementation "com.getbouncer:scan-payment-card-detect:2.0.0084"
+    implementation "com.getbouncer:scan-payment-ocr:2.0.0090"
+    implementation "com.getbouncer:scan-payment-card-detect:2.0.0090"
     
     
 
@@ -109,10 +109,10 @@ dependencies {
 
     // If you need to support both ARM and x86 devices (< 1% of all android
     // devices), include this dependency.
-    implementation 'com.getbouncer:tensorflow-lite:2.0.0084'
+    implementation 'com.getbouncer:tensorflow-lite:2.0.0090'
 
     // If you only plan to support ARM devices, use this library
-    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.0.0084'
+    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.0.0090'
 }
 ```
 
@@ -120,11 +120,11 @@ dependencies {
 
 By default, bouncer uses the Android Camera 1 API. To use Camera2 or CameraX, add one of the following imports:
 ```groovy
-implementation "com.getbouncer:scan-camerax:2.0.0084"
+implementation "com.getbouncer:scan-camerax:2.0.0090"
 
 // OR
 
-implementation "com.getbouncer:scan-camera2:2.0.0084"
+implementation "com.getbouncer:scan-camera2:2.0.0090"
 ```
 
 ## Using
