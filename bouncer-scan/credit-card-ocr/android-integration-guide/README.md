@@ -81,24 +81,24 @@ These libraries are published in the [maven central repository](https://search.m
 ```text
 dependencies {
     implementation 'com.getbouncer:cardscan-ui:2.0.0090'
-    
+
     // you must select one of the following sets of OCR and CardDetect
     // frameworks. See the above chart to see how your selection will affect
     // the size of the SDK.
-    
+
     // To minimize the size of the SDK, use the following dependencies. These
     // perform slightly slower than the larger normal ML models, but will be
     // upgraded over the internet automatically for your users.
     implementation "com.getbouncer:scan-payment-ocr-minimal:2.0.0090"
     implementation "com.getbouncer:scan-payment-card-detect-minimal:2.0.0090"
-    
+
     // To ensure the maximum performance of the SDK regardless of network
     // connection, but at the cost of a larger SDK, use the following
     // dependencies.
     implementation "com.getbouncer:scan-payment-ocr:2.0.0090"
     implementation "com.getbouncer:scan-payment-card-detect:2.0.0090"
-    
-    
+
+
 
     // you must select one of the following tensorflow-lite libraries. See the
     // above chart to understand how each will affect the size of your app.
@@ -119,6 +119,7 @@ dependencies {
 ### Alternative camera implementations
 
 By default, bouncer uses the Android Camera 1 API. To use Camera2 or CameraX, add one of the following imports:
+
 ```groovy
 implementation "com.getbouncer:scan-camerax:2.0.0090"
 

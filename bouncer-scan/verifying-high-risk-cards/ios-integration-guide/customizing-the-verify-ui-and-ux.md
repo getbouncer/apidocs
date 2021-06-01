@@ -1,10 +1,10 @@
 # Customizing the Verify UI and UX
 
-Our flows subclass `SimpleScanViewController` and you can customize them by either subclassing `VerifyCardViewController` or `VerifyCardAddViewController` and overriding functions, or you can instantiate these classes and access member variables directly. Please see our [Customization guide](../../credit-card-ocr/ios-integration-guide/ios-customization-guide.md) for more details on customizing the `SimpleScanViewController` base class, or see this section for customizing the remaining components.
+Our flows subclass `SimpleScanViewController` and you can customize them by either subclassing `VerifyCardViewController` or `VerifyCardAddViewController` and overriding functions, or you can instantiate these classes and access member variables directly. Please see our [Customization guide]() for more details on customizing the `SimpleScanViewController` base class, or see this section for customizing the remaining components.
 
 ## Localization
 
-By default, we provide internationalization support and translations for all of our strings in English, Spanish, French, Portuguese, German, Chinese \(simplified and traditional\), Hindi, Hebrew, Japanese, Korean, Arabic, and Indonesian. However, if you want to set strings yourself, you can do so by using the settings in [CardScan](../../credit-card-ocr/ios-integration-guide/ios-customization-guide.md#localization), or by setting the following fields to meet your localization needs:
+By default, we provide internationalization support and translations for all of our strings in English, Spanish, French, Portuguese, German, Chinese \(simplified and traditional\), Hindi, Hebrew, Japanese, Korean, Arabic, and Indonesian. However, if you want to set strings yourself, you can do so by using the settings in [CardScan](), or by setting the following fields to meet your localization needs:
 
 | Name | Description | Default Value |
 | :--- | :--- | :--- |

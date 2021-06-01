@@ -273,16 +273,19 @@ class ViewController: UIViewController, VerifyCardExplanationResult, VerifyCardA
 {% endtabs %}
 
 ### Local Verification
+
 This is a less stringent verification flow than network verification, as the verification logic runs locally on the device. In cases where it is not viable to send a payload to Bouncer servers, this can be used to verify the authenticity of a card, but will be less accurate than network verification.
 
-Once you conform to the `verifyCardDelegate` and `cardAddDelegate` protocol when utilizing `VerifyCardViewController` and `VerifyCardAddViewController`, the function `fraudModelResultsVerifyCardAdd` and `fraudModelResultsVerifyCard` will provide an encrypted payload and a field called `extraData`. 
+Once you conform to the `verifyCardDelegate` and `cardAddDelegate` protocol when utilizing `VerifyCardViewController` and `VerifyCardAddViewController`, the function `fraudModelResultsVerifyCardAdd` and `fraudModelResultsVerifyCard` will provide an encrypted payload and a field called `extraData`.
 
-`extraData` is a dictionary that contain the results of the local verification. The following will list the available result values: 
-#### Local Verification Extra Data 
-| Key | Value Type | 
+`extraData` is a dictionary that contain the results of the local verification. The following will list the available result values:
+
+#### Local Verification Extra Data
+
+| Key | Value Type |
 | :--- | :--- |
 | "isCardValid" | Bool |
-| "validationFailureReason" | String? | 
+| "validationFailureReason" | String? |
 
 {% tabs %}
 {% tab title="Swift" %}
@@ -332,6 +335,7 @@ extension ViewController: VerifyCardAddResult {
 {% endtabs %}
 
 ## Model Downloading
+
 By default, the SDK will download updates to ML models used to extract card information. To disable model downloading, set the following flag to false before calling configure in your AppDelegate:
 
 {% tabs %}
@@ -341,6 +345,7 @@ Bouncer.downloadModels = false
 Bouncer.configure(apiKey: "API_KEY")
 ```
 {% endtab %}
+
 {% tab title="Objective-C" %}
 ```swift
 Bouncer.downloadModels = false;

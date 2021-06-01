@@ -59,6 +59,7 @@ dependencies {
 ```
 
 Please add the following to your `android/app/build.gradle` file in the `android` section:
+
 ```groovy
 aaptOptions {
     noCompress "tflite"
@@ -68,6 +69,7 @@ aaptOptions {
 #### Alternative camera implementations
 
 By default, bouncer uses the Android Camera 1 API. To use Camera2 or CameraX, add one of the following imports:
+
 ```groovy
 implementation "com.getbouncer:scan-camerax:2.0.0090"
 

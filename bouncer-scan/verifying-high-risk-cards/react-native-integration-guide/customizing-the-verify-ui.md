@@ -1,6 +1,7 @@
 # Customizing the Verify UI
 
 ## iOS UI Customization
+
 You can customize `VerifyCardViewController` and `VerifyCardAddViewController` by overriding member variables directly. Please see the section below for customizing the remaining components.
 
 ### Localization
@@ -11,8 +12,6 @@ By default, we provide internationalization support and translations for all of 
 | :--- | :--- | :--- |
 | **VerifyCardAddViewController.manualCardEntryText** | Button displayed at the bottom of the scan window for users to enter their details manually instead of by scanning. | Enter details manually |
 | **VerifyCardViewController.wrongCardString** | Instructions displayed when a card is scanned that does not match the required card. | Card doesn't match |
-
-
 
 The following strings are available in both `VerifyCardViewController` and `VerifyCardAddViewController` which can be reassigned:
 
@@ -25,6 +24,7 @@ The following strings are available in both `VerifyCardViewController` and `Veri
 | **VerifyViewController.torchButtonString** | Torch button shown in the top right corner of the scan window | Torch |
 
 #### Localization Example
+
 {% tabs %}
 {% tab title="Objective-C" %}
 ```swift
@@ -47,7 +47,7 @@ The following strings are available in both `VerifyCardViewController` and `Veri
     VerifyCardAddViewController.torchButtonString = @"torch";
     VerifyCardAddViewController.closeButtonString = @"close";
     VerifyCardAddViewController.manualCardEntryText = @"manual entry";
-    
+
     VerifyCardViewController.descriptionString = @"description text";
     VerifyCardViewController.enableCameraPermissionString = @"enable camera";
     VerifyCardViewController.enableCameraPermissionsDescriptionString = @"enable camera description";
@@ -57,7 +57,7 @@ The following strings are available in both `VerifyCardViewController` and `Veri
 
     return YES;
 }
-
 ```
 {% endtab %}
 {% endtabs %}
+

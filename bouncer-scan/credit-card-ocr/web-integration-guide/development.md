@@ -2,7 +2,7 @@
 description: Developing the cardscan-web library.
 ---
 
-# Development Guide
+# Development guide
 
 ## Clone the repo and set up the demo
 
@@ -13,25 +13,26 @@ The [cardscan repository](https://github.com/getbouncer/cardscan-web) contains a
    ```bash
    git clone https://github.com/getbouncer/cardscan-web && cd cardscan-web
    ```
-   
-1. Install dependencies using NPM
+
+2. Install dependencies using NPM
 
    ```bash
    npm install
    ```
 
-1. Build the library using NPM and webpack
+3. Build the library using NPM and webpack
 
    ```bash
    npm run build
    ```
-   
+
    This will create a `dist` directory with the compiled javascript.
 
-1. Start a local server to host the scanner and demo app
+4. Start a local server to host the scanner and demo app
 
    ```bash
    python -m SimpleHTTPServer 8000
    ```
 
-1. Navigate to http://localhost:8000 to view a sample app.
+5. Navigate to [http://localhost:8000](http://localhost:8000) to view a sample app.
+

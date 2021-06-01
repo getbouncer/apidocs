@@ -61,24 +61,24 @@ dependencies {
     implementation "com.getbouncer:scan-framework:2.0.0090"
     implementation "com.getbouncer:scan-payment-base:2.0.0090"
     implementation "com.getbouncer:scan-ui:2.0.0090"
-    
+
     // you must select one of the following sets of OCR and CardDetect
     // frameworks. See the above chart to see how your selection will affect
     // the size of the SDK.
-    
+
     // To minimize the size of the SDK, use the following dependencies. These
     // perform slightly slower than the larger normal ML models, but will be
     // upgraded over the internet automatically for your users.
     implementation "com.getbouncer:scan-payment-ocr-minimal:2.0.0090"
     implementation "com.getbouncer:scan-payment-card-detect-minimal:2.0.0090"
-    
+
     // To ensure the maximum performance of the SDK regardless of network
     // connection, but at the cost of a larger SDK, use the following
     // dependencies.
     implementation "com.getbouncer:scan-payment-ocr:2.0.0090"
     implementation "com.getbouncer:scan-payment-card-detect:2.0.0090"
-    
-    
+
+
 
     // you must select one of the following tensorflow-lite libraries. See the
     // above chart to understand how each will affect the size of your app.
@@ -101,6 +101,7 @@ If you are already using CardScan, leave that dependency in place.
 ### Alternative camera implementations
 
 By default, bouncer uses the Android Camera 1 API. To use Camera2 or CameraX, add one of the following imports:
+
 ```groovy
 implementation "com.getbouncer:scan-camerax:2.0.0090"
 
@@ -112,9 +113,10 @@ implementation "com.getbouncer:scan-camera2:2.0.0090"
 ## Types of verification
 
 The library provides three forms of verification:
-- Network
-- Local
-- ZeroFraud
+
+* Network
+* Local
+* ZeroFraud
 
 ### Network verification
 
@@ -122,7 +124,7 @@ This is the standard way of verifying payment cards. It involves integration wit
 
 To use network verification, use the `com.getbouncer.cardverify.ui.network` packages to launch the verification flow.
 
-_Important note: At no point does any sensitive information (e.g. card number) leave the device._
+_Important note: At no point does any sensitive information \(e.g. card number\) leave the device._
 
 ### Local verification
 

@@ -72,6 +72,7 @@ dependencies {
 ```
 
 Please add the following to your `android/app/build.gradle` file in the `android` section:
+
 ```groovy
 aaptOptions {
     noCompress "tflite"
@@ -81,6 +82,7 @@ aaptOptions {
 #### Alternative camera implementations
 
 By default, bouncer uses the Android Camera 1 API. To use Camera2 or CameraX, add one of the following imports:
+
 ```groovy
 implementation "com.getbouncer:scan-camerax:2.0.0090"
 
@@ -149,7 +151,7 @@ Alternatively, you can add this permission directly to your Info.plist file:
 
 {% tabs %}
 {% tab title="Swift" %}
-In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your API key. 
+In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your API key.
 
 ```swift
 import UIKit
@@ -289,7 +291,7 @@ To run the example app, do the following:
 
 ## Troubleshooting
 
-See the [troubleshooting](troubleshooting.md) documentation.
+See the [troubleshooting]() documentation.
 
 ## Authors
 

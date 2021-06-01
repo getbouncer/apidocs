@@ -4,19 +4,22 @@ description: Scan a payment card with CardScan for Android.
 
 # Web integration guide
 
-# TEMPORARILY SHUT DOWN
+## Web integration guide
+
+## TEMPORARILY SHUT DOWN
+
 Bouncer has been acquired by Stripe! As a result, this library will be non-functional while we transition our network endpoints to Stripe infrastructure. We expect to have the transition completed by the end of Q3 2021.
 
-## Requirements
+### Requirements
 
 * TensorFlowJS script tag
 * Bouncer SDK script tag
 
-## Demo
+### Demo
 
 A demo checkout page is available at [https://cardscan-web.s3.us-east-2.amazonaws.com/index.html](https://cardscan-web.s3.us-east-2.amazonaws.com/demo.html)
 
-## SDK Size
+### SDK Size
 
 We try to keep our SDK as small as possible while maintaining good performance.
 
@@ -25,11 +28,11 @@ We try to keep our SDK as small as possible while maintaining good performance.
 | Base SDK | 0.93 MB |
 | TensorFlow JS | 0.26 MB |
 
-## Installation
+### Installation
 
 Bouncer CardScan can be included in your web app either by script imports or as an NPM package.
 
-### Script imports
+#### Script imports
 
 In your HTML, add the following script tags
 
@@ -40,19 +43,21 @@ In your HTML, add the following script tags
 
 Importing these scripts expose a global JavaScript variable `bouncerCardScan`.
 
-### NPM Package
+#### NPM Package
 
-Bouncer CardScan is available at https://www.npmjs.com/package/web-cardscan. To add this to your project, run the following in your terminal:
+Bouncer CardScan is available at [https://www.npmjs.com/package/web-cardscan](https://www.npmjs.com/package/web-cardscan). To add this to your project, run the following in your terminal:
+
 ```bash
 $ npm i --save web-cardscan
 ```
 
 To access bouncer cardscan, use the following import:
+
 ```javascript
 import * as bouncerCardScan from "web-cardscan";
 ```
 
-## Using
+### Using
 
 First, add the Bouncer modal to your page's DOM by calling the `setUpScan` method once your page's DOM has completed loading:
 
@@ -62,7 +67,7 @@ window.addEventListener('DOMContentLoaded', bouncerCardScan.setUpScan);
 
 Once you're ready to scan, call the `BouncerCardScan.scanCard` method and provide callback methods for the success and canceled cases. API keys can be created through the [Bouncer API console](https://api.getbouncer.com/console).
 
-### Example
+#### Example
 
 First, check to make sure that CardScan is supported on the user's browser with the following call:
 
@@ -96,9 +101,9 @@ function launchCardScan() {
 }
 ```
 
-The `verificationResult` parameter can be used to determine the legitimacy of the card scanned. See [Verifying High Risk Cards](../verifying-high-risk-cards/) for more information.
+The `verificationResult` parameter can be used to determine the legitimacy of the card scanned. See [Verifying High Risk Cards](https://github.com/getbouncer/apidocs/tree/d0a5245fdd90b3d06915863f2dba09429d024827/bouncer-scan/credit-card-ocr/verifying-high-risk-cards/README.md) for more information.
 
-## Localization
+### Localization
 
 This library supports full string localization. Strings are stored in the BouncerConfiguration object, accessible via `bouncerCardScan.getConfig().localize()`. The following strings are available for localization:
 
@@ -148,7 +153,7 @@ bouncerCardScan.getConfig().localize({
 bouncerCardScan.scanCard(...)
 ```
 
-To disable a string (make it not appear in the scanner), set the value to `null` or `""`.
+To disable a string \(make it not appear in the scanner\), set the value to `null` or `""`.
 
 ```javascript
 // localize some strings
@@ -158,15 +163,15 @@ bouncerCardScan.getConfig().localize({
 });
 ```
 
-## Authors
+### Authors
 
 Adam Wushensky, Sven Kuhne, and Steven Liu
 
-## License
+### License
 
 This library is available under paid and free licenses. See the [LICENSE](https://github.com/getbouncer/cardscan-web/blob/master/LICENSE) file for the full license text.
 
-### Quick summary
+#### Quick summary
 
 In short, this library will remain free forever for non-commercial applications, but use by commercial applications is limited to 90 days, after which time a licensing agreement is required. We're also adding some legal liability protections.
 
@@ -174,7 +179,7 @@ After this period commercial applications need to convert to a licensing agreeme
 
 * Details of licensing \(pricing, etc\) are available at [https://cardscan.io/pricing](https://getbouncer.com/pricing), or you can contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
-### More detailed summary
+#### More detailed summary
 
 What’s allowed under the license:
 

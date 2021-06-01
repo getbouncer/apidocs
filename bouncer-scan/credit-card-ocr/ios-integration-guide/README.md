@@ -253,7 +253,7 @@ class ViewController: UIViewController, ScanDelegate {
 
 ## Customizing
 
-This library is built to be customized to fit your UI. See the [customization documentation](ios-customization-guide.md).
+This library is built to be customized to fit your UI. See the [customization documentation]().
 
 ## Supporting more cards
 

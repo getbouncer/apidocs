@@ -23,10 +23,8 @@ CardVerify uses [semantic versioning](https://semver.org/) \(MAJOR.MINOR.PATCH\)
 ## Releasing a new version
 
 1. Create a new release on [github](https://github.com/getbouncer/cardverify-android/releases) to create a new release. This will automatically update the changelog, the `gradle.properties` file, and publish a release to maven central.
-
-1. To view the status of the automatic release, view the latest [github action](https://github.com/getbouncer/cardverify-android/actions?query=event%3Arelease).
-
-1. To view the status of the repository in maven central, see the [nexus repository manager](https://s01.oss.sonatype.org/).
+2. To view the status of the automatic release, view the latest [github action](https://github.com/getbouncer/cardverify-android/actions?query=event%3Arelease).
+3. To view the status of the repository in maven central, see the [nexus repository manager](https://s01.oss.sonatype.org/).
 
 ## Update documentation
 
