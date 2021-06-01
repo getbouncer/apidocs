@@ -4,6 +4,9 @@ description: Scan a payment card with CardScan for Android.
 
 # Web integration guide
 
+# TEMPORARILY SHUT DOWN
+Bouncer has been acquired by Stripe! As a result, this library will be non-functional while we transition our network endpoints to Stripe infrastructure. We expect to have the transition completed by the end of Q3 2021.
+
 ## Requirements
 
 * TensorFlowJS script tag
