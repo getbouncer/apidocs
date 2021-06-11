@@ -21,19 +21,25 @@ We also provide custom implementations of the TensorFlow Lite library that are s
 | TF Flavor | Size \(not bundled\) | Size \(bundled\) | Dependency |
 | :--- | :--- | :--- | :--- |
 | TensorFlow official release | 4.00MB | 1.00MB | `org.tensorflow:tensorflow-lite:2.4.0` |
-| Bouncer TF all architectures | 2.12MB | 0.62MB | `com.getbouncer:tensorflow-lite:2.0.0090` |
-| Bouncer TF arm only | 1.06MB | 0.62MB | `com.getbouncer:tensorflow-lite-arm-only:2.0.0090` |
+| Bouncer TF all architectures | 2.12MB | 0.62MB | `com.getbouncer:tensorflow-lite:2.1.0001` |
+| Bouncer TF arm only | 1.06MB | 0.62MB | `com.getbouncer:tensorflow-lite-arm-only:2.1.0001` |
 
 There are two variants of our ML models that you can choose to include in your application; the larger size, faster performing and smaller size, slower performing models. If selecting the slower performing models, the SDK will still attempt to download the faster models over the internet once your app has launched. This helps reduce the size of your app while still guaranteeing performance.
 
-| ML Model | Flavor | Size \(not bundled\) | Size \(bundled\) | dependency |
-| :--- | :--- | :--- | :--- | :--- |
-| OCR | full size | 1.6 MB | 1.5 MB | `com.getbouncer:scan-payment-ocr:2.0.0090` |
-| Card Detection | full size | 1.3 MB | 1.2 MB | `com.getbouncer:scan-payment-card-detect:2.0.0090` |
-| OCR | minimal | 1.1 MB | 0.9 MB | `com.getbouncer:scan-payment-ocr-minimal:2.0.0090` |
-| Card Detection | minimal | 0.5 MB | 0.3 MB | `com.getbouncer:scan-payment-card-detect-minimal:2.0.0090` |
+| Flavor | Size \(not bundled\) | Size \(bundled\) | Dependency |
+| :--- | :--- | :--- | :--- |
+| full size | 2.9 MB | 2.7 MB | `com.getbouncer:scan-payment-full:2.1.0001` |
+| minimal | 1.6 MB | 1.2 MB | `com.getbouncer:scan-payment-minimal:2.1.0001` |
+| download only | 0.0 MB | 0.0 MB | no dependency required |
 
 Given the above table, select the framework you'll be using to calculate the impact that the bouncer SDK will have on the size of your application:
+
+| Using download only models | Base SDK | TFLite Framework | Total |
+| :--- | :--- | :--- | :--- |
+| App supports all architectures and not bundled | 1.0 MB | 2.1 MB | 3.1 MB |
+| App supports ARM only and not bundled | 1.0 MB | 1.1 MB | 2.1 MB |
+| App released as bundle | 1.0 MB | 0.6 MB | 1.6 MB |
+| App already uses TFLite | 1.0 MB | 0.0 MB | 1.0 MB |
 
 | Using minimal models | Base SDK | TFLite Framework | Total |
 | :--- | :--- | :--- | :--- |
@@ -56,29 +62,7 @@ Bouncer provides a method `Scan.isDeviceArchitectureArm()` which will return tru
 
 ```text
 dependencies {
-    implementation 'com.getbouncer:cardverify-ui:2.0.0090'
-    implementation "com.getbouncer:scan-camera:2.0.0090"
-    implementation "com.getbouncer:scan-framework:2.0.0090"
-    implementation "com.getbouncer:scan-payment-base:2.0.0090"
-    implementation "com.getbouncer:scan-ui:2.0.0090"
-
-    // you must select one of the following sets of OCR and CardDetect
-    // frameworks. See the above chart to see how your selection will affect
-    // the size of the SDK.
-
-    // To minimize the size of the SDK, use the following dependencies. These
-    // perform slightly slower than the larger normal ML models, but will be
-    // upgraded over the internet automatically for your users.
-    implementation "com.getbouncer:scan-payment-ocr-minimal:2.0.0090"
-    implementation "com.getbouncer:scan-payment-card-detect-minimal:2.0.0090"
-
-    // To ensure the maximum performance of the SDK regardless of network
-    // connection, but at the cost of a larger SDK, use the following
-    // dependencies.
-    implementation "com.getbouncer:scan-payment-ocr:2.0.0090"
-    implementation "com.getbouncer:scan-payment-card-detect:2.0.0090"
-
-
+    implementation 'com.getbouncer:cardverify-ui:2.1.0001'
 
     // you must select one of the following tensorflow-lite libraries. See the
     // above chart to understand how each will affect the size of your app.
@@ -89,25 +73,55 @@ dependencies {
 
     // If you need to support both ARM and x86 devices (< 1% of all android
     // devices), include this dependency.
-    implementation 'com.getbouncer:tensorflow-lite:2.0.0090'
+    implementation 'com.getbouncer:tensorflow-lite:2.1.0001'
 
     // If you only plan to support ARM devices, use this library
-    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.0.0090'
+    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.1.0001'
 }
 ```
 
 If you are already using CardScan, leave that dependency in place.
+
+### Including the scan ML models in your app (recommended)
+
+By default, all of the ML models used to scan are downloaded during the call to `CardScanActivity.warmUp`. However, if you're concerned about scanning in areas with poor network connectivity, you may also want to include default versions of the scanning ML models in your app. Doing so will guarantee that scan will be available regardless of download speed or network connectivity.
+
+There are two options for including ML models by default into your app:
+1. minimal models
+2. full models
+
+See the charts above to determine how each of these dependencies will impact the size of your app.
+
+#### Full Models
+
+The full models are the same as those downloaded over the network. By adding this dependency to your app, you can ensure the maximum performance of the SDK regardless of network connection, but at the cost of a larger SDK.
+
+```groovy
+dependencies {
+    implementation "com.getbouncer:scan-payment-full:2.1.0001"
+}
+```
+
+#### Minimal Models
+
+The minimal models perform slightly slower than the full ML models. The SDK will attempt to download the full versions of the models during `CardScanActivity.warmUp`, which will override the minimal models. However, in the event the download takes too long or fails, the minimal ML models ensure that the scan will still function with only a small impact to performance.
+
+```groovy
+dependencies {
+    implementation "com.getbouncer:scan-payment-minimal:2.1.0001"
+}
+```
 
 ### Alternative camera implementations
 
 By default, bouncer uses the Android Camera 1 API. To use Camera2 or CameraX, add one of the following imports:
 
 ```groovy
-implementation "com.getbouncer:scan-camerax:2.0.0090"
+implementation "com.getbouncer:scan-camerax:2.1.0001"
 
 // OR
 
-implementation "com.getbouncer:scan-camera2:2.0.0090"
+implementation "com.getbouncer:scan-camera2:2.1.0001"
 ```
 
 ## Types of verification
@@ -164,6 +178,34 @@ If your app doesn't already listen to application lifecycle events, you can exte
 
 Create a class with the same name:
 
+{% tabs %}
+{% tab title="Kotlin" %}
+```kotlin
+const val API_KEY = "<your_api_key_here>";
+
+class MyApplication : Application() {
+
+    override fun onCreate() {
+        super.onCreate();
+
+        /*
+         * CardScan will attempt to update the ML models used to scan payment
+         * cards. By placing the call to the `warmUp` method in the
+         * `onApplicationCreate` method of your app, you allow the most time
+         * possible for models to upgrade. Note that `warmUp` processes on a
+         * background thread and will not affect your app's startup time.
+         *
+         * Note: the last parameter, `initializeNameAndExpiryExtraction`,
+         * determines if name and expiry extraction (beta feature) should be
+         * turned on.
+         */
+        CardVerifyActivity.warmUp(this, API_KEY, initializeNameAndExpiryExtraction = false)
+    }
+}
+```
+{% endtab %}
+
+{% tab title="Java" %}
 ```java
 public class MyApplication extends Application {
     public static final String API_KEY = "<your_api_key_here>";
@@ -173,18 +215,21 @@ public class MyApplication extends Application {
         super.onCreate();
 
         /*
-         * CardVerify will download ML models for use in verifying the
-         * authenticity of payment cards. To ensure these models are downloaded
-         * by the time CardVerify runs, please be sure to call the `warmUp`
-         * method on CardVerify as early in the app flow as possible. In most
-         * cases, this can be done in the `onApplicationCreate` method of your
-         * app. Note that `warmUp` processes on a background thread and will not
-         * affect your app's startup time.
+         * CardScan will attempt to update the ML models used to scan payment
+         * cards. By placing the call to the `warmUp` method in the
+         * `onApplicationCreate` method of your app, you allow the most time
+         * possible for models to upgrade. Note that `warmUp` processes on a
+         * background thread and will not affect your app's startup time.
+         *
+         * Note: the last parameter, `false`, determines if name and expiry
+         * extraction (beta feature) should be turned on.
          */
-        CardVerifyActivity.warmUp(this, API_KEY);
+        CardVerifyActivity.warmUp(this, API_KEY, false);
     }
 }
 ```
+{% endtab %}
+{% endtabs %}
 
 ### 2. Starting the flow
 
