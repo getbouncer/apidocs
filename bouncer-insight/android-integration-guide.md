@@ -10,28 +10,6 @@ description: The Bouncer Insight Android SDK integration guide.
 dependencies {
     implementation "com.getbouncer:cardverify-ui:2.1.0002"
     implementation "com.getbouncer:insights:2.1.0002"
-    implementation "com.getbouncer:scan-camera:2.1.0002"
-    implementation "com.getbouncer:scan-framework:2.1.0002"
-    implementation "com.getbouncer:scan-payment-base:2.1.0002"
-    implementation "com.getbouncer:scan-ui:2.1.0002"
-
-    // you must select one of the following sets of OCR and CardDetect
-    // frameworks. See the above chart to see how your selection will affect
-    // the size of the SDK.
-
-    // To minimize the size of the SDK, use the following dependencies. These
-    // perform slightly slower than the larger normal ML models, but will be
-    // upgraded over the internet automatically for your users.
-    implementation "com.getbouncer:scan-payment-ocr-minimal:2.1.0002"
-    implementation "com.getbouncer:scan-payment-card-detect-minimal:2.1.0002"
-
-    // To ensure the maximum performance of the SDK regardless of network
-    // connection, but at the cost of a larger SDK, use the following
-    // dependencies.
-    implementation "com.getbouncer:scan-payment-ocr:2.1.0002"
-    implementation "com.getbouncer:scan-payment-card-detect:2.1.0002"
-
-
 
     // you must select one of the following tensorflow-lite libraries. See the
     // above chart to understand how each will affect the size of your app.
@@ -47,6 +25,50 @@ dependencies {
     // If you only plan to support ARM devices, use this library
     implementation 'com.getbouncer:tensorflow-lite-arm-only:2.1.0002'
 }
+```
+
+If you are already using CardScan, leave that dependency in place.
+
+### Including the scan ML models in your app (recommended)
+
+By default, all of the ML models used to scan are downloaded during the call to `CardScanActivity.warmUp`. However, if you're concerned about scanning in areas with poor network connectivity, you may also want to include default versions of the scanning ML models in your app. Doing so will guarantee that scan will be available regardless of download speed or network connectivity.
+
+There are two options for including ML models by default into your app:
+1. minimal models
+2. full models
+
+See the charts above to determine how each of these dependencies will impact the size of your app.
+
+#### Full Models
+
+The full models are the same as those downloaded over the network. By adding this dependency to your app, you can ensure the maximum performance of the SDK regardless of network connection, but at the cost of a larger SDK.
+
+```groovy
+dependencies {
+    implementation "com.getbouncer:scan-payment-full:2.1.0002"
+}
+```
+
+#### Minimal Models
+
+The minimal models perform slightly slower than the full ML models. The SDK will attempt to download the full versions of the models during `CardScanActivity.warmUp`, which will override the minimal models. However, in the event the download takes too long or fails, the minimal ML models ensure that the scan will still function with only a small impact to performance.
+
+```groovy
+dependencies {
+    implementation "com.getbouncer:scan-payment-minimal:2.1.0002"
+}
+```
+
+### Alternative camera implementations
+
+By default, bouncer uses the Android Camera 1 API. To use Camera2 or CameraX, add one of the following imports:
+
+```groovy
+implementation "com.getbouncer:scan-camerax:2.1.0002"
+
+// OR
+
+implementation "com.getbouncer:scan-camera2:2.1.0002"
 ```
 
 ## Using Bouncer Insight

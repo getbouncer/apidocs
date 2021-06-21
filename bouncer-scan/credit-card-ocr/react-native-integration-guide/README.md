@@ -52,8 +52,8 @@ Add the cardverify dependencies to the android section of your react-native proj
 ```groovy
 dependencies {
     implementation "com.getbouncer:cardscan-ui:2.1.0002"
-    implementation "com.getbouncer:scan-payment-card-detect:2.1.0002"
-    implementation "com.getbouncer:scan-payment-ocr:2.1.0002"
+    implementation "com.getbouncer:scan-payment-full:2.1.0002"
+    implementation "com.getbouncer:scan-camerax:2.1.0002"
     implementation "com.getbouncer:tensorflow-lite:2.1.0002"
 }
 ```
