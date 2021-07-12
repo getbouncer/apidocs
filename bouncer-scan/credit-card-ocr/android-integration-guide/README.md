@@ -43,15 +43,15 @@ We also provide custom implementations of the TensorFlow Lite library that are s
 | TF Flavor | Size \(not bundled\) | Size \(bundled\) | Dependency |
 | :--- | :--- | :--- | :--- |
 | TensorFlow official release | 4.00MB | 1.00MB | `org.tensorflow:tensorflow-lite:2.4.0` |
-| Bouncer TF all architectures | 2.12MB | 0.62MB | `com.getbouncer:tensorflow-lite:2.1.0002` |
-| Bouncer TF arm only | 1.06MB | 0.62MB | `com.getbouncer:tensorflow-lite-arm-only:2.1.0002` |
+| Bouncer TF all architectures | 2.12MB | 0.62MB | `com.getbouncer:tensorflow-lite:2.1.0004` |
+| Bouncer TF arm only | 1.06MB | 0.62MB | `com.getbouncer:tensorflow-lite-arm-only:2.1.0004` |
 
 There are two variants of our ML models that you can choose to include in your application; the larger size, faster performing and smaller size, slower performing models. If selecting the slower performing models, the SDK will still attempt to download the faster models over the internet once your app has launched. This helps reduce the size of your app while still guaranteeing performance.
 
 | Flavor | Size \(not bundled\) | Size \(bundled\) | Dependency |
 | :--- | :--- | :--- | :--- |
-| full size | 2.9 MB | 2.7 MB | `com.getbouncer:scan-payment-full:2.1.0002` |
-| minimal | 1.6 MB | 1.2 MB | `com.getbouncer:scan-payment-minimal:2.1.0002` |
+| full size | 2.9 MB | 2.7 MB | `com.getbouncer:scan-payment-full:2.1.0004` |
+| minimal | 1.6 MB | 1.2 MB | `com.getbouncer:scan-payment-minimal:2.1.0004` |
 | download only | 0.0 MB | 0.0 MB | no dependency required |
 
 Given the above table, select the framework you'll be using to calculate the impact that the bouncer SDK will have on the size of your application:
@@ -88,7 +88,7 @@ These libraries are published in the [maven central repository](https://search.m
 
 ```groovy
 dependencies {
-    implementation 'com.getbouncer:cardscan-ui:2.1.0002'
+    implementation 'com.getbouncer:cardscan-ui:2.1.0004'
 
     // you must select one of the following tensorflow-lite libraries. See the
     // above chart to understand how each will affect the size of your app.
@@ -99,10 +99,10 @@ dependencies {
 
     // If you need to support both ARM and x86 devices (< 1% of all android
     // devices), include this dependency.
-    implementation 'com.getbouncer:tensorflow-lite:2.1.0002'
+    implementation 'com.getbouncer:tensorflow-lite:2.1.0004'
 
     // If you only plan to support ARM devices, use this library
-    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.1.0002'
+    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.1.0004'
 }
 ```
 
@@ -122,7 +122,7 @@ The full models are the same as those downloaded over the network. By adding thi
 
 ```groovy
 dependencies {
-    implementation "com.getbouncer:scan-payment-full:2.1.0002"
+    implementation "com.getbouncer:scan-payment-full:2.1.0004"
 }
 ```
 
@@ -132,7 +132,7 @@ The minimal models perform slightly slower than the full ML models. The SDK will
 
 ```groovy
 dependencies {
-    implementation "com.getbouncer:scan-payment-minimal:2.1.0002"
+    implementation "com.getbouncer:scan-payment-minimal:2.1.0004"
 }
 ```
 
@@ -141,11 +141,11 @@ dependencies {
 By default, bouncer uses the Android Camera 1 API. To use Camera2 or CameraX, add one of the following imports:
 
 ```groovy
-implementation "com.getbouncer:scan-camerax:2.1.0002"
+implementation "com.getbouncer:scan-camerax:2.1.0004"
 
 // OR
 
-implementation "com.getbouncer:scan-camera2:2.1.0002"
+implementation "com.getbouncer:scan-camera2:2.1.0004"
 ```
 
 ## Using

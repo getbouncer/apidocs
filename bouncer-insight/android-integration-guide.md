@@ -8,8 +8,8 @@ description: The Bouncer Insight Android SDK integration guide.
 
 ```text
 dependencies {
-    implementation "com.getbouncer:cardverify-ui:2.1.0002"
-    implementation "com.getbouncer:insights:2.1.0002"
+    implementation "com.getbouncer:cardverify-ui:2.1.0004"
+    implementation "com.getbouncer:insights:2.1.0004"
 
     // you must select one of the following tensorflow-lite libraries. See the
     // above chart to understand how each will affect the size of your app.
@@ -20,10 +20,10 @@ dependencies {
 
     // If you need to support both ARM and x86 devices (< 1% of all android
     // devices), include this dependency.
-    implementation 'com.getbouncer:tensorflow-lite:2.1.0002'
+    implementation 'com.getbouncer:tensorflow-lite:2.1.0004'
 
     // If you only plan to support ARM devices, use this library
-    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.1.0002'
+    implementation 'com.getbouncer:tensorflow-lite-arm-only:2.1.0004'
 }
 ```
 
@@ -45,7 +45,7 @@ The full models are the same as those downloaded over the network. By adding thi
 
 ```groovy
 dependencies {
-    implementation "com.getbouncer:scan-payment-full:2.1.0002"
+    implementation "com.getbouncer:scan-payment-full:2.1.0004"
 }
 ```
 
@@ -55,7 +55,7 @@ The minimal models perform slightly slower than the full ML models. The SDK will
 
 ```groovy
 dependencies {
-    implementation "com.getbouncer:scan-payment-minimal:2.1.0002"
+    implementation "com.getbouncer:scan-payment-minimal:2.1.0004"
 }
 ```
 
@@ -64,11 +64,11 @@ dependencies {
 By default, bouncer uses the Android Camera 1 API. To use Camera2 or CameraX, add one of the following imports:
 
 ```groovy
-implementation "com.getbouncer:scan-camerax:2.1.0002"
+implementation "com.getbouncer:scan-camerax:2.1.0004"
 
 // OR
 
-implementation "com.getbouncer:scan-camera2:2.1.0002"
+implementation "com.getbouncer:scan-camera2:2.1.0004"
 ```
 
 ## Using Bouncer Insight

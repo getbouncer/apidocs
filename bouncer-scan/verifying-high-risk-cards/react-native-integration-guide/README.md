@@ -64,10 +64,10 @@ Add the cardverify dependencies to the android section of your react-native proj
 
 ```groovy
 dependencies {
-    implementation "com.getbouncer:cardverify-ui:2.1.0002"
-    implementation "com.getbouncer:scan-payment-full:2.1.0002"
-    implementation "com.getbouncer:scan-camerax:2.1.0002"
-    implementation "com.getbouncer:tensorflow-lite:2.1.0002"
+    implementation "com.getbouncer:cardverify-ui:2.1.0004"
+    implementation "com.getbouncer:scan-payment-full:2.1.0004"
+    implementation "com.getbouncer:scan-camerax:2.1.0004"
+    implementation "com.getbouncer:tensorflow-lite:2.1.0004"
 }
 ```
 
@@ -84,11 +84,11 @@ aaptOptions {
 By default, bouncer uses the Android Camera 1 API. To use Camera2 or CameraX, add one of the following imports:
 
 ```groovy
-implementation "com.getbouncer:scan-camerax:2.1.0002"
+implementation "com.getbouncer:scan-camerax:2.1.0004"
 
 // OR
 
-implementation "com.getbouncer:scan-camera2:2.1.0002"
+implementation "com.getbouncer:scan-camera2:2.1.0004"
 ```
 
 ### 4. Link native dependencies
