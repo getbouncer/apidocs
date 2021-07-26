@@ -1,5 +1,5 @@
 # Default owners
-* @awushensky @xsl @kingst @jaimejiypark
+* @awushensky @xsl @kingst @jaimejiypark @awushensky-stripe @jaimepark-stripe
 
 # Android owners
 /android/ @awushensky @xsl @kingst
@@ -8,4 +8,4 @@
 /ios/ @kingst @jaimejiypark @jaimepark-stripe
 
 # server owners
-/server/ @awushensky @xsl
+/server/ @awushensky @xsl 
