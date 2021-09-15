@@ -29,13 +29,11 @@ dependencies {
 
 If you are already using CardScan, leave that dependency in place.
 
-### Including the scan ML models in your app (recommended)
+### Including the scan ML models in your app \(recommended\)
 
 By default, all of the ML models used to scan are downloaded during the call to `CardScanActivity.warmUp`. However, if you're concerned about scanning in areas with poor network connectivity, you may also want to include default versions of the scanning ML models in your app. Doing so will guarantee that scan will be available regardless of download speed or network connectivity.
 
-There are two options for including ML models by default into your app:
-1. minimal models
-2. full models
+There are two options for including ML models by default into your app: 1. minimal models 2. full models
 
 See the charts above to determine how each of these dependencies will impact the size of your app.
 

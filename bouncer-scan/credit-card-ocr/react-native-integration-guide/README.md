@@ -24,7 +24,7 @@ Add the `CardScan` and `react-native-cardscan` pods to the `~/ios/Podfile` file 
 target 'Your App' do
   ...
   pod 'CardScan'
-  pod 'react-native-cardscan', :path => '../node_modules/react-native-cardscan/react-native-cardscan.podspec'
+  pod 'react-native-cardscan', :path => '../node_modules/react-native-cardscan'
 end
 ```
 
@@ -135,7 +135,7 @@ Alternatively, you can add this permission directly to your Info.plist file:
 
 {% tabs %}
 {% tab title="Swift" %}
-In your `AppDelegate.swift` file, Add an import for `CardVerify`, and set your API key.
+In your `AppDelegate.swift` file, Add an import for `CardScan`, and set your API key.
 
 ```swift
 import UIKit
@@ -154,7 +154,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endtab %}
 
 {% tab title="Objective C" %}
-In your `AppDelegate.m` file, Add an import for `CardVerify`, and set your API key.
+In your `AppDelegate.m` file, Add an import for `CardScan`, and set your API key.
 
 ```objectivec
 #import "AppDelegate.h"

@@ -291,7 +291,7 @@ To run the example app, do the following:
 
 ## Troubleshooting
 
-See the [troubleshooting]() documentation.
+See the [troubleshooting](./) documentation.
 
 ## Authors
 
