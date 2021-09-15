@@ -11,6 +11,7 @@ All font values should be described as `{font-family}-{style}` like `Avenir-Ligh
 | Key                             | Description                                                                                                                                                 | Value Type | Value Example                    | Default                          |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------------------------------- | -------------------------------- |
 | backButtonTintColor             | A hex string of the color overlay of the back button                                                                                                        | String     | “#FFF”                           | “#FFF”                           |
+| backButtonText             | A string describing the text of the back button         | String     | “Close”                           | “”                           |
 | backgroundColor                 | A hex string of the background color                                                                                                                   | String     | “#FFF”                           | “#181b20”                        |
 | backgroundColorOpacity          | A float between 0 - 1 of the background color opacity                                                                                                       | Float      | 0.5                              | 0.7                              |
 | cardDetailExpiryTextColor       | A hex string of the card's expiration text color     | String     | “#FFF”                           | “#FFF”                           |
@@ -36,6 +37,7 @@ All font values should be described as `{font-family}-{style}` like `Avenir-Ligh
 | roiBorderColor                  | A hex string describing the border color of the ROI view                                                                                                    | String     | “#FFF”                           | “#FFF”                           |
 | roiCornerRadius                 | A float describing the corner radius of the ROI view                                                                                                        | Float      | 5.0                              | 15.0                             |
 | torchButtonTintColor            | A hex string of the color overlay of the torch button                                                                                                       | String     | “#FFF”                           | “#FFF”                           |
+| torchButtonText            | A string describing the text of the torch button        | String     | “Torch”                           | “”                           |
 | torchButtonPosition             | An integer either `0` or `1`. `0` designates the torch to be in the top right position while `1` designates the torch to be in the bottom middle position. | Int        | 1                                | 0                                |
 | wrongCardText                   | A string describing the text that will replace the description header when the scanning card does not match the base card                                   | String     | “Wrong Card”                     | “Wrong Card”                     |
 
@@ -62,6 +64,7 @@ By default, we provide internationalization support and translations for all of 
 if (Platform.OS === 'ios') {
     CardVerify.setiOSVerifyViewStyle({
       'backButtonTintColor': '#000',
+      'backButtonText': 'Close',
 
       'backgroundColor': '#FFC0CB',
       'backgroundColorOpacity': 0.5,
@@ -96,6 +99,7 @@ if (Platform.OS === 'ios') {
       'roiCornerRadius': 40.0,
 
       'torchButtonTintColor': '#000',
+      'torchButtonText': 'Torch',
       'torchButtonPosition': 0 <topRight> | 1 <bottom>,
 
       'wrongCardText': 'This is the wrong card'
