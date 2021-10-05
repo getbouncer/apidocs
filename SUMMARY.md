@@ -19,6 +19,7 @@
     * [Development guide](bouncer-scan/credit-card-ocr/web-integration-guide/development.md)
   * [React-native integration guide](bouncer-scan/credit-card-ocr/react-native-integration-guide/README.md)
     * [Linking native dependencies](bouncer-scan/credit-card-ocr/react-native-integration-guide/link-native-dependencies.md)
+    * [UI customization guide](bouncer-scan/credit-card-ocr/react-native-integration-guide/customizing-the-scan-ui.md)
     * [Troubleshooting](bouncer-scan/credit-card-ocr/react-native-integration-guide/troubleshooting.md)
 * [Verifying High Risk Cards](bouncer-scan/verifying-high-risk-cards/README.md)
   * [Integration Overview](bouncer-scan/verifying-high-risk-cards/integration-overview.md)
