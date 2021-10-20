@@ -12,7 +12,6 @@
 ### **Role of the Bouncer Server:**
 
 * The Mobile SDKs and JavaScript beacons communicate with Bouncer's servers directly to keep integrations quick and easy. As long as you use the Bouncer SDKs, appropriate ViewControllers and Activities, and instrument the payments forms, Bouncer will communicate results back automatically.
-* Your server needs to make two API calls to Bouncers server \(1\) when users tokenize a card and \(2\) at transaction time to get a fraud score:
-  * `/insight/v1/tokenize`\(server-to-server\): Called when the App Server tokenizes a card successfully
-  * `/insight/v1/score` \(server-to-server\): Risk assessment at transaction time, called for all transactions
-
+* Your server needs to make two API calls to Bouncers server (1) when users tokenize a card and (2) at transaction time to get a fraud score:
+  * `/insight/v1/tokenize`(server-to-server): Called when the App Server tokenizes a card successfully
+  * `/insight/v1/score `(server-to-server): Risk assessment at transaction time, called for all transactions

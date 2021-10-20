@@ -65,11 +65,11 @@ To use Swift Package Manager, in Xcode add the `https://github.com/getbouncer/ca
 
 CardScan uses the camera, so you'll need to add an description of camera usage to your Info.plist file:
 
-![XCode iOS camera permission](../../../.gitbook/assets/ios_configure_camera_permission.png)
+![XCode iOS camera permission](../../../.gitbook/assets/ios\_configure\_camera\_permission.png)
 
 The string you add here will be what CardScan displays to your users when CardScan first prompts them for permission to use the camera.
 
-![iOS camera prompt](../../../.gitbook/assets/ios_camera_prompt.png)
+![iOS camera prompt](../../../.gitbook/assets/ios\_camera\_prompt.png)
 
 Alternatively, you can add this permission directly to your Info.plist file:
 
@@ -253,7 +253,7 @@ class ViewController: UIViewController, ScanDelegate {
 
 ## Customizing
 
-This library is built to be customized to fit your UI. See the [customization documentation]().
+This library is built to be customized to fit your UI. See the [customization documentation](broken-reference).
 
 ## Supporting more cards
 
@@ -273,43 +273,39 @@ In short, this library will remain free forever for non-commercial applications,
 
 After this period commercial applications need to convert to a licensing agreement to continue to use this library.
 
-* Details of licensing \(pricing, etc\) are available at
+*   Details of licensing (pricing, etc) are available at
 
-  [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact
+    [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact
 
-  us at [license@getbouncer.com](mailto:license@getbouncer.com).
+    us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
 ### More detailed summary
 
 What's allowed under the license:
 
-* Free use for any app for 90 days \(for demos, evaluations, hackathons, etc\).
-* Contributions \(contributors must agree to the
+* Free use for any app for 90 days (for demos, evaluations, hackathons, etc).
+*   Contributions (contributors must agree to the
 
-  [Contributor License Agreement](https://github.com/getbouncer/cardscan-ios/blob/master/Contributor%20License%20Agreement)\)
-
+    [Contributor License Agreement](https://github.com/getbouncer/cardscan-ios/blob/master/Contributor%20License%20Agreement))
 * Any modifications as needed to work in your app
 
 What's not allowed under the license:
 
-* Commercial applications using the license for longer than 90 days without a
+*   Commercial applications using the license for longer than 90 days without a
 
-  license agreement.
+    license agreement.
+*   Using us now in a commercial app today? No worries! Just email
 
-* Using us now in a commercial app today? No worries! Just email
+    [license@getbouncer.com](mailto:license@getbouncer.com) and we’ll get you set
 
-  [license@getbouncer.com](mailto:license@getbouncer.com) and we’ll get you set
-
-  up.
-
+    up.
 * Redistribution under a different license
 * Removing attribution
 * Modifying logos
-* Indemnification: using this free software is ‘at your own risk’, so you can’t
+*   Indemnification: using this free software is ‘at your own risk’, so you can’t
 
-  sue Bouncer Technologies, Inc. for problems caused by this library
+    sue Bouncer Technologies, Inc. for problems caused by this library
 
 ### Questions? Concerns?
 
-Please email us at [license@getbouncer.com](mailto:license@getbouncer.com) or ask us on [slack](https://getbouncer.slack.com/).
-
+Please email us at [license@getbouncer.com](mailto:license@getbouncer.com) or ask us on [slack](https://getbouncer.slack.com).

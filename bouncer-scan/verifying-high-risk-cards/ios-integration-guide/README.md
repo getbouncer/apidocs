@@ -9,11 +9,11 @@ description: Scan a payment card for fraud protection with Bouncer Scan for iOS.
 * Xcode 11 or higher
 * iOS 11 or higher for integration
 * iOS 11.2 or higher for using the scanning view controllers
-* iOS 13 or higher for our name and expiration models. The number model will
+*   iOS 13 or higher for our name and expiration models. The number model will
 
-  work on older versions of iOS and it will always return nil for the name and
+    work on older versions of iOS and it will always return nil for the name and
 
-  expiration fields.
+    expiration fields.
 
 ## iPad Support
 
@@ -23,16 +23,22 @@ CardScan defaults to a `formSheet` for the iPad, which handles all screen orient
 
 CardVerify is published to the bouncer private repositories. Please request access to this repository by emailing [license@getbouncer.com](mailto:license@getbouncer.com) with a request for access.
 
-CardVerify is available through [CocoaPods](https://cocoapods.org/). To install it, simply add the following line to your Podfile:
+CardVerify is available through [CocoaPods](https://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```bash
-pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-2.0.7.tgz'
+pod 'CardVerify', :http => 'https://api.getbouncer.com/v1/downloads/sdk/card_verify/<your_api_key_here>/cardverify-ios-2.1.5.tgz'
 ```
 
 Next, install the new pod. From a terminal, run:
 
 ```bash
 pod install
+```
+
+Or, if you have previously integrated Bouncer, update your Podfile and update CardVerify:
+
+```
+pod update CardVerify
 ```
 
 When using Cocoapods, you use the `.xcworkspace` instead of the `.xcodeproj`. Again from the terminal, run:
@@ -47,11 +53,11 @@ open YourProject.xcworkspace
 
 CardScan uses the camera, so you'll need to add an description of camera usage to your Info.plist file:
 
-![XCode iOS camera permission](../../../.gitbook/assets/ios_configure_camera_permission.png)
+![XCode iOS camera permission](../../../.gitbook/assets/ios\_configure\_camera\_permission.png)
 
 The string you add here will be what CardScan displays to your users when CardScan first prompts them for permission to use the camera.
 
-![iOS camera prompt](../../../.gitbook/assets/ios_camera_prompt.png)
+![iOS camera prompt](../../../.gitbook/assets/ios\_camera\_prompt.png)
 
 Alternatively, you can add this permission directly to your Info.plist file:
 
@@ -282,10 +288,10 @@ Once you conform to the `verifyCardDelegate` and `cardAddDelegate` protocol when
 
 #### Local Verification Extra Data
 
-| Key | Value Type |
-| :--- | :--- |
-| "isCardValid" | Bool |
-| "validationFailureReason" | String? |
+| Key                       | Value Type |
+| ------------------------- | ---------- |
+| "isCardValid"             | Bool       |
+| "validationFailureReason" | String?    |
 
 {% tabs %}
 {% tab title="Swift" %}
@@ -354,6 +360,14 @@ Bouncer.downloadModels = false;
 {% endtab %}
 {% endtabs %}
 
+Subsequently you can initiate a download by using this function. Note, downloading is idempotent -- you can call this function as many times as you'd like and CardVerify will download the models at most once.
+
+```
+Bouncer.downloadModelsIfNotCached()
+```
+
+It can take a few minutes to download models if your customer has a slow network connection, so we recommend either letting Bouncer download models during the configure call or calling the `downloadModelsIfNotCached` method as early as possible to give the models enough time to download.
+
 ## Customizing
 
 This library is built to be customized to fit your UI. We provide translated strings and localization support by default for all UI elements in our flows, and we provide mechanisms for you to set these strings yourself. See the [customization documentation](customizing-the-verify-ui-and-ux.md) for more details.
@@ -370,11 +384,10 @@ Though Bouncer Scan supports several cards, you may need to add support for card
 
 A licensing agreement is required to use this library.
 
-* Details of licensing \(pricing, etc\) are available at
+*   Details of licensing (pricing, etc) are available at
 
-  [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact
+    [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact
 
-  us at [license@getbouncer.com](mailto:license@getbouncer.com).
+    us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
 All contributors must agree to the [CLA](https://github.com/getbouncer/cardscan-android/blob/master/Contributor%20License%20Agreement).
-
